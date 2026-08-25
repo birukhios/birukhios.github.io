@@ -16,22 +16,29 @@ cd "$(dirname "$0")"
 
 SRC="Biruk Habtamu Portfolio.dc.html"
 OUT="index.html"
-GOATCOUNTER_CODE="${GOATCOUNTER_CODE:-YOUR_CODE}"
+GA_ID="${GA_ID:-G-GJ4L5PVGNK}"
 
 [ -f "$SRC" ] || { echo "error: '$SRC' not found"; exit 1; }
 cp "$SRC" "$OUT"
 
-python3 - "$OUT" "$GOATCOUNTER_CODE" <<'PY'
+python3 - "$OUT" "$GA_ID" <<'PY'
 import re, sys
-path, gc_code = sys.argv[1], sys.argv[2]
+path, ga_id = sys.argv[1], sys.argv[2]
 src = open(path, encoding='utf-8').read()
 
-# ── patch 1: analytics ────────────────────────────────────────────────────
-if 'data-goatcounter' not in src:
+# ── patch 1: Google Analytics (GA4) ───────────────────────────────────────
+if 'googletagmanager.com' not in src:
     snippet = (
-        '\n<!-- Analytics: GoatCounter. Privacy-friendly, cookie-free. -->\n'
-        f'<script data-goatcounter="https://{gc_code}.goatcounter.com/count"\n'
-        '        async src="//gc.zgo.at/count.js"></script>\n'
+        '\n<!-- Google Analytics (GA4) -->\n'
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={ga_id}"></script>\n'
+        '<script>\n'
+        '  window.dataLayer = window.dataLayer || [];\n'
+        '  function gtag(){dataLayer.push(arguments);}\n'
+        "  gtag('js', new Date());\n"
+        '  // send_page_view:false — client-side-routed site; pageviews are sent\n'
+        '  // manually by trackView() so each screen is counted.\n'
+        f"  gtag('config', '{ga_id}', {{ send_page_view: false }});\n"
+        '</script>\n'
     )
     src = src.replace('</style>\n</helmet>', '</style>\n' + snippet + '</helmet>', 1)
 
@@ -70,13 +77,39 @@ if 'loadContent' not in src:
     src = src.replace('  componentDidMount() {', loader, 1)
     src = src.replace(
         "    this._fitTimer = setInterval(this.fitAll, 400);\n  }",
-        "    this._fitTimer = setInterval(this.fitAll, 400);\n    this.loadContent();\n  }", 1)
+        "    this._fitTimer = setInterval(this.fitAll, 400);\n"
+        "    this.loadContent();\n    this.trackView();\n  }", 1)
+
+# ── patch 3: GA4 virtual pageviews for the client-side router ──────────────
+# NB: guard on the *definition*, not the name — patch 2 already inserted a
+# `this.trackView()` call into componentDidMount, so a bare 'trackView' check
+# would skip this patch and ship a call with no function behind it.
+if 'trackView = () =>' not in src:
+    tracker = '''  /* Send a GA4 pageview per screen. The site never changes its URL, so without
+     this GA would record one "/" view per visitor regardless of how much they
+     browsed. Paths are virtual: /work, /play, /case/rad-reader, ... */
+  trackView = () => {
+    if (typeof gtag !== 'function') return;
+    const s = this.state.screen;
+    const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
+    if (this._lastView === path) return;
+    this._lastView = path;
+    const title = s === 'case'
+      ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
+      : s.charAt(0).toUpperCase() + s.slice(1);
+    gtag('event', 'page_view', {
+      page_title: title,
+      page_path: path,
+      page_location: location.origin + path,
+    });
+  };
+
+  componentDidUpdate() { this.fitAll(); this.trackView(); }'''
+    src = src.replace('  componentDidUpdate() { this.fitAll(); }', tracker, 1)
 
 open(path, 'w', encoding='utf-8').write(src)
 print(f"  patched {path}")
 PY
 
-echo "built $OUT from '$SRC'"
-[ "$GOATCOUNTER_CODE" = "YOUR_CODE" ] && \
-  echo "  note: GoatCounter code not set. Run: GOATCOUNTER_CODE=yourcode ./build.sh"
+echo "built $OUT from '$SRC'  (GA4: $GA_ID)"
 exit 0

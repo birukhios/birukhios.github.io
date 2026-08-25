@@ -44,19 +44,38 @@ if a fetch fails, so the site can never render empty.
 
 ---
 
-## 2. Analytics (GoatCounter)
+## 2. Analytics (Google Analytics 4)
 
-1. Sign up at <https://www.goatcounter.com/signup> and pick a code, e.g. `birukhios`.
-2. Set that code in **two** places:
-   - `admin/analytics.html` → `var GOATCOUNTER_CODE = "birukhios";`
-   - the tracking snippet in `index.html` — easiest via a rebuild:
-     ```bash
-     GOATCOUNTER_CODE=birukhios ./build.sh
-     ```
-3. Commit and push.
+Already live — property `G-GJ4L5PVGNK`. Nothing to set up. View it at
+<https://analytics.google.com/> or via `/admin/analytics.html`.
 
-You'll then see countries, referrers, top pages and browsers — no cookies, no
-consent banner required.
+| To see | Go to |
+|---|---|
+| Countries / cities | Reports → User → User attributes → Demographic details |
+| Referrers & sources | Reports → Acquisition → Traffic acquisition |
+| Screens & case studies | Reports → Engagement → Pages and screens |
+| Confirm it's working | Reports → Realtime |
+
+### Virtual pageviews
+
+The portfolio is one page with client-side routing — the URL never changes. Left
+alone, GA would record a single `/` view per visitor regardless of how much they
+browsed. So `gtag('config', …)` is set with `send_page_view: false`, and
+`trackView()` sends a pageview per screen using virtual paths:
+
+```
+/work  /play  /about  /resume  /contact  /case/<id>
+```
+
+To change the measurement ID:
+
+```bash
+GA_ID=G-XXXXXXXXXX ./build.sh
+```
+
+> **Cookies.** GA4 sets cookies and generally needs a consent banner for EU/UK
+> visitors under GDPR/ePrivacy. A cookieless alternative (e.g. GoatCounter) or a
+> consent banner can be added if that matters for your audience.
 
 ---
 
