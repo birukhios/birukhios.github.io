@@ -26,6 +26,13 @@ import re, sys
 path, ga_id = sys.argv[1], sys.argv[2]
 src = open(path, encoding='utf-8').read()
 
+# ── patch 0: responsive layer ─────────────────────────────────────────────
+# Must come last in the head so it can override the design's inline styles.
+if 'responsive.css' not in src:
+    src = src.replace(
+        '</style>\n</helmet>',
+        '</style>\n\n<link rel="stylesheet" href="responsive.css" />\n</helmet>', 1)
+
 # ── patch 1: Google Analytics (GA4) ───────────────────────────────────────
 if 'googletagmanager.com' not in src:
     snippet = (

@@ -1,0 +1,151 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Responsive layer
+   ───────────────────────────────────────────────────────────────────────────
+   The markup comes from Claude Design as inline `style=` attributes, which
+   media queries cannot normally override. So rules here target the exact
+   inline declarations via [style*="..."] and win with !important.
+
+   Two invariants:
+     1. DESKTOP IS UNCHANGED. Every clamp() maximum equals the original px
+        value, and every layout change sits inside a max-width media query.
+     2. FAILING SAFE. If a selector ever stops matching (e.g. the design is
+        re-exported with different values), the rule simply does nothing —
+        the site falls back to its current look rather than breaking.
+
+   Injected by build.sh; survives a Claude Design re-export.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── never scroll sideways ─────────────────────────────────────────────── */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, video, svg { max-width: 100%; }
+
+/* ── fluid display type ────────────────────────────────────────────────────
+   max == the original size, so nothing changes at desktop widths.          */
+[style*="font-size: 140px"] { font-size: clamp(64px, 17vw, 140px) !important; }
+[style*="font-size: 88px"]  { font-size: clamp(38px, 8.2vw, 88px)  !important; }
+[style*="font-size: 84px"]  { font-size: clamp(36px, 7.8vw, 84px)  !important; }
+[style*="font-size: 72px"]  { font-size: clamp(34px, 6.8vw, 72px)  !important; }
+[style*="font-size: 68px"]  { font-size: clamp(32px, 6.4vw, 68px)  !important; }
+[style*="font-size: 64px"]  { font-size: clamp(31px, 6.0vw, 64px)  !important; }
+[style*="font-size: 60px"]  { font-size: clamp(30px, 5.6vw, 60px)  !important; }
+[style*="font-size: 56px"]  { font-size: clamp(28px, 5.2vw, 56px)  !important; }
+[style*="font-size: 46px"]  { font-size: clamp(26px, 4.4vw, 46px)  !important; }
+[style*="font-size: 44px"]  { font-size: clamp(25px, 4.2vw, 44px)  !important; }
+[style*="font-size: 40px"]  { font-size: clamp(24px, 3.8vw, 40px)  !important; }
+[style*="font-size: 34px"]  { font-size: clamp(21px, 3.2vw, 34px)  !important; }
+[style*="font-size: 32px"]  { font-size: clamp(21px, 3.0vw, 32px)  !important; }
+[style*="font-size: 22px"]  { font-size: clamp(17px, 2.0vw, 22px)  !important; }
+[style*="font-size: 20px"]  { font-size: clamp(16px, 1.8vw, 20px)  !important; }
+
+/* ── fluid gutters on every 1240px container ───────────────────────────── */
+[style*="max-width: 1240px"] {
+  padding-left:  clamp(16px, 4vw, 32px) !important;
+  padding-right: clamp(16px, 4vw, 32px) !important;
+}
+
+/* ═══ ≤1024px — loosen the widest grids ════════════════════════════════ */
+@media (max-width: 1024px) {
+  [style*="grid-template-columns: repeat(4, 1fr)"]        { grid-template-columns: repeat(2, 1fr) !important; }
+  [style*="grid-template-columns: 1fr 1fr 1.2fr 180px"]   { grid-template-columns: 1fr 1fr !important; }
+  [style*="grid-template-columns: 1.2fr 1fr 1.4fr 180px"] { grid-template-columns: 1fr 1fr !important; }
+  [style*="grid-template-columns: 320px 1fr"]             { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 260px 1fr"]             { grid-template-columns: 1fr !important; }
+  [style*="column-count: 3"] { column-count: 2 !important; }
+}
+
+/* ═══ ≤900px — stack the two-column layouts ════════════════════════════ */
+@media (max-width: 900px) {
+  [style*="grid-template-columns: 1.35fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1.6fr 1fr"]  { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1.5fr 1fr"]  { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1fr 1fr"]    { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 5fr 4fr"]    { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1fr 1fr 1fr"]    { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 48px 1fr 1.4fr"] { grid-template-columns: 1fr !important; row-gap: 6px !important; }
+
+  /* experience / education rows: stack and un-right-align the date */
+  [style*="grid-template-columns: 1fr 1fr 1.2fr 180px"],
+  [style*="grid-template-columns: 1.2fr 1fr 1.4fr 180px"] {
+    grid-template-columns: 1fr !important;
+    row-gap: 6px !important;
+  }
+  [style*="text-align: right"] { text-align: left !important; }
+
+  /* the case-study cover's inner split has a divider that reads wrong stacked */
+  [style*="border-right: 1px solid rgba(32,30,29,0.75)"] {
+    border-right: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 14px !important;
+  }
+
+  /* floated phone screenshots become full-width blocks */
+  [style*="float: left"] {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 24px 0 !important;
+  }
+
+  /* first cell of a divider grid loses its flush-left padding when stacked */
+  [style*="padding: 20px 20px 20px 0"] { padding: 20px 0 !important; }
+  [style*="padding: 24px 24px 24px 0"] { padding: 24px 0 !important; }
+}
+
+/* ═══ ≤620px — phones ══════════════════════════════════════════════════ */
+@media (max-width: 620px) {
+  [style*="column-count: 3"] { column-count: 1 !important; }
+  [style*="grid-template-columns: repeat(4, 1fr)"]      { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1fr 1fr 1.2fr 180px"],
+  [style*="grid-template-columns: 1.2fr 1fr 1.4fr 180px"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* sticky header: let the nav wrap instead of overflowing */
+  header [style*="max-width: 1240px"] {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  header nav { flex-wrap: wrap !important; gap: 2px !important; }
+  header nav button { padding: 8px 10px !important; }
+
+  /* the "Product Manager & Designer" strapline crowds the wordmark */
+  header [style*="letter-spacing: 0.08em"][style*="text-transform: uppercase"] {
+    display: none !important;
+  }
+
+  /* Generous vertical rhythm is too much on a phone.
+     ORDER MATTERS: these are substring matches, so "padding: 72px 32px" also
+     matches "padding: 72px 32px 96px". Shorter (more general) patterns go
+     first; longer ones follow so they win. */
+  [style*="padding: 96px 32px"]      { padding-top: 56px !important; padding-bottom: 56px !important; }
+  [style*="padding: 72px 32px"]      { padding-top: 44px !important; padding-bottom: 44px !important; }
+  [style*="padding: 88px 32px 56px"] { padding-top: 48px !important; padding-bottom: 32px !important; }
+  [style*="padding: 72px 32px 96px"] { padding-top: 44px !important; padding-bottom: 56px !important; }
+  [style*="padding: 120px 32px 160px"] { padding-top: 64px !important; padding-bottom: 88px !important; }
+
+  /* fixed-width figures */
+  [style*="width: 264px"], [style*="width: 258px"] { width: 100% !important; }
+
+  /* comfortable tap targets */
+  a, button { min-height: 40px; }
+}
+
+/* ── landscape phones: reclaim vertical space ──────────────────────────── */
+@media (max-height: 480px) and (orientation: landscape) {
+  header { position: static !important; }
+}
+
+/* ── large displays: keep line lengths readable ────────────────────────── */
+@media (min-width: 1600px) {
+  [style*="max-width: 1240px"] { max-width: 1360px !important; }
+}
+
+/* ── respect reduced-motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}

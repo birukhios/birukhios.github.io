@@ -30,16 +30,7 @@
   @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 </style>
 
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ4L5PVGNK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  // send_page_view:false — client-side-routed site; pageviews are sent
-  // manually by trackView() so each screen is counted.
-  gtag('config', 'G-GJ4L5PVGNK', { send_page_view: false });
-</script>
+<link rel="stylesheet" href="responsive.css" />
 </helmet>
 
 <div style="min-height: 100vh; background: #f3f2f2">
