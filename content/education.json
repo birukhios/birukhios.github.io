@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "Degree in Architecture and Urban Planning",
+      "institution": "Ambo University",
+      "year": "Jan 2016 — Jan 2021",
+      "note": "A spatial design foundation that shaped my eye for systems, structure, visual hierarchy and human-centred experiences."
+    },
+    {
+      "title": "Google UX Design Certificate",
+      "institution": "Google",
+      "year": "2022",
+      "note": "Applied UX research, prototyping, usability and interface design practice."
+    },
+    {
+      "title": "Technical Product Management",
+      "institution": "Professional certification",
+      "year": "2022",
+      "note": "Product thinking, planning, delivery and cross-functional execution for technical teams."
+    },
+    {
+      "title": "Customer Experience Strategy",
+      "institution": "Professional certification",
+      "year": "2022",
+      "note": "Organisational CX strategy, customer journey thinking and service experience design."
+    }
+  ]
+}

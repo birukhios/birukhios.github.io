@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "src": "posters/01-addis-park.png",
+      "title": "Addis Park",
+      "note": "The whole product in four words: stop circling, reserve the spot."
+    },
+    {
+      "src": "posters/02-adler-studio.png",
+      "title": "Adler Studio",
+      "note": "A creator tool sold on the one thing it removes — the need for professional 3D software."
+    },
+    {
+      "src": "posters/03-pep.png",
+      "title": "PEP",
+      "note": "One shell, four modules: the architectural argument as a poster."
+    },
+    {
+      "src": "posters/04-cms.png",
+      "title": "Complaint Management",
+      "note": "Every complaint has an owner — the promise the whole system exists to keep."
+    }
+  ]
+}

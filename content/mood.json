@@ -1,0 +1,142 @@
+{
+  "items": [
+    {
+      "src": "play/pdf8-mobile-grid.png",
+      "title": "Berhan Bank",
+      "note": "Mobile banking concept — balance, utility payments, statement requests.",
+      "ar": "3 / 4"
+    },
+    {
+      "src": "play/breeze.png",
+      "title": "Breeze Pharmaceutical",
+      "note": "Cinematic corporate hero — red and blue overlays over industrial imagery.",
+      "ar": "16 / 9"
+    },
+    {
+      "src": "play/pdf8-mobile-set.png",
+      "title": "Fetan Delivery",
+      "note": "Food delivery app — onboarding, category browse, live tracking.",
+      "ar": "1 / 2"
+    },
+    {
+      "src": "play/pdf8-web-b.png",
+      "title": "HahuCloud",
+      "note": "Ethiopian web hosting — domain search first, everything else second.",
+      "ar": "4 / 3"
+    },
+    {
+      "src": "play/pdf8-mobile-a.png",
+      "title": "Amharic-first mobile app",
+      "note": "Interface set written in Amharic rather than translated into it.",
+      "ar": "3 / 2"
+    },
+    {
+      "src": "play/pdf8-web-a.png",
+      "title": "Maraki Educational Consultancy",
+      "note": "Study-abroad landing page — one question, two clear actions.",
+      "ar": "4 / 3"
+    },
+    {
+      "src": "play/pdf8-mobile-trio.png",
+      "title": "Roge",
+      "note": "Business landing page carried across mobile and desktop.",
+      "ar": "3 / 5"
+    },
+    {
+      "src": "play/pdf8-mobile-b.png",
+      "title": "Amharic app — further screens",
+      "note": "Article, media and account flows in the same Amharic type system.",
+      "ar": "3 / 2"
+    },
+    {
+      "src": "play/adler-avatar-a.png",
+      "title": "Adler — avatar builder",
+      "note": "One-click personal avatar: photo, gender, wardrobe rail.",
+      "ar": "16 / 10"
+    },
+    {
+      "src": "play/dallol.png",
+      "title": "Dallol Design + Build",
+      "note": "Architecture studio site — one hero building, quiet motion, full page.",
+      "ar": "3 / 5"
+    },
+    {
+      "src": "play/nigat.png",
+      "title": "Nigat Kaffee",
+      "note": "Ethiopian coffee brand for the German market. Teal, amber, EN/DE.",
+      "ar": "16 / 10"
+    },
+    {
+      "src": "play/droga-kpi.png",
+      "title": "Droga Consulting — KPI home",
+      "note": "Monthly tasks, performance bars and My Day in one workspace.",
+      "ar": "4 / 3"
+    },
+    {
+      "src": "play/emc.png",
+      "title": "Ethiopian Mineral Corporation",
+      "note": "Mineral macro photography cut into the display type.",
+      "ar": "16 / 9"
+    },
+    {
+      "src": "play/ceen.png",
+      "title": "CEEN Beauty",
+      "note": "Skincare storefront — product-led, pink and botanical, full page.",
+      "ar": "3 / 5"
+    },
+    {
+      "src": "play/arif-invoices.png",
+      "title": "Arif Studios — invoices",
+      "note": "Invoice list built to be scanned: reference, client, amount.",
+      "ar": "16 / 10"
+    },
+    {
+      "src": "play/adler-vr.png",
+      "title": "Adler — VR gifting",
+      "note": "Spatial social: relocate a gift, comment in-world.",
+      "ar": "16 / 9"
+    },
+    {
+      "src": "play/trust.png",
+      "title": "Trust Pharmaceutical",
+      "note": "Turquoise-led corporate site for hospitals, distributors, regulators.",
+      "ar": "16 / 10"
+    },
+    {
+      "src": "play/droga-board.png",
+      "title": "Droga Consulting — task board",
+      "note": "Pending, in progress, approved, rejected — with subtasks.",
+      "ar": "4 / 3"
+    },
+    {
+      "src": "play/physio.png",
+      "title": "Droga Physiotherapy",
+      "note": "Clinic site — purple waves, service tiles, doctor list, map.",
+      "ar": "3 / 5"
+    },
+    {
+      "src": "play/lifewire.png",
+      "title": "LifeWire",
+      "note": "Consulting brand surface: deep gradient, oversized type.",
+      "ar": "16 / 9"
+    },
+    {
+      "src": "play/arif-invoice-detail.png",
+      "title": "Arif Studios — invoice detail",
+      "note": "Deposits and partial payments as a timeline, not a table.",
+      "ar": "4 / 3"
+    },
+    {
+      "src": "play/adler-avatar-b.png",
+      "title": "Adler — avatar presets",
+      "note": "Same builder, different body and outfit set.",
+      "ar": "16 / 10"
+    },
+    {
+      "src": "play/pdf8-web-wide.png",
+      "title": "Marketplace app",
+      "note": "Five-screen presentation frame — sign in, browse, brand, onboarding.",
+      "ar": "2 / 1"
+    }
+  ]
+}

@@ -29,6 +29,10 @@
   html { scroll-behavior: smooth; }
   @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 </style>
+
+<!-- Analytics: GoatCounter. Privacy-friendly, cookie-free. -->
+<script data-goatcounter="https://YOUR_CODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </helmet>
 
 <div style="min-height: 100vh; background: #f3f2f2">
@@ -573,7 +577,7 @@ const CM = 'uploads/Complaint-Management-Package/Images/';
 const CR = 'crm-shots/';
 const AD = 'adler/';
 
-const P = [
+let P = [
   {
     id: 'adler-ds', name: 'Adler Design System', year: '2024', kind: 'Design system · 1,394 components · Remote',
     blurb: 'The component library and token system behind Adler — 1,394 components, 731 icons and a documented grammar a distributed team could ship against.',
@@ -1229,7 +1233,7 @@ const P = [
   }
 ];
 
-const POSTERS = [
+let POSTERS = [
   { src: 'posters/01-addis-park.png', title: 'Addis Park', note: 'The whole product in four words: stop circling, reserve the spot.' },
   { src: 'posters/02-adler-studio.png', title: 'Adler Studio', note: 'A creator tool sold on the one thing it removes — the need for professional 3D software.' },
   { src: 'posters/03-pep.png', title: 'PEP', note: 'One shell, four modules: the architectural argument as a poster.' },
@@ -1238,7 +1242,7 @@ const POSTERS = [
 
 const PL = 'play/';
 
-const BRANDING = [
+let BRANDING = [
   { src: PL + 'soreni-cover.png', title: 'Final proposal', note: 'The deck as presented — sage ground, feather pattern, one claim.' },
   { src: PL + 'soreni-logo.png', title: 'Selected mark', note: 'A guinea fowl built into the S. "Quality and Consistency. Delivered."' },
   { src: PL + 'soreni-colors.png', title: 'Colour palette', note: 'Tangerine orange #DE873A against sage green #84A086, black and white.' },
@@ -1249,7 +1253,7 @@ const BRANDING = [
   { src: PL + 'soreni-mock-c.png', title: 'Vehicle livery', note: 'The identity on the fleet, where trade actually happens.' }
 ];
 
-const MOOD = [
+let MOOD = [
   { src: PL + 'pdf8-mobile-grid.png', title: 'Berhan Bank', note: 'Mobile banking concept — balance, utility payments, statement requests.', ar: '3 / 4' },
   { src: PL + 'breeze.png', title: 'Breeze Pharmaceutical', note: 'Cinematic corporate hero — red and blue overlays over industrial imagery.', ar: '16 / 9' },
   { src: PL + 'pdf8-mobile-set.png', title: 'Fetan Delivery', note: 'Food delivery app — onboarding, category browse, live tracking.', ar: '1 / 2' },
@@ -1275,7 +1279,7 @@ const MOOD = [
   { src: PL + 'pdf8-web-wide.png', title: 'Marketplace app', note: 'Five-screen presentation frame — sign in, browse, brand, onboarding.', ar: '2 / 1' }
 ];
 
-const SITES = [
+let SITES = [
   { name: 'Beelydrop', year: '2024', kind: 'Ecommerce · Startup · Web design', cover: 'uploads/framer-portfolio/beelydrop/cover.png',
     note: 'A Nigerian ecommerce startup web concept with a bold retail story, product discovery flow and a polished visual system for online shopping.',
     live: 'https://biruksportfolio.framer.website/works/beelydrop' },
@@ -1288,27 +1292,27 @@ const SITES = [
     note: 'A dark, atmospheric consulting site: gradient depth, oversized typography and a premium transformation narrative.', live: '' }
 ];
 
-const SITES_MORE = [
+let SITES_MORE = [
   { name: 'Breeze Pharmaceutical Technologies', kind: 'Cinematic corporate site — red and blue overlays over industrial imagery, with a modular system for product and capability pages.' },
   { name: 'Dallol Design + Build', kind: 'Full-screen architectural landing page built around a single hero building, oversized type and quiet motion.' },
   { name: 'Ethiopian Mineral Corporation', kind: 'Visual identity and landing page for a national mining institution — mineral macro photography on an institutional base.' }
 ];
 
-const SERVICES = [
+let SERVICES = [
   { title: 'Product Strategy & Management', body: 'Roadmaps, stakeholder alignment, product planning, launch thinking, and clear execution systems for teams building digital products.' },
   { title: 'Product & UX Design', body: 'User research, flows, wireframes, prototypes, UI systems, and polished product experiences grounded in real customer needs.' },
   { title: 'Design Leadership & Training', body: 'Design team management, cross-functional collaboration, product design training, critique systems, and practical design operations.' },
   { title: 'Web, AI Tools & Vibe Coding', body: 'Modern websites, landing pages, AI-assisted workflows, Figma systems, and fast creative prototyping at the edge of design and technology.' }
 ];
 
-const EDU = [
+let EDU = [
   { title: 'Degree in Architecture and Urban Planning', institution: 'Ambo University', year: 'Jan 2016 — Jan 2021', note: 'A spatial design foundation that shaped my eye for systems, structure, visual hierarchy and human-centred experiences.' },
   { title: 'Google UX Design Certificate', institution: 'Google', year: '2022', note: 'Applied UX research, prototyping, usability and interface design practice.' },
   { title: 'Technical Product Management', institution: 'Professional certification', year: '2022', note: 'Product thinking, planning, delivery and cross-functional execution for technical teams.' },
   { title: 'Customer Experience Strategy', institution: 'Professional certification', year: '2022', note: 'Organisational CX strategy, customer journey thinking and service experience design.' }
 ];
 
-const EXPERIENCE = [
+let EXPERIENCE = [
   { org: 'AfroPay Digital Financial Technology S.C.', title: 'Product Designer', when: 'Oct 2025 — Present', place: 'Addis Ababa, Ethiopia', note: 'End-to-end product experiences for an NBE-licensed digital payment platform, with engineering, compliance and business stakeholders.', points: ['Design end-to-end product experiences for an NBE-licensed digital payment platform, partnering closely with engineering, compliance and business stakeholders.', 'Translate business and regulatory requirements into user flows, wireframes and high-fidelity UI for financial and payment products.', 'Contribute to PRDs and product documentation supporting new feature and platform launches.'] },
   { org: 'Droga Consulting Service', title: 'Product Design Manager', when: 'Jul 2024 — Dec 2025', place: 'Addis Ababa, Ethiopia', note: 'Led the product design team and digital marketing work across business growth projects.', points: ['Led the product design team and digital marketing function across a portfolio of client engagements.', 'Directed design strategy for client websites, CMS platforms and digital marketing assets aimed at driving business growth.', 'Owned end-to-end design delivery — research, wireframing, visual design and stakeholder sign-off.'] },
   { org: 'Adler', title: 'Product Designer', when: 'Dec 2023 — Jul 2024', place: 'Seoul, Korea (remote)', note: 'Designed 3D and VR platform experiences remotely, and helped manage the design team.', points: ['Designed 3D and VR platform experiences remotely for an early-stage startup.', 'Managed the design team\u2019s workflow and deliverables for VR product development.'] },
@@ -1320,7 +1324,7 @@ const EXPERIENCE = [
   { org: 'Freelance', title: 'Product Designer', when: 'Jan 2017 — Present', place: 'Remote', note: 'Contractual and part-time product design across web, mobile, interface systems and visual product concepts.', points: ['Delivered contractual and part-time product design work across web, mobile, interface systems and visual product concepts.'] }
 ];
 
-const PROCESS = [
+let PROCESS = [
   { n: '01', title: 'Find the real question', body: 'Every brief arrives as a feature request. I spend the first days turning it back into a question about people — what someone is trying to be certain of, and what currently makes them doubt it. Research, interviews, journey maps; the output is one sentence the whole team can argue with.' },
   { n: '02', title: 'Model before you draw', body: 'Most product failures are data-model failures wearing a UI costume. Before a screen exists I settle the objects and their states — what a case, a booking, a complaint actually is — because the layout falls out of that and never the other way round.' },
   { n: '03', title: 'Build the frame, then the rooms', body: 'One shell, one navigation model, one pattern for list → record → edit. When the frame is decided, a new screen can be specified by describing its content. This is what lets a small team ship four surfaces that still feel like one product.' },
@@ -1371,11 +1375,37 @@ class Component extends DCLogic {
     });
   };
 
+  /* ── CMS content loading (added by build.sh) ─────────────────────────
+     Content lives in content/*.json so the CMS at /admin can edit it. The
+     arrays above are the built-in fallback: if a fetch fails the site still
+     renders exactly as shipped. */
+  loadContent = async () => {
+    const assign = {
+      'projects':   v => { P = v; },          'posters':    v => { POSTERS = v; },
+      'branding':   v => { BRANDING = v; },   'mood':       v => { MOOD = v; },
+      'sites':      v => { SITES = v; },      'sites-more': v => { SITES_MORE = v; },
+      'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
+      'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
+    };
+    const base = new URL('content/', location.href).href;
+    await Promise.all(Object.entries(assign).map(async ([file, set]) => {
+      try {
+        const r = await fetch(base + file + '.json', { cache: 'no-cache' });
+        if (!r.ok) return;
+        const raw = await r.json();
+        const data = Array.isArray(raw) ? raw : raw && raw.items;
+        if (Array.isArray(data) && data.length) set(data);
+      } catch (e) { /* keep built-in fallback */ }
+    }));
+    this.setState({ __contentLoaded: true });
+  };
+
   componentDidMount() {
     this.fitAll();
     this._ro = new ResizeObserver(this.fitAll);
     this._ro.observe(document.body);
     this._fitTimer = setInterval(this.fitAll, 400);
+    this.loadContent();
   }
 
   componentDidUpdate() { this.fitAll(); }

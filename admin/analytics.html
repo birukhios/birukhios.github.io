@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Analytics — Portfolio Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#f3f2f2; --ink:#201e1d; --accent:#E4002B; --accent-dark:#96001C; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink);
+           font-family:"Archivo", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+    header { display:flex; align-items:center; gap:4px; padding:14px 32px;
+             border-bottom:2px solid rgba(32,30,29,0.4); position:sticky; top:0;
+             background:var(--bg); z-index:10; }
+    .brand { font-weight:800; font-size:15px; letter-spacing:0.06em;
+             text-transform:uppercase; margin-right:auto; }
+    header a { text-decoration:none; font:600 13px "Archivo",sans-serif;
+               letter-spacing:0.06em; text-transform:uppercase; color:var(--ink);
+               padding:8px 12px; }
+    header a:hover { background:rgba(228,0,43,0.1); color:var(--accent-dark); }
+    header a.on { background:var(--accent); color:var(--bg); }
+    iframe { width:100%; height:calc(100vh - 56px); border:0; display:block; background:#fff; }
+    .note { max-width:900px; margin:0 auto; padding:48px 32px; }
+    .note h1 { font-size:44px; line-height:1.05; letter-spacing:-0.03em; margin:0 0 16px; }
+    .note p { font-size:17px; line-height:1.6; max-width:62ch; color:rgba(32,30,29,0.8); }
+    .setup { border:2px solid rgba(32,30,29,0.4); padding:24px; margin-top:28px; }
+    .setup h2 { font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+                margin:0 0 14px; color:var(--accent-dark); }
+    .setup ol { margin:0; padding-left:20px; font-size:16px; line-height:1.8; }
+    code { background:rgba(32,30,29,0.08); padding:2px 6px; font-size:14px; }
+    a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">Portfolio Admin</span>
+    <a href="./">Content</a>
+    <a href="./analytics.html" class="on">Analytics</a>
+    <a href="/" target="_blank" rel="noopener">View site ↗</a>
+  </header>
+  <div id="host"></div>
+
+  <script>
+    // Your GoatCounter code. Set once you've signed up at goatcounter.com/signup
+    var GOATCOUNTER_CODE = "";
+
+    var host = document.getElementById('host');
+    if (GOATCOUNTER_CODE) {
+      var f = document.createElement('iframe');
+      f.src = 'https://' + GOATCOUNTER_CODE + '.goatcounter.com/';
+      host.appendChild(f);
+    } else {
+      host.innerHTML =
+        '<div class="note">' +
+        '<h1>Analytics not connected yet</h1>' +
+        '<p>Once connected, this page shows where your visitors come from — countries, ' +
+        'referrers, top pages and browsers. GoatCounter is free, cookie-free, and needs ' +
+        'no consent banner.</p>' +
+        '<div class="setup"><h2>Connect it — about 2 minutes</h2><ol>' +
+        '<li>Sign up at <a href="https://www.goatcounter.com/signup" target="_blank" rel="noopener">goatcounter.com/signup</a> and pick a code (e.g. <code>birukhios</code>).</li>' +
+        '<li>Set <code>GOATCOUNTER_CODE</code> in <code>admin/analytics.html</code> to that code.</li>' +
+        '<li>Rebuild with your code so the site starts reporting:<br>' +
+        '<code>GOATCOUNTER_CODE=yourcode ./build.sh</code></li>' +
+        '<li>Commit and push. Stats begin collecting on the next visit.</li>' +
+        '</ol></div></div>';
+    }
+  </script>
+</body>
+</html>

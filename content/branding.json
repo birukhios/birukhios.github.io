@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "src": "play/soreni-cover.png",
+      "title": "Final proposal",
+      "note": "The deck as presented — sage ground, feather pattern, one claim."
+    },
+    {
+      "src": "play/soreni-logo.png",
+      "title": "Selected mark",
+      "note": "A guinea fowl built into the S. \"Quality and Consistency. Delivered.\""
+    },
+    {
+      "src": "play/soreni-colors.png",
+      "title": "Colour palette",
+      "note": "Tangerine orange #DE873A against sage green #84A086, black and white."
+    },
+    {
+      "src": "play/soreni-type.png",
+      "title": "Typography",
+      "note": "A display script for the logotype, a plain sans for everything else."
+    },
+    {
+      "src": "play/soreni-pattern.png",
+      "title": "Pattern",
+      "note": "The bird’s plumage abstracted into a repeatable secondary texture."
+    },
+    {
+      "src": "play/soreni-mock-a.png",
+      "title": "Signage",
+      "note": "Projecting shop sign — the mark at the size it is actually read."
+    },
+    {
+      "src": "play/soreni-mock-b.png",
+      "title": "Environment",
+      "note": "Applied across interior and window graphics."
+    },
+    {
+      "src": "play/soreni-mock-c.png",
+      "title": "Vehicle livery",
+      "note": "The identity on the fleet, where trade actually happens."
+    }
+  ]
+}
