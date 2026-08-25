@@ -87,9 +87,21 @@ img, video, svg { max-width: 100%; }
     margin: 0 0 24px 0 !important;
   }
 
-  /* first cell of a divider grid loses its flush-left padding when stacked */
+  /* Flush divider grids ("Years of practice / Designers trained / Based in",
+     the case-study meta row, the contact row). Stacked, every cell must align
+     to the page edge — otherwise the first sits flush and the rest look
+     indented by their symmetric padding.
+     The design marks these grids by giving the FIRST cell a flush-left padding
+     ("20px 20px 20px 0"); siblings carry a symmetric "20px". Targeting the
+     siblings via ~ keeps this away from bordered panels such as the tradeoff
+     box, whose cells genuinely need their inset. */
   [style*="padding: 20px 20px 20px 0"] { padding: 20px 0 !important; }
   [style*="padding: 24px 24px 24px 0"] { padding: 24px 0 !important; }
+  [style*="padding: 20px 20px 20px 0"] ~ [style*="padding: 20px"],
+  [style*="padding: 24px 24px 24px 0"] ~ [style*="padding: 24px"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 /* ═══ ≤620px — phones ══════════════════════════════════════════════════ */
@@ -102,15 +114,55 @@ img, video, svg { max-width: 100%; }
     grid-template-columns: 1fr !important;
   }
 
-  /* sticky header: let the nav wrap instead of overflowing */
+  /* Sticky header. The brand wraps onto its own line, and the nav must then
+     fit all five items on ONE line — otherwise Contact drops to a third row
+     and the header eats a third of the viewport. Shrink type and padding
+     enough that Work/Play/About/Resume/Contact fit across together. */
   header [style*="max-width: 1240px"] {
     flex-wrap: wrap !important;
-    gap: 8px !important;
+    gap: 6px !important;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
   }
-  header nav { flex-wrap: wrap !important; gap: 2px !important; }
-  header nav button { padding: 8px 10px !important; }
+  header nav {
+    width: 100% !important;
+    /* wrap, not nowrap: with body{overflow-x:hidden} a nowrap nav that didn't
+       fit would clip Contact out of reach. Wrapping degrades gracefully; the
+       size reductions below are what actually keep it on one line. */
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 1px !important;
+  }
+  header nav button {
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+    white-space: nowrap !important;
+  }
+  /* the Contact button carries extra inset + offset of its own */
+  header nav button[style*="background: #E4002B"] {
+    padding: 8px 12px !important;
+    margin-left: 4px !important;
+  }
+
+  /* Section headers: "How I work" + "Six steps, in this order, every time"
+     are a baseline flex row that collides on a phone. Stack them. */
+  [style*="align-items: baseline"][style*="justify-content: space-between"][style*="border-bottom: 2px solid rgba(32,30,29,0.4)"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  /* Resume page header (title + download button) */
+  [style*="align-items: end"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+  /* "Next case study" + Read it → */
+  [style*="margin-top: 56px"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
 
   /* the "Product Manager & Designer" strapline crowds the wordmark */
   header [style*="letter-spacing: 0.08em"][style*="text-transform: uppercase"] {
@@ -132,6 +184,25 @@ img, video, svg { max-width: 100%; }
 
   /* comfortable tap targets */
   a, button { min-height: 40px; }
+}
+
+/* ═══ ≤400px — small phones (iPhone SE and similar) ════════════════════ */
+@media (max-width: 400px) {
+  /* tighten the nav further so five items still share one line */
+  header nav button {
+    font-size: 11px !important;
+    padding: 5px 6px !important;
+    letter-spacing: 0.03em !important;
+  }
+  header nav button[style*="background: #E4002B"] {
+    padding: 7px 9px !important;
+    margin-left: 2px !important;
+  }
+  /* page gutters go to a hard 14px so headlines get maximum measure */
+  [style*="max-width: 1240px"] {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
 }
 
 /* ── landscape phones: reclaim vertical space ──────────────────────────── */
