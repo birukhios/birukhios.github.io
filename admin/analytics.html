@@ -4,101 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Analytics — Portfolio Admin</title>
+  <title>Analytics — Portfolio CMS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    :root { --bg:#f3f2f2; --ink:#201e1d; --accent:#E4002B; --accent-dark:#96001C; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink);
-           font-family:"Archivo", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
-    header { display:flex; align-items:center; gap:4px; padding:14px 32px;
-             border-bottom:2px solid rgba(32,30,29,0.4); position:sticky; top:0;
-             background:var(--bg); z-index:10; }
-    .brand { font-weight:800; font-size:15px; letter-spacing:0.06em;
-             text-transform:uppercase; margin-right:auto; }
-    header a { text-decoration:none; font:600 13px "Archivo",sans-serif;
-               letter-spacing:0.06em; text-transform:uppercase; color:var(--ink);
-               padding:8px 12px; }
-    header a:hover { background:rgba(228,0,43,0.1); color:var(--accent-dark); }
-    header a.on { background:var(--accent); color:var(--bg); }
-    main { max-width:1000px; margin:0 auto; padding:56px 32px 80px; }
-    h1 { font-size:56px; line-height:1.02; letter-spacing:-0.035em; margin:0 0 20px; }
-    .lede { font-size:19px; line-height:1.55; max-width:60ch; margin:0 0 36px;
-            color:rgba(32,30,29,0.8); }
-    .cta { display:inline-block; background:var(--accent); color:var(--bg);
-           text-decoration:none; font-weight:800; font-size:14px; letter-spacing:0.08em;
-           text-transform:uppercase; padding:18px 26px; }
-    .cta:hover { background:#C10024; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:2px; background:rgba(32,30,29,0.4);
-            border-top:2px solid rgba(32,30,29,0.4); margin-top:48px; }
-    .cell { background:var(--bg); padding:24px; }
-    .cell h3 { font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
-               color:var(--accent-dark); margin:0 0 10px; }
-    .cell p { margin:0 0 8px; font-size:16px; line-height:1.55; }
-    .cell .path { font-size:13px; color:rgba(32,30,29,0.6); line-height:1.5; }
-    .meta { margin-top:48px; border-top:2px solid rgba(32,30,29,0.18); padding-top:24px;
-            font-size:14px; line-height:1.7; color:rgba(32,30,29,0.7); max-width:70ch; }
-    code { background:rgba(32,30,29,0.08); padding:2px 6px; font-size:13px; }
-  </style>
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="analytics.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-  <header>
-    <span class="brand">Portfolio Admin</span>
-    <a href="./">Content</a>
-    <a href="./analytics.html" class="on">Analytics</a>
-    <a href="/" target="_blank" rel="noopener">View site ↗</a>
+  <header class="bar">
+    <a class="brand" href="./" style="text-decoration:none;color:inherit">Portfolio CMS</a>
+    <span class="sp"></span>
+    <a class="btn" href="./">Content</a>
+    <a class="btn" href="./analytics.html" style="background:var(--accent);border-color:var(--accent);color:#fff">Analytics</a>
+    <button type="button" title="Toggle theme" onclick="
+      (function(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',n);
+      try{localStorage.setItem('theme',n)}catch(e){}})()">◐</button>
+    <a class="btn" href="/" target="_blank" rel="noopener">View site ↗</a>
   </header>
 
-  <main>
-    <h1>Analytics</h1>
-    <p class="lede">
-      Google Analytics 4 is collecting on every page of the site
-      (property <code>G-GJ4L5PVGNK</code>). Google does not allow its dashboard to be
-      embedded in another site, so this opens it in a new tab.
-    </p>
+  <div class="wrap">
+    <div id="view"></div>
+  </div>
 
-    <a class="cta" href="https://analytics.google.com/" target="_blank" rel="noopener">
-      Open Google Analytics ↗
-    </a>
-
-    <div class="grid">
-      <div class="cell">
-        <h3>Where visitors are from</h3>
-        <p>Countries, cities and languages.</p>
-        <p class="path">Reports → User → User attributes → Demographic details</p>
-      </div>
-      <div class="cell">
-        <h3>How they found you</h3>
-        <p>Referrers, search, social and direct traffic.</p>
-        <p class="path">Reports → Acquisition → Traffic acquisition</p>
-      </div>
-      <div class="cell">
-        <h3>What they looked at</h3>
-        <p>Each screen and case study is tracked separately.</p>
-        <p class="path">Reports → Engagement → Pages and screens</p>
-      </div>
-      <div class="cell">
-        <h3>Live right now</h3>
-        <p>Visitors on the site in the last 30 minutes — the quickest way to confirm tracking works.</p>
-        <p class="path">Reports → Realtime</p>
-      </div>
-    </div>
-
-    <div class="meta">
-      <p><strong>About the page paths.</strong> The portfolio is a single page with
-      client-side routing — the URL never changes as you move between Work, Play and
-      the case studies. Left alone, GA would record one <code>/</code> view per visitor
-      no matter how much they browsed. So the site sends a pageview per screen using
-      virtual paths: <code>/work</code>, <code>/play</code>, <code>/about</code>,
-      <code>/resume</code>, <code>/contact</code>, and <code>/case/&lt;id&gt;</code> for
-      each case study. That's what you'll see under Pages and screens.</p>
-      <p><strong>Cookies.</strong> GA4 sets cookies and, for visitors in the EU/UK,
-      generally requires a consent banner under GDPR/ePrivacy. If you'd like, a
-      cookieless alternative (or a consent banner) can be added.</p>
-    </div>
-  </main>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="analytics.js"></script>
 </body>
 </html>

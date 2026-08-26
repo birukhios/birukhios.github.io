@@ -67,17 +67,58 @@ can never render empty.
 
 ---
 
-## 2. Analytics (Google Analytics 4)
+## 2. Analytics — inside the CMS
 
-Live already — property `G-GJ4L5PVGNK`. View it at <https://analytics.google.com/>
-or through `/admin/analytics.html`.
+`/admin/analytics.html` draws your GA4 numbers natively: visitors, sessions,
+page views, engagement, who's on the site right now, a per-day trend, and ranked
+lists of **countries**, **channels** and **screens**.
 
-| To see | Go to |
+Google blocks its dashboard from being embedded in an iframe, so this queries the
+**Analytics Data API** directly instead. Everything stays client-side.
+
+### Preview it first
+
+<https://birukhios.github.io/admin/analytics.html?demo=1> renders the whole
+dashboard from sample figures — no setup, no network calls. Useful for seeing the
+layout before wiring anything up.
+
+### One-time setup (~10 min)
+
+1. In [Google Cloud Console](https://console.cloud.google.com/), create or pick a project.
+2. **APIs & Services → Library** → enable **Google Analytics Data API**.
+3. **OAuth consent screen** → External → add your own Google account under **Test users**.
+4. **Credentials → Create credentials → OAuth client ID → Web application**.
+   Authorised JavaScript origins:
+   - `https://birukhios.github.io`
+   - `http://localhost:4173` (for local testing)
+5. Copy the **Client ID**. There is no secret to handle — browser apps don't use one,
+   and the client ID is public by design.
+6. Get your **Property ID**: GA → **Admin → Property details**. It's the numeric one
+   (e.g. `447… `), *not* the measurement ID `G-GJ4L5PVGNK`.
+7. Paste both into `/admin/analytics.html` and click **Save and connect**.
+
+The two IDs are stored in your browser. The access token is held in memory only and
+never written to disk; it lasts about an hour, after which you click Connect again.
+
+> Because the consent screen stays in **Testing** mode, only the accounts you list
+> as test users can authorise — which is what you want for a private dashboard.
+
+### Reading it
+
+| Question | Where |
 |---|---|
-| Countries / cities | Reports → User → User attributes → Demographic details |
-| Referrers & sources | Reports → Acquisition → Traffic acquisition |
-| Screens & case studies | Reports → Engagement → Pages and screens |
-| Confirm it's working | Reports → Realtime |
+| Where are my visitors? | **Where visitors are** — by country |
+| How did they find me? | **How they found you** — direct, search, referral, social |
+| What did they read? | **What they looked at** — per screen and case study |
+| Is anyone here now? | **Active now** tile |
+
+Every chart has a **Table** toggle, so the numbers are readable without relying on
+the chart.
+
+### Still prefer Google's own UI?
+
+<https://analytics.google.com/> — Reports → User attributes (countries),
+Acquisition → Traffic acquisition (referrers), Engagement → Pages and screens.
 
 The site is one page with client-side routing, so pageviews are sent manually
 per screen using virtual paths — `/work`, `/play`, `/case/<id>` and so on.
