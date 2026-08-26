@@ -2,42 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Analytics — Portfolio CMS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="admin.css" />
-  <link rel="stylesheet" href="analytics.css" />
+  <!-- Analytics now lives inside the CMS shell as a tab. This page is kept so
+       existing links and bookmarks keep working; it forwards, preserving
+       ?demo=1 if present. -->
   <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('theme') ||
-          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
+    location.replace('./#/analytics' + (/[?&]demo=1/.test(location.search) ? '?demo=1' : ''));
   </script>
 </head>
 <body>
-  <header class="bar">
-    <a class="brand" href="./" style="text-decoration:none;color:inherit">Portfolio CMS</a>
-    <span class="sp"></span>
-    <a class="btn" href="./">Content</a>
-    <a class="btn" href="./analytics.html" style="background:var(--accent);border-color:var(--accent);color:#fff">Analytics</a>
-    <button type="button" title="Toggle theme" onclick="
-      (function(){var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',n);
-      try{localStorage.setItem('theme',n)}catch(e){}})()">◐</button>
-    <a class="btn" href="/" target="_blank" rel="noopener">View site ↗</a>
-  </header>
-
-  <div class="wrap">
-    <div id="view"></div>
-  </div>
-
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="analytics.js"></script>
+  <p style="font-family:system-ui;padding:24px">
+    Moved into the CMS — <a href="./#/analytics">open Analytics</a>.
+  </p>
 </body>
 </html>

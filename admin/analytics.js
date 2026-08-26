@@ -14,7 +14,7 @@
 
   var SCOPE = 'https://www.googleapis.com/auth/analytics.readonly';
   var API = 'https://analyticsdata.googleapis.com/v1beta/properties/';
-  var host = document.getElementById('view');
+  var host = null;
 
   var cfg = {
     get clientId() { try { return localStorage.getItem('ga.clientId') || ''; } catch (e) { return ''; } },
@@ -62,7 +62,9 @@
      ?demo=1 renders the dashboard from sample figures, so the layout can be
      previewed (and reviewed) before the OAuth setup is done. Never touches
      the network. */
-  var DEMO = /[?&]demo=1/.test(location.search);
+  // mounted in the CMS the flag arrives in the hash (#/analytics?demo=1),
+  // standalone it arrives in the query string — accept either
+  var DEMO = /[?&]demo=1/.test(location.search) || /[?&]demo=1/.test(location.hash);
   function demoReport(body, realtime) {
     var mk = function (pairs) {
       return { rows: pairs.map(function (p) {
@@ -370,38 +372,68 @@
     });
   }
 
-  /* ── auth ────────────────────────────────────────────────────────────── */
-  function authorize(interactive) {
+  /* ── auth ──────────────────────────────────────────────────────────────
+     `fromClick` matters: requestAccessToken opens a popup, and browsers block
+     popups that aren't triggered by a user gesture. So a page load may only
+     attempt the SILENT path (prompt:'none'), which succeeds when this browser
+     has already granted the scope; anything else has to wait for a real click. */
+  function authorize(fromClick) {
     if (!window.google || !google.accounts || !google.accounts.oauth2) {
-      return connectView('Google sign-in library did not load.');
+      // the GIS script is async — wait for it rather than failing outright
+      if (authorize._waited < 20) {
+        authorize._waited = (authorize._waited || 0) + 1;
+        return setTimeout(function () { authorize(fromClick); }, 150);
+      }
+      return connectView('Google sign-in library did not load. A blocker or ' +
+                         'strict privacy setting may be preventing it.');
     }
+    if (!cfg.clientId) return setupView('Add your OAuth client ID first.');
+
     if (!tokenClient) {
-      tokenClient = google.accounts.oauth2.initTokenClient({
-        client_id: cfg.clientId,
-        scope: SCOPE,
-        callback: function (resp) {
-          if (resp && resp.access_token) { token = resp.access_token; dashboard(); }
-          else connectView('Authorisation failed.');
-        },
-        error_callback: function (err) {
-          connectView((err && err.type === 'popup_closed')
-            ? 'Sign-in window closed before finishing.'
-            : 'Authorisation failed. Check the client ID and that this origin is authorised.');
-        },
-      });
+      try {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: cfg.clientId,
+          scope: SCOPE,
+          callback: function (resp) {
+            if (resp && resp.access_token) { token = resp.access_token; dashboard(); }
+            else connectView('Authorisation returned no token.');
+          },
+          error_callback: function (err) {
+            var t = err && err.type;
+            if (t === 'popup_closed') return connectView('Sign-in window closed before finishing.');
+            if (t === 'popup_failed_to_open') {
+              return connectView('The sign-in popup was blocked. Allow popups for this ' +
+                                 'site, then press Connect again.');
+            }
+            connectView('Authorisation failed (' + (t || 'unknown') + '). Check that the ' +
+                        'client ID is correct and that ' + location.origin +
+                        ' is listed under Authorised JavaScript origins.');
+          },
+        });
+      } catch (e) {
+        return connectView('Could not initialise sign-in: ' + e.message);
+      }
     }
-    // '' asks silently when already granted; 'consent' forces the prompt
-    tokenClient.requestAccessToken({ prompt: interactive ? '' : 'none' });
+    // silent on load; the account chooser only on a real click
+    tokenClient.requestAccessToken({ prompt: fromClick ? '' : 'none' });
   }
 
-  function boot() {
+  function boot(target) {
+    host = target || document.getElementById('view');
+    if (!host) return;
     if (DEMO) return dashboard();
     if (!cfg.clientId || !cfg.propertyId) return setupView();
     connectView();
-    // try a silent grant so a return visit lands straight on the dashboard
-    setTimeout(function () { authorize(true); }, 60);
+    // page load: silent attempt only — a popup here would be blocked
+    authorize(false);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-  else boot();
+  /* Mountable so the CMS can host this in its own shell (see app.js), while
+     analytics.html still works standalone. */
+  window.Analytics = { mount: boot };
+
+  if (document.getElementById('view')) {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { boot(); });
+    else boot();
+  }
 })();

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="analytics.css" />
   <script>
     /* match the site's theme before first paint */
     (function () {
@@ -22,8 +23,11 @@
 </head>
 <body>
   <div id="app"></div>
+  <!-- Google Identity Services, for the Analytics tab's OAuth token flow -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="schema.js"></script>
   <script src="github.js"></script>
+  <script src="analytics.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

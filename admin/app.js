@@ -294,6 +294,12 @@
           document.documentElement.setAttribute('data-theme', n);
           try { localStorage.setItem('theme', n); } catch (e) {}
         } }),
+      el('a', { class: 'btn', href: '#/',
+                style: /#\/analytics/.test(location.hash) ? '' : 'background:var(--accent);border-color:var(--accent);color:#fff',
+                text: 'Content' }),
+      el('a', { class: 'btn', href: '#/analytics',
+                style: /#\/analytics/.test(location.hash) ? 'background:var(--accent);border-color:var(--accent);color:#fff' : '',
+                text: 'Analytics' }),
       el('a', { class: 'btn', href: '/', target: '_blank', rel: 'noopener', text: 'View site ↗' }),
       el('button', { type: 'button', text: 'Sign out', onclick: function () {
         if (state.dirty && !confirm('You have unsaved changes. Sign out anyway?')) return;
@@ -320,7 +326,23 @@
           ]),
         ]);
       })),
+      el('ul', { style: 'margin-top:18px;border-top:2px solid var(--rule);padding-top:4px' }, [
+        el('li', { style: 'border-top:0' }, [
+          el('a', { href: '#/analytics', class: active === 'analytics' ? 'on' : '' }, [
+            el('span', { text: 'Analytics' }),
+          ]),
+        ]),
+      ]),
     ]);
+  }
+
+  /* Analytics lives in the same shell as the content editor — one app, two
+     tabs — rather than a separate page you have to navigate away to. */
+  function viewAnalytics() {
+    var panel = el('div', { class: 'panel' });
+    chrome(el('div', { class: 'cols' }, [sideNav('analytics'), panel]));
+    if (window.Analytics) window.Analytics.mount(panel);
+    else panel.appendChild(el('p', { class: 'err', text: 'Analytics module failed to load.' }));
   }
 
   function viewHome() {
@@ -504,8 +526,10 @@
       return GH.me().then(function (l) { state.user = l; route(); })
         .catch(function (e) { GH.setToken(''); viewLogin(e.message); });
     }
-    var h = (location.hash || '#/').replace(/^#\/?/, '');
+    // strip any query suffix (#/analytics?demo=1) before matching segments
+    var h = (location.hash || '#/').replace(/^#\/?/, '').split('?')[0];
     var parts = h.split('/').filter(Boolean);
+    if (parts[0] === 'analytics') return viewAnalytics();
     if (parts[0] === 'c' && parts[1] && parts[2] !== undefined) return viewEdit(parts[1], +parts[2]);
     if (parts[0] === 'c' && parts[1]) return viewList(parts[1]);
     return viewHome();
