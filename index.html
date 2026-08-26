@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<link rel="stylesheet" href="theme.css" />
+<script>
+  /* set the theme before first paint */
+  (function(){try{var t=localStorage.getItem("theme")||
+    (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+    document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<script src="./theme.js" defer></script>
 </head>
 <body>
 <x-dc>

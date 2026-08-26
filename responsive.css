@@ -74,7 +74,7 @@ img, video, svg { max-width: 100%; }
   [style*="text-align: right"] { text-align: left !important; }
 
   /* the case-study cover's inner split has a divider that reads wrong stacked */
-  [style*="border-right: 1px solid rgba(32,30,29,0.75)"] {
+  [style*="border-right: 1px solid rgba(32, 30, 29, 0.75)"] {
     border-right: 0 !important;
     padding-right: 0 !important;
     padding-bottom: 14px !important;
@@ -139,14 +139,14 @@ img, video, svg { max-width: 100%; }
     white-space: nowrap !important;
   }
   /* the Contact button carries extra inset + offset of its own */
-  header nav button[style*="background: #E4002B"] {
+  header nav button[style*="background: rgb(228, 0, 43)"] {
     padding: 8px 12px !important;
     margin-left: 4px !important;
   }
 
   /* Section headers: "How I work" + "Six steps, in this order, every time"
      are a baseline flex row that collides on a phone. Stack them. */
-  [style*="align-items: baseline"][style*="justify-content: space-between"][style*="border-bottom: 2px solid rgba(32,30,29,0.4)"] {
+  [style*="align-items: baseline"][style*="justify-content: space-between"][style*="border-bottom: 2px solid rgba(32, 30, 29, 0.4)"] {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 6px !important;
@@ -194,7 +194,7 @@ img, video, svg { max-width: 100%; }
     padding: 5px 6px !important;
     letter-spacing: 0.03em !important;
   }
-  header nav button[style*="background: #E4002B"] {
+  header nav button[style*="background: rgb(228, 0, 43)"] {
     padding: 7px 9px !important;
     margin-left: 2px !important;
   }

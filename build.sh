@@ -33,6 +33,23 @@ if 'responsive.css' not in src:
         '</style>\n</helmet>',
         '</style>\n\n<link rel="stylesheet" href="responsive.css" />\n</helmet>', 1)
 
+# ── patch 0b: dark mode ───────────────────────────────────────────────────
+# Goes in the REAL <head>, not <helmet>: the runtime injects helmet content
+# only after React boots, which would flash the light theme first.
+if 'theme.css' not in src:
+    head = (
+        '<link rel="stylesheet" href="theme.css" />\n'
+        '<script>\n'
+        '  /* set the theme before first paint */\n'
+        '  (function(){try{var t=localStorage.getItem("theme")||\n'
+        '    (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");\n'
+        '    document.documentElement.setAttribute("data-theme",t);}catch(e){}})();\n'
+        '</script>\n'
+        '<script src="./theme.js" defer></script>\n'
+        '</head>'
+    )
+    src = src.replace('</head>', head, 1)
+
 # ── patch 1: Google Analytics (GA4) ───────────────────────────────────────
 if 'googletagmanager.com' not in src:
     snippet = (
