@@ -69,6 +69,22 @@
 [data-theme="dark"] [style*="1px solid rgba(32, 30, 29, 0.75)"]         { border-color: rgba(236,233,231,0.42) !important; }
 [data-theme="dark"] [style*="border: 2px solid rgb(32, 30, 29)"]             { border-color: rgba(236,233,231,0.55) !important; }
 
+/* ── hover states ──────────────────────────────────────────────────────────
+   The runtime compiles every `style-hover` attribute into a generated class
+   in a stylesheet it injects at runtime — `.scp3:hover { background: rgb(234,
+   233, 233) !important }` and friends. Those are !important AND come after
+   this file, so equal-specificity rules lose. These selectors are deliberately
+   heavier (html + attribute + element + :hover) to outrank them.
+
+   Without this the case-study cards flip to a light background on hover while
+   the text stays light — unreadable. */
+html[data-theme="dark"] article:hover { background: #202325 !important; }
+
+/* hover text that turns the dark accent (#96001C) is illegible on a dark
+   surface; lift it. Scoped to elements whose resting colour is the ink, so the
+   light-on-red buttons keep their own colour. */
+html[data-theme="dark"] [style*="color: rgb(32, 30, 29)"]:hover { color: #FF8497 !important; }
+
 /* ── media: take the glare off bright screenshots without washing them out ── */
 [data-theme="dark"] img,
 [data-theme="dark"] video { filter: brightness(0.88) contrast(1.02); }

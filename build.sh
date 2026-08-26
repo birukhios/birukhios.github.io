@@ -109,9 +109,52 @@ if 'loadContent' not in src:
 # `this.trackView()` call into componentDidMount, so a bare 'trackView' check
 # would skip this patch and ship a call with no function behind it.
 if 'trackView = () =>' not in src:
-    tracker = '''  /* Send a GA4 pageview per screen. The site never changes its URL, so without
-     this GA would record one "/" view per visitor regardless of how much they
-     browsed. Paths are virtual: /work, /play, /case/rad-reader, ... */
+    tracker = '''  /* ── URL routing ──────────────────────────────────────────────────────
+     The design keeps the current screen in component state only, so every
+     reload — and every shared link — landed back on Work. These sync the
+     screen to the hash (#/play, #/case/rad-reader), which also makes the
+     browser's back/forward buttons work and lets a case study be linked. */
+  SCREENS = ['work', 'play', 'about', 'resume', 'contact', '404'];
+
+  pathFor = (screen, caseId) =>
+    screen === 'case' ? '/case/' + caseId : '/' + screen;
+
+  readHash = () => {
+    const h = (location.hash || '').replace(/^#/, '');
+    if (!h || h === '/') return null;
+    const m = h.match(/^\\/case\\/(.+)$/);
+    if (m) return { screen: 'case', caseId: decodeURIComponent(m[1]) };
+    const s = h.replace(/^\\//, '');
+    return this.SCREENS.indexOf(s) >= 0 ? { screen: s } : null;
+  };
+
+  onHashChange = () => {
+    if (this._fromSelf) { this._fromSelf = false; return; }
+    const r = this.readHash();
+    if (!r) return;
+    if (r.screen !== this.state.screen ||
+        (r.caseId && r.caseId !== this.state.caseId)) {
+      this.setState(r);
+      window.scrollTo(0, 0);
+    }
+  };
+
+  syncUrl = () => {
+    const p = this.pathFor(this.state.screen, this.state.caseId);
+    if (location.hash === '#' + p) return;
+    if (!this._urlReady) {
+      // first paint: don't push a history entry for the landing screen
+      this._urlReady = true;
+      history.replaceState(null, '', '#' + p);
+    } else {
+      this._fromSelf = true;   // our own change; don't echo it back
+      location.hash = p;
+    }
+  };
+
+  /* Send a GA4 pageview per screen. The site never changes its path, so
+     without this GA would record one "/" view per visitor regardless of how
+     much they browsed. Paths match the hash routes above. */
   trackView = () => {
     if (typeof gtag !== 'function') return;
     const s = this.state.screen;
@@ -128,8 +171,19 @@ if 'trackView = () =>' not in src:
     });
   };
 
-  componentDidUpdate() { this.fitAll(); this.trackView(); }'''
+  componentDidUpdate() { this.fitAll(); this.syncUrl(); this.trackView(); }'''
     src = src.replace('  componentDidUpdate() { this.fitAll(); }', tracker, 1)
+
+# ── patch 4: restore the screen from the URL on load ──────────────────────
+if 'onHashChange' in src and 'addEventListener(\'hashchange\'' not in src:
+    src = src.replace(
+        "    this.loadContent();\n    this.trackView();\n  }",
+        "    this.loadContent();\n"
+        "    const fromUrl = this.readHash();\n"
+        "    if (fromUrl) this.setState(fromUrl);\n"
+        "    window.addEventListener('hashchange', this.onHashChange);\n"
+        "    this.syncUrl();\n"
+        "    this.trackView();\n  }", 1)
 
 open(path, 'w', encoding='utf-8').write(src)
 print(f"  patched {path}")
