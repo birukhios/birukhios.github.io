@@ -2,33 +2,33 @@
   "items": [
     {
       "n": "01",
-      "title": "Find the real question",
-      "body": "Every brief arrives as a feature request. I spend the first days turning it back into a question about people — what someone is trying to be certain of, and what currently makes them doubt it. Research, interviews, journey maps; the output is one sentence the whole team can argue with."
+      "title": "Start with the problem",
+      "body": "Briefs arrive as feature requests. I use interviews and research to work out what people actually need, then write it down as one sentence the team can agree on."
     },
     {
       "n": "02",
-      "title": "Model before you draw",
-      "body": "Most product failures are data-model failures wearing a UI costume. Before a screen exists I settle the objects and their states — what a case, a booking, a complaint actually is — because the layout falls out of that and never the other way round."
+      "title": "Model the data first",
+      "body": "I settle the objects and their states — what a booking or a complaint really is — before designing screens. Getting this wrong is expensive to undo later."
     },
     {
       "n": "03",
-      "title": "Build the frame, then the rooms",
-      "body": "One shell, one navigation model, one pattern for list → record → edit. When the frame is decided, a new screen can be specified by describing its content. This is what lets a small team ship four surfaces that still feel like one product."
+      "title": "Set the structure",
+      "body": "One shell, one navigation model, one pattern for list, record and edit. After that, a new screen only needs its content described."
     },
     {
       "n": "04",
-      "title": "Design in states, not ideals",
-      "body": "Empty, loading, partial, failed, offline, too much data. The state nobody documented is the one that ships wrong, so every component gets drawn in the condition it will actually meet on a mid-range phone on a bad connection."
+      "title": "Design every state",
+      "body": "Empty, loading, partial, failed, offline, overloaded. I draw components in the conditions they will actually meet, including a mid-range phone on a bad connection."
     },
     {
       "n": "05",
-      "title": "Test, and let it hurt",
-      "body": "Preference tests and usability sessions are where opinions go to die. When people tell me the image should be bigger, the hierarchy sharper, the icons separated — I change it, even when the earlier version was more consistent with my system."
+      "title": "Test and revise",
+      "body": "Usability sessions and preference tests. When people struggle with something, I change it, even when I preferred the earlier version."
     },
     {
       "n": "06",
-      "title": "Hand off with the reasoning attached",
-      "body": "Specs, tokens, component states, and the argument for each decision written next to the frame. Work that cannot survive a question in review does not survive the sprint either."
+      "title": "Hand off with the reasoning",
+      "body": "Specs, tokens and component states, with the reason for each decision written next to the frame it belongs to."
     }
   ]
 }
