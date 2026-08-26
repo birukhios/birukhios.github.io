@@ -1569,7 +1569,7 @@
     },
     {
       "id": "complaint-management",
-      "name": "Complaint Management test",
+      "name": "Complaint Management",
       "year": "2025",
       "kind": "Case management · Service operations · Enterprise UX",
       "blurb": "A complaint is a promise to resolve something. This system makes that promise visible — intake, ownership, SLA and resolution in one trail.",
