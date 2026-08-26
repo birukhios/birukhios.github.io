@@ -27,15 +27,22 @@
    with 5 tiles the last row orphans, and a bleed-through grid paints the
    empty cells as a slab of rule colour. */
 .tiles {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
   background: var(--bg); border-top: 2px solid var(--rule);
   border-bottom: 2px solid var(--rule); margin-bottom: 30px;
 }
 .tile {
-  background: var(--bg); padding: 16px 16px 18px;
+  background: var(--bg); padding: 14px 14px 16px;
   border-left: 1px solid var(--rule-soft);
 }
 .tile:first-child { border-left: 0; }
+/* the hero shrinks with the panel rather than forcing a horizontal scroll */
+.tile.hero .val { font-size: clamp(30px, 4.2vw, 46px); }
+@media (max-width: 620px) {
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .tile { border-left: 0; border-top: 1px solid var(--rule-soft); }
+  .tile:first-child, .tile:nth-child(2) { border-top: 0; }
+}
 .tile .lab { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
 /* proportional figures: tabular-nums makes a big standalone number look loose */
 .tile .val { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-top: 6px; line-height: 1; }
@@ -47,8 +54,12 @@
 }
 
 /* ── chart blocks ─────────────────────────────────────────────────────── */
-.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-@media (max-width: 860px) { .charts { grid-template-columns: 1fr; } }
+/* These charts render inside the CMS panel, beside a 232px sidebar — so the
+   usable width is roughly (viewport - 232 - gutters). Going single-column at
+   860px would leave two cramped columns on a 1000px screen; 1120px is where
+   the panel actually stops fitting two. */
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 30px; }
+@media (max-width: 1120px) { .charts { grid-template-columns: 1fr; } }
 .chart { min-width: 0; }
 .chart .chead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
 .chart h2 { font-size: 15px; font-weight: 800; }

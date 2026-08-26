@@ -3,7 +3,8 @@
  * Google blocks its own dashboard from being iframed, so instead of embedding
  * we query the Data API and render natively. Auth is Google Identity Services
  * token flow: the OAuth *client ID* is public by design (browser apps have no
- * client secret), and the access token lives in memory only — never stored.
+ * client secret). The access token is held in sessionStorage with its expiry —
+ * see saveToken — so a reload doesn't force a fresh sign-in.
  *
  * Needs two values, entered once and kept in localStorage:
  *   ga.clientId    OAuth 2.0 Web client ID  (…apps.googleusercontent.com)
@@ -27,7 +28,35 @@
     },
   };
 
-  var token = null;       // access token, memory only
+  /* Access token.
+     Kept in sessionStorage, not memory: memory-only meant every reload dropped
+     it and demanded a fresh sign-in, and Google's silent path (prompt:'none')
+     is unreliable now that browsers restrict third-party cookies.
+     sessionStorage survives reloads but is cleared when the tab closes, and the
+     token is read-only analytics scope with ~1h life, stored with its expiry so
+     a stale one is never sent. */
+  var TKEY = 'ga.token';
+  var token = null;
+  function saveToken(t, expiresIn) {
+    token = t;
+    try {
+      sessionStorage.setItem(TKEY, JSON.stringify({
+        t: t, exp: Date.now() + ((+expiresIn || 3600) * 1000) - 60000, // 60s safety margin
+      }));
+    } catch (e) {}
+  }
+  function loadToken() {
+    try {
+      var r = JSON.parse(sessionStorage.getItem(TKEY) || 'null');
+      if (r && r.t && r.exp > Date.now()) return r.t;
+    } catch (e) {}
+    return null;
+  }
+  function clearToken() {
+    token = null;
+    try { sessionStorage.removeItem(TKEY); } catch (e) {}
+  }
+
   var tokenClient = null;
   var days = 28;
 
@@ -107,7 +136,7 @@
       headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     }).then(function (r) {
-      if (r.status === 401) { token = null; throw new Error('AUTH'); }
+      if (r.status === 401) { clearToken(); throw new Error('AUTH'); }
       if (!r.ok) {
         return r.json().catch(function () { return {}; }).then(function (j) {
           var m = (j.error && j.error.message) || ('HTTP ' + r.status);
@@ -337,6 +366,16 @@
 
   function dashboard() {
     host.innerHTML = '';
+    /* Mirrors the Content panel: kicker rule, h1, count, hint — so the two
+       tabs read as one product rather than a dashboard bolted onto a CMS. */
+    host.appendChild(el('div', { class: 'head' }, [
+      el('h1', { text: 'Analytics' }),
+      el('span', { class: 'kicker', text: DEMO ? 'sample data' : 'last ' + days + ' days' }),
+    ]));
+    host.appendChild(el('p', { class: 'hint', text: DEMO
+      ? 'Sample figures — this is what the dashboard looks like with data in it.'
+      : 'Live from Google Analytics. Every chart has a table view.' }));
+
     var filters = el('div', { class: 'filters' }, [
       el('span', { class: 'kicker', text: 'Last' }),
       el('span', { class: 'range' }, [7, 28, 90].map(function (d) {
@@ -344,9 +383,12 @@
           text: d + ' days', onclick: function () { days = d; dashboard(); } });
       })),
       el('span', { class: 'sp' }),
+      el('button', { class: 'tiny', type: 'button', text: 'Refresh', onclick: function () { dashboard(); } }),
       el('a', { class: 'btn tiny', href: 'https://analytics.google.com/', target: '_blank',
         rel: 'noopener', text: 'Open GA ↗' }),
-      el('button', { class: 'tiny', type: 'button', text: 'Change setup', onclick: function () { setupView(); } }),
+      el('button', { class: 'tiny', type: 'button', text: 'Setup', onclick: function () { setupView(); } }),
+      DEMO ? null : el('button', { class: 'tiny danger', type: 'button', text: 'Disconnect',
+        onclick: function () { clearToken(); connectView('Disconnected.'); } }),
     ]);
     host.appendChild(filters);
     var body = el('div', {}, [el('p', { html: '<span class="spin"></span> Loading…' })]);
@@ -424,7 +466,10 @@
           client_id: cfg.clientId,
           scope: SCOPE,
           callback: function (resp) {
-            if (resp && resp.access_token) { token = resp.access_token; return dashboard(); }
+            if (resp && resp.access_token) {
+              saveToken(resp.access_token, resp.expires_in);
+              return dashboard();
+            }
             // Testing-mode consent screens reject non-test-users with access_denied
             if (resp && /access_denied|admin_policy/.test(resp.error || '')) return deniedView();
             connectView('Authorisation returned no token' +
@@ -457,6 +502,8 @@
     if (!host) return;
     if (DEMO) return dashboard();
     if (!cfg.clientId || !cfg.propertyId) return setupView();
+    token = loadToken();
+    if (token) return dashboard();          // still valid — no sign-in needed
     connectView();
     // page load: silent attempt only — a popup here would be blocked
     authorize(false);
