@@ -38,6 +38,27 @@ if 'responsive.css' not in src:
 # only after React boots, which would flash the light theme first.
 if 'theme.css' not in src:
     head = (
+        # ── discovery: link previews and search results ──────────────────
+        # Without these a shared link renders as a bare URL — no title, no
+        # image, no description. og:image must be an ABSOLUTE url; LinkedIn,
+        # Slack and WhatsApp all reject relative ones.
+        '<meta name="description" content="Product manager and designer in Addis '
+        'Ababa. Seven years building HR, ERP, CRM and healthcare products." />\n'
+        '<link rel="canonical" href="https://birukhios.github.io/" />\n'
+        '<link rel="icon" type="image/png" href="/uploads/brand/favicon-64.png" />\n'
+        '<link rel="apple-touch-icon" href="/uploads/brand/apple-touch-icon.png" />\n'
+        '<meta property="og:type" content="website" />\n'
+        '<meta property="og:url" content="https://birukhios.github.io/" />\n'
+        '<meta property="og:site_name" content="Biruk Habtamu" />\n'
+        '<meta property="og:title" content="Biruk Habtamu — Product Manager &amp; Designer" />\n'
+        '<meta property="og:description" content="Seven years building HR, ERP, CRM '
+        'and healthcare products. Selected case studies, experience and contact." />\n'
+        '<meta property="og:image" content="https://birukhios.github.io/uploads/brand/biruk-habtamu-icon.png" />\n'
+        '<meta name="twitter:card" content="summary" />\n'
+        '<meta name="twitter:title" content="Biruk Habtamu — Product Manager &amp; Designer" />\n'
+        '<meta name="twitter:description" content="Seven years building HR, ERP, CRM '
+        'and healthcare products." />\n'
+        '<meta name="twitter:image" content="https://birukhios.github.io/uploads/brand/biruk-habtamu-icon.png" />\n'
         '<link rel="stylesheet" href="theme.css" />\n'
         '<script>\n'
         '  /* set the theme before first paint */\n'
@@ -80,7 +101,6 @@ if 'loadContent' not in src:
     const assign = {
       'projects':   v => { P = v; },          'posters':    v => { POSTERS = v; },
       'branding':   v => { BRANDING = v; },   'mood':       v => { MOOD = v; },
-      'sites':      v => { SITES = v; },      'sites-more': v => { SITES_MORE = v; },
       'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
       'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
     };

@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<meta name="description" content="Product manager and designer in Addis Ababa. Seven years building HR, ERP, CRM and healthcare products." />
+<link rel="canonical" href="https://birukhios.github.io/" />
+<link rel="icon" type="image/png" href="/uploads/brand/favicon-64.png" />
+<link rel="apple-touch-icon" href="/uploads/brand/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://birukhios.github.io/" />
+<meta property="og:site_name" content="Biruk Habtamu" />
+<meta property="og:title" content="Biruk Habtamu — Product Manager &amp; Designer" />
+<meta property="og:description" content="Seven years building HR, ERP, CRM and healthcare products. Selected case studies, experience and contact." />
+<meta property="og:image" content="https://birukhios.github.io/uploads/brand/biruk-habtamu-icon.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Biruk Habtamu — Product Manager &amp; Designer" />
+<meta name="twitter:description" content="Seven years building HR, ERP, CRM and healthcare products." />
+<meta name="twitter:image" content="https://birukhios.github.io/uploads/brand/biruk-habtamu-icon.png" />
 <link rel="stylesheet" href="theme.css" />
 <script>
   /* set the theme before first paint */
@@ -405,6 +419,9 @@
             <figcaption style="padding-top: 10px">
               <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em; line-height: 1.2">{{ m.title }}</h3>
               <p style="margin: 0; font-size: 13px; line-height: 1.45; color: rgba(32,30,29,0.65)">{{ m.note }}</p>
+              <sc-if value="{{ m.hasLive }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ m.live }}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #96001C; text-decoration: none; border-bottom: 2px solid #E4002B; padding-bottom: 2px">Visit site ↗</a>
+              </sc-if>
             </figcaption>
           </figure>
         </sc-for>
@@ -1285,24 +1302,7 @@ let MOOD = [
   { src: PL + 'pdf8-web-wide.png', title: 'Marketplace app', note: 'Five-screen presentation frame — sign in, browse, brand, onboarding.', ar: '2 / 1' }
 ];
 
-let SITES = [
-  { name: 'Beelydrop', year: '2024', kind: 'Ecommerce · Startup · Web design', cover: 'uploads/framer-portfolio/beelydrop/cover.png',
-    note: 'A Nigerian ecommerce startup web concept with a bold retail story, product discovery flow and a polished visual system for online shopping.',
-    live: 'https://biruksportfolio.framer.website/works/beelydrop' },
-  { name: 'Maraki', year: '2024', kind: 'Education consultancy · Landing page', cover: 'uploads/framer-portfolio/maraki/cover.png',
-    note: 'A landing page direction built around clear student guidance, trust-building content and a calm web experience.',
-    live: 'https://biruksportfolio.framer.website/works/maraki' },
-  { name: 'Trust Pharmaceutical', year: '2024', kind: 'Pharmaceutical · Manufacturing · Web design', cover: 'uploads/client-websites/trust-pharmaceutical.png',
-    note: 'A turquoise-led, trust-forward site for a manufacturer speaking to hospitals, distributors and regulators in one voice.', live: '' },
-  { name: 'LifeWire', year: '2024', kind: 'Consulting · Strategy · Digital experience', cover: 'uploads/client-websites/lifewire.png',
-    note: 'A dark, atmospheric consulting site: gradient depth, oversized typography and a premium transformation narrative.', live: '' }
-];
 
-let SITES_MORE = [
-  { name: 'Breeze Pharmaceutical Technologies', kind: 'Cinematic corporate site — red and blue overlays over industrial imagery, with a modular system for product and capability pages.' },
-  { name: 'Dallol Design + Build', kind: 'Full-screen architectural landing page built around a single hero building, oversized type and quiet motion.' },
-  { name: 'Ethiopian Mineral Corporation', kind: 'Visual identity and landing page for a national mining institution — mineral macro photography on an institutional base.' }
-];
 
 let SERVICES = [
   { title: 'Product Strategy & Management', body: 'Roadmaps, stakeholder alignment, product planning, launch thinking, and clear execution systems for teams building digital products.' },
@@ -1389,7 +1389,6 @@ class Component extends DCLogic {
     const assign = {
       'projects':   v => { P = v; },          'posters':    v => { POSTERS = v; },
       'branding':   v => { BRANDING = v; },   'mood':       v => { MOOD = v; },
-      'sites':      v => { SITES = v; },      'sites-more': v => { SITES_MORE = v; },
       'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
       'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
     };
@@ -1530,11 +1529,8 @@ class Component extends DCLogic {
       imgFilter: bw ? 'grayscale(1) contrast(1.08)' : 'none',
       showAvailability: this.props.showAvailability ?? true,
       projectCount: P.filter(p => (p.group || 'work') === 'work').length,
-      playCount: SITES.length + SITES_MORE.length,
       branding: BRANDING,
-      mood: MOOD, moodCount: MOOD.length,
-      sites: SITES.map(s2 => ({ name: s2.name, year: s2.year, kind: s2.kind, cover: s2.cover, note: s2.note, live: s2.live, hasLive: !!s2.live })),
-      sitesMore: SITES_MORE,
+      mood: MOOD.map(m => ({ ...m, hasLive: !!m.live })), moodCount: MOOD.length,
       services: SERVICES.map((sv, i) => ({ num: String(i + 1).padStart(2, '0'), title: sv.title, body: sv.body })),
       education: EDU,
       roles: EXPERIENCE.map(r => ({ org: r.org, title: r.title, when: r.when, note: r.note })),

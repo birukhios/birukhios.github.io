@@ -84,6 +84,7 @@ window.SCHEMA = [
       { key: 'title', label: 'Title', type: 'text' },
       { key: 'note', label: 'Note', type: 'area' },
       { key: 'ar', label: 'Aspect ratio', type: 'text', hint: 'e.g. 16 / 10' },
+      { key: 'live', label: 'Live URL', type: 'text', hint: 'Optional. Adds a “Visit site ↗” link under the caption.' },
     ],
   },
   {
@@ -103,18 +104,6 @@ window.SCHEMA = [
       { key: 'src', label: 'Image', type: 'image' },
       { key: 'title', label: 'Title', type: 'text' },
       { key: 'note', label: 'Note', type: 'area' },
-    ],
-  },
-  {
-    name: 'sites', label: 'Client sites', file: 'content/sites.json',
-    summary: (v) => v.name,
-    fields: [
-      { key: 'name', label: 'Name', type: 'text' },
-      { key: 'year', label: 'Year', type: 'text' },
-      { key: 'kind', label: 'Kind', type: 'text' },
-      { key: 'cover', label: 'Cover image', type: 'image' },
-      { key: 'note', label: 'Note', type: 'area' },
-      { key: 'live', label: 'Live URL', type: 'text' },
     ],
   },
   {
