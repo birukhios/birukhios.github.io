@@ -87,6 +87,14 @@ layout before wiring anything up.
 1. In [Google Cloud Console](https://console.cloud.google.com/), create or pick a project.
 2. **APIs & Services → Library** → enable **Google Analytics Data API**.
 3. **OAuth consent screen** → External → add your own Google account under **Test users**.
+   *(New console: **Google Auth Platform → Audience → Test users**.)* Skipping this
+   is the #1 cause of `Error 403: access_denied` — Google words it as *"has not
+   completed the Google verification process"*, which sounds like the app needs
+   review. It doesn't; the account just isn't on the test-user list. Add the
+   address you actually sign in with, and make sure it can view the GA property.
+   **Don't "Publish" the app to get around it** — the analytics scope is sensitive,
+   so publishing triggers a formal Google review you don't need for a private
+   dashboard.
 4. **Credentials → Create credentials → OAuth client ID → Web application**.
    Authorised JavaScript origins:
    - `https://birukhios.github.io`

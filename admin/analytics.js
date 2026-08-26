@@ -306,6 +306,35 @@
     ]));
   }
 
+  /* Google's own message for this is "has not completed the Google verification
+     process", which sounds like the app needs review — it doesn't. The consent
+     screen is in Testing mode and the signing-in account simply isn't on the
+     test-user list. Say that, with the link. */
+  function deniedView() {
+    host.innerHTML = '';
+    host.appendChild(el('div', { class: 'setup' }, [
+      el('h1', { text: 'Add yourself as a test user' }),
+      el('p', { class: 'hint', text:
+        'Google refused the sign-in because the consent screen is in Testing mode, ' +
+        'which only allows accounts listed as test users. This is the right mode for ' +
+        'a private dashboard — you just need to be on the list.' }),
+      el('ol', { html:
+        '<li>Open <a href="https://console.cloud.google.com/auth/audience" target="_blank" rel="noopener">Google Auth Platform → Audience</a> ' +
+        '(older console: <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank" rel="noopener">APIs &amp; Services → OAuth consent screen</a>).</li>' +
+        '<li>Check the project selector shows the project your OAuth client is in.</li>' +
+        '<li>Under <b>Test users</b> → <b>+ Add users</b>, add the Google account you sign in with.</li>' +
+        '<li>Save, then press Connect again.</li>' }),
+      el('p', { class: 'hint', text:
+        'Sign in with the account that can view the GA property. Do not "Publish" the ' +
+        'app to avoid this — the analytics scope is sensitive, so publishing triggers a ' +
+        'Google review you do not need.' }),
+      el('button', { class: 'primary', type: 'button', text: 'Connect Google Analytics',
+        onclick: function () { authorize(true); } }),
+      el('p', {}, [el('button', { class: 'tiny', type: 'button', text: 'Change setup',
+        onclick: function () { setupView(); } })]),
+    ]));
+  }
+
   function dashboard() {
     host.innerHTML = '';
     var filters = el('div', { class: 'filters' }, [
@@ -395,16 +424,21 @@
           client_id: cfg.clientId,
           scope: SCOPE,
           callback: function (resp) {
-            if (resp && resp.access_token) { token = resp.access_token; dashboard(); }
-            else connectView('Authorisation returned no token.');
+            if (resp && resp.access_token) { token = resp.access_token; return dashboard(); }
+            // Testing-mode consent screens reject non-test-users with access_denied
+            if (resp && /access_denied|admin_policy/.test(resp.error || '')) return deniedView();
+            connectView('Authorisation returned no token' +
+                        (resp && resp.error ? ' (' + resp.error + ').' : '.'));
           },
           error_callback: function (err) {
-            var t = err && err.type;
+            var t = (err && err.type) || '';
             if (t === 'popup_closed') return connectView('Sign-in window closed before finishing.');
             if (t === 'popup_failed_to_open') {
               return connectView('The sign-in popup was blocked. Allow popups for this ' +
                                  'site, then press Connect again.');
             }
+            if (/access_denied|admin_policy/.test(t) ||
+                /access_denied|verification/.test((err && err.message) || '')) return deniedView();
             connectView('Authorisation failed (' + (t || 'unknown') + '). Check that the ' +
                         'client ID is correct and that ' + location.origin +
                         ' is listed under Authorised JavaScript origins.');
