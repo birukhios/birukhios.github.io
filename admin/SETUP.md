@@ -1,53 +1,76 @@
-# Admin setup
-
-Two things live under `/admin`:
+# Admin
 
 | URL | What it is |
 |---|---|
-| `/admin/` | **Sveltia CMS** — edit case studies, moodboard, experience, etc. |
+| `/admin/` | **CMS** — edit every piece of content on the site |
 | `/admin/analytics.html` | **Analytics** — where your visitors come from |
 
-Neither stores a password anywhere in this repository.
+No password is stored anywhere in this repository.
 
 ---
 
-## 1. CMS login (GitHub Personal Access Token)
+## 1. The CMS
 
-There is no portfolio password. You authenticate as **yourself on GitHub**, and
-your edits are committed to this repo as normal commits.
+Purpose-built for this site — no third-party CMS, no CDN dependency, no build
+step. It reads and writes `content/*.json` directly through the GitHub contents
+API from your browser.
 
-1. Go to <https://github.com/settings/personal-access-tokens/new>
-   (Settings → Developer settings → Personal access tokens → **Fine-grained tokens**)
+### Signing in
+
+You authenticate as **yourself on GitHub** with a fine-grained personal access
+token. Edits land as ordinary commits you can review, revert or blame.
+
+1. Open <https://github.com/settings/personal-access-tokens/new>
 2. Configure:
    - **Token name:** `Portfolio CMS`
    - **Expiration:** 90 days (renew when it lapses)
    - **Repository access:** *Only select repositories* → `birukhios/birukhios.github.io`
    - **Permissions → Repository permissions → Contents:** **Read and write**
-     *(this is the only permission needed)*
-3. Click **Generate token** and copy it.
-4. Open <https://birukhios.github.io/admin/>, choose **Sign In Using Access Token**,
-   and paste it.
+     *(the only permission needed)*
+3. Generate, copy, and paste it into `/admin/`.
 
-The token is stored in your browser's local storage only. It is never written to
-this repo. If you ever paste it somewhere public, revoke it immediately at
-<https://github.com/settings/tokens?type=beta>.
+The token is kept in this browser's local storage and sent only to
+`api.github.com`. It is never committed. To revoke it — if you paste it
+somewhere public, or lose the laptop — go to
+<https://github.com/settings/tokens?type=beta>. **Sign out** in the CMS also
+clears it from the browser.
 
-> **Editing locally instead:** the CMS also offers *"Work with Local Repository"*,
-> which edits the files on your Mac with no token at all. Handy for bulk changes.
+### Editing
 
-### How editing works
+- Pick a collection in the sidebar, then an entry.
+- Reorder or delete entries with the controls that appear on each row.
+- Nested content (case-study sections, their side points, images and tradeoffs)
+  expands inline — each level reorders and deletes independently.
+- Images: **Choose** picks an existing file from the repo; **Upload** adds a new
+  one to `uploads/cms/` and commits it immediately.
+- Nothing is written until you press **Commit to GitHub**. Until then the save
+  bar tracks unsaved changes, and closing the tab warns you.
+- After committing, GitHub Pages redeploys in about a minute.
 
-Content lives in `content/*.json`. Saving in the CMS commits to `main`, GitHub
-Pages rebuilds, and the change is live in ~1 minute. The site reads these files
-at runtime — the copies hardcoded inside `index.html` are only a fallback used
-if a fetch fails, so the site can never render empty.
+If someone else (or another tab) changed the same file after you opened it, the
+save is refused rather than silently overwriting — reload and re-apply.
+
+### Collections
+
+`Case Studies · Moodboard · Branding · Posters · Client sites · Experience ·
+Education · How I can help · How I work`
+
+To change a form — add a field, reword a label, add a collection — edit
+`admin/schema.js`. The forms are generated from it; there is no other place to
+update.
+
+### How content reaches the site
+
+`content/*.json` is fetched at runtime by `index.html`. The arrays hardcoded
+inside `index.html` are a **fallback** used only if a fetch fails, so the site
+can never render empty.
 
 ---
 
 ## 2. Analytics (Google Analytics 4)
 
-Already live — property `G-GJ4L5PVGNK`. Nothing to set up. View it at
-<https://analytics.google.com/> or via `/admin/analytics.html`.
+Live already — property `G-GJ4L5PVGNK`. View it at <https://analytics.google.com/>
+or through `/admin/analytics.html`.
 
 | To see | Go to |
 |---|---|
@@ -56,51 +79,53 @@ Already live — property `G-GJ4L5PVGNK`. Nothing to set up. View it at
 | Screens & case studies | Reports → Engagement → Pages and screens |
 | Confirm it's working | Reports → Realtime |
 
-### Virtual pageviews
+The site is one page with client-side routing, so pageviews are sent manually
+per screen using virtual paths — `/work`, `/play`, `/case/<id>` and so on.
+Without that, GA would record a single `/` view per visitor.
 
-The portfolio is one page with client-side routing — the URL never changes. Left
-alone, GA would record a single `/` view per visitor regardless of how much they
-browsed. So `gtag('config', …)` is set with `send_page_view: false`, and
-`trackView()` sends a pageview per screen using virtual paths:
-
-```
-/work  /play  /about  /resume  /contact  /case/<id>
-```
-
-To change the measurement ID:
-
-```bash
-GA_ID=G-XXXXXXXXXX ./build.sh
-```
+To change the measurement ID: `GA_ID=G-XXXXXXXXXX ./build.sh`
 
 > **Cookies.** GA4 sets cookies and generally needs a consent banner for EU/UK
-> visitors under GDPR/ePrivacy. A cookieless alternative (e.g. GoatCounter) or a
-> consent banner can be added if that matters for your audience.
+> visitors. A cookieless alternative or a banner can be added if that matters.
 
 ---
 
-## 3. Rebuilding after a Claude Design re-export
+## 3. Dark mode
 
-`Biruk Habtamu Portfolio.dc.html` is the design source of truth.
-`index.html` is the deployed build = that file **plus** two patches:
+Follows the OS by default; the toggle (bottom-right of the site) overrides it
+and the choice persists. The CMS follows the same setting.
 
-1. content arrays load from `content/*.json`
-2. the GoatCounter snippet
+The theme lives in `theme.css` and works by overriding the design's inline
+colours under `[data-theme="dark"]`.
 
-`build.sh` re-applies both:
+⚠️ **If you add colour rules**, note that browsers re-serialise colours in the
+style attribute: `#f3f2f2` in the source is `rgb(243, 242, 242)` in the DOM, and
+`rgba(32,30,29,0.4)` becomes `rgba(32, 30, 29, 0.4)`. Selectors written against
+the source form match nothing. Run this after editing:
 
 ```bash
-GOATCOUNTER_CODE=yourcode ./build.sh
+node tools/normalize-color-selectors.js theme.css responsive.css
+```
+
+---
+
+## 4. Rebuilding after a Claude Design re-export
+
+`Biruk Habtamu Portfolio.dc.html` is the design source of truth. `index.html` is
+the deployed build — that file plus patches for the responsive layer, dark mode,
+analytics and CMS content loading. `build.sh` re-applies all of them:
+
+```bash
+./build.sh
 ```
 
 If you changed content *in the design file* and want that to become the new CMS
-content, regenerate the JSON from it:
+content:
 
 ```bash
 node tools/extract-content.js
 ```
 
-⚠️ That **overwrites** `content/*.json` with whatever is in the design file, so
-it will discard edits made through the CMS. Normally you edit content in the CMS
-and layout in Claude Design — only run this when you deliberately want the
-design file's content to win.
+⚠️ That **overwrites** `content/*.json`, discarding edits made through the CMS.
+Normally you edit content in the CMS and layout in Claude Design — only run this
+when you deliberately want the design file's content to win.
