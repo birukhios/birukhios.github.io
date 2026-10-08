@@ -36,7 +36,12 @@
   gtag('js', new Date());
   // send_page_view:false — this is a client-side-routed site, so
   // pageviews are sent by trackView() with a virtual path per screen.
-  gtag('config', 'G-GJ4L5PVGNK', { send_page_view: false });
+  var __gaCfg = { send_page_view: false };
+  // ?gadebug=1 streams this visit into GA4 Admin -> DebugView, which
+  // confirms hits are landing without waiting on the Home card (that
+  // reads processed data and can lag 24-48h after the first hit).
+  if (/[?&]gadebug=1/.test(location.search)) __gaCfg.debug_mode = true;
+  gtag('config', 'G-GJ4L5PVGNK', __gaCfg);
 </script>
 </head>
 <body>

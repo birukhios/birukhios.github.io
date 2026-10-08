@@ -98,7 +98,12 @@ if 'theme.css' not in src:
         "  gtag('js', new Date());\n"
         '  // send_page_view:false — this is a client-side-routed site, so\n'
         '  // pageviews are sent by trackView() with a virtual path per screen.\n'
-        f"  gtag('config', '{ga_id}', {{ send_page_view: false }});\n"
+        '  var __gaCfg = { send_page_view: false };\n'
+        '  // ?gadebug=1 streams this visit into GA4 Admin -> DebugView, which\n'
+        '  // confirms hits are landing without waiting on the Home card (that\n'
+        '  // reads processed data and can lag 24-48h after the first hit).\n'
+        "  if (/[?&]gadebug=1/.test(location.search)) __gaCfg.debug_mode = true;\n"
+        f"  gtag('config', '{ga_id}', __gaCfg);\n"
         '</script>\n'
         '</head>'
     )
