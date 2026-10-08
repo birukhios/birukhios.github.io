@@ -96,9 +96,13 @@ if 'theme.css' not in src:
         '  function gtag(){dataLayer.push(arguments);}\n'
         '  window.gtag = gtag;\n'
         "  gtag('js', new Date());\n"
-        '  // send_page_view:false — this is a client-side-routed site, so\n'
-        '  // pageviews are sent by trackView() with a virtual path per screen.\n'
-        '  var __gaCfg = { send_page_view: false };\n'
+        '  // Google\'s standard snippet, unmodified: config sends the pageview\n'
+        '  // for the landing screen automatically. An earlier version passed\n'
+        '  // send_page_view:false and routed EVERY pageview through our own\n'
+        '  // trackView(), which put custom code on the critical path for the\n'
+        '  // very first hit. Google\'s default path is the dependable one;\n'
+        '  // trackView now only reports SUBSEQUENT screens (see its comment).\n'
+        '  var __gaCfg = {};\n'
         '  // ?gadebug=1 streams this visit into GA4 Admin -> DebugView, which\n'
         '  // confirms hits are landing without waiting on the Home card (that\n'
         '  // reads processed data and can lag 24-48h after the first hit).\n'
@@ -150,7 +154,7 @@ if 'loadContent' not in src:
 # NB: guard on the *definition*, not the name — patch 2 already inserted a
 # `this.trackView()` call into componentDidMount, so a bare 'trackView' check
 # would skip this patch and ship a call with no function behind it.
-if 'trackView = () =>' not in src:
+if 'trackView = (' not in src:
     tracker = '''  /* ── URL routing ──────────────────────────────────────────────────────
      The design keeps the current screen in component state only, so every
      reload — and every shared link — landed back on Work. These sync the
@@ -196,13 +200,17 @@ if 'trackView = () =>' not in src:
 
   /* Send a GA4 pageview per screen. The site never changes its path, so
      without this GA would record one "/" view per visitor regardless of how
-     much they browsed. Paths match the hash routes above. */
-  trackView = () => {
+     much they browsed. Paths match the hash routes above.
+     The LANDING screen is NOT reported here — gtag('config') already sent a
+     pageview for it. initial=true records the starting screen so the dedupe
+     below works, without emitting a duplicate hit for it. */
+  trackView = (initial) => {
     if (typeof window.gtag !== 'function') return;
     const s = this.state.screen;
     const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
     if (this._lastView === path) return;
     this._lastView = path;
+    if (initial) return;            // config already counted the landing screen
     const title = s === 'case'
       ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
       : s.charAt(0).toUpperCase() + s.slice(1);
@@ -225,7 +233,7 @@ if 'onHashChange' in src and 'addEventListener(\'hashchange\'' not in src:
         "    if (fromUrl) this.setState(fromUrl);\n"
         "    window.addEventListener('hashchange', this.onHashChange);\n"
         "    this.syncUrl();\n"
-        "    this.trackView();\n  }", 1)
+        "    this.trackView(true);\n  }", 1)
 
 open(path, 'w', encoding='utf-8').write(src)
 print(f"  patched {path}")

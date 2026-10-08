@@ -34,9 +34,13 @@
   function gtag(){dataLayer.push(arguments);}
   window.gtag = gtag;
   gtag('js', new Date());
-  // send_page_view:false — this is a client-side-routed site, so
-  // pageviews are sent by trackView() with a virtual path per screen.
-  var __gaCfg = { send_page_view: false };
+  // Google's standard snippet, unmodified: config sends the pageview
+  // for the landing screen automatically. An earlier version passed
+  // send_page_view:false and routed EVERY pageview through our own
+  // trackView(), which put custom code on the critical path for the
+  // very first hit. Google's default path is the dependable one;
+  // trackView now only reports SUBSEQUENT screens (see its comment).
+  var __gaCfg = {};
   // ?gadebug=1 streams this visit into GA4 Admin -> DebugView, which
   // confirms hits are landing without waiting on the Home card (that
   // reads processed data and can lag 24-48h after the first hit).
@@ -1432,7 +1436,7 @@ class Component extends DCLogic {
     if (fromUrl) this.setState(fromUrl);
     window.addEventListener('hashchange', this.onHashChange);
     this.syncUrl();
-    this.trackView();
+    this.trackView(true);
   }
 
   /* ── URL routing ──────────────────────────────────────────────────────
@@ -1480,13 +1484,17 @@ class Component extends DCLogic {
 
   /* Send a GA4 pageview per screen. The site never changes its path, so
      without this GA would record one "/" view per visitor regardless of how
-     much they browsed. Paths match the hash routes above. */
-  trackView = () => {
+     much they browsed. Paths match the hash routes above.
+     The LANDING screen is NOT reported here — gtag('config') already sent a
+     pageview for it. initial=true records the starting screen so the dedupe
+     below works, without emitting a duplicate hit for it. */
+  trackView = (initial) => {
     if (typeof window.gtag !== 'function') return;
     const s = this.state.screen;
     const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
     if (this._lastView === path) return;
     this._lastView = path;
+    if (initial) return;            // config already counted the landing screen
     const title = s === 'case'
       ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
       : s.charAt(0).toUpperCase() + s.slice(1);
