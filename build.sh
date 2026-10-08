@@ -26,12 +26,28 @@ import re, sys
 path, ga_id = sys.argv[1], sys.argv[2]
 src = open(path, encoding='utf-8').read()
 
+
+def must_replace(src, anchor, replacement, what):
+    """Replace exactly once, or abort.
+
+    str.replace() fails SILENTLY when the anchor is missing, and that cost us
+    Google Analytics: patch 0 consumed the '</style>\\n</helmet>' anchor, so the
+    GA patch below quietly matched nothing and the tag vanished from the build
+    for weeks. Every patch now proves it applied.
+    """
+    if anchor not in src:
+        sys.exit(f"build.sh: anchor for {what!r} not found — refusing to emit a "
+                 f"silently broken page.\n  looked for: {anchor!r}")
+    return src.replace(anchor, replacement, 1)
+
+
 # ── patch 0: responsive layer ─────────────────────────────────────────────
 # Must come last in the head so it can override the design's inline styles.
 if 'responsive.css' not in src:
-    src = src.replace(
-        '</style>\n</helmet>',
-        '</style>\n\n<link rel="stylesheet" href="responsive.css" />\n</helmet>', 1)
+    src = must_replace(
+        src, '</style>\n</helmet>',
+        '</style>\n\n<link rel="stylesheet" href="responsive.css" />\n</helmet>',
+        'responsive stylesheet')
 
 # ── patch 0b: dark mode ───────────────────────────────────────────────────
 # Goes in the REAL <head>, not <helmet>: the runtime injects helmet content
@@ -67,25 +83,26 @@ if 'theme.css' not in src:
         '    document.documentElement.setAttribute("data-theme",t);}catch(e){}})();\n'
         '</script>\n'
         '<script src="./theme.js" defer></script>\n'
-        '</head>'
-    )
-    src = src.replace('</head>', head, 1)
-
-# ── patch 1: Google Analytics (GA4) ───────────────────────────────────────
-if 'googletagmanager.com' not in src:
-    snippet = (
+        # ── Google Analytics (GA4) ───────────────────────────────────────
+        # MUST live in the real <head>, never in <helmet>: the dc-runtime
+        # copies <link> and <meta> out of helmet but DROPS <script>, so a tag
+        # placed there sits in the HTML source and never executes. That is why
+        # GA reported "no data received" while the snippet was visibly present
+        # in view-source.
         '\n<!-- Google Analytics (GA4) -->\n'
         f'<script async src="https://www.googletagmanager.com/gtag/js?id={ga_id}"></script>\n'
         '<script>\n'
         '  window.dataLayer = window.dataLayer || [];\n'
         '  function gtag(){dataLayer.push(arguments);}\n'
+        '  window.gtag = gtag;\n'
         "  gtag('js', new Date());\n"
-        '  // send_page_view:false — client-side-routed site; pageviews are sent\n'
-        '  // manually by trackView() so each screen is counted.\n'
+        '  // send_page_view:false — this is a client-side-routed site, so\n'
+        '  // pageviews are sent by trackView() with a virtual path per screen.\n'
         f"  gtag('config', '{ga_id}', {{ send_page_view: false }});\n"
         '</script>\n'
+        '</head>'
     )
-    src = src.replace('</style>\n</helmet>', '</style>\n' + snippet + '</helmet>', 1)
+    src = must_replace(src, '</head>', head, 'head block (theme, social meta, GA)')
 
 # ── patch 2: content arrays become overridable, and load from content/*.json ──
 for name in ['P','POSTERS','BRANDING','MOOD','SITES','SITES_MORE',
@@ -176,7 +193,7 @@ if 'trackView = () =>' not in src:
      without this GA would record one "/" view per visitor regardless of how
      much they browsed. Paths match the hash routes above. */
   trackView = () => {
-    if (typeof gtag !== 'function') return;
+    if (typeof window.gtag !== 'function') return;
     const s = this.state.screen;
     const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
     if (this._lastView === path) return;
@@ -184,7 +201,7 @@ if 'trackView = () =>' not in src:
     const title = s === 'case'
       ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
       : s.charAt(0).toUpperCase() + s.slice(1);
-    gtag('event', 'page_view', {
+    window.gtag('event', 'page_view', {
       page_title: title,
       page_path: path,
       page_location: location.origin + path,

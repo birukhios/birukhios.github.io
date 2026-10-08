@@ -26,6 +26,18 @@
     document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
 </script>
 <script src="./theme.js" defer></script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ4L5PVGNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  // send_page_view:false — this is a client-side-routed site, so
+  // pageviews are sent by trackView() with a virtual path per screen.
+  gtag('config', 'G-GJ4L5PVGNK', { send_page_view: false });
+</script>
 </head>
 <body>
 <x-dc>
@@ -1465,7 +1477,7 @@ class Component extends DCLogic {
      without this GA would record one "/" view per visitor regardless of how
      much they browsed. Paths match the hash routes above. */
   trackView = () => {
-    if (typeof gtag !== 'function') return;
+    if (typeof window.gtag !== 'function') return;
     const s = this.state.screen;
     const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
     if (this._lastView === path) return;
@@ -1473,7 +1485,7 @@ class Component extends DCLogic {
     const title = s === 'case'
       ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
       : s.charAt(0).toUpperCase() + s.slice(1);
-    gtag('event', 'page_view', {
+    window.gtag('event', 'page_view', {
       page_title: title,
       page_path: path,
       page_location: location.origin + path,
