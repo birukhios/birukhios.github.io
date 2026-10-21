@@ -138,3 +138,32 @@ html:not([data-theme="dark"]) [style*="color: rgb(239, 51, 64)"] { color:var(--b
 /* Keep the identity neutral even when global link hover rules apply. */
 html .bhios-home, html .bhios-home:hover { text-decoration: none !important; }
 html .bhios-logo { filter: none !important; color: var(--bhios-logo-ink) !important; }
+
+
+/* Product stories: readable evidence, complete screens and honest measurement. */
+.product-preview { margin:0; }
+.product-preview img { display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:contain; background:#eae9e9; filter:none !important; }
+.product-preview figcaption { font-size:12px; line-height:1.5; margin-top:12px; opacity:.8; }
+.product-card-decision { font-size:15px; line-height:1.6; margin:0 0 20px; max-width:48ch; }
+.product-card-decision strong { display:block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color:#96001C; }
+.product-brief { margin:40px 0; border-top:2px solid currentColor; border-bottom:1px solid currentColor; }
+.product-brief-heading { display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:22px 0; }
+.product-brief-heading h2 { font-size:26px; letter-spacing:-.02em; margin:0; }
+.product-brief-heading span { font-size:12px; opacity:.8; }
+.product-brief-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 48px; padding:24px 0 30px; }
+.product-brief h3 { margin:0 0 10px; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:#96001C; }
+.product-brief p, .product-brief li { font-size:16px; line-height:1.65; margin:0; max-width:66ch; }
+.product-brief ul { margin:12px 0 0; padding-left:20px; }
+.product-brief li { margin-bottom:8px; }
+.product-bet, .product-evidence { border-top:1px solid #aaa; padding:22px 0; }
+.product-brief .measurement-note { font-size:12px; opacity:.75; }
+.product-hero { margin:36px 0 28px; }
+.product-hero img { display:block; width:100%; height:auto; max-height:760px; object-fit:contain; background:#eae9e9; filter:none !important; }
+.product-hero figcaption { display:flex; gap:16px; justify-content:space-between; flex-wrap:wrap; margin-top:12px; font-size:12px; line-height:1.5; }
+html[data-theme="dark"] .product-card-decision strong, html[data-theme="dark"] .product-brief h3 { color:#FF8497; }
+html[data-theme="dark"] .product-preview img, html[data-theme="dark"] .product-hero img { background:#202325; }
+@media(max-width:620px) {
+  .product-brief-heading { align-items:flex-start; flex-direction:column; gap:8px; }
+  .product-brief-grid { grid-template-columns:1fr; gap:24px; }
+  .product-preview img { aspect-ratio:auto; }
+}

@@ -80,35 +80,11 @@
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
           <article onClick="{{ p.open }}" style="background: #F6F3EF; padding: 28px; cursor: pointer; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center" style-hover="background: #eae9e9">
             <div>
-              <sc-if value="{{ p.hasCover }}" hint-placeholder-val="{{ false }}">
-                <div style="background: #F6F3EF; border: 1px solid rgba(23,23,23,0.75); padding: 20px">
-                  <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(23,23,23,0.8); border-bottom: 1px solid rgba(23,23,23,0.75); padding-bottom: 10px; margin-bottom: 14px">
-                    <span>Product thinking · Case study</span>
-                    <span>{{ p.num }} / Selected work</span>
-                  </div>
-                  <div style="display: grid; grid-template-columns: 5fr 4fr; gap: 14px; align-items: stretch">
-                    <div style="display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid rgba(23,23,23,0.75); padding-right: 14px">
-                      <h4 style="margin: 0; font-size: 46px; line-height: 0.94; letter-spacing: -0.04em; font-weight: 800">{{ p.coverTitle }}</h4>
-                      <div>
-                        <div style="border-top: 1px solid rgba(23,23,23,0.75); padding-top: 10px; font-size: 15px; line-height: 1.35">{{ p.coverLine }}</div>
-                        <div style="width: 44px; height: 26px; background: {{ p.swatch }}; margin-top: 14px"></div>
-                      </div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px">
-                      <div style="border: 1px solid rgba(23,23,23,0.6); background: #fff; overflow: hidden; aspect-ratio: 16 / 11">
-                        <img data-img="{{ p.shotA }}" alt="{{ p.name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: {{ imgFilter }}" />
-                      </div>
-                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
-                        <div style="border: 1px solid rgba(23,23,23,0.6); background: #fff; overflow: hidden; aspect-ratio: 4 / 3">
-                          <img data-img="{{ p.shotB }}" alt="{{ p.name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: {{ imgFilter }}" />
-                        </div>
-                        <div style="border: 1px solid rgba(23,23,23,0.6); background: #fff; overflow: hidden; aspect-ratio: 4 / 3">
-                          <img data-img="{{ p.shotC }}" alt="{{ p.name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: {{ imgFilter }}" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <sc-if value="{{ p.hasCover }}" hint-placeholder-val="{{ true }}">
+                <figure class="product-preview">
+                  <img data-img="{{ p.previewImage }}" alt="{{ p.name }} — product overview" loading="lazy" decoding="async" />
+                  <figcaption>{{ p.heroCaption }}</figcaption>
+                </figure>
               </sc-if>
               <sc-if value="{{ p.noCover }}" hint-placeholder-val="{{ false }}">
                 <div style="background: #EF3340; color: #F6F3EF; aspect-ratio: 16 / 10; padding: 32px; display: flex; flex-direction: column; justify-content: space-between">
@@ -125,6 +101,7 @@
               <p class="pm-card-role">{{ p.role }}</p>
               <h3 style="margin: 0 0 12px; font-size: 40px; letter-spacing: -0.03em; line-height: 1.05">{{ p.name }}</h3>
               <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.55; color: rgba(23,23,23,0.8); max-width: 44ch; text-wrap: pretty">{{ p.blurb }}</p>
+              <p class="product-card-decision"><strong>Key decision</strong>{{ p.decision }}</p>
               <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px">
                 <sc-for list="{{ p.meta }}" as="t" hint-placeholder-count="3">
                   <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 9px; border: 1px solid rgba(23,23,23,0.4); color: rgba(23,23,23,0.75)">{{ t }}</span>
@@ -170,26 +147,38 @@
       <button onClick="{{ goWork }}" style="appearance: none; background: transparent; border: 0; font: 600 12px 'Archivo', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #96001C; padding: 8px 0; cursor: pointer" style-hover="color: #EF3340">← All work</button>
     </div>
 
-    <div style="max-width: 1240px; margin: 0 auto; padding: 16px 32px 0">
-      <sc-if value="{{ hasCover }}" hint-placeholder-val="{{ false }}">
-        <div style="background: #eae9e9; padding: 20px">
-          <img data-img="{{ active.cover }}" alt="{{ active.name }}" style="width: 100%; height: auto; display: block; object-fit: contain; filter: {{ imgFilter }}" />
-        </div>
-      </sc-if>
-      <sc-if value="{{ noCover }}" hint-placeholder-val="{{ false }}">
-        <div style="background: #EF3340; color: #F6F3EF; padding: 56px 40px; display: flex; flex-direction: column; gap: 20px">
-          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase">{{ active.posterKicker }}</span>
-          <span style="font-size: 56px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; max-width: 22ch">{{ active.poster }}</span>
-        </div>
-      </sc-if>
-
-    </div>
-
     <section style="max-width: 1240px; margin: 0 auto; padding: 40px 32px 0">
       <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340">{{ active.kind }}</span>
       <h1 style="font-size: 68px; line-height: 1.03; letter-spacing: -0.03em; margin: 12px 0 24px; max-width: 22ch">{{ active.name }}</h1>
       <p style="font-size: 22px; line-height: 1.45; max-width: 62ch; margin: 0 0 32px; text-wrap: pretty">{{ active.summary }}</p>
 
+      <sc-if value="{{ hasProductBrief }}" hint-placeholder-val="{{ true }}">
+        <section class="product-brief" aria-label="Product decision brief">
+          <div class="product-brief-heading"><h2>Product decision brief</h2><span>My role: {{ active.role }}</span></div>
+          <div class="product-brief-grid">
+            <div><h3>Who it serves</h3><p>{{ productBrief.audience }}</p></div>
+            <div><h3>Customer opportunity</h3><p>{{ productBrief.opportunity }}</p></div>
+            <div><h3>Priority decision</h3><p>{{ productBrief.decision }}</p></div>
+            <div><h3>Trade-off</h3><p>{{ productBrief.tradeoff }}</p></div>
+          </div>
+          <div class="product-bet"><h3>Product hypothesis</h3><p>{{ productBrief.hypothesis }}</p></div>
+          <div class="product-evidence"><h3>Delivery &amp; evidence</h3><p>{{ productBrief.evidence }}</p></div>
+          <div class="product-brief-grid">
+            <div><h3>How I would measure success</h3><p class="measurement-note">Proposed evaluation measures, not reported results.</p>
+              <ul><sc-for list="{{ productBrief.metrics }}" as="metric" hint-placeholder-count="3"><li>{{ metric }}</li></sc-for></ul>
+            </div>
+            <div><h3>Product learning</h3><p>{{ productBrief.learning }}</p></div>
+          </div>
+        </section>
+      </sc-if>
+      <sc-if value="{{ hasCover }}" hint-placeholder-val="{{ true }}">
+      <figure class="product-hero">
+        <a href="{{ active.heroImage }}" target="_blank" rel="noopener" aria-label="Open full-resolution product image">
+          <img data-img="{{ active.heroImage }}" alt="{{ active.heroCaption }}" decoding="async" />
+        </a>
+        <figcaption><span>{{ active.heroCaption }}</span><a href="{{ active.heroImage }}" target="_blank" rel="noopener">View full resolution ↗</a></figcaption>
+      </figure>
+      </sc-if>
       <sc-if value="{{ hasFigma }}" hint-placeholder-val="{{ false }}">
         <a href="{{ figmaUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(23,23,23,0.4); padding: 12px 16px; margin: 0 0 40px; text-decoration: none" style-hover="border-color: #EF3340; background: rgba(239,51,64,0.08)">
           <span style="width: 8px; height: 8px; background: #EF3340; display: block"></span>
@@ -586,7 +575,7 @@ const P = [
     "name": "PEP",
     "year": "2023",
     "kind": "Productivity Enhancement Platform · HR suite · Enterprise UX",
-    "blurb": "HR platform covering recruitment, attendance, learning and engagement in one consistent system.",
+    "blurb": "Connecting four HR workflows through one platform model, with candidate comparison prioritized over a board-first recruitment view.",
     "summary": "PEP covers the employee lifecycle — hiring, attendance, growth and feedback — built so learning one module teaches you the rest.",
     "problem": "Hiring, attendance, learning and feedback describe one person, but ran as four systems that disagreed. Training was paid for four times.",
     "solve": "Designed the shell before the screens: one module rail, one workspace, one list-record-edit pattern. Modules fit the frame rather than negotiating with each other.",
@@ -746,14 +735,32 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "HR administrators, recruiters and employees navigating the employee lifecycle.",
+      "opportunity": "Keep hiring, attendance, learning and engagement connected so each module does not require a different way of working.",
+      "decision": "Define the shared platform shell before expanding the four modules.",
+      "tradeoff": "A recruitment table supports comparing candidate attributes; a kanban makes stage movement more visual. The documented decision favored comparison, with stage available as a filter.",
+      "hypothesis": "If the modules share navigation and record patterns, administrators should be able to transfer what they learn in one module to the next.",
+      "evidence": "The portfolio records a shipped HR platform, four designed modules and shared interaction patterns. It does not provide a measured reduction in training or task time.",
+      "metrics": [
+        "Recruiter task completion and time to compare candidates",
+        "First-task success when moving to a second module",
+        "Support requests about navigation and module differences"
+      ],
+      "learning": "Platform consistency is a product scope decision: new modules should inherit the shared model before introducing exceptions.",
+      "caption": "Recruitment management: candidate comparison and stage filtering."
+    },
+    "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+    "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+    "heroCaption": "Recruitment management: candidate comparison and stage filtering."
   },
   {
     "id": "crm",
     "name": "Enterprise CRM",
     "year": "2025",
     "kind": "CRM platform · Seven roles · Enterprise UX",
-    "blurb": "Role-based CRM for Ethiopian enterprises. Sales, marketing, support, branch and executive views running on one system.",
+    "blurb": "Defining a shared CRM across seven roles, with useful role-specific defaults before dashboard customization.",
     "summary": "A CRM built around seven roles: sales reps working leads, marketing running campaigns, support handling tickets, branch managers approving requests, directors reading performance, and a customer portal.",
     "problem": "Sales ran on spreadsheets, marketing measured campaigns by feel, and directors built strategy from reports that were already out of date.",
     "solve": "One data model — contact, lead, pipeline, campaign, ticket, target — with seven interfaces onto it. Each role sees only what it can act on, and reporting rolls up automatically.",
@@ -1187,14 +1194,32 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "Sales, marketing, support, branch management and executive teams.",
+      "opportunity": "Give each role actionable information while preserving a shared model for customer records, ownership and reporting.",
+      "decision": "Lead with role-specific dashboards rather than asking new users to configure a blank widget grid.",
+      "tradeoff": "Flexible configuration offers control, but increases setup work. The documented approach provides useful defaults first and customization afterward.",
+      "hypothesis": "If each role starts with the work and information it needs, users should reach useful insight with less configuration.",
+      "evidence": "Research, personas, journey maps, competitive analysis, a seven-role model and engineering handover are documented. Adoption and revenue impact are not quantified.",
+      "metrics": [
+        "Time to first meaningful action for each role",
+        "Completion of lead follow-up and support workflows",
+        "Role-level adoption and reporting discrepancies"
+      ],
+      "learning": "The shared data model and role boundaries need to be decided together; interface customization cannot resolve unclear ownership.",
+      "caption": "Administration workspace: user access, roles and reporting in one view."
+    },
+    "previewImage": "crm-shots/hero.png",
+    "heroImage": "crm-shots/admin-dashboard.png",
+    "heroCaption": "Administration workspace: user access, roles and reporting in one view."
   },
   {
     "id": "complaint-management",
     "name": "Complaint Management",
     "year": "2025",
     "kind": "Case management · Service operations · Enterprise UX",
-    "blurb": "Case management system for service teams. Intake, ownership, SLA and resolution tracked in one trail.",
+    "blurb": "Making service accountability explicit through ownership and SLAs, with separate surfaces for agent work and management decisions.",
     "summary": "A workspace for resolving complaints: a reporting dashboard, a working ticket queue, a category and SLA model that routes each case to the right unit, and a knowledge base.",
     "problem": "Complaints were logged and then went quiet — no owner, no deadline, and a complainant left guessing. That is how a fixable problem becomes an escalation.",
     "solve": "Modelled the complaint itself — category, service unit, SLA in hours — so routing and deadlines exist before anyone opens the queue. The dashboard and knowledge base build on the same model.",
@@ -1467,14 +1492,32 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "Service agents, service managers and people submitting complaints.",
+      "opportunity": "Make complaint ownership and deadlines visible from intake through resolution.",
+      "decision": "Separate the manager’s analytics dashboard from the agent’s working queue.",
+      "tradeoff": "Opening on live cases makes the dashboard another inbox. Separating reporting from queue work gives each role a clearer decision surface.",
+      "hypothesis": "If complaints carry category, service-unit ownership and an SLA from intake, teams should be able to identify overdue work and act before escalation.",
+      "evidence": "The documented scope covers intake, routing, SLAs, a working queue, analytics and a knowledge base. No measured SLA or resolution-time improvement is supplied.",
+      "metrics": [
+        "Percentage of cases assigned to an owner",
+        "SLA compliance and median resolution time",
+        "Repeat contacts, reopen rate and escalation volume"
+      ],
+      "learning": "Accountability starts with the complaint model; dashboard charts become useful only when ownership and status data are dependable.",
+      "caption": "Service analytics: a management view distinct from the agent queue."
+    },
+    "previewImage": "uploads/Complaint-Management-Package/Images/hero.png",
+    "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+    "heroCaption": "Service analytics: a management view distinct from the agent queue."
   },
   {
     "id": "rad-reader",
     "name": "Rad Reader",
     "year": "2024",
     "kind": "Telemedicine · Radiology platform · Multi-role product",
-    "blurb": "Remote radiology platform for Ethiopia. Health centres upload scans and radiologists read them from anywhere.",
+    "blurb": "Connecting clinics and radiologists through a clear diagnostic handoff, with a queue-first workspace and dedicated study viewer.",
     "summary": "Three connected products — a patient app, a health-centre console and a radiologist workspace — for sending radiology scans out for expert reading.",
     "problem": "Ethiopia has far more scans than radiologists, and most specialists work in a handful of urban hospitals. A rural clinic can capture a CT with no one to read it.",
     "solve": "Separated capture from interpretation. Clinics upload the study and its context, radiologists read from a shared queue, and the patient tracks the case and gets the report.",
@@ -1795,14 +1838,32 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "Health-centre staff, radiologists and patients following a diagnostic case.",
+      "opportunity": "Connect scan capture with specialist interpretation across separate organizations and locations.",
+      "decision": "Make the radiologist’s queue the starting point and give the scan viewer its own dedicated workspace.",
+      "tradeoff": "Summary statistics are useful for review, but compete with the immediate job of reading the next study. The documented design moves metrics out of the primary workflow.",
+      "hypothesis": "If capture, assignment, interpretation and reporting form a clear handoff, a clinic should be able to request specialist review without requiring the specialist to be on site.",
+      "evidence": "The portfolio documents research, preference testing, platform architecture, a product overview and a roadmap. Clinical outcomes and live turnaround improvements are not established.",
+      "metrics": [
+        "Successful study upload and submission rate",
+        "Time from submitted study to completed report",
+        "Report rework and incomplete-context requests"
+      ],
+      "learning": "A multi-sided healthcare product depends on the quality of the handoff between roles, as well as the usability of each interface.",
+      "caption": "Radiologist workspace: the study queue leads the reading workflow."
+    },
+    "previewImage": "radreader/hero.png",
+    "heroImage": "radreader/shot-dashboard.png",
+    "heroCaption": "Radiologist workspace: the study queue leads the reading workflow."
   },
   {
     "id": "adler-ds",
     "name": "Adler Design System",
     "year": "2024",
     "kind": "Design system · 1,394 components · Remote",
-    "blurb": "Component library and design tokens for Adler's social platform. 1,394 components and 731 icons, used by a remote team.",
+    "blurb": "Treating a design system as an internal product: shared foundations, findability and reusable components for a distributed team.",
     "summary": "A production design system: colour, typography, icon, shadow and spacing foundations, plus 40 component families documented with every state.",
     "problem": "A small team across three time zones kept rebuilding the same components. Consistency depended on who happened to review the work.",
     "solve": "Locked the foundations first — colour ramps, type scale, spacing — then documented each component state by state. An overview page lets anyone check what already exists before building it again.",
@@ -2039,14 +2100,32 @@ const P = [
         "mobiles": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "A distributed product design team building Adler’s social platform.",
+      "opportunity": "Make existing patterns findable and reusable instead of resolving consistency separately in every review.",
+      "decision": "Define foundations before building component families, then publish the library as variables and component sets.",
+      "tradeoff": "Building only the components needed this week offers immediate speed; naming shared foundations first reduces the need to revisit those components later.",
+      "hypothesis": "If teams can find and consume a shared component library, they should reuse more existing patterns and introduce fewer inconsistent variants.",
+      "evidence": "The portfolio documents 1,394 components, 731 icons and a versioned Figma library. Those are delivery outputs, not proof of faster engineering or increased adoption.",
+      "metrics": [
+        "Use of library components in new product work",
+        "Duplicate or detached component creation",
+        "Time to find the right documented pattern"
+      ],
+      "learning": "A design system needs discoverability and adoption practices; a large component count alone does not demonstrate product value.",
+      "caption": "Versioned design-system overview and foundation examples."
+    },
+    "previewImage": "adler/hero.png",
+    "heroImage": "adler/hero.png",
+    "heroCaption": "Versioned design-system overview and foundation examples."
   },
   {
     "id": "adler-studio",
     "name": "Adler Studio",
     "year": "2024",
     "kind": "Immersive 3D · Creator tool · Web app",
-    "blurb": "Browser tool for building and publishing 3D spaces. Scene builder, object controls, spatial audio and a shareable preview.",
+    "blurb": "Balancing first-session simplicity with discoverable precision in a browser-based 3D creation and publishing tool.",
     "summary": "Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore.",
     "problem": "3D authoring tools assume you already know 3D, so most creators never get past the first session.",
     "solve": "Split the tool in two: a nearly empty canvas with two gestures for composing, and a properties panel holding the exact values. Easy to start, precise enough to stay.",
@@ -2208,14 +2287,32 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "Creators composing and publishing browser-based 3D spaces.",
+      "opportunity": "Make a first scene approachable without removing the precision creators need as their work becomes more complex.",
+      "decision": "Keep composition on the canvas and expose precise object values in the properties panel.",
+      "tradeoff": "Hiding numeric controls makes the panel quieter, but makes precision harder to discover. The documented iteration keeps scale, position and rotation visible.",
+      "hypothesis": "If simple composition and visible precision controls coexist, creators should be able to start quickly and refine their scenes without changing tools.",
+      "evidence": "The case study documents scene building, object controls, audio and publishing flows, including an iteration on control visibility. Activation and retention are not quantified.",
+      "metrics": [
+        "First-session completion of a usable scene",
+        "Time from first object to published preview",
+        "Successful discovery and use of precision controls"
+      ],
+      "learning": "Progressive disclosure should not hide a capability that users need to trust the product.",
+      "caption": "Scene builder: object library, canvas and precision properties."
+    },
+    "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
+    "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+    "heroCaption": "Scene builder: object library, canvas and precision properties."
   },
   {
     "id": "addis-park",
     "name": "Addis Park",
     "year": "2025",
     "kind": "Mobile app · Urban mobility · Payments",
-    "blurb": "Parking app for Addis Ababa. Find a space, book it, track the session and pay without cash.",
+    "blurb": "A parking concept focused on certainty before commitment: map-based discovery, visible total pricing and clear session status.",
     "summary": "Drivers find nearby parking, reserve a space, watch the active session, and manage vehicles and payments in one app.",
     "problem": "Drivers had no way to know whether a space was free, what it cost, or how long they could keep it.",
     "solve": "Made every cost visible before it is charged: live availability and rates per lot, the total shown on the button, and a running fee during the session.",
@@ -2426,7 +2523,25 @@ const P = [
         "videos": [],
         "tradeoffs": []
       }
-    ]
+    ],
+    "pm": {
+      "audience": "Drivers choosing, reserving and paying for parking in Addis Ababa.",
+      "opportunity": "Reduce uncertainty about location, availability, price and the active parking session.",
+      "decision": "Lead with a map and show the complete price before a booking is confirmed.",
+      "tradeoff": "A nearby-lot list is straightforward to scan, but location relative to the route matters. The documented direction uses a map with a recommended lot.",
+      "hypothesis": "If drivers can understand the location and total cost before committing, they should be more confident completing a parking reservation.",
+      "evidence": "The case study contains a concept, end-to-end flows, presentation frames and documented design decisions. It does not establish a live launch or booking conversion.",
+      "metrics": [
+        "Completion of a find-and-reserve usability task",
+        "Comprehension of the total price before confirmation",
+        "Successful extension and ending of an active session"
+      ],
+      "learning": "For an unfamiliar service, clear pricing and location can be more important than shortening the flow by one step.",
+      "caption": "Parking concept: discovery, booking and session management."
+    },
+    "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+    "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+    "heroCaption": "Parking concept: discovery, booking and session management."
   }
 ];
 
@@ -2612,13 +2727,17 @@ class Component extends DCLogic {
     cover: p.cover, hasCover: !!p.cover, noCover: !p.cover,
     poster: p.poster || '', posterKicker: p.posterKicker || '',
     meta: p.meta, status: p.status, role: p.role,
+    previewImage: p.previewImage || p.cover,
+    heroCaption: p.heroCaption || p.name,
+    decision: p.pm ? p.pm.decision : p.solve,
     open: () => { this.setState({ caseId: p.id, screen: 'case' }); window.scrollTo(0, 0); }
   }));
 
   renderVals() {
     const s = this.state.screen;
     const idx = Math.max(0, P.findIndex(p => p.id === this.state.caseId));
-    const active = P[idx];
+    const activeRecord = P[idx];
+    const active = { ...activeRecord, heroImage: activeRecord.heroImage || activeRecord.cover, heroCaption: activeRecord.heroCaption || activeRecord.name };
     const next = P[(idx + 1) % P.length];
     const bw = (this.props.imageTreatment ?? 'Full colour') === 'Black & white';
     const sections = active.sections.map((sec) => {
@@ -2641,6 +2760,7 @@ class Component extends DCLogic {
       goNext: () => { this.setState({ caseId: next.id, screen: 'case' }); window.scrollTo(0, 0); },
       nextName: next.name,
       active, activeSections: sections,
+      hasProductBrief: !!active.pm, productBrief: active.pm || {},
       hasCover: !!active.cover, noCover: !active.cover,
       hasDemo: !!active.demo, demoSrc: active.demo ? active.demo.src : '', demoCap: active.demo ? active.demo.cap : '',
       hasFigma: !!active.figma, figmaUrl: active.figma || '',
