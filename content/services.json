@@ -1,20 +1,20 @@
 {
   "items": [
     {
-      "title": "Product Strategy & Management",
-      "body": "Roadmaps, stakeholder alignment, release planning and launch."
+      "title": "Discovery & Product Direction",
+      "body": "Customer problems, opportunity framing, requirements and a shared definition of success."
     },
     {
-      "title": "Product & UX Design",
-      "body": "Research, user flows, wireframes, prototypes and UI systems."
+      "title": "Prioritization & Planning",
+      "body": "Scope decisions, roadmaps, dependencies and clear trade-offs with business and engineering."
     },
     {
-      "title": "Design Leadership & Training",
-      "body": "Team management, critique systems, design ops, and training designers."
+      "title": "Cross-functional Delivery",
+      "body": "Stakeholder alignment, product documentation, acceptance criteria and launch readiness."
     },
     {
-      "title": "Web, AI Tools & Vibe Coding",
-      "body": "Websites, landing pages, Figma systems and AI-assisted prototyping."
+      "title": "Design-led Product Thinking",
+      "body": "Research, prototypes and interaction systems that help teams test assumptions early."
     }
   ]
 }
