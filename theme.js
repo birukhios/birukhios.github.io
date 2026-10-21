@@ -10,15 +10,18 @@
 (function () {
   'use strict';
 
+  if (window.__bhiosThemeInitialized) return;
+  window.__bhiosThemeInitialized = true;
   var KEY = 'theme';
+  var chosenTheme = null;
   var root = document.documentElement;
   var mql = window.matchMedia('(prefers-color-scheme: dark)');
 
   function stored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    try { var value = localStorage.getItem(KEY); return value === 'dark' || value === 'light' ? value : null; } catch (e) { return null; }
   }
   function resolved() {
-    return stored() || (mql.matches ? 'dark' : 'light');
+    return chosenTheme || stored() || (mql.matches ? 'dark' : 'light');
   }
   function apply(mode) {
     root.setAttribute('data-theme', mode);
@@ -49,6 +52,7 @@
     btn.innerHTML = SUN + MOON;
     btn.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      chosenTheme = next;
       try { localStorage.setItem(KEY, next); } catch (e) {}
       apply(next);
     });
@@ -57,7 +61,7 @@
   }
 
   // follow the OS only while the visitor hasn't chosen explicitly
-  function onSystemChange() { if (!stored()) apply(resolved()); }
+  function onSystemChange() { if (!chosenTheme && !stored()) apply(resolved()); }
   if (mql.addEventListener) mql.addEventListener('change', onSystemChange);
   else if (mql.addListener) mql.addListener(onSystemChange);
 

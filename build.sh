@@ -22,7 +22,8 @@ GA_ID="${GA_ID:-G-GJ4L5PVGNK}"
 cp "$SRC" "$OUT"
 
 python3 - "$OUT" "$GA_ID" <<'PY'
-import re, sys
+import re, sys, hashlib
+from pathlib import Path
 path, ga_id = sys.argv[1], sys.argv[2]
 src = open(path, encoding='utf-8').read()
 
@@ -78,7 +79,7 @@ if 'theme.css' not in src:
         '<link rel="stylesheet" href="theme.css" />\n'
         '<script>\n'
         '  /* set the theme before first paint */\n'
-        '  (function(){try{var t=localStorage.getItem("theme")||\n'
+        '  (function(){try{var saved=localStorage.getItem("theme");var t=(saved==="dark"||saved==="light")?saved:\n'
         '    (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");\n'
         '    document.documentElement.setAttribute("data-theme",t);}catch(e){}})();\n'
         '</script>\n'
@@ -234,6 +235,14 @@ if 'onHashChange' in src and 'addEventListener(\'hashchange\'' not in src:
         "    window.addEventListener('hashchange', this.onHashChange);\n"
         "    this.syncUrl();\n"
         "    this.trackView(true);\n  }", 1)
+
+# Content-based versions prevent cached theme assets from styling a new build.
+for asset in ['theme.css', 'theme.js', 'responsive.css']:
+    digest = hashlib.sha256(Path(asset).read_bytes()).hexdigest()[:12]
+    pattern = r'((?:href|src)="(?:\./)?' + re.escape(asset) + r')(?:\?[^"\s]*)?"'
+    src, count = re.subn(pattern, lambda m: m.group(1) + '?v=' + digest + '"', src)
+    if not count:
+        sys.exit('build.sh: missing versioned asset ' + asset)
 
 open(path, 'w', encoding='utf-8').write(src)
 print(f"  patched {path}")
