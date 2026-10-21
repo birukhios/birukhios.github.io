@@ -167,3 +167,12 @@ html[data-theme="dark"] .product-preview img, html[data-theme="dark"] .product-h
   .product-brief-grid { grid-template-columns:1fr; gap:24px; }
   .product-preview img { aspect-ratio:auto; }
 }
+
+/* Preserve source sharpness and expose complete product screens. */
+.case-image { margin:32px 0 0; }
+.case-image-stage { display:flex; justify-content:center; align-items:flex-start; background:#eae9e9; padding:24px; border:1px solid #bdb9b5; }
+html .case-image img { display:block; width:100%; height:auto; object-fit:contain; filter:none !important; }
+.case-image figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 20px; margin-top:12px; font-size:12px; line-height:1.6; }
+.case-image figcaption span { max-width:80ch; opacity:.8; }
+html[data-theme="dark"] .case-image-stage { background:#202325; border-color:#505050; }
+@media(max-width:620px) { .case-image-stage { padding:8px; } }

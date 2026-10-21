@@ -291,17 +291,13 @@
           </sc-if>
 
           <sc-for list="{{ s.images }}" as="im" hint-placeholder-count="0">
-            <figure style="margin: 24px 0 0">
-              <div style="background: #eae9e9">
-                <img data-img="{{ im.src }}" alt="{{ im.cap }}" style="width: 100%; object-fit: cover; filter: {{ imgFilter }}" />
-              </div>
-              <figcaption style="font-size: 12px; margin-top: 8px; color: rgba(23,23,23,0.55)">{{ im.cap }}</figcaption>
+            <figure class="case-image">
+              <a class="case-image-stage" href="{{ im.src }}" target="_blank" rel="noopener" aria-label="Open full-resolution image">
+                <img data-img="{{ im.src }}" alt="{{ im.cap }}" loading="lazy" decoding="async" style="max-width: {{ im.displayWidth }}px" />
+              </a>
+              <figcaption><span>{{ im.cap }}</span><a href="{{ im.src }}" target="_blank" rel="noopener">View full resolution ↗</a></figcaption>
             </figure>
           </sc-for>
-
-
-
-
 
           <sc-for list="{{ s.desktopsRad }}" as="d" hint-placeholder-count="0">
             <figure style="margin: 28px 0 0">
@@ -317,7 +313,7 @@
           <sc-if value="{{ s.hasMobiles }}" hint-placeholder-val="{{ false }}">
             <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 28px; background: #eae9e9; border: 2px solid rgba(23,23,23,0.4); padding: 28px">
               <sc-for list="{{ s.mobiles }}" as="mb" hint-placeholder-count="0">
-                <figure style="margin: 0; width: 258px; max-width: 100%">
+                <figure style="margin: 0; width: min(100%, 320px); max-width: 100%">
                   <div data-fit="{{ mb.w }}" data-fit-h="{{ mb.h }}" style="border: 2px solid #171717; background: #ffffff; width: 100%; aspect-ratio: 430 / 932; overflow: hidden; position: relative">
                     <div data-fit-inner="1" style="position: absolute; top: 0; left: 0; width: 430px; height: 932px; transform-origin: top left">
                       <x-import component-from-global-scope="{{ mb.name }}" from="./radreader/Components.bundle.js" hint-size="430px,932px"></x-import>
@@ -652,7 +648,8 @@ const P = [
         "images": [
           {
             "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-            "cap": "Recruitment — the candidate pipeline"
+            "cap": "Recruitment — the candidate pipeline",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -679,7 +676,8 @@ const P = [
         "images": [
           {
             "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
-            "cap": "Time & attendance — leave balances, history and day detail"
+            "cap": "Time & attendance — leave balances, history and day detail",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -696,7 +694,8 @@ const P = [
         "images": [
           {
             "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
-            "cap": "Learning & development — a lesson in a course sequence"
+            "cap": "Learning & development — a lesson in a course sequence",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -713,7 +712,8 @@ const P = [
         "images": [
           {
             "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
-            "cap": "Employee engagement — surveys with filled and resolved rates"
+            "cap": "Employee engagement — surveys with filled and resolved rates",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -729,7 +729,8 @@ const P = [
         "images": [
           {
             "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
-            "cap": "PEP across devices"
+            "cap": "PEP across devices",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -911,31 +912,38 @@ const P = [
         "images": [
           {
             "src": "crm-shots/role-sales.png",
-            "cap": "Sales representative — responsibilities and permissions."
+            "cap": "Sales representative — responsibilities and permissions.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-marketing.png",
-            "cap": "Marketing specialist — campaign ownership and segment access."
+            "cap": "Marketing specialist — campaign ownership and segment access.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-support.png",
-            "cap": "Customer support — ticket ownership and escalation rights."
+            "cap": "Customer support — ticket ownership and escalation rights.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-support-2.png",
-            "cap": "Customer support, continued — knowledge base and feedback duties."
+            "cap": "Customer support, continued — knowledge base and feedback duties.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-branch.png",
-            "cap": "Branch manager — approvals, team monitoring and local targets."
+            "cap": "Branch manager — approvals, team monitoring and local targets.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-director.png",
-            "cap": "Director — branch leaderboard, regional approvals, forecasting."
+            "cap": "Director — branch leaderboard, regional approvals, forecasting.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/role-admin.png",
-            "cap": "System administrator — users, roles, configuration and logs."
+            "cap": "System administrator — users, roles, configuration and logs.",
+            "displayWidth": 1176
           }
         ],
         "desktops": [],
@@ -1051,11 +1059,13 @@ const P = [
         "images": [
           {
             "src": "crm-shots/admin-dashboard.png",
-            "cap": "System administrator — user counts, activity trend and the user directory."
+            "cap": "System administrator — user counts, activity trend and the user directory.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/admin-roles.png",
-            "cap": "Role management — where the permission model becomes editable state."
+            "cap": "Role management — where the permission model becomes editable state.",
+            "displayWidth": 1176
           }
         ],
         "desktops": [],
@@ -1086,19 +1096,23 @@ const P = [
         "images": [
           {
             "src": "crm-shots/elearning.png",
-            "cap": "E-learning — course catalogue with progress per learner."
+            "cap": "E-learning — course catalogue with progress per learner.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/course-detail.png",
-            "cap": "Course detail — lessons, materials and completion state."
+            "cap": "Course detail — lessons, materials and completion state.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/course-create.png",
-            "cap": "Course creation — structure and content in one plain form."
+            "cap": "Course creation — structure and content in one plain form.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/course-create-2.png",
-            "cap": "Course creation, continued — lessons and media."
+            "cap": "Course creation, continued — lessons and media.",
+            "displayWidth": 1176
           }
         ],
         "desktops": [],
@@ -1125,19 +1139,23 @@ const P = [
         "images": [
           {
             "src": "crm-shots/auth-signin.png",
-            "cap": "Sign in — the one screen all seven roles share."
+            "cap": "Sign in — the one screen all seven roles share.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/auth-recover.png",
-            "cap": "Account recovery."
+            "cap": "Account recovery.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/auth-recover-confirm.png",
-            "cap": "Recovery confirmation — outcome stated in a sentence."
+            "cap": "Recovery confirmation — outcome stated in a sentence.",
+            "displayWidth": 1176
           },
           {
             "src": "crm-shots/auth-confirmation.png",
-            "cap": "Confirmation state."
+            "cap": "Confirmation state.",
+            "displayWidth": 1176
           }
         ],
         "desktops": [],
@@ -1237,7 +1255,6 @@ const P = [
     "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
     "shots": [
       "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-      "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
       "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png"
     ],
     "swatch": "#1f3b73",
@@ -1306,12 +1323,7 @@ const P = [
             "body": "Category, service unit and SLA — the three fields that make a complaint different from a ticket."
           }
         ],
-        "images": [
-          {
-            "src": "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
-            "cap": "Ticket management — the working queue: status, priority, assignee and last update"
-          }
-        ],
+        "images": [],
         "videos": [],
         "tradeoffs": []
       },
@@ -1397,7 +1409,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-            "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT"
+            "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -1440,7 +1453,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
-            "cap": "Create complaint category — service unit, priority and SLA target"
+            "cap": "Create complaint category — service unit, priority and SLA target",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -1474,7 +1488,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
-            "cap": "Create new article — metadata, editor and starting templates"
+            "cap": "Create new article — metadata, editor and starting templates",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -1731,12 +1746,14 @@ const P = [
             "body": "Modality, patient and urgency collected with the file, never chased later."
           }
         ],
-        "images": [],
-        "desktops": [
+        "images": [
           {
-            "name": "UploadScan",
-            "cap": "Health centre — scan upload, with the drop zone and its constraints stated in place."
-          },
+            "src": "radreader/shot-upload.png",
+            "cap": "Health centre — scan upload, with the drop zone and its constraints stated in place.",
+            "displayWidth": 1176
+          }
+        ],
+        "desktops": [
           {
             "name": "ViewScan",
             "cap": "Health centre — the scan viewer: study first, tools at the edge, report alongside."
@@ -1767,17 +1784,19 @@ const P = [
             "body": "Findings are written in view of the study they describe."
           }
         ],
-        "images": [],
-        "desktops": [
+        "images": [
           {
-            "name": "PhyDashboard",
-            "cap": "Radiologist — the results queue: scan type, urgency, patient case, status and attachment, with the module rail fixed."
+            "src": "radreader/shot-dashboard.png",
+            "cap": "Radiologist — the results queue: scan type, urgency, patient case, status and attachment, with the module rail fixed.",
+            "displayWidth": 1176
           },
           {
-            "name": "Compare",
-            "cap": "Radiologist — comparison: prior and current study held in one frame."
+            "src": "radreader/shot-compare.png",
+            "cap": "Radiologist — comparison: prior and current study held in one frame.",
+            "displayWidth": 1176
           }
         ],
+        "desktops": [],
         "mobiles": [],
         "videos": [],
         "tradeoffs": [
@@ -1973,11 +1992,13 @@ const P = [
         "images": [
           {
             "src": "adler/shot-colors.png",
-            "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values."
+            "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values.",
+            "displayWidth": 792
           },
           {
             "src": "adler/shot-typography.png",
-            "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale."
+            "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale.",
+            "displayWidth": 792
           }
         ],
         "desktops": [],
@@ -2004,7 +2025,8 @@ const P = [
         "images": [
           {
             "src": "adler/shot-icons.png",
-            "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning."
+            "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning.",
+            "displayWidth": 792
           }
         ],
         "desktops": [],
@@ -2036,15 +2058,18 @@ const P = [
         "images": [
           {
             "src": "adler/shot-buttons.png",
-            "cap": "Button — the rule, the variants, and the full state matrix at three sizes."
+            "cap": "Button — the rule, the variants, and the full state matrix at three sizes.",
+            "displayWidth": 696
           },
           {
             "src": "adler/shot-table.png",
-            "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers."
+            "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers.",
+            "displayWidth": 990
           },
           {
             "src": "adler/shot-form.png",
-            "cap": "Form — layouts, field anatomy and validation states."
+            "cap": "Form — layouts, field anatomy and validation states.",
+            "displayWidth": 990
           }
         ],
         "desktops": [],
@@ -2071,7 +2096,8 @@ const P = [
         "images": [
           {
             "src": "adler/shot-overview.png",
-            "cap": "The overview — every family, grouped by job, with previews and component counts."
+            "cap": "The overview — every family, grouped by job, with previews and component counts.",
+            "displayWidth": 910
           }
         ],
         "desktops": [],
@@ -2118,7 +2144,7 @@ const P = [
     },
     "previewImage": "adler/hero.png",
     "heroImage": "adler/hero.png",
-    "heroCaption": "Versioned design-system overview and foundation examples."
+    "heroCaption": "Adler design system: shared foundations and component library."
   },
   {
     "id": "adler-studio",
@@ -2201,7 +2227,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
-            "cap": "3D scene builder — item library, canvas, space properties"
+            "cap": "3D scene builder — item library, canvas, space properties",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -2223,7 +2250,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
-            "cap": "Precision object controls — texture, lock, XYZ, grouping"
+            "cap": "Precision object controls — texture, lock, XYZ, grouping",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -2249,7 +2277,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
-            "cap": "Immersive audio — music library, playlist and spatial placement"
+            "cap": "Immersive audio — music library, playlist and spatial placement",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -2266,11 +2295,13 @@ const P = [
         "images": [
           {
             "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
-            "cap": "Space management — published and draft spaces, delete confirmation"
+            "cap": "Space management — published and draft spaces, delete confirmation",
+            "displayWidth": 1176
           },
           {
             "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
-            "cap": "Immersive preview — the published space with its social loop"
+            "cap": "Immersive preview — the published space with its social loop",
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -2399,7 +2430,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
-            "cap": "Parking discovery — map, nearest verified lot, spots and rate"
+            "cap": "Parking discovery — map, nearest verified lot, spots and rate",
+            "displayWidth": 853
           }
         ],
         "videos": [],
@@ -2430,7 +2462,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png",
-            "cap": "Booking review — itemised payment summary and priced action"
+            "cap": "Booking review — itemised payment summary and priced action",
+            "displayWidth": 853
           }
         ],
         "videos": [],
@@ -2460,7 +2493,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
-            "cap": "Active session — time remaining, current fee, extend or end"
+            "cap": "Active session — time remaining, current fee, extend or end",
+            "displayWidth": 853
           }
         ],
         "videos": [],
@@ -2490,7 +2524,8 @@ const P = [
         "images": [
           {
             "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.png",
-            "cap": "Account — balance, vehicle, saved payment and settings"
+            "cap": "Account — balance, vehicle, saved payment and settings",
+            "displayWidth": 853
           }
         ],
         "videos": [],
@@ -2517,7 +2552,8 @@ const P = [
           {
             "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
             "cap": "The system applied across the five screens",
-            "wide": true
+            "wide": true,
+            "displayWidth": 1176
           }
         ],
         "videos": [],
@@ -2746,7 +2782,7 @@ class Component extends DCLogic {
       const phones = active.phone ? all.filter(i => !i.wide) : [];
       const wide = active.phone ? all.filter(i => i.wide) : all;
       return { anchor, href: '#' + anchor, label: sec.label, title: sec.title, paras: sec.paras,
-        points: sec.points || [], images: wide, phones, hasPhones: phones.length > 0, noPhones: phones.length === 0,
+        points: sec.points || [], images: wide.map(im => ({ ...im, displayWidth: im.displayWidth || 1176 })), phones, hasPhones: phones.length > 0, noPhones: phones.length === 0,
         desktopsRad: (sec.desktops || []).map(d => ({ name: d.name, cap: d.cap, w: d.w || 1728, h: d.h || 1117, nav: d.nav || '' })),
         mobiles: (sec.mobiles || []).map(m => ({ name: m.name, cap: m.cap, w: m.w || 430, h: m.h || 932 })),
         hasMobiles: (sec.mobiles || []).length > 0,
