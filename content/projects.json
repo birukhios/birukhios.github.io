@@ -1,245 +1,168 @@
 {
   "items": [
     {
-      "id": "adler-ds",
-      "name": "Adler Design System",
-      "year": "2024",
-      "kind": "Design system · 1,394 components · Remote",
-      "blurb": "Component library and design tokens for Adler's social platform. 1,394 components and 731 icons, used by a remote team.",
-      "summary": "A production design system: colour, typography, icon, shadow and spacing foundations, plus 40 component families documented with every state.",
-      "problem": "A small team across three time zones kept rebuilding the same components. Consistency depended on who happened to review the work.",
-      "solve": "Locked the foundations first — colour ramps, type scale, spacing — then documented each component state by state. An overview page lets anyone check what already exists before building it again.",
-      "projectType": "Professional · remote",
-      "role": "Design System Designer",
-      "platform": "Web · Figma",
+      "id": "pep",
+      "name": "PEP",
+      "year": "2023",
+      "kind": "Productivity Enhancement Platform · HR suite · Enterprise UX",
+      "blurb": "HR platform covering recruitment, attendance, learning and engagement in one consistent system.",
+      "summary": "PEP covers the employee lifecycle — hiring, attendance, growth and feedback — built so learning one module teaches you the rest.",
+      "problem": "Hiring, attendance, learning and feedback describe one person, but ran as four systems that disagreed. Training was paid for four times.",
+      "solve": "Designed the shell before the screens: one module rail, one workspace, one list-record-edit pattern. Modules fit the frame rather than negotiating with each other.",
+      "projectType": "Professional",
+      "role": "Team Lead, UI/UX Designer",
+      "platform": "Web · Desktop",
       "meta": [
         "Professional",
-        "Design system",
-        "Documentation"
+        "HR platform",
+        "Dashboard"
       ],
-      "status": "Delivered",
-      "cover": "adler/hero.png",
+      "status": "Shipped",
+      "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
       "group": "work",
+      "figma": "https://www.figma.com/design/6vtO2BwZeTewhybAEaNT7c/PEP-Productivity-Enhancement-Platform--Collab?node-id=2262-902",
       "shots": [
-        "adler/shot-colors.png",
-        "adler/shot-buttons.png",
-        "adler/shot-icons.png"
+        "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+        "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
+        "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png"
       ],
-      "swatch": "#15C5CE",
-      "coverTitle": "Adler Design System",
-      "coverLine": "1,394 components, one grammar",
-      "figma": "https://www.figma.com/design/DVbO0GoQaR775diXBnsl72/Adler-sns--Design-System_v2.7.0?node-id=0-1",
+      "swatch": "#173273",
       "did": [
-        "Defined the foundations: eight-step ramps across neutral, primary, auxiliary and four semantic roles, on Ubuntu with PingFang SC for Chinese text.",
-        "Documented forty component families — Button through Upload — each with its full variant and state matrix.",
-        "Drew and catalogued a 731-icon set in line and fill themes on a shared grid.",
-        "Wrote the overview page: every family, its component count, and a preview, so the team could check before rebuilding.",
-        "Published as Figma variables and component sets so the library was consumable, not just readable."
+        "Led the design team building the platform, from requirements gathering through final designs.",
+        "Defined the shared shell — module rail, global search, documents/announcement/report bar — that every module inherits.",
+        "Designed the four flagship modules: recruitment, time and attendance, learning and development, employee engagement.",
+        "Ran weekly reviews against the shell so consistency was a condition of delivery, not a matter of taste."
       ],
       "sections": [
         {
           "label": "Problem",
-          "title": "Three time zones, one interface, no agreement",
+          "title": "One employee lifecycle, four unrelated products",
           "paras": [
-            "Adler’s product was moving fast with a small distributed team. Every sprint someone needed a button, a table, an empty state — and built one. None of them were wrong on their own; together they were four products wearing the same logo.",
-            "The cost showed up as review time. Consistency was being enforced by whoever looked at the work last, which does not scale and does not survive a busy week. A system was the cheapest way to buy the team back its velocity."
+            "Hiring, attendance, training and feedback are one continuous story about a person. In most organisations they are four systems that disagree about navigation, record editing and what a destructive action looks like.",
+            "The cost lands on the HR administrator who has to work across all four, and on training every new one of them."
           ],
           "points": [
             {
-              "head": "Re-deciding, constantly",
-              "body": "The same interface question answered differently each sprint."
-            },
-            {
-              "head": "Async makes it worse",
-              "body": "Nobody is in the room to ask, so everyone guesses."
+              "head": "The shell is the product",
+              "body": "If the frame holds, a new module is a content problem rather than a design problem."
             }
           ],
           "images": [],
-          "desktops": [],
-          "mobiles": [],
+          "videos": [],
           "tradeoffs": []
         },
         {
           "label": "Philosophy",
-          "title": "A system is an agreement, not a folder",
+          "title": "Design the frame, and the screens design themselves",
           "paras": [
-            "Component libraries fail when they are treated as storage. The value is not that a button exists somewhere — it is that everyone has agreed what a button means, when it is primary, and what it looks like while it is being pressed. The file is just where the agreement is written down.",
-            "So I documented decisions before I documented pixels. Every colour role has a stated purpose. Every component sheet leads with the rule and follows with the variants. And the overview page exists purely to answer \"does this already exist?\" — the question that, unanswered, is how libraries get duplicated."
+            "Enterprise products fail as a collection, not as screens. Each module is defensible on its own and the sum is unlearnable — so I spend the early time on the shell and the vocabulary rather than on any one page.",
+            "The test I hold myself to: can a new module be specified by describing its content, because its layout, navigation and destructive-action pattern are already decided? If the answer is no, the system is not finished, however good the individual screens look."
           ],
           "points": [
             {
               "head": "What I optimise for",
-              "body": "The number of decisions a designer does not have to make."
+              "body": "The cost of learning the second module after the first."
             },
             {
-              "head": "States, not ideals",
-              "body": "Every component drawn hover, pressed and disabled — the states that ship wrong."
-            },
-            {
-              "head": "Findable beats complete",
-              "body": "A component nobody can find gets rebuilt anyway."
+              "head": "Density is not the enemy",
+              "body": "Operators compare rows for a living. I fight clutter, not information."
             }
           ],
           "images": [],
-          "desktops": [],
-          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Recruitment",
+          "title": "A candidate pipeline you can actually work from",
+          "paras": [
+            "The candidates view is a dense, sortable table by design: name, contact, role, internal or external, CGPA, CV, applied date, graduation date, social profiles. Recruiters compare rows; hiding columns to look calmer just moves the work into clicks.",
+            "Filters sit above the table for the three cuts that get used — date range, job, department, stage — and the primary action is adding candidates, because that is why the screen gets opened."
+          ],
+          "points": [],
+          "images": [
+            {
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+              "cap": "Recruitment — the candidate pipeline"
+            }
+          ],
+          "videos": [],
           "tradeoffs": [
             {
-              "old": "The obvious move was to start with the components the team needed that week — buttons, inputs, a table — and add foundations later once patterns emerged.",
-              "now": "Foundations first. Colour ramps, type scale and spacing were locked before any component was drawn, because a component built on unnamed values has to be rebuilt the moment the values get names."
+              "old": "The first pipeline was a kanban of stages — visually clearer, and it demoed beautifully. Recruiters working eight candidates at a time needed to compare attributes side by side, which columns do and cards cannot.",
+              "now": "A table as the default view, with stage as a filter. Less impressive in a demo, faster in the job."
             }
           ]
         },
         {
-          "label": "Foundations",
-          "title": "Eight steps of every colour, one type scale",
+          "label": "Attendance",
+          "title": "Attendance is a record, so show the whole record",
           "paras": [
-            "Colour is organised by role rather than by hue: neutral, primary, auxiliary, then danger, warning, success and info. Each role carries an eight-step ramp from 700 down to 50, so the same step of any role has the same visual weight — a 600 is always the pressed state, a 50 is always the faintest tint, whatever the colour.",
-            "Semantic roles carry their meaning in writing: danger for rejected or wrong, warning for in-progress, success for passed, info for no emotion at all. That last one matters — it is the role teams reach for when they want emphasis without alarm.",
-            "Typography is Ubuntu across four weights with PingFang SC for Chinese text, on a scale that stops at the sizes the product actually uses rather than a decorative range nobody types into."
+            "The attendance view pairs leave balances and history with a per-day detail: clock in, clock out, lunch, breaks, with lateness stated inline against the entry it describes rather than summarised elsewhere.",
+            "Overtime, total time, status and who imported the record are all on the same screen — because the reason anyone opens this page is a dispute about one specific day."
           ],
           "points": [
             {
-              "head": "Roles over hues",
-              "body": "You pick \"danger 600\", never \"that red\"."
-            },
-            {
-              "head": "Even steps",
-              "body": "Ramps built so equivalent steps read at equivalent weight."
-            },
-            {
-              "head": "Bilingual by default",
-              "body": "Latin and Chinese faces specified together, not retrofitted."
+              "head": "Exceptions in place",
+              "body": "A late mark next to the timestamp it refers to, not in a summary column."
             }
           ],
           "images": [
             {
-              "src": "adler/shot-colors.png",
-              "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values."
-            },
-            {
-              "src": "adler/shot-typography.png",
-              "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale."
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
+              "cap": "Time & attendance — leave balances, history and day detail"
             }
           ],
-          "desktops": [],
-          "mobiles": [],
+          "videos": [],
           "tradeoffs": []
         },
         {
-          "label": "Icons",
-          "title": "731 icons that behave like one family",
+          "label": "Learning",
+          "title": "Employee growth through structured learning",
           "paras": [
-            "The icon set is the part of a system most likely to drift, because icons get added under deadline. Drawing all 731 on one grid, in matched line and fill themes, made the set closable — a new icon has a shape to conform to rather than a style to invent.",
-            "They are catalogued by meaning, not by drawing: directional, suggestive, status. A designer looking for \"the one that means terminated\" finds it without scrolling the whole sheet."
+            "The learning module presents a course as a lesson sequence with the video, the written detail, attachments, and a single forward action — Complete — so progress through a curriculum is unambiguous.",
+            "Training management, needs analysis and personal growth plans sit in the same rail, so an employee and an administrator navigate the same structure from different ends."
           ],
-          "points": [
-            {
-              "head": "One grid, two themes",
-              "body": "Line and fill drawn as a pair so either can be swapped in."
-            },
-            {
-              "head": "Indexed by meaning",
-              "body": "Grouped by what they communicate, not what they depict."
-            }
-          ],
+          "points": [],
           "images": [
             {
-              "src": "adler/shot-icons.png",
-              "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning."
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
+              "cap": "Learning & development — a lesson in a course sequence"
             }
           ],
-          "desktops": [],
-          "mobiles": [],
+          "videos": [],
           "tradeoffs": []
         },
         {
-          "label": "Components",
-          "title": "Forty families, each documented state by state",
+          "label": "Engagement",
+          "title": "Feedback is only useful when it is actionable",
           "paras": [
-            "Every component sheet follows the same shape: the rule at the top, a copy-me instance, the variant axes, then the full state matrix. Button, for instance, states its rule plainly — one primary button per action section — then shows text-only, left-icon and right-icon across default, hover, pressed and disabled at three sizes, with the spacing specimens beside it.",
-            "Table got the most attention because it carries the most weight in an enterprise product: simple, multi-select, expandable rows, fixed columns, fixed footer and dividers, each as a worked example rather than a description. Form covers the layouts and validation states that decide whether an operator finishes a task or abandons it.",
-            "Density is the only axis allowed to vary between contexts. What never changes is the meaning of a colour, the anatomy of a field, or where the primary action sits."
+            "Surveys are cards carrying two numbers that matter — how much is filled, and how much is resolved. Completion without resolution is the failure mode of every engagement programme, so both are on the card.",
+            "Creating a survey is the primary action, and department and status filters keep a large programme navigable."
           ],
-          "points": [
-            {
-              "head": "Rule, then variants",
-              "body": "Each sheet says what the component is for before showing what it can be."
-            },
-            {
-              "head": "A copy-me instance",
-              "body": "The fastest correct path is also the most convenient one."
-            },
-            {
-              "head": "Spacing shown, not implied",
-              "body": "Annotated specimens so implementation is not guesswork."
-            }
-          ],
+          "points": [],
           "images": [
             {
-              "src": "adler/shot-buttons.png",
-              "cap": "Button — the rule, the variants, and the full state matrix at three sizes."
-            },
-            {
-              "src": "adler/shot-table.png",
-              "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers."
-            },
-            {
-              "src": "adler/shot-form.png",
-              "cap": "Form — layouts, field anatomy and validation states."
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
+              "cap": "Employee engagement — surveys with filled and resolved rates"
             }
           ],
-          "desktops": [],
-          "mobiles": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Findability",
-          "title": "The overview page is the most-used screen in the system",
-          "paras": [
-            "The single highest-leverage page is the inventory: every family grouped as General, Navigation, Data Entry, Data Display and Feedback, each card carrying a preview and a component count — Button 202, Input 232, Table 90, Icon 731.",
-            "It exists because the expensive failure in a design system is not a missing component, it is an unfound one. Someone who cannot see that Cascader exists builds a nested dropdown, and now there are two."
-          ],
-          "points": [
-            {
-              "head": "Counts on purpose",
-              "body": "Seeing 232 input components tells you to look before you build."
-            },
-            {
-              "head": "Grouped by job",
-              "body": "Data entry, data display, feedback — how designers actually search."
-            }
-          ],
-          "images": [
-            {
-              "src": "adler/shot-overview.png",
-              "cap": "The overview — every family, grouped by job, with previews and component counts."
-            }
-          ],
-          "desktops": [],
-          "mobiles": [],
+          "videos": [],
           "tradeoffs": []
         },
         {
           "label": "Outcome",
-          "title": "A system that outlived the sprint that needed it",
+          "title": "Four modules that read as one platform",
           "paras": [
-            "The library shipped as Figma variables and component sets, versioned — the file the team works in is v2.7.0, which is its own evidence: a system nobody uses does not reach a seventh minor release.",
-            "What I would watch is the same number I always watch on systems work: how often someone builds a component that already exists. That figure, not the component count, is what says whether the agreement held."
+            "The modules ship on a shared shell, so an administrator who learns recruitment can work attendance without retraining, and the next module can be specified by its content rather than its layout."
           ],
-          "points": [
+          "points": [],
+          "images": [
             {
-              "head": "Shipped and versioned",
-              "body": "v2.7.0 — maintained rather than published once."
-            },
-            {
-              "head": "The number that matters",
-              "body": "Duplicate components built per month, trending down."
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+              "cap": "PEP across devices"
             }
           ],
-          "images": [],
-          "desktops": [],
-          "mobiles": [],
+          "videos": [],
           "tradeoffs": []
         }
       ]
@@ -686,6 +609,286 @@
       ]
     },
     {
+      "id": "complaint-management",
+      "name": "Complaint Management",
+      "year": "2025",
+      "kind": "Case management · Service operations · Enterprise UX",
+      "blurb": "Case management system for service teams. Intake, ownership, SLA and resolution tracked in one trail.",
+      "summary": "A workspace for resolving complaints: a reporting dashboard, a working ticket queue, a category and SLA model that routes each case to the right unit, and a knowledge base.",
+      "problem": "Complaints were logged and then went quiet — no owner, no deadline, and a complainant left guessing. That is how a fixable problem becomes an escalation.",
+      "solve": "Modelled the complaint itself — category, service unit, SLA in hours — so routing and deadlines exist before anyone opens the queue. The dashboard and knowledge base build on the same model.",
+      "projectType": "Professional",
+      "role": "Product Designer",
+      "platform": "Web · Desktop",
+      "meta": [
+        "Professional",
+        "Case management",
+        "Dashboard"
+      ],
+      "status": "Delivered",
+      "cover": "uploads/Complaint-Management-Package/Images/hero.png",
+      "group": "work",
+      "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
+      "shots": [
+        "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+        "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
+        "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png"
+      ],
+      "swatch": "#1f3b73",
+      "did": [
+        "Designed the complaint lifecycle end to end: intake, categorisation, assignment, resolution and reporting.",
+        "Built the analytics dashboard around the five numbers a service manager is accountable for.",
+        "Designed the category and SLA model that routes a complaint to the right unit automatically.",
+        "Designed the knowledge base authoring experience so answers become reusable instead of retyped."
+      ],
+      "sections": [
+        {
+          "label": "Problem",
+          "title": "Complaints get received, then lost",
+          "paras": [
+            "Most organisations are good at receiving a complaint and bad at the twenty days that follow. It arrives by phone, email or in person, gets written somewhere, and its status becomes whatever the person who took it remembers.",
+            "The complainant experiences that as silence, which is what turns a resolvable problem into an escalation."
+          ],
+          "points": [
+            {
+              "head": "Ownership decays",
+              "body": "A case with no named owner is a case nobody is late on."
+            },
+            {
+              "head": "Silence is the failure",
+              "body": "People forgive slow resolution far more readily than no news."
+            }
+          ],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Philosophy",
+          "title": "Fix the model, not the screen",
+          "paras": [
+            "When an operation is failing, the request is almost always for a better dashboard. But a queue can only show what the data knows — if a complaint has no category, no owning unit and no promised deadline, no layout will make it accountable.",
+            "So I treat the data model as the primary design surface. Get category, service unit and SLA right and the queue, the reporting and the escalation rules all fall out of it. Get them wrong and every screen becomes a workaround."
+          ],
+          "points": [
+            {
+              "head": "What I optimise for",
+              "body": "Cases that cannot exist in an ambiguous state."
+            },
+            {
+              "head": "Where the design lives",
+              "body": "In three fields nobody photographs for a portfolio."
+            }
+          ],
+          "images": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Starting point",
+          "title": "The work was already happening in a generic helpdesk",
+          "paras": [
+            "Before the redesign, complaints ran through an off-the-shelf support desk. It handled tickets competently and knew nothing about complaints: no service unit, no category-level SLA, no distinction between a question and a grievance a regulator might ask about.",
+            "So the brief was not \"build a ticket tool\". It was to model the complaint itself — its category, its owning unit, its promised resolution time — and let the queue fall out of that."
+          ],
+          "points": [
+            {
+              "head": "What carried over",
+              "body": "Status, priority, assignee and a scannable list. Those patterns were working and stayed."
+            },
+            {
+              "head": "What was missing",
+              "body": "Category, service unit and SLA — the three fields that make a complaint different from a ticket."
+            }
+          ],
+          "images": [
+            {
+              "src": "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
+              "cap": "Ticket management — the working queue: status, priority, assignee and last update"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "The queue",
+          "title": "Saved views are the product for an agent",
+          "paras": [
+            "An agent never wants \"all tickets\". They want the four cuts that describe their obligations, so the rail carries them as counted views: all tickets, my open tickets, unassigned, overdue, closed and spam — plus custom views for high priority and customer follow-ups.",
+            "The counts are the point. Unassigned and overdue with a number beside them turn two silent failure modes into something a supervisor can see from the sidebar without opening anything."
+          ],
+          "points": [
+            {
+              "head": "Unassigned is a state, not an oversight",
+              "body": "A named view means nobody has to remember to check for orphaned cases."
+            },
+            {
+              "head": "Overdue is separate from open",
+              "body": "Breaching a promise is a different problem from having work in progress."
+            },
+            {
+              "head": "Row scanning",
+              "body": "Ticket ID, subject, customer, status, priority, assignee, last update — one line per case, in reading order."
+            }
+          ],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Platform",
+          "title": "What sits behind the queue",
+          "paras": [
+            "The system is not only an agent tool. The rail carries the administrative surfaces a service operation actually needs: setup, unit management, human resource, customer management, report and analytics, and the knowledge base.",
+            "Grouping them into one shell is what lets a category point at a service unit, a unit point at its people, and a report cover all of them — the joins that make the reporting trustworthy."
+          ],
+          "points": [
+            {
+              "head": "Unit management",
+              "body": "Service units are the routing target and the reporting dimension."
+            },
+            {
+              "head": "Customer management",
+              "body": "The complainant is a record with a history, not a name on a ticket."
+            },
+            {
+              "head": "Report & analytics",
+              "body": "Reporting reads the same model the queue writes to, so numbers reconcile."
+            }
+          ],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Dashboard",
+          "title": "Five numbers a service manager is answerable for",
+          "paras": [
+            "The dashboard leads with volume, open load, resolved count, resolution rate and average resolution time — each with its movement against the previous week, because a rate without a direction tells you nothing.",
+            "Below that, three views answer the three questions that follow: is the backlog growing (received against resolved over time), are we responding fast enough (average first reply), and where is the volume coming from (channel breakdown). Customer satisfaction closes the page with its trend and full distribution rather than a single average, so a rise in \"very dissatisfied\" cannot hide inside a healthy mean."
+          ],
+          "points": [
+            {
+              "head": "The five headline metrics",
+              "body": "Total complaints, open, resolved, resolution rate and average resolution time — each with a week-on-week delta and its direction."
+            },
+            {
+              "head": "Channel mix",
+              "body": "Email, web portal, mobile app, phone and social as one donut with counts, so an investment argument has a number behind it."
+            },
+            {
+              "head": "CSAT in full",
+              "body": "The five-point distribution sits beside the average — the tail is the story a mean hides."
+            },
+            {
+              "head": "Honest footnote",
+              "body": "The page states CSAT is collected after resolution, so the score is never over-read."
+            },
+            {
+              "head": "One date range, one filter",
+              "body": "Every panel obeys the range at the top. No panel-level time controls to disagree with each other."
+            }
+          ],
+          "images": [
+            {
+              "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+              "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": [
+            {
+              "old": "An earlier dashboard opened on the complaint queue — the argument being that managers should see live work first. It made the page a second inbox, and nobody used it for the decision it existed to support.",
+              "now": "The dashboard reports, the queue works. Separating them meant the manager view could answer \"is this getting better or worse\" without competing with the agent view."
+            }
+          ]
+        },
+        {
+          "label": "Categories & SLA",
+          "title": "Routing is a data model, not a rule engine",
+          "paras": [
+            "A category is where the promise gets made: a name, the responsible service unit, a default priority and an SLA target in hours. Define those once and every complaint of that type routes to the right team with a deadline already attached.",
+            "The form explains itself as you fill it — why categories exist, what better organisation and faster resolution buy you, and a note that categories can be deactivated later. Configuration screens are used rarely and by people under pressure, so the reasoning belongs on the page rather than in a manual."
+          ],
+          "points": [
+            {
+              "head": "SLA at the category",
+              "body": "The deadline is a property of the complaint type, stated in hours, so no case arrives without one."
+            },
+            {
+              "head": "Service unit, not person",
+              "body": "Routing to a team survives staff turnover; routing to an individual does not."
+            },
+            {
+              "head": "Default priority",
+              "body": "Set per category, overridable per case — the common path needs no decision."
+            },
+            {
+              "head": "Attachments allowed",
+              "body": "Policy documents can sit with the category that enforces them."
+            },
+            {
+              "head": "Deactivate, never delete",
+              "body": "Retiring a category preserves the history reported against it."
+            }
+          ],
+          "images": [
+            {
+              "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
+              "cap": "Create complaint category — service unit, priority and SLA target"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Knowledge base",
+          "title": "Answer once, reuse forever",
+          "paras": [
+            "The same complaints recur, and the cost of retyping an answer is paid every time by whoever is fastest at typing. Article authoring is therefore a first-class surface: title, slug, category, visibility, summary and a rich-text body, with templates for how-to guides, FAQs, policies and troubleshooting.",
+            "Visibility is the field that makes it work in both directions — the same article can serve an agent internally and a customer in self-service, which is what stops the knowledge base becoming a second, staler copy of itself."
+          ],
+          "points": [
+            {
+              "head": "Templates over blank pages",
+              "body": "How-to guide, FAQ, policy and troubleshooting — because \"write an article\" is the reason nothing gets written."
+            },
+            {
+              "head": "One article, two audiences",
+              "body": "Visibility decides who sees it; the content stays single-sourced."
+            },
+            {
+              "head": "Slug and summary as fields",
+              "body": "A 160-character summary and an explicit URL slug make articles findable outside the tool, not just inside it."
+            },
+            {
+              "head": "Editor, then preview",
+              "body": "Formatting kept to what support answers need — emphasis, lists, quotes, code, images."
+            }
+          ],
+          "images": [
+            {
+              "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
+              "cap": "Create new article — metadata, editor and starting templates"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Reflection",
+          "title": "The model did the work the queue got credit for",
+          "paras": [
+            "Every improvement people noticed — cases arriving at the right team, deadlines that exist before anyone looks, reporting that adds up — came from getting category, service unit and SLA right as data, not from anything on the queue screen.",
+            "It is the least visible part of the design and the part I would spend the time on again."
+          ],
+          "points": [],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        }
+      ]
+    },
+    {
       "id": "rad-reader",
       "name": "Rad Reader",
       "year": "2024",
@@ -1014,6 +1217,419 @@
       ]
     },
     {
+      "id": "adler-ds",
+      "name": "Adler Design System",
+      "year": "2024",
+      "kind": "Design system · 1,394 components · Remote",
+      "blurb": "Component library and design tokens for Adler's social platform. 1,394 components and 731 icons, used by a remote team.",
+      "summary": "A production design system: colour, typography, icon, shadow and spacing foundations, plus 40 component families documented with every state.",
+      "problem": "A small team across three time zones kept rebuilding the same components. Consistency depended on who happened to review the work.",
+      "solve": "Locked the foundations first — colour ramps, type scale, spacing — then documented each component state by state. An overview page lets anyone check what already exists before building it again.",
+      "projectType": "Professional · remote",
+      "role": "Design System Designer",
+      "platform": "Web · Figma",
+      "meta": [
+        "Professional",
+        "Design system",
+        "Documentation"
+      ],
+      "status": "Delivered",
+      "cover": "adler/hero.png",
+      "group": "work",
+      "shots": [
+        "adler/shot-colors.png",
+        "adler/shot-buttons.png",
+        "adler/shot-icons.png"
+      ],
+      "swatch": "#15C5CE",
+      "coverTitle": "Adler Design System",
+      "coverLine": "1,394 components, one grammar",
+      "figma": "https://www.figma.com/design/DVbO0GoQaR775diXBnsl72/Adler-sns--Design-System_v2.7.0?node-id=0-1",
+      "did": [
+        "Defined the foundations: eight-step ramps across neutral, primary, auxiliary and four semantic roles, on Ubuntu with PingFang SC for Chinese text.",
+        "Documented forty component families — Button through Upload — each with its full variant and state matrix.",
+        "Drew and catalogued a 731-icon set in line and fill themes on a shared grid.",
+        "Wrote the overview page: every family, its component count, and a preview, so the team could check before rebuilding.",
+        "Published as Figma variables and component sets so the library was consumable, not just readable."
+      ],
+      "sections": [
+        {
+          "label": "Problem",
+          "title": "Three time zones, one interface, no agreement",
+          "paras": [
+            "Adler’s product was moving fast with a small distributed team. Every sprint someone needed a button, a table, an empty state — and built one. None of them were wrong on their own; together they were four products wearing the same logo.",
+            "The cost showed up as review time. Consistency was being enforced by whoever looked at the work last, which does not scale and does not survive a busy week. A system was the cheapest way to buy the team back its velocity."
+          ],
+          "points": [
+            {
+              "head": "Re-deciding, constantly",
+              "body": "The same interface question answered differently each sprint."
+            },
+            {
+              "head": "Async makes it worse",
+              "body": "Nobody is in the room to ask, so everyone guesses."
+            }
+          ],
+          "images": [],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Philosophy",
+          "title": "A system is an agreement, not a folder",
+          "paras": [
+            "Component libraries fail when they are treated as storage. The value is not that a button exists somewhere — it is that everyone has agreed what a button means, when it is primary, and what it looks like while it is being pressed. The file is just where the agreement is written down.",
+            "So I documented decisions before I documented pixels. Every colour role has a stated purpose. Every component sheet leads with the rule and follows with the variants. And the overview page exists purely to answer \"does this already exist?\" — the question that, unanswered, is how libraries get duplicated."
+          ],
+          "points": [
+            {
+              "head": "What I optimise for",
+              "body": "The number of decisions a designer does not have to make."
+            },
+            {
+              "head": "States, not ideals",
+              "body": "Every component drawn hover, pressed and disabled — the states that ship wrong."
+            },
+            {
+              "head": "Findable beats complete",
+              "body": "A component nobody can find gets rebuilt anyway."
+            }
+          ],
+          "images": [],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": [
+            {
+              "old": "The obvious move was to start with the components the team needed that week — buttons, inputs, a table — and add foundations later once patterns emerged.",
+              "now": "Foundations first. Colour ramps, type scale and spacing were locked before any component was drawn, because a component built on unnamed values has to be rebuilt the moment the values get names."
+            }
+          ]
+        },
+        {
+          "label": "Foundations",
+          "title": "Eight steps of every colour, one type scale",
+          "paras": [
+            "Colour is organised by role rather than by hue: neutral, primary, auxiliary, then danger, warning, success and info. Each role carries an eight-step ramp from 700 down to 50, so the same step of any role has the same visual weight — a 600 is always the pressed state, a 50 is always the faintest tint, whatever the colour.",
+            "Semantic roles carry their meaning in writing: danger for rejected or wrong, warning for in-progress, success for passed, info for no emotion at all. That last one matters — it is the role teams reach for when they want emphasis without alarm.",
+            "Typography is Ubuntu across four weights with PingFang SC for Chinese text, on a scale that stops at the sizes the product actually uses rather than a decorative range nobody types into."
+          ],
+          "points": [
+            {
+              "head": "Roles over hues",
+              "body": "You pick \"danger 600\", never \"that red\"."
+            },
+            {
+              "head": "Even steps",
+              "body": "Ramps built so equivalent steps read at equivalent weight."
+            },
+            {
+              "head": "Bilingual by default",
+              "body": "Latin and Chinese faces specified together, not retrofitted."
+            }
+          ],
+          "images": [
+            {
+              "src": "adler/shot-colors.png",
+              "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values."
+            },
+            {
+              "src": "adler/shot-typography.png",
+              "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale."
+            }
+          ],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Icons",
+          "title": "731 icons that behave like one family",
+          "paras": [
+            "The icon set is the part of a system most likely to drift, because icons get added under deadline. Drawing all 731 on one grid, in matched line and fill themes, made the set closable — a new icon has a shape to conform to rather than a style to invent.",
+            "They are catalogued by meaning, not by drawing: directional, suggestive, status. A designer looking for \"the one that means terminated\" finds it without scrolling the whole sheet."
+          ],
+          "points": [
+            {
+              "head": "One grid, two themes",
+              "body": "Line and fill drawn as a pair so either can be swapped in."
+            },
+            {
+              "head": "Indexed by meaning",
+              "body": "Grouped by what they communicate, not what they depict."
+            }
+          ],
+          "images": [
+            {
+              "src": "adler/shot-icons.png",
+              "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning."
+            }
+          ],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Components",
+          "title": "Forty families, each documented state by state",
+          "paras": [
+            "Every component sheet follows the same shape: the rule at the top, a copy-me instance, the variant axes, then the full state matrix. Button, for instance, states its rule plainly — one primary button per action section — then shows text-only, left-icon and right-icon across default, hover, pressed and disabled at three sizes, with the spacing specimens beside it.",
+            "Table got the most attention because it carries the most weight in an enterprise product: simple, multi-select, expandable rows, fixed columns, fixed footer and dividers, each as a worked example rather than a description. Form covers the layouts and validation states that decide whether an operator finishes a task or abandons it.",
+            "Density is the only axis allowed to vary between contexts. What never changes is the meaning of a colour, the anatomy of a field, or where the primary action sits."
+          ],
+          "points": [
+            {
+              "head": "Rule, then variants",
+              "body": "Each sheet says what the component is for before showing what it can be."
+            },
+            {
+              "head": "A copy-me instance",
+              "body": "The fastest correct path is also the most convenient one."
+            },
+            {
+              "head": "Spacing shown, not implied",
+              "body": "Annotated specimens so implementation is not guesswork."
+            }
+          ],
+          "images": [
+            {
+              "src": "adler/shot-buttons.png",
+              "cap": "Button — the rule, the variants, and the full state matrix at three sizes."
+            },
+            {
+              "src": "adler/shot-table.png",
+              "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers."
+            },
+            {
+              "src": "adler/shot-form.png",
+              "cap": "Form — layouts, field anatomy and validation states."
+            }
+          ],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Findability",
+          "title": "The overview page is the most-used screen in the system",
+          "paras": [
+            "The single highest-leverage page is the inventory: every family grouped as General, Navigation, Data Entry, Data Display and Feedback, each card carrying a preview and a component count — Button 202, Input 232, Table 90, Icon 731.",
+            "It exists because the expensive failure in a design system is not a missing component, it is an unfound one. Someone who cannot see that Cascader exists builds a nested dropdown, and now there are two."
+          ],
+          "points": [
+            {
+              "head": "Counts on purpose",
+              "body": "Seeing 232 input components tells you to look before you build."
+            },
+            {
+              "head": "Grouped by job",
+              "body": "Data entry, data display, feedback — how designers actually search."
+            }
+          ],
+          "images": [
+            {
+              "src": "adler/shot-overview.png",
+              "cap": "The overview — every family, grouped by job, with previews and component counts."
+            }
+          ],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Outcome",
+          "title": "A system that outlived the sprint that needed it",
+          "paras": [
+            "The library shipped as Figma variables and component sets, versioned — the file the team works in is v2.7.0, which is its own evidence: a system nobody uses does not reach a seventh minor release.",
+            "What I would watch is the same number I always watch on systems work: how often someone builds a component that already exists. That figure, not the component count, is what says whether the agreement held."
+          ],
+          "points": [
+            {
+              "head": "Shipped and versioned",
+              "body": "v2.7.0 — maintained rather than published once."
+            },
+            {
+              "head": "The number that matters",
+              "body": "Duplicate components built per month, trending down."
+            }
+          ],
+          "images": [],
+          "desktops": [],
+          "mobiles": [],
+          "tradeoffs": []
+        }
+      ]
+    },
+    {
+      "id": "adler-studio",
+      "name": "Adler Studio",
+      "year": "2024",
+      "kind": "Immersive 3D · Creator tool · Web app",
+      "blurb": "Browser tool for building and publishing 3D spaces. Scene builder, object controls, spatial audio and a shareable preview.",
+      "summary": "Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore.",
+      "problem": "3D authoring tools assume you already know 3D, so most creators never get past the first session.",
+      "solve": "Split the tool in two: a nearly empty canvas with two gestures for composing, and a properties panel holding the exact values. Easy to start, precise enough to stay.",
+      "projectType": "Professional · remote",
+      "role": "Product Designer",
+      "platform": "Web · 3D",
+      "meta": [
+        "Professional",
+        "3D & immersive",
+        "Creator tool"
+      ],
+      "status": "Delivered",
+      "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
+      "group": "work",
+      "shots": [
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png"
+      ],
+      "swatch": "#E4002B",
+      "did": [
+        "Designed the studio shell: item library, canvas and properties panel, and the rules for what lives in each.",
+        "Designed precision object controls — scale, position, rotation, texture, grouping and z-order.",
+        "Designed the audio system, from the music library to per-space playlists and spatial placement.",
+        "Designed the publish path: space management, draft and published states, and the immersive public preview."
+      ],
+      "sections": [
+        {
+          "label": "Problem",
+          "title": "3D tools are built for people who already know 3D",
+          "paras": [
+            "Spatial authoring tools inherit their vocabulary from professional 3D software: gizmos, hierarchies, modifier stacks. Adler’s users are creators and brands who want a room, not a rig.",
+            "The design problem is not simplification. It is deciding which precision to keep — because a creator who cannot set an exact dimension eventually leaves."
+          ],
+          "points": [
+            {
+              "head": "Two hands",
+              "body": "Direct manipulation for composing, numeric fields for finishing. Both, not one."
+            }
+          ],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Philosophy",
+          "title": "Simplify the gesture, never the ceiling",
+          "paras": [
+            "Most \"easy\" creative tools buy their simplicity by taking capability away, and the users who stay longest are exactly the ones who hit that ceiling first. I do not think approachability and precision are a trade — they are two moments in the same session.",
+            "The rule I designed to: the canvas holds the smallest possible number of gestures, and the panel holds every exact value. A beginner never meets a number they did not ask for; an expert never meets a limit they cannot type past."
+          ],
+          "points": [
+            {
+              "head": "What I optimise for",
+              "body": "Time from opening the tool to something worth publishing."
+            },
+            {
+              "head": "The failure I design against",
+              "body": "A creator who outgrows the product in a week."
+            }
+          ],
+          "images": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Scene builder",
+          "title": "A library on the left, the room in the middle, its properties on the right",
+          "paras": [
+            "Items are grouped the way a person furnishes a space — architectural, furniture, decorative, lighting, electronics — and searchable when the list gets long. The canvas keeps an orbit cube and a hint line, so the two gestures that matter are always discoverable.",
+            "The properties panel treats a space as an object with a name, a description, real dimensions, a skybox and a soundtrack. Naming and describing a room early is what makes it publishable later."
+          ],
+          "points": [],
+          "images": [
+            {
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+              "cap": "3D scene builder — item library, canvas, space properties"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": [
+            {
+              "old": "An early version hid all numeric fields behind an \"advanced\" disclosure to keep the panel calm. Testers assumed the precision did not exist and worked around it by eyeballing scale, then complained the tool was imprecise.",
+              "now": "Scale, position and rotation sit in the panel as three tabs, visible by default. The panel is busier; the tool is trusted. Hidden precision reads as absent precision."
+            }
+          ]
+        },
+        {
+          "label": "Object controls",
+          "title": "Every element movable, scalable, and exact",
+          "paras": [
+            "Selecting an object gives a floating action bar for the frequent operations and a properties panel for the exact ones: texture with its resolution, lock state, XYZ across scale, position and rotation, plus duplicate, group, bring to front and delete.",
+            "The same panel handles the space and the object, so there is one place to look regardless of what is selected."
+          ],
+          "points": [],
+          "images": [
+            {
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
+              "cap": "Precision object controls — texture, lock, XYZ, grouping"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Audio",
+          "title": "Music defines how a space feels",
+          "paras": [
+            "The audio system treats sound as part of the composition, not a setting. A music library with moods, genres and uploads, a per-space playlist, and spatial placement so audio has a position in the room.",
+            "Tracks carry waveform previews and durations, because choosing a soundtrack is a listening task, not a naming task."
+          ],
+          "points": [
+            {
+              "head": "Spatially aware",
+              "body": "Audio positioned in 3D space for depth and realism."
+            },
+            {
+              "head": "Curated or custom",
+              "body": "A rich library, or the creator’s own uploads."
+            }
+          ],
+          "images": [
+            {
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
+              "cap": "Immersive audio — music library, playlist and spatial placement"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Publish",
+          "title": "Manage spaces, then hand one to the public",
+          "paras": [
+            "Space management is a working grid: published and draft tabs, categories, sort, view toggles, per-space views and collaborators — and a destructive-action dialog that says plainly what cannot be undone.",
+            "The public preview is the payoff. A rendered space with its author, description, tags, view count and the social loop — like, comment, share, remix — plus navigation that stays out of the room."
+          ],
+          "points": [],
+          "images": [
+            {
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
+              "cap": "Space management — published and draft spaces, delete confirmation"
+            },
+            {
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
+              "cap": "Immersive preview — the published space with its social loop"
+            }
+          ],
+          "videos": [],
+          "tradeoffs": []
+        },
+        {
+          "label": "Reflection",
+          "title": "Restraint in the canvas, generosity in the panel",
+          "paras": [
+            "The pattern that made this work was keeping the canvas almost empty and letting the panels carry the complexity. Creators compose with gestures and finish with numbers, and neither group had to give anything up."
+          ],
+          "points": [],
+          "images": [],
+          "videos": [],
+          "tradeoffs": []
+        }
+      ]
+    },
+    {
       "id": "addis-park",
       "name": "Addis Park",
       "year": "2025",
@@ -1226,622 +1842,6 @@
               "wide": true
             }
           ],
-          "videos": [],
-          "tradeoffs": []
-        }
-      ]
-    },
-    {
-      "id": "adler-studio",
-      "name": "Adler Studio",
-      "year": "2024",
-      "kind": "Immersive 3D · Creator tool · Web app",
-      "blurb": "Browser tool for building and publishing 3D spaces. Scene builder, object controls, spatial audio and a shareable preview.",
-      "summary": "Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore.",
-      "problem": "3D authoring tools assume you already know 3D, so most creators never get past the first session.",
-      "solve": "Split the tool in two: a nearly empty canvas with two gestures for composing, and a properties panel holding the exact values. Easy to start, precise enough to stay.",
-      "projectType": "Professional · remote",
-      "role": "Product Designer",
-      "platform": "Web · 3D",
-      "meta": [
-        "Professional",
-        "3D & immersive",
-        "Creator tool"
-      ],
-      "status": "Delivered",
-      "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
-      "group": "work",
-      "shots": [
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png"
-      ],
-      "swatch": "#E4002B",
-      "did": [
-        "Designed the studio shell: item library, canvas and properties panel, and the rules for what lives in each.",
-        "Designed precision object controls — scale, position, rotation, texture, grouping and z-order.",
-        "Designed the audio system, from the music library to per-space playlists and spatial placement.",
-        "Designed the publish path: space management, draft and published states, and the immersive public preview."
-      ],
-      "sections": [
-        {
-          "label": "Problem",
-          "title": "3D tools are built for people who already know 3D",
-          "paras": [
-            "Spatial authoring tools inherit their vocabulary from professional 3D software: gizmos, hierarchies, modifier stacks. Adler’s users are creators and brands who want a room, not a rig.",
-            "The design problem is not simplification. It is deciding which precision to keep — because a creator who cannot set an exact dimension eventually leaves."
-          ],
-          "points": [
-            {
-              "head": "Two hands",
-              "body": "Direct manipulation for composing, numeric fields for finishing. Both, not one."
-            }
-          ],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Philosophy",
-          "title": "Simplify the gesture, never the ceiling",
-          "paras": [
-            "Most \"easy\" creative tools buy their simplicity by taking capability away, and the users who stay longest are exactly the ones who hit that ceiling first. I do not think approachability and precision are a trade — they are two moments in the same session.",
-            "The rule I designed to: the canvas holds the smallest possible number of gestures, and the panel holds every exact value. A beginner never meets a number they did not ask for; an expert never meets a limit they cannot type past."
-          ],
-          "points": [
-            {
-              "head": "What I optimise for",
-              "body": "Time from opening the tool to something worth publishing."
-            },
-            {
-              "head": "The failure I design against",
-              "body": "A creator who outgrows the product in a week."
-            }
-          ],
-          "images": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Scene builder",
-          "title": "A library on the left, the room in the middle, its properties on the right",
-          "paras": [
-            "Items are grouped the way a person furnishes a space — architectural, furniture, decorative, lighting, electronics — and searchable when the list gets long. The canvas keeps an orbit cube and a hint line, so the two gestures that matter are always discoverable.",
-            "The properties panel treats a space as an object with a name, a description, real dimensions, a skybox and a soundtrack. Naming and describing a room early is what makes it publishable later."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
-              "cap": "3D scene builder — item library, canvas, space properties"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": [
-            {
-              "old": "An early version hid all numeric fields behind an \"advanced\" disclosure to keep the panel calm. Testers assumed the precision did not exist and worked around it by eyeballing scale, then complained the tool was imprecise.",
-              "now": "Scale, position and rotation sit in the panel as three tabs, visible by default. The panel is busier; the tool is trusted. Hidden precision reads as absent precision."
-            }
-          ]
-        },
-        {
-          "label": "Object controls",
-          "title": "Every element movable, scalable, and exact",
-          "paras": [
-            "Selecting an object gives a floating action bar for the frequent operations and a properties panel for the exact ones: texture with its resolution, lock state, XYZ across scale, position and rotation, plus duplicate, group, bring to front and delete.",
-            "The same panel handles the space and the object, so there is one place to look regardless of what is selected."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
-              "cap": "Precision object controls — texture, lock, XYZ, grouping"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Audio",
-          "title": "Music defines how a space feels",
-          "paras": [
-            "The audio system treats sound as part of the composition, not a setting. A music library with moods, genres and uploads, a per-space playlist, and spatial placement so audio has a position in the room.",
-            "Tracks carry waveform previews and durations, because choosing a soundtrack is a listening task, not a naming task."
-          ],
-          "points": [
-            {
-              "head": "Spatially aware",
-              "body": "Audio positioned in 3D space for depth and realism."
-            },
-            {
-              "head": "Curated or custom",
-              "body": "A rich library, or the creator’s own uploads."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
-              "cap": "Immersive audio — music library, playlist and spatial placement"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Publish",
-          "title": "Manage spaces, then hand one to the public",
-          "paras": [
-            "Space management is a working grid: published and draft tabs, categories, sort, view toggles, per-space views and collaborators — and a destructive-action dialog that says plainly what cannot be undone.",
-            "The public preview is the payoff. A rendered space with its author, description, tags, view count and the social loop — like, comment, share, remix — plus navigation that stays out of the room."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
-              "cap": "Space management — published and draft spaces, delete confirmation"
-            },
-            {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
-              "cap": "Immersive preview — the published space with its social loop"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Reflection",
-          "title": "Restraint in the canvas, generosity in the panel",
-          "paras": [
-            "The pattern that made this work was keeping the canvas almost empty and letting the panels carry the complexity. Creators compose with gestures and finish with numbers, and neither group had to give anything up."
-          ],
-          "points": [],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        }
-      ]
-    },
-    {
-      "id": "pep",
-      "name": "PEP",
-      "year": "2023",
-      "kind": "Productivity Enhancement Platform · HR suite · Enterprise UX",
-      "blurb": "HR platform covering recruitment, attendance, learning and engagement in one consistent system.",
-      "summary": "PEP covers the employee lifecycle — hiring, attendance, growth and feedback — built so learning one module teaches you the rest.",
-      "problem": "Hiring, attendance, learning and feedback describe one person, but ran as four systems that disagreed. Training was paid for four times.",
-      "solve": "Designed the shell before the screens: one module rail, one workspace, one list-record-edit pattern. Modules fit the frame rather than negotiating with each other.",
-      "projectType": "Professional",
-      "role": "Team Lead, UI/UX Designer",
-      "platform": "Web · Desktop",
-      "meta": [
-        "Professional",
-        "HR platform",
-        "Dashboard"
-      ],
-      "status": "Shipped",
-      "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
-      "group": "work",
-      "figma": "https://www.figma.com/design/6vtO2BwZeTewhybAEaNT7c/PEP-Productivity-Enhancement-Platform--Collab?node-id=2262-902",
-      "shots": [
-        "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-        "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
-        "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png"
-      ],
-      "swatch": "#173273",
-      "did": [
-        "Led the design team building the platform, from requirements gathering through final designs.",
-        "Defined the shared shell — module rail, global search, documents/announcement/report bar — that every module inherits.",
-        "Designed the four flagship modules: recruitment, time and attendance, learning and development, employee engagement.",
-        "Ran weekly reviews against the shell so consistency was a condition of delivery, not a matter of taste."
-      ],
-      "sections": [
-        {
-          "label": "Problem",
-          "title": "One employee lifecycle, four unrelated products",
-          "paras": [
-            "Hiring, attendance, training and feedback are one continuous story about a person. In most organisations they are four systems that disagree about navigation, record editing and what a destructive action looks like.",
-            "The cost lands on the HR administrator who has to work across all four, and on training every new one of them."
-          ],
-          "points": [
-            {
-              "head": "The shell is the product",
-              "body": "If the frame holds, a new module is a content problem rather than a design problem."
-            }
-          ],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Philosophy",
-          "title": "Design the frame, and the screens design themselves",
-          "paras": [
-            "Enterprise products fail as a collection, not as screens. Each module is defensible on its own and the sum is unlearnable — so I spend the early time on the shell and the vocabulary rather than on any one page.",
-            "The test I hold myself to: can a new module be specified by describing its content, because its layout, navigation and destructive-action pattern are already decided? If the answer is no, the system is not finished, however good the individual screens look."
-          ],
-          "points": [
-            {
-              "head": "What I optimise for",
-              "body": "The cost of learning the second module after the first."
-            },
-            {
-              "head": "Density is not the enemy",
-              "body": "Operators compare rows for a living. I fight clutter, not information."
-            }
-          ],
-          "images": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Recruitment",
-          "title": "A candidate pipeline you can actually work from",
-          "paras": [
-            "The candidates view is a dense, sortable table by design: name, contact, role, internal or external, CGPA, CV, applied date, graduation date, social profiles. Recruiters compare rows; hiding columns to look calmer just moves the work into clicks.",
-            "Filters sit above the table for the three cuts that get used — date range, job, department, stage — and the primary action is adding candidates, because that is why the screen gets opened."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-              "cap": "Recruitment — the candidate pipeline"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": [
-            {
-              "old": "The first pipeline was a kanban of stages — visually clearer, and it demoed beautifully. Recruiters working eight candidates at a time needed to compare attributes side by side, which columns do and cards cannot.",
-              "now": "A table as the default view, with stage as a filter. Less impressive in a demo, faster in the job."
-            }
-          ]
-        },
-        {
-          "label": "Attendance",
-          "title": "Attendance is a record, so show the whole record",
-          "paras": [
-            "The attendance view pairs leave balances and history with a per-day detail: clock in, clock out, lunch, breaks, with lateness stated inline against the entry it describes rather than summarised elsewhere.",
-            "Overtime, total time, status and who imported the record are all on the same screen — because the reason anyone opens this page is a dispute about one specific day."
-          ],
-          "points": [
-            {
-              "head": "Exceptions in place",
-              "body": "A late mark next to the timestamp it refers to, not in a summary column."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
-              "cap": "Time & attendance — leave balances, history and day detail"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Learning",
-          "title": "Employee growth through structured learning",
-          "paras": [
-            "The learning module presents a course as a lesson sequence with the video, the written detail, attachments, and a single forward action — Complete — so progress through a curriculum is unambiguous.",
-            "Training management, needs analysis and personal growth plans sit in the same rail, so an employee and an administrator navigate the same structure from different ends."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
-              "cap": "Learning & development — a lesson in a course sequence"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Engagement",
-          "title": "Feedback is only useful when it is actionable",
-          "paras": [
-            "Surveys are cards carrying two numbers that matter — how much is filled, and how much is resolved. Completion without resolution is the failure mode of every engagement programme, so both are on the card.",
-            "Creating a survey is the primary action, and department and status filters keep a large programme navigable."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
-              "cap": "Employee engagement — surveys with filled and resolved rates"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Outcome",
-          "title": "Four modules that read as one platform",
-          "paras": [
-            "The modules ship on a shared shell, so an administrator who learns recruitment can work attendance without retraining, and the next module can be specified by its content rather than its layout."
-          ],
-          "points": [],
-          "images": [
-            {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
-              "cap": "PEP across devices"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        }
-      ]
-    },
-    {
-      "id": "complaint-management",
-      "name": "Complaint Management",
-      "year": "2025",
-      "kind": "Case management · Service operations · Enterprise UX",
-      "blurb": "Case management system for service teams. Intake, ownership, SLA and resolution tracked in one trail.",
-      "summary": "A workspace for resolving complaints: a reporting dashboard, a working ticket queue, a category and SLA model that routes each case to the right unit, and a knowledge base.",
-      "problem": "Complaints were logged and then went quiet — no owner, no deadline, and a complainant left guessing. That is how a fixable problem becomes an escalation.",
-      "solve": "Modelled the complaint itself — category, service unit, SLA in hours — so routing and deadlines exist before anyone opens the queue. The dashboard and knowledge base build on the same model.",
-      "projectType": "Professional",
-      "role": "Product Designer",
-      "platform": "Web · Desktop",
-      "meta": [
-        "Professional",
-        "Case management",
-        "Dashboard"
-      ],
-      "status": "Delivered",
-      "cover": "uploads/Complaint-Management-Package/Images/hero.png",
-      "group": "work",
-      "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
-      "shots": [
-        "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-        "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
-        "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png"
-      ],
-      "swatch": "#1f3b73",
-      "did": [
-        "Designed the complaint lifecycle end to end: intake, categorisation, assignment, resolution and reporting.",
-        "Built the analytics dashboard around the five numbers a service manager is accountable for.",
-        "Designed the category and SLA model that routes a complaint to the right unit automatically.",
-        "Designed the knowledge base authoring experience so answers become reusable instead of retyped."
-      ],
-      "sections": [
-        {
-          "label": "Problem",
-          "title": "Complaints get received, then lost",
-          "paras": [
-            "Most organisations are good at receiving a complaint and bad at the twenty days that follow. It arrives by phone, email or in person, gets written somewhere, and its status becomes whatever the person who took it remembers.",
-            "The complainant experiences that as silence, which is what turns a resolvable problem into an escalation."
-          ],
-          "points": [
-            {
-              "head": "Ownership decays",
-              "body": "A case with no named owner is a case nobody is late on."
-            },
-            {
-              "head": "Silence is the failure",
-              "body": "People forgive slow resolution far more readily than no news."
-            }
-          ],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Philosophy",
-          "title": "Fix the model, not the screen",
-          "paras": [
-            "When an operation is failing, the request is almost always for a better dashboard. But a queue can only show what the data knows — if a complaint has no category, no owning unit and no promised deadline, no layout will make it accountable.",
-            "So I treat the data model as the primary design surface. Get category, service unit and SLA right and the queue, the reporting and the escalation rules all fall out of it. Get them wrong and every screen becomes a workaround."
-          ],
-          "points": [
-            {
-              "head": "What I optimise for",
-              "body": "Cases that cannot exist in an ambiguous state."
-            },
-            {
-              "head": "Where the design lives",
-              "body": "In three fields nobody photographs for a portfolio."
-            }
-          ],
-          "images": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Starting point",
-          "title": "The work was already happening in a generic helpdesk",
-          "paras": [
-            "Before the redesign, complaints ran through an off-the-shelf support desk. It handled tickets competently and knew nothing about complaints: no service unit, no category-level SLA, no distinction between a question and a grievance a regulator might ask about.",
-            "So the brief was not \"build a ticket tool\". It was to model the complaint itself — its category, its owning unit, its promised resolution time — and let the queue fall out of that."
-          ],
-          "points": [
-            {
-              "head": "What carried over",
-              "body": "Status, priority, assignee and a scannable list. Those patterns were working and stayed."
-            },
-            {
-              "head": "What was missing",
-              "body": "Category, service unit and SLA — the three fields that make a complaint different from a ticket."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/Complaint-Management-Package/Images/03-Ticket-Management-clean.png",
-              "cap": "Ticket management — the working queue: status, priority, assignee and last update"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "The queue",
-          "title": "Saved views are the product for an agent",
-          "paras": [
-            "An agent never wants \"all tickets\". They want the four cuts that describe their obligations, so the rail carries them as counted views: all tickets, my open tickets, unassigned, overdue, closed and spam — plus custom views for high priority and customer follow-ups.",
-            "The counts are the point. Unassigned and overdue with a number beside them turn two silent failure modes into something a supervisor can see from the sidebar without opening anything."
-          ],
-          "points": [
-            {
-              "head": "Unassigned is a state, not an oversight",
-              "body": "A named view means nobody has to remember to check for orphaned cases."
-            },
-            {
-              "head": "Overdue is separate from open",
-              "body": "Breaching a promise is a different problem from having work in progress."
-            },
-            {
-              "head": "Row scanning",
-              "body": "Ticket ID, subject, customer, status, priority, assignee, last update — one line per case, in reading order."
-            }
-          ],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Platform",
-          "title": "What sits behind the queue",
-          "paras": [
-            "The system is not only an agent tool. The rail carries the administrative surfaces a service operation actually needs: setup, unit management, human resource, customer management, report and analytics, and the knowledge base.",
-            "Grouping them into one shell is what lets a category point at a service unit, a unit point at its people, and a report cover all of them — the joins that make the reporting trustworthy."
-          ],
-          "points": [
-            {
-              "head": "Unit management",
-              "body": "Service units are the routing target and the reporting dimension."
-            },
-            {
-              "head": "Customer management",
-              "body": "The complainant is a record with a history, not a name on a ticket."
-            },
-            {
-              "head": "Report & analytics",
-              "body": "Reporting reads the same model the queue writes to, so numbers reconcile."
-            }
-          ],
-          "images": [],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Dashboard",
-          "title": "Five numbers a service manager is answerable for",
-          "paras": [
-            "The dashboard leads with volume, open load, resolved count, resolution rate and average resolution time — each with its movement against the previous week, because a rate without a direction tells you nothing.",
-            "Below that, three views answer the three questions that follow: is the backlog growing (received against resolved over time), are we responding fast enough (average first reply), and where is the volume coming from (channel breakdown). Customer satisfaction closes the page with its trend and full distribution rather than a single average, so a rise in \"very dissatisfied\" cannot hide inside a healthy mean."
-          ],
-          "points": [
-            {
-              "head": "The five headline metrics",
-              "body": "Total complaints, open, resolved, resolution rate and average resolution time — each with a week-on-week delta and its direction."
-            },
-            {
-              "head": "Channel mix",
-              "body": "Email, web portal, mobile app, phone and social as one donut with counts, so an investment argument has a number behind it."
-            },
-            {
-              "head": "CSAT in full",
-              "body": "The five-point distribution sits beside the average — the tail is the story a mean hides."
-            },
-            {
-              "head": "Honest footnote",
-              "body": "The page states CSAT is collected after resolution, so the score is never over-read."
-            },
-            {
-              "head": "One date range, one filter",
-              "body": "Every panel obeys the range at the top. No panel-level time controls to disagree with each other."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-              "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": [
-            {
-              "old": "An earlier dashboard opened on the complaint queue — the argument being that managers should see live work first. It made the page a second inbox, and nobody used it for the decision it existed to support.",
-              "now": "The dashboard reports, the queue works. Separating them meant the manager view could answer \"is this getting better or worse\" without competing with the agent view."
-            }
-          ]
-        },
-        {
-          "label": "Categories & SLA",
-          "title": "Routing is a data model, not a rule engine",
-          "paras": [
-            "A category is where the promise gets made: a name, the responsible service unit, a default priority and an SLA target in hours. Define those once and every complaint of that type routes to the right team with a deadline already attached.",
-            "The form explains itself as you fill it — why categories exist, what better organisation and faster resolution buy you, and a note that categories can be deactivated later. Configuration screens are used rarely and by people under pressure, so the reasoning belongs on the page rather than in a manual."
-          ],
-          "points": [
-            {
-              "head": "SLA at the category",
-              "body": "The deadline is a property of the complaint type, stated in hours, so no case arrives without one."
-            },
-            {
-              "head": "Service unit, not person",
-              "body": "Routing to a team survives staff turnover; routing to an individual does not."
-            },
-            {
-              "head": "Default priority",
-              "body": "Set per category, overridable per case — the common path needs no decision."
-            },
-            {
-              "head": "Attachments allowed",
-              "body": "Policy documents can sit with the category that enforces them."
-            },
-            {
-              "head": "Deactivate, never delete",
-              "body": "Retiring a category preserves the history reported against it."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
-              "cap": "Create complaint category — service unit, priority and SLA target"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Knowledge base",
-          "title": "Answer once, reuse forever",
-          "paras": [
-            "The same complaints recur, and the cost of retyping an answer is paid every time by whoever is fastest at typing. Article authoring is therefore a first-class surface: title, slug, category, visibility, summary and a rich-text body, with templates for how-to guides, FAQs, policies and troubleshooting.",
-            "Visibility is the field that makes it work in both directions — the same article can serve an agent internally and a customer in self-service, which is what stops the knowledge base becoming a second, staler copy of itself."
-          ],
-          "points": [
-            {
-              "head": "Templates over blank pages",
-              "body": "How-to guide, FAQ, policy and troubleshooting — because \"write an article\" is the reason nothing gets written."
-            },
-            {
-              "head": "One article, two audiences",
-              "body": "Visibility decides who sees it; the content stays single-sourced."
-            },
-            {
-              "head": "Slug and summary as fields",
-              "body": "A 160-character summary and an explicit URL slug make articles findable outside the tool, not just inside it."
-            },
-            {
-              "head": "Editor, then preview",
-              "body": "Formatting kept to what support answers need — emphasis, lists, quotes, code, images."
-            }
-          ],
-          "images": [
-            {
-              "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
-              "cap": "Create new article — metadata, editor and starting templates"
-            }
-          ],
-          "videos": [],
-          "tradeoffs": []
-        },
-        {
-          "label": "Reflection",
-          "title": "The model did the work the queue got credit for",
-          "paras": [
-            "Every improvement people noticed — cases arriving at the right team, deadlines that exist before anyone looks, reporting that adds up — came from getting category, service unit and SLA right as data, not from anything on the queue screen.",
-            "It is the least visible part of the design and the part I would spend the time on again."
-          ],
-          "points": [],
-          "images": [],
           "videos": [],
           "tradeoffs": []
         }

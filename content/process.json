@@ -2,33 +2,33 @@
   "items": [
     {
       "n": "01",
-      "title": "Start with the problem",
-      "body": "Briefs arrive as feature requests. I use interviews and research to work out what people actually need, then write it down as one sentence the team can agree on."
+      "title": "Discover the problem",
+      "body": "Understand the user, the workflow and the business need. Make assumptions visible and agree on the problem before discussing a feature list."
     },
     {
       "n": "02",
-      "title": "Model the data first",
-      "body": "I settle the objects and their states — what a booking or a complaint really is — before designing screens. Getting this wrong is expensive to undo later."
+      "title": "Define success",
+      "body": "Agree on the outcome, the evidence we need and the constraints. Separate the goal from the solution so the team can compare different approaches."
     },
     {
       "n": "03",
-      "title": "Set the structure",
-      "body": "One shell, one navigation model, one pattern for list, record and edit. After that, a new screen only needs its content described."
+      "title": "Prioritize the scope",
+      "body": "Weigh user value, business importance, effort and dependencies. Make the first release explicit, including what we are choosing to leave out."
     },
     {
       "n": "04",
-      "title": "Design every state",
-      "body": "Empty, loading, partial, failed, offline, overloaded. I draw components in the conditions they will actually meet, including a mid-range phone on a bad connection."
+      "title": "Align the team",
+      "body": "Turn the direction into requirements, flows and a prototype. Work through trade-offs with engineering and stakeholders before committing to delivery."
     },
     {
       "n": "05",
-      "title": "Test and revise",
-      "body": "Usability sessions and preference tests. When people struggle with something, I change it, even when I preferred the earlier version."
+      "title": "Support delivery",
+      "body": "Keep decisions clear as the team builds. Review edge cases, acceptance criteria and readiness, and resolve questions with the people doing the work."
     },
     {
       "n": "06",
-      "title": "Hand off with the reasoning",
-      "body": "Specs, tokens and component states, with the reason for each decision written next to the frame it belongs to."
+      "title": "Learn and iterate",
+      "body": "Use feedback and available product data to revisit the assumptions. Decide what to improve next and record what the team learned."
     }
   ]
 }
