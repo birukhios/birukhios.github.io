@@ -1147,7 +1147,8 @@
           "title": "One platform, four sides",
           "paras": [
             "The platform splits by role rather than by feature. A patient app for tracking and receiving results; a health-centre console for registering the facility, uploading studies and retrieving reports; a radiologist workspace for the reading queue, comparison and reporting; and an admin side for accounts, assignment and subscription.",
-            "A site map came before any screen. It settled the questions that decide the product — who can assign a study, where payment sits in the flow, whether a report can be issued before payment clears — and let me design each surface against a shared spine rather than negotiating them against each other later."
+            "A site map came before any screen. It settled the questions that decide the product — who can assign a study, where payment sits in the flow, whether a report can be issued before payment clears — and let me design each surface against a shared spine rather than negotiating them against each other later.",
+            "The updated interactive prototype explores this architecture with a shared purple identity, a lighter navigation rail, explicit study status and a patient timeline. Sample data and actions illustrate the workflow; clinical image rendering, payments and production services are outside this prototype."
           ],
           "points": [
             {
@@ -1168,7 +1169,12 @@
             }
           ],
           "images": [],
-          "desktops": [],
+          "desktops": [
+            {
+              "name": "ModernAdmin",
+              "cap": "Administration — study routing, search, priority filters and radiologist assignment."
+            }
+          ],
           "mobiles": [],
           "videos": [],
           "tradeoffs": []
@@ -1177,37 +1183,37 @@
           "label": "Patient app",
           "title": "A case you can watch move",
           "paras": [
-            "The patient interface answers one question repeatedly: where is my result. The home screen is a list of studies with plain status — under process, ready, pending payment — rather than a dashboard. Uploading is a stepped flow, because a person doing this once needs to be told what is next, not shown everything at once.",
-            "Payment sits inside the case rather than beside it, with Telebirr and bank transfer as first-class options and a pending state that is stated rather than implied. The result detail is written to be read by a patient: the report, the scan, and the date it was signed."
+            "The refreshed patient app puts scan progress first: Uploaded, In review and Report ready. Active and completed studies sit in separate tabs, and an expandable timeline makes the next step visible.",
+            "The mobile prototype includes study upload, study details, a report state, help and a profile. It uses fictional sample data; downloadable reports are explicitly marked as examples."
           ],
           "points": [
             {
-              "head": "Status in words",
-              "body": "Under process, ready, pending payment — no colour-only signalling."
+              "head": "Progress in plain language",
+              "body": "Text labels and a timeline explain status alongside colour."
             },
             {
-              "head": "Stepped upload",
-              "body": "Five steps with a visible stepper for a task most people perform once."
+              "head": "One clear next step",
+              "body": "Upload a study or open its details without navigating a dashboard."
             }
           ],
           "images": [],
           "desktops": [],
           "mobiles": [
             {
-              "name": "Home",
-              "cap": "01 — Home. Studies as a list, each carrying its own status."
+              "name": "ModernHome",
+              "cap": "01 — Home. A calm overview with scan progress."
             },
             {
-              "name": "Uploads",
-              "cap": "02 — Upload. A stepped flow with the drop zone and file constraints stated."
+              "name": "ModernUploads",
+              "cap": "02 — Upload. File requirements and referral context in one flow."
             },
             {
-              "name": "ScansPending",
-              "cap": "03 — Pending. What is waiting, and what it is waiting on."
+              "name": "ModernScansPending",
+              "cap": "03 — Studies. Active scans and an expandable timeline."
             },
             {
-              "name": "ResultDetail",
-              "cap": "04 — Result. The report and the study, written to be read by a patient."
+              "name": "ModernResultDetail",
+              "cap": "04 — Report. Clear availability and a labelled sample download."
             }
           ],
           "videos": [],
@@ -1217,8 +1223,8 @@
           "label": "Health centre",
           "title": "Upload is the moment the platform earns trust",
           "paras": [
-            "For a clinic, the upload screen is the product. If it fails on a slow connection, or accepts a study without the context a radiologist needs, everything downstream degrades. So the drop zone states its constraints up front — accepted formats, maximum file size, maximum resolution — and the surrounding form captures modality, patient and urgency as part of the same act rather than as a follow-up.",
-            "The viewer is the second half of that trust. Health-centre staff review what they sent and what came back in a surface built for the image: the study fills the frame, interaction tools sit at the edge, and the report travels alongside it."
+            "The new upload screen pairs patient and referral context with clearly stated DICOM and ZIP requirements. The study queue then gives centre staff a consistent way to find a case and follow its handoff.",
+            "The prototype keeps files in the browser session. It demonstrates submission and status changes without claiming production upload, storage or diagnostic viewing."
           ],
           "points": [
             {
@@ -1230,19 +1236,15 @@
               "body": "Modality, patient and urgency collected with the file, never chased later."
             }
           ],
-          "images": [
-            {
-              "src": "radreader/shot-upload.png",
-              "cap": "Health centre — scan upload, with the drop zone and its constraints stated in place.",
-              "displayWidth": 1176,
-              "sourceWidth": 2352,
-              "sourceHeight": 1520
-            }
-          ],
+          "images": [],
           "desktops": [
             {
-              "name": "ViewScan",
-              "cap": "Health centre — the scan viewer: study first, tools at the edge, report alongside."
+              "name": "ModernUploadScan",
+              "cap": "Health centre — upload with patient, modality, centre and priority in one form."
+            },
+            {
+              "name": "ModernViewScan",
+              "cap": "Health centre — searchable study queue with explicit assignment and report status."
             }
           ],
           "mobiles": [],
@@ -1253,40 +1255,34 @@
           "label": "Radiologist",
           "title": "A queue, two studies side by side, and a report",
           "paras": [
-            "The radiologist workspace is where the platform either saves time or wastes it. The dashboard is a working queue — assigned, pending, urgent — with the module rail fixed so navigation never moves. Density is deliberate: this is a professional comparing rows for a living, and stripping the table would be a disservice dressed up as clarity.",
-            "Comparison was the feature that justified the whole desktop surface. Reading a follow-up study means holding it against the prior one, so the compare view puts two studies in the same frame with synchronised controls. Reporting sits in the same context as the image — the report is written next to what it describes, not on a separate page."
+            "The refreshed workspace opens on a readable study queue. Patient, centre, priority, status and assigned radiologist remain visible in the same row, with search and filters above the work.",
+            "A study detail panel holds assignment and sample reporting actions. The comparison layout explores current and prior study selection; diagnostic rendering and synchronised image controls would require a production viewer integration."
           ],
           "points": [
             {
-              "head": "Queue, not dashboard",
-              "body": "The first screen is work to be done, ordered by urgency and assignment."
+              "head": "Work first",
+              "body": "A working queue precedes summary metrics."
             },
             {
-              "head": "Compare as a first-class view",
-              "body": "Prior and current study in one frame — the actual diagnostic gesture."
+              "head": "Visible handoffs",
+              "body": "Assignment, review and report readiness use explicit labels."
             },
             {
-              "head": "Report beside the image",
-              "body": "Findings are written in view of the study they describe."
+              "head": "Shared system",
+              "body": "The desktop and patient app share purple accents, field styling and status language."
             }
           ],
-          "images": [
+          "images": [],
+          "desktops": [
             {
-              "src": "radreader/shot-dashboard.png",
-              "cap": "Radiologist — the results queue: scan type, urgency, patient case, status and attachment, with the module rail fixed.",
-              "displayWidth": 1176,
-              "sourceWidth": 2352,
-              "sourceHeight": 1520
+              "name": "ModernPhyDashboard",
+              "cap": "Radiologist — a clear queue for review and reporting."
             },
             {
-              "src": "radreader/shot-compare.png",
-              "cap": "Radiologist — comparison: prior and current study held in one frame.",
-              "displayWidth": 1176,
-              "sourceWidth": 2352,
-              "sourceHeight": 1520
+              "name": "ModernCompare",
+              "cap": "Radiologist — comparison layout. Diagnostic image rendering is outside this prototype."
             }
           ],
-          "desktops": [],
           "mobiles": [],
           "videos": [],
           "tradeoffs": [
@@ -1363,9 +1359,13 @@
         "learning": "A multi-sided healthcare product depends on the quality of the handoff between roles, as well as the usability of each interface.",
         "caption": "Radiologist workspace: the study queue leads the reading workflow."
       },
-      "previewImage": "radreader/hero.png",
-      "heroImage": "radreader/shot-dashboard.png",
-      "heroCaption": "Radiologist workspace: the study queue leads the reading workflow."
+      "previewImage": "radreader/modern-admin.jpg",
+      "heroImage": "radreader/modern-admin.jpg",
+      "heroCaption": "Rad Reader — Clinical clarity redesign. Interactive portfolio prototype with fictional sample data.",
+      "gallery": [
+        "radreader/modern-admin.jpg",
+        "radreader/modern-patient.jpg"
+      ]
     },
     {
       "id": "adler-ds",
