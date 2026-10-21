@@ -83,7 +83,9 @@
             {
               "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
               "cap": "Recruitment — the candidate pipeline",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -111,7 +113,9 @@
             {
               "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
               "cap": "Time & attendance — leave balances, history and day detail",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -129,7 +133,9 @@
             {
               "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
               "cap": "Learning & development — a lesson in a course sequence",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -147,7 +153,9 @@
             {
               "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
               "cap": "Employee engagement — surveys with filled and resolved rates",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -164,7 +172,9 @@
             {
               "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
               "cap": "PEP across devices",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -347,37 +357,51 @@
             {
               "src": "crm-shots/role-sales.png",
               "cap": "Sales representative — responsibilities and permissions.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-marketing.png",
               "cap": "Marketing specialist — campaign ownership and segment access.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-support.png",
               "cap": "Customer support — ticket ownership and escalation rights.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-support-2.png",
               "cap": "Customer support, continued — knowledge base and feedback duties.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-branch.png",
               "cap": "Branch manager — approvals, team monitoring and local targets.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-director.png",
               "cap": "Director — branch leaderboard, regional approvals, forecasting.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             },
             {
               "src": "crm-shots/role-admin.png",
               "cap": "System administrator — users, roles, configuration and logs.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1920,
+              "sourceHeight": 1080
             }
           ],
           "desktops": [],
@@ -494,12 +518,16 @@
             {
               "src": "crm-shots/admin-dashboard.png",
               "cap": "System administrator — user counts, activity trend and the user directory.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 1312
             },
             {
               "src": "crm-shots/admin-roles.png",
               "cap": "Role management — where the permission model becomes editable state.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 1211
             }
           ],
           "desktops": [],
@@ -531,22 +559,30 @@
             {
               "src": "crm-shots/elearning.png",
               "cap": "E-learning — course catalogue with progress per learner.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 1094
             },
             {
               "src": "crm-shots/course-detail.png",
               "cap": "Course detail — lessons, materials and completion state.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 2586
             },
             {
               "src": "crm-shots/course-create.png",
               "cap": "Course creation — structure and content in one plain form.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 1338
             },
             {
               "src": "crm-shots/course-create-2.png",
               "cap": "Course creation, continued — lessons and media.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1512,
+              "sourceHeight": 1793
             }
           ],
           "desktops": [],
@@ -574,22 +610,30 @@
             {
               "src": "crm-shots/auth-signin.png",
               "cap": "Sign in — the one screen all seven roles share.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 3024,
+              "sourceHeight": 1964
             },
             {
               "src": "crm-shots/auth-recover.png",
               "cap": "Account recovery.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 3024,
+              "sourceHeight": 1964
             },
             {
               "src": "crm-shots/auth-recover-confirm.png",
               "cap": "Recovery confirmation — outcome stated in a sentence.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 3024,
+              "sourceHeight": 1964
             },
             {
               "src": "crm-shots/auth-confirmation.png",
               "cap": "Confirmation state.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 3024,
+              "sourceHeight": 1964
             }
           ],
           "desktops": [],
@@ -844,7 +888,9 @@
             {
               "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
               "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1559,
+              "sourceHeight": 1009
             }
           ],
           "videos": [],
@@ -888,7 +934,9 @@
             {
               "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
               "cap": "Create complaint category — service unit, priority and SLA target",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1559,
+              "sourceHeight": 1009
             }
           ],
           "videos": [],
@@ -923,7 +971,9 @@
             {
               "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
               "cap": "Create new article — metadata, editor and starting templates",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -1184,7 +1234,9 @@
             {
               "src": "radreader/shot-upload.png",
               "cap": "Health centre — scan upload, with the drop zone and its constraints stated in place.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 2352,
+              "sourceHeight": 1520
             }
           ],
           "desktops": [
@@ -1222,12 +1274,16 @@
             {
               "src": "radreader/shot-dashboard.png",
               "cap": "Radiologist — the results queue: scan type, urgency, patient case, status and attachment, with the module rail fixed.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 2352,
+              "sourceHeight": 1520
             },
             {
               "src": "radreader/shot-compare.png",
               "cap": "Radiologist — comparison: prior and current study held in one frame.",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 2352,
+              "sourceHeight": 1520
             }
           ],
           "desktops": [],
@@ -1427,12 +1483,16 @@
             {
               "src": "adler/shot-colors.png",
               "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values.",
-              "displayWidth": 792
+              "displayWidth": 792,
+              "sourceWidth": 792,
+              "sourceHeight": 1931
             },
             {
               "src": "adler/shot-typography.png",
               "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale.",
-              "displayWidth": 792
+              "displayWidth": 792,
+              "sourceWidth": 792,
+              "sourceHeight": 1198
             }
           ],
           "desktops": [],
@@ -1460,7 +1520,9 @@
             {
               "src": "adler/shot-icons.png",
               "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning.",
-              "displayWidth": 792
+              "displayWidth": 792,
+              "sourceWidth": 792,
+              "sourceHeight": 1680
             }
           ],
           "desktops": [],
@@ -1493,17 +1555,23 @@
             {
               "src": "adler/shot-buttons.png",
               "cap": "Button — the rule, the variants, and the full state matrix at three sizes.",
-              "displayWidth": 696
+              "displayWidth": 696,
+              "sourceWidth": 696,
+              "sourceHeight": 1760
             },
             {
               "src": "adler/shot-table.png",
               "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers.",
-              "displayWidth": 990
+              "displayWidth": 990,
+              "sourceWidth": 990,
+              "sourceHeight": 2155
             },
             {
               "src": "adler/shot-form.png",
               "cap": "Form — layouts, field anatomy and validation states.",
-              "displayWidth": 990
+              "displayWidth": 990,
+              "sourceWidth": 990,
+              "sourceHeight": 3600
             }
           ],
           "desktops": [],
@@ -1531,7 +1599,9 @@
             {
               "src": "adler/shot-overview.png",
               "cap": "The overview — every family, grouped by job, with previews and component counts.",
-              "displayWidth": 910
+              "displayWidth": 910,
+              "sourceWidth": 910,
+              "sourceHeight": 3790
             }
           ],
           "desktops": [],
@@ -1662,7 +1732,9 @@
             {
               "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
               "cap": "3D scene builder — item library, canvas, space properties",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1536,
+              "sourceHeight": 1024
             }
           ],
           "videos": [],
@@ -1685,7 +1757,9 @@
             {
               "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
               "cap": "Precision object controls — texture, lock, XYZ, grouping",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1536,
+              "sourceHeight": 1024
             }
           ],
           "videos": [],
@@ -1712,7 +1786,9 @@
             {
               "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
               "cap": "Immersive audio — music library, playlist and spatial placement",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -1730,12 +1806,16 @@
             {
               "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
               "cap": "Space management — published and draft spaces, delete confirmation",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1491,
+              "sourceHeight": 1055
             },
             {
               "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
               "cap": "Immersive preview — the published space with its social loop",
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
@@ -1865,7 +1945,9 @@
             {
               "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
               "cap": "Parking discovery — map, nearest verified lot, spots and rate",
-              "displayWidth": 853
+              "displayWidth": 853,
+              "sourceWidth": 853,
+              "sourceHeight": 1844
             }
           ],
           "videos": [],
@@ -1897,7 +1979,9 @@
             {
               "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png",
               "cap": "Booking review — itemised payment summary and priced action",
-              "displayWidth": 853
+              "displayWidth": 853,
+              "sourceWidth": 853,
+              "sourceHeight": 1844
             }
           ],
           "videos": [],
@@ -1928,7 +2012,9 @@
             {
               "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
               "cap": "Active session — time remaining, current fee, extend or end",
-              "displayWidth": 853
+              "displayWidth": 853,
+              "sourceWidth": 853,
+              "sourceHeight": 1844
             }
           ],
           "videos": [],
@@ -1959,7 +2045,9 @@
             {
               "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.png",
               "cap": "Account — balance, vehicle, saved payment and settings",
-              "displayWidth": 853
+              "displayWidth": 853,
+              "sourceWidth": 853,
+              "sourceHeight": 1844
             }
           ],
           "videos": [],
@@ -1987,7 +2075,9 @@
               "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
               "cap": "The system applied across the five screens",
               "wide": true,
-              "displayWidth": 1176
+              "displayWidth": 1176,
+              "sourceWidth": 1672,
+              "sourceHeight": 941
             }
           ],
           "videos": [],
