@@ -161,7 +161,7 @@ if 'trackView = (' not in src:
      reload — and every shared link — landed back on Work. These sync the
      screen to the hash (#/play, #/case/rad-reader), which also makes the
      browser's back/forward buttons work and lets a case study be linked. */
-  SCREENS = ['work', 'play', 'about', 'resume', 'contact', '404'];
+  SCREENS = ['home', 'work', 'play', 'about', 'resume', 'contact', '404'];
 
   pathFor = (screen, caseId) =>
     screen === 'case' ? '/case/' + caseId : '/' + screen;
@@ -237,7 +237,7 @@ if 'onHashChange' in src and 'addEventListener(\'hashchange\'' not in src:
         "    this.trackView(true);\n  }", 1)
 
 # Content-based versions prevent cached theme assets from styling a new build.
-for asset in ['theme.css', 'theme.js', 'responsive.css']:
+for asset in ['theme.css', 'theme.js', 'responsive.css', 'swiss.css']:
     digest = hashlib.sha256(Path(asset).read_bytes()).hexdigest()[:12]
     pattern = r'((?:href|src)="(?:\./)?' + re.escape(asset) + r')(?:\?[^"\s]*)?"'
     src, count = re.subn(pattern, lambda m: m.group(1) + '?v=' + digest + '"', src)

@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="swiss.css?v=745615588146" />
+<link rel="preload" as="image" href="uploads/brand/glass-dark.jpg" media="(min-width: 701px)" />
+<link rel="preload" as="image" href="uploads/brand/glass-light.jpg" media="(min-width: 701px)" />
 <script src="./support.js"></script>
 <meta name="description" content="Product manager with a product design background in Addis Ababa. Discovery, prioritization and cross-functional delivery." />
 <link rel="canonical" href="https://birukhios.github.io/" />
@@ -76,116 +79,45 @@
 <link rel="stylesheet" href="responsive.css?v=a3a30c003b8f" />
 </helmet>
 
-<div style="min-height: 100vh; background: #F6F3EF">
+<div class="{{ shellClass }}">
 
-  <header style="position: sticky; top: 0; z-index: 30; background: #F6F3EF; border-bottom: 2px solid rgba(23,23,23,0.4)">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px">
-      <a class="bhios-home" href="#/work" aria-label="bhios — Biruk Habtamu, home" style="display: flex; align-items: center; gap: 16px; text-decoration: none; flex-shrink: 0">
-        <svg class="bhios-logo" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 674 222" width="120" height="40" aria-hidden="true" focusable="false" style="display: block; flex-shrink: 0; color: var(--bhios-logo-ink, #171717)"><path fill="currentColor" fill-rule="evenodd" transform="translate(0 0)" d="M 0 0 L 45 0 L 45 69 C 61 60 77 58 89 58 C 135 58 151 91 151 130 C 151 170 123 200 83 200 L 28 200 L 0 172 Z M 45 106 L 45 155 L 80 155 C 98 155 106 145 106 131 C 106 116 97 106 80 106 Z"/><path fill="currentColor" fill-rule="evenodd" transform="translate(159 0)" d="M 0 0 L 45 0 L 45 73 C 57 63 69 58 84 58 C 118 58 140 82 140 117 L 140 200 L 95 200 L 95 121 C 95 105 87 97 72 97 C 57 97 45 107 45 123 L 45 200 L 0 200 Z"/><path fill="currentColor" fill-rule="evenodd" transform="translate(307 0)" d="M 0 62 L 44 62 L 44 200 L 0 200 Z"/><path fill="currentColor" fill-rule="evenodd" transform="translate(359 0)" d="M 150 129 C 150 171 120 202 75 202 C 30 202 0 171 0 129 C 0 87 30 56 75 56 C 120 56 150 87 150 129 Z M 104 129 C 104 111 93 99 75 99 C 57 99 46 111 46 129 C 46 147 57 159 75 159 C 93 159 104 147 104 129 Z"/><path fill="currentColor" fill-rule="evenodd" transform="translate(517 0)" d="M 128 59 L 128 100 L 57 100 L 110 129 C 128 139 136 149 136 166 C 136 189 119 200 90 200 L 0 200 L 0 158 L 73 158 L 23 130 C 6 120 0 109 0 94 C 0 72 17 59 44 59 Z"/><path fill="#EF3340" d="M 307 0 L 351 0 L 351 44 L 307 44 Z"/></svg>
-        <span class="bhios-identity" style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; line-height: 1.3; color: var(--bhios-logo-ink, #171717)"><strong>Biruk Habtamu</strong><span>Product Manager</span></span>
-      </a>
-      <nav style="display: flex; align-items: center; gap: 4px">
-        <button onClick="{{ goWork }}" style="appearance: none; background: transparent; border: 0; font: 600 13px 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #171717; padding: 8px 12px; cursor: pointer" style-hover="background: rgba(239,51,64,0.1); color: #96001C">Products</button>
-        <button onClick="{{ goPlay }}" style="appearance: none; background: transparent; border: 0; font: 600 13px 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #171717; padding: 8px 12px; cursor: pointer" style-hover="background: rgba(239,51,64,0.1); color: #96001C">Lab</button>
-        <button onClick="{{ goAbout }}" style="appearance: none; background: transparent; border: 0; font: 600 13px 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #171717; padding: 8px 12px; cursor: pointer" style-hover="background: rgba(239,51,64,0.1); color: #96001C">About</button>
-        <button onClick="{{ goResume }}" style="appearance: none; background: transparent; border: 0; font: 600 13px 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #171717; padding: 8px 12px; cursor: pointer" style-hover="background: rgba(239,51,64,0.1); color: #96001C">Resume</button>
-        <button onClick="{{ goContact }}" style="appearance: none; background: #EF3340; border: 0; font: 800 13px 'Archivo', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #F6F3EF; padding: 10px 16px; margin-left: 8px; cursor: pointer" style-hover="background: #C10024">Contact</button>
-      </nav>
-    </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-home" href="#/home" aria-label="bhios — Biruk Habtamu, home"><img class="brand-wordmark" src="uploads/brand/bhios-red.svg" width="126" height="42" alt="bhios" /></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#/work" aria-current="{{ workCurrent }}">Work</a>
+      <a href="#/about" aria-current="{{ aboutCurrent }}">About</a>
+      <a href="#/resume" aria-current="{{ resumeCurrent }}">Resume</a>
+      <a href="#/contact" aria-current="{{ contactCurrent }}">Contact</a>
+    </nav>
   </header>
-
-  <sc-if value="{{ isWork }}" hint-placeholder-val="{{ true }}">
-  <main style="animation: riseIn 320ms ease both">
-    <section style="max-width: 1240px; margin: 0 auto; padding: 88px 32px 56px">
-      <p class="pm-eyebrow">PRODUCT MANAGEMENT / DESIGN-LED THINKING</p>
-      <h1 style="font-size: 88px; line-height: 1.02; letter-spacing: -0.04em; margin: 0 0 28px; max-width: 18ch; text-wrap: pretty; font-weight: 800">From real problems to product direction.</h1>
-      <p style="font-size: 20px; line-height: 1.5; max-width: 52ch; margin: 0 0 32px; color: rgba(23,23,23,0.8)">I’m Biruk, a product manager with a background in product design. I connect customer needs, business priorities and engineering to move digital products from discovery to delivery.</p>
-      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
-        <a href="mailto:habtamubiruk23@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #EF3340; padding: 10px 14px; text-decoration: none" style-hover="background: rgba(239,51,64,0.1)">
-          <span style="width: 8px; height: 8px; background: #EF3340; display: block"></span>
-          <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #96001C">Open to product management opportunities ↗</span>
-        </a>
-      </sc-if>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: rgba(23,23,23,0.4); border-top: 2px solid rgba(23,23,23,0.4); margin-top: 40px">
-        <div style="background: #F6F3EF; padding: 20px 20px 20px 0"><span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); display: block; margin-bottom: 6px">Product &amp; design experience</span><span style="font-weight: 600; font-size: 15px">7+ years</span></div>
-        <div style="background: #F6F3EF; padding: 20px"><span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); display: block; margin-bottom: 6px">Focus</span><span style="font-weight: 600; font-size: 15px">Discovery → delivery</span></div>
-        <div style="background: #F6F3EF; padding: 20px"><span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); display: block; margin-bottom: 6px">Based in</span><span style="font-weight: 600; font-size: 15px">Addis Ababa, Ethiopia</span></div>
-      </div>
-    </section>
-
-
-
-    <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 96px">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 40px">
-        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0">Selected product work</h2>
-        <span style="font-size: 13px; color: rgba(23,23,23,0.55)">{{ projectCount }} case studies</span>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 2px; background: rgba(23,23,23,0.4)">
-        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
-          <article onClick="{{ p.open }}" style="background: #F6F3EF; padding: 28px; cursor: pointer; display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center" style-hover="background: #eae9e9">
-            <div>
-              <sc-if value="{{ p.hasCover }}" hint-placeholder-val="{{ true }}">
-                <figure class="product-preview">
-                  <img data-img="{{ p.previewImage }}" alt="{{ p.name }} — product overview" loading="lazy" decoding="async" />
-                  <figcaption>{{ p.heroCaption }}</figcaption>
-                </figure>
-              </sc-if>
-              <sc-if value="{{ p.noCover }}" hint-placeholder-val="{{ false }}">
-                <div style="background: #EF3340; color: #F6F3EF; aspect-ratio: 16 / 10; padding: 32px; display: flex; flex-direction: column; justify-content: space-between">
-                  <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase">{{ p.posterKicker }}</span>
-                  <span style="font-size: 34px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; max-width: 22ch">{{ p.poster }}</span>
-                </div>
-              </sc-if>
-            </div>
-            <div>
-              <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px">
-                <span style="font-size: 12px; font-weight: 600; color: #EF3340; letter-spacing: 0.08em">{{ p.num }}</span>
-                <span style="font-size: 13px; color: rgba(23,23,23,0.55)">{{ p.year }}</span>
-              </div>
-              <p class="pm-card-role">{{ p.role }}</p>
-              <h3 style="margin: 0 0 12px; font-size: 40px; letter-spacing: -0.03em; line-height: 1.05">{{ p.name }}</h3>
-              <p style="margin: 0 0 20px; font-size: 17px; line-height: 1.55; color: rgba(23,23,23,0.8); max-width: 44ch; text-wrap: pretty">{{ p.blurb }}</p>
-              <p class="product-card-decision"><strong>Key decision</strong>{{ p.decision }}</p>
-              <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px">
-                <sc-for list="{{ p.meta }}" as="t" hint-placeholder-count="3">
-                  <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 9px; border: 1px solid rgba(23,23,23,0.4); color: rgba(23,23,23,0.75)">{{ t }}</span>
-                </sc-for>
-                <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 9px; background: #EF3340; color: #F6F3EF">{{ p.status }}</span>
-              </div>
-              <button onClick="{{ p.open }}" style="appearance: none; background: transparent; border: 0; font-family: inherit; font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #96001C; border-bottom: 2px solid #EF3340; padding: 0 0 4px; cursor: pointer">Read the case study →</button>
-            </div>
-          </article>
-        </sc-for>
-      </div>
-    </section>
-
-    <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 88px">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 40px">
-        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0">How I lead product work</h2>
-        <span style="font-size: 13px; color: rgba(23,23,23,0.55)">An iterative product practice</span>
-      </div>
-      <p style="font-size: 20px; line-height: 1.55; max-width: 60ch; margin: 0 0 40px; text-wrap: pretty">I turn an unclear request into a shared problem, decide what matters first, and work with the team to deliver and learn. Design helps me make the direction tangible before the team commits to a build.</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(23,23,23,0.4); border-top: 2px solid rgba(23,23,23,0.4)">
-        <sc-for list="{{ process }}" as="st" hint-placeholder-count="6">
-          <div style="background: #F6F3EF; padding: 24px 22px 28px; display: flex; flex-direction: column; gap: 10px">
-            <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #EF3340">{{ st.n }}</span>
-            <h3 style="margin: 0; font-size: 24px; letter-spacing: -0.02em; line-height: 1.12; max-width: 18ch">{{ st.title }}</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(23,23,23,0.8); text-wrap: pretty">{{ st.body }}</p>
-          </div>
-        </sc-for>
-      </div>
-    </section>
-
-    <section style="background: #EF3340; color: #F6F3EF">
-      <div style="max-width: 1240px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end">
-        <h2 style="margin: 0; font-size: 64px; line-height: 1.03; letter-spacing: -0.03em; max-width: 16ch">Let’s work on the right product problem.</h2>
-        <a href="mailto:habtamubiruk23@gmail.com" style="justify-self: start; background: #F6F3EF; color: #171717; text-decoration: none; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 26px">Say hello ↗</a>
-      </div>
-    </section>
-  </main>
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <main id="main-content" class="landing">
+      <section class="landing-intro" aria-labelledby="home-title">
+        <p class="eyebrow">Biruk Habtamu / Product Manager</p>
+        <h1 id="home-title">Clarity,<br />by design<span class="red-period">.</span></h1>
+        <p class="landing-line">From better questions to thoughtful products.</p>
+        <a class="text-action" href="#/work">View my work <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      </section>
+      <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
+    </main>
   </sc-if>
-
+  <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+    <main id="main-content" class="work-page page-wrap">
+      <div class="page-heading"><p class="eyebrow">Selected product work</p><h1>Decisions behind<br />the products<span class="red-period">.</span></h1><p>The problems, priorities and decisions behind the work.</p></div>
+      <div class="work-filters" role="group" aria-label="Filter projects">
+        <button onClick="{{ filterAll }}" aria-pressed="{{ allFilter }}">All</button><button onClick="{{ filterEnterprise }}" aria-pressed="{{ enterpriseFilter }}">Enterprise</button><button onClick="{{ filterCreative }}" aria-pressed="{{ creativeFilter }}">Creative tools</button><span>{{ projectCount }} case studies</span>
+      </div>
+      <div class="project-list"><sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+        <article class="project-row">
+          <div class="project-copy"><p class="project-meta"><span>{{ p.num }}</span> {{ p.year }}</p><h2>{{ p.name }}</h2><p class="project-role">{{ p.role }}</p><p class="project-summary">{{ p.blurb }}</p><div class="project-decision"><span>Key decision</span><p>{{ p.decision }}</p></div><button class="text-action" onClick="{{ p.open }}">Read case study <i class="ph ph-arrow-up-right" aria-hidden="true"></i></button></div>
+          <button class="project-image-link" onClick="{{ p.open }}" aria-label="Read {{ p.name }} case study"><img data-img="{{ p.previewImage }}" alt="{{ p.heroCaption }}" loading="lazy" decoding="async" /></button>
+        </article>
+      </sc-for></div>
+      <a class="text-action work-lab" href="#/play">Explore the lab <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
+    </main>
+  </sc-if>
   <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
   <main style="animation: riseIn 320ms ease both">
     <div style="max-width: 1240px; margin: 0 auto; padding: 24px 32px 0">
@@ -463,124 +395,26 @@
   </sc-if>
 
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-  <main style="animation: riseIn 320ms ease both; max-width: 1240px; margin: 0 auto; padding: 72px 32px 96px">
-    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: start">
-      <div>
-        <h1 style="font-size: 60px; line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 28px; max-width: 22ch">Product management, grounded in design.</h1>
-        <p style="font-size: 19px; line-height: 1.6; margin: 0 0 20px; max-width: 60ch; text-wrap: pretty">I’m a product manager based in Addis Ababa, with 7+ years across product design and team leadership. My work spans enterprise platforms, digital payments, healthcare, education and 3D tools.</p>
-        <p style="font-size: 19px; line-height: 1.6; margin: 0 0 20px; max-width: 60ch; text-wrap: pretty">My background in Architecture and Urban Planning shaped how I think about systems and constraints. Product design taught me to test assumptions with users; product management brings that thinking into prioritization, stakeholder decisions and delivery.</p>
-        <p style="font-size: 19px; line-height: 1.6; margin: 0; max-width: 60ch; text-wrap: pretty">Outside work: sketching, vibecoding, films and games.</p>
-      </div>
-      <div>
-        <div style="background: #eae9e9; margin-bottom: 16px">
-          <img src="uploads/profile/biruk-habtamu.jpg" alt="Biruk Habtamu" style="width: 100%; object-fit: cover; filter: {{ imgFilter }}" />
-        </div>
-        <p style="font-size: 12px; color: rgba(23,23,23,0.55); margin: 0">Addis Ababa, Ethiopia · English (fluent), Amharic (native)</p>
-      </div>
-    </div>
-
-    <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 72px 0 0; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px">How I can help</h2>
-    <div style="display: flex; flex-direction: column">
-      <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
-        <div style="display: grid; grid-template-columns: 48px 1fr 1.4fr; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid rgba(23,23,23,0.18)">
-          <span style="font-size: 12px; font-weight: 600; color: #EF3340; letter-spacing: 0.08em">{{ sv.num }}</span>
-          <h3 style="margin: 0; font-size: 22px; letter-spacing: -0.02em">{{ sv.title }}</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(23,23,23,0.8)">{{ sv.body }}</p>
-        </div>
-      </sc-for>
-    </div>
-
-    <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 64px 0 0; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px">Experience</h2>
-    <div style="display: flex; flex-direction: column">
-      <sc-for list="{{ roles }}" as="r" hint-placeholder-count="8">
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1.2fr 180px; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid rgba(23,23,23,0.18)">
-          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em">{{ r.org }}</h3>
-          <span style="font-size: 15px; color: rgba(23,23,23,0.8)">{{ r.title }}</span>
-          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: rgba(23,23,23,0.7)">{{ r.note }}</p>
-          <span style="font-size: 13px; color: rgba(23,23,23,0.55); text-align: right">{{ r.when }}</span>
-        </div>
-      </sc-for>
-    </div>
-
-    <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 64px 0 0; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px">Education &amp; certificates</h2>
-    <div style="display: flex; flex-direction: column">
-      <sc-for list="{{ education }}" as="e" hint-placeholder-count="4">
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr 1.4fr 180px; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid rgba(23,23,23,0.18)">
-          <h3 style="margin: 0; font-size: 19px; letter-spacing: -0.02em">{{ e.title }}</h3>
-          <span style="font-size: 15px; color: rgba(23,23,23,0.8)">{{ e.institution }}</span>
-          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: rgba(23,23,23,0.7)">{{ e.note }}</p>
-          <span style="font-size: 13px; color: rgba(23,23,23,0.55); text-align: right">{{ e.year }}</span>
-        </div>
-      </sc-for>
-    </div>
-  </main>
+    <main id="main-content" class="about-page page-wrap">
+      <section class="about-intro"><p class="eyebrow">About Biruk</p><h1>Product direction<span class="red-period">.</span><br />Design at heart<span class="red-period">.</span></h1><p>I’m Biruk Habtamu, a product manager based in Addis Ababa with 7+ years across product design and team leadership.</p><p>My background in Architecture and Urban Planning shapes how I approach systems and constraints. Design helps me make decisions tangible and align the people building the product.</p></section>
+      <section class="about-practice"><h2>What I bring to a team<span class="red-period">.</span></h2><div class="practice-grid"><div><h3>Problem framing</h3><p>Connect user needs and business context to find the right problems.</p></div><div><h3>Cross-functional alignment</h3><p>Bring engineering, design and stakeholders into a shared direction.</p></div><div><h3>Design-led product thinking</h3><p>Use prototypes to make trade-offs tangible and move decisions forward.</p></div></div></section>
+      <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
+      <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
+    </main>
   </sc-if>
-
   <sc-if value="{{ isResume }}" hint-placeholder-val="{{ false }}">
-  <main style="animation: riseIn 320ms ease both; max-width: 1240px; margin: 0 auto; padding: 72px 32px 96px">
-    <div style="display: flex; align-items: end; justify-content: space-between; gap: 32px; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 24px">
-      <div>
-        <h1 style="font-size: 56px; line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 8px">Resume</h1>
-        <p style="margin: 0; font-size: 16px; color: rgba(23,23,23,0.7)">Product Manager · Product design background · Addis Ababa</p>
-      </div>
-      <a href="uploads/content_upload-1787211054191-gngy.pdf" target="_blank" rel="noopener" style="background: #EF3340; color: #F6F3EF; text-decoration: none; font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 24px">Download PDF ↓</a>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 48px; padding-top: 40px">
-      <aside>
-        <h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; color: rgba(23,23,23,0.55)">Contact</h3>
-        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.7">habtamubiruk23@gmail.com<br />+251 922 120 103<br />Addis Ababa, Ethiopia</p>
-        <h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; color: rgba(23,23,23,0.55)">Links</h3>
-        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.7"><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn ↗</a><br /><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium ↗</a></p>
-        <h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; color: rgba(23,23,23,0.55)">Tools</h3>
-        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.7">Figma · Adobe XD · Adobe Creative Cloud · Autodesk Revit · Lumion · AI tools</p>
-        <h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; color: rgba(23,23,23,0.55)">Education</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.7">Ambo University — Architecture and Urban Planning, 2016–2021</p>
-      </aside>
-      <div>
-        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 16px">Profile</h2>
-        <p style="margin: 0 0 40px; font-size: 17px; line-height: 1.65; max-width: 70ch; text-wrap: pretty">Product manager with 7+ years across product design and team leadership, connecting user needs, business requirements and engineering across digital products.</p>
-        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px">Professional experience</h2>
-        <sc-for list="{{ resumeRoles }}" as="r" hint-placeholder-count="5">
-          <div style="padding: 24px 0; border-bottom: 2px solid rgba(23,23,23,0.18)">
-            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 10px">
-              <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em">{{ r.org }} — {{ r.title }}</h3>
-              <span style="font-size: 13px; color: rgba(23,23,23,0.55); white-space: nowrap">{{ r.when }}</span>
-            </div>
-            <span style="font-size: 13px; color: rgba(23,23,23,0.55); display: block; margin-bottom: 12px">{{ r.place }}</span>
-            <ul style="margin: 0; padding-left: 18px">
-              <sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="2">
-                <li style="font-size: 16px; line-height: 1.6; margin-bottom: 6px">{{ pt }}</li>
-              </sc-for>
-            </ul>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </main>
+    <main id="main-content" class="resume-new page-wrap">
+      <header class="resume-heading"><div><p class="eyebrow">Resume</p><h1>Experience &amp;<br />perspective<span class="red-period">.</span></h1><p>Product Manager with a product design background.</p></div><a class="text-action" href="uploads/content_upload-1787211054191-gngy.pdf" target="_blank" rel="noopener">Download resume <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></header>
+      <div class="resume-grid"><section aria-labelledby="experience-heading"><h2 class="eyebrow" id="experience-heading">Professional experience</h2><sc-for list="{{ resumeRoles }}" as="r" hint-placeholder-count="4"><article class="resume-role"><div><h3>{{ r.title }}</h3><p>{{ r.org }}</p></div><span>{{ r.when }}</span><p class="resume-place">{{ r.place }}</p><ul><sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="2"><li>{{ pt }}</li></sc-for></ul></article></sc-for></section><aside class="resume-aside"><div><h2>Based in</h2><p>Addis Ababa, Ethiopia</p></div><div><h2>Experience</h2><p>7+ years in product &amp; design</p></div><div><h2>Focus</h2><p>Discovery, prioritization, alignment and delivery.</p></div><div><h2>Background</h2><p>Architecture and product design.</p></div><div><h2>Links</h2><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn ↗</a><br /><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium ↗</a></div></aside></div>
+      <section class="resume-education"><h2 class="eyebrow">Education &amp; learning</h2><sc-for list="{{ education }}" as="e" hint-placeholder-count="2"><div><h3>{{ e.title }}</h3><p>{{ e.institution }} · {{ e.year }}</p><p>{{ e.note }}</p></div></sc-for></section>
+    </main>
   </sc-if>
-
   <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-  <main style="animation: riseIn 320ms ease both">
-    <section style="background: #EF3340; color: #F6F3EF">
-      <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px">
-        <h1 style="font-size: 84px; line-height: 1.0; letter-spacing: -0.035em; margin: 0 0 32px; max-width: 16ch">Have an idea? Let's build it.</h1>
-        <p style="font-size: 22px; line-height: 1.5; max-width: 52ch; margin: 0 0 48px">Open to freelance projects, full-time roles, or a conversation about something you're building.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px">
-          <a href="mailto:habtamubiruk23@gmail.com" style="background: #F6F3EF; color: #171717; text-decoration: none; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 26px">Email ↗</a>
-          <a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener" style="border: 2px solid #F6F3EF; color: #F6F3EF; text-decoration: none; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 26px">LinkedIn ↗</a>
-          <a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener" style="border: 2px solid #F6F3EF; color: #F6F3EF; text-decoration: none; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 26px">Medium ↗</a>
-        </div>
-      </div>
-    </section>
-    <section style="max-width: 1240px; margin: 0 auto; padding: 64px 32px 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(23,23,23,0.4)">
-      <div style="background: #F6F3EF; padding: 24px 24px 24px 0"><h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; color: rgba(23,23,23,0.55)">Email</h3><p style="margin: 0; font-size: 17px; font-weight: 600">habtamubiruk23@gmail.com</p></div>
-      <div style="background: #F6F3EF; padding: 24px"><h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; color: rgba(23,23,23,0.55)">Phone</h3><p style="margin: 0; font-size: 17px; font-weight: 600">+251 922 120 103</p></div>
-      <div style="background: #F6F3EF; padding: 24px"><h3 style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; color: rgba(23,23,23,0.55)">Response time</h3><p style="margin: 0; font-size: 17px; font-weight: 600">Within two days</p></div>
-    </section>
-  </main>
+    <main id="main-content" class="contact-page page-wrap">
+      <section class="contact-intro"><p class="eyebrow">Let’s talk</p><h1>Have a product<br />problem in mind<span class="red-period">?</span></h1><p>I’m open to product management opportunities and thoughtful collaborations.</p><a class="contact-email" href="mailto:habtamubiruk23@gmail.com">habtamubiruk23@gmail.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><div class="contact-links"><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></section>
+      <div class="contact-meta"><div><span>Based in</span><p>Addis Ababa, Ethiopia</p></div><div><span>Focus</span><p>Discovery → delivery</p></div></div>
+    </main>
   </sc-if>
-
   <sc-if value="{{ is404 }}" hint-placeholder-val="{{ false }}">
   <main style="animation: riseIn 320ms ease both; max-width: 1240px; margin: 0 auto; padding: 120px 32px 160px">
     <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340">Error 404</span>
@@ -590,16 +424,7 @@
   </main>
   </sc-if>
 
-  <footer style="border-top: 2px solid rgba(23,23,23,0.4)">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
-      <span style="font-size: 13px; color: rgba(23,23,23,0.55)">© 2026 bhios / Biruk Habtamu</span>
-      <div style="display: flex; gap: 20px; align-items: center">
-        <a href="mailto:habtamubiruk23@gmail.com" style="font-size: 13px; font-weight: 600; text-decoration: none">Email ↗</a>
-        <a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 600; text-decoration: none">LinkedIn ↗</a>
-        <a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 600; text-decoration: none">Medium ↗</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><span>© 2026 Biruk Habtamu</span><nav aria-label="Footer navigation"><a href="mailto:habtamubiruk23@gmail.com">Email <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></nav></footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showAvailability&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;imageTreatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Full colour&quot;,&quot;Black &amp; white&quot;],&quot;default&quot;:&quot;Full colour&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Imagery&quot;}}">
@@ -2839,7 +2664,7 @@ let PROCESS = [
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 class Component extends DCLogic {
-  state = { screen: 'work', caseId: 'crm' };
+  state = { screen: 'home', caseId: 'crm', workFilter: 'all' };
 
   go = (screen) => { this.setState({ screen }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
 
@@ -2920,7 +2745,7 @@ class Component extends DCLogic {
      reload — and every shared link — landed back on Work. These sync the
      screen to the hash (#/play, #/case/rad-reader), which also makes the
      browser's back/forward buttons work and lets a case study be linked. */
-  SCREENS = ['work', 'play', 'about', 'resume', 'contact', '404'];
+  SCREENS = ['home', 'work', 'play', 'about', 'resume', 'contact', '404'];
 
   pathFor = (screen, caseId) =>
     screen === 'case' ? '/case/' + caseId : '/' + screen;
@@ -3003,6 +2828,11 @@ class Component extends DCLogic {
 
   renderVals() {
     const s = this.state.screen;
+    const filter = this.state.workFilter || 'all';
+    const priority = {'pep':0,'adler-studio':1};
+    const workProjects = P.filter(p => (p.group || 'work') === 'work').sort((a,b)=>(priority[a.id] ?? 20)-(priority[b.id] ?? 20));
+    const shownProjects = workProjects.filter(p => filter === 'all' || (filter === 'enterprise' ? ['pep','crm','complaint-management'].includes(p.id) : ['adler-studio','adler-design-system','adler-ds'].includes(p.id)));
+
     const idx = Math.max(0, P.findIndex(p => p.id === this.state.caseId));
     const activeRecord = P[idx];
     const active = { ...activeRecord, heroImage: activeRecord.heroImage || activeRecord.cover, heroCaption: activeRecord.heroCaption || activeRecord.name };
@@ -3021,6 +2851,11 @@ class Component extends DCLogic {
         tradeoffs: sec.tradeoffs || [] };
     });
     return {
+      isHome: s === 'home',
+      shellClass: 'swiss-site ' + (s === 'home' ? 'home-shell glass-surface' : s === 'about' ? 'about-shell glass-surface' : s === 'contact' ? 'contact-shell glass-surface' : 'inner-shell'),
+      workCurrent: s === 'work' || s === 'case' ? 'page' : 'false', aboutCurrent: s === 'about' ? 'page' : 'false', resumeCurrent: s === 'resume' ? 'page' : 'false', contactCurrent: s === 'contact' ? 'page' : 'false',
+      filterAll: () => this.setState({workFilter:'all'}), filterEnterprise: () => this.setState({workFilter:'enterprise'}), filterCreative: () => this.setState({workFilter:'creative'}),
+      allFilter: filter === 'all', enterpriseFilter: filter === 'enterprise', creativeFilter: filter === 'creative',
       isWork: s === 'work', isCase: s === 'case', isPlay: s === 'play',
       isAbout: s === 'about', isResume: s === 'resume', isContact: s === 'contact', is404: s === '404',
       goWork: () => this.go('work'), goPlay: () => this.go('play'), goAbout: () => this.go('about'),
@@ -3035,7 +2870,7 @@ class Component extends DCLogic {
       isRadReader: active.id === 'rad-reader',
       imgFilter: bw ? 'grayscale(1) contrast(1.08)' : 'none',
       showAvailability: this.props.showAvailability ?? true,
-      projectCount: P.filter(p => (p.group || 'work') === 'work').length,
+      projectCount: shownProjects.length,
       branding: BRANDING,
       mood: MOOD.map(m => ({ ...m, hasLive: !!m.live })), moodCount: MOOD.length,
       services: SERVICES.map((sv, i) => ({ num: String(i + 1).padStart(2, '0'), title: sv.title, body: sv.body })),
@@ -3043,7 +2878,7 @@ class Component extends DCLogic {
       roles: EXPERIENCE.map(r => ({ org: r.org, title: r.title, when: r.when, note: r.note })),
       resumeRoles: EXPERIENCE,
       process: PROCESS,
-      projects: this.cards(P.filter(p => (p.group || 'work') === 'work'))
+      projects: this.cards(shownProjects)
     };
   }
 }

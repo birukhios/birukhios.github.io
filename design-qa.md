@@ -1,23 +1,37 @@
-# Rad Reader redesign QA
+# Portfolio design QA
 
-Result: passed for the client-only portfolio prototype (21 October 2026).
+final result: passed
 
-## Reference and fidelity
-Selected direction: option 1, Clinical clarity. Compared the selected concept and browser screenshots together. Preserved the light lavender navigation, white workspace, purple primary actions, study-first table, labelled status chips and patient progress timeline. Reused all three original logo vector paths, with their original offsets, from Components.bundle.js. Phosphor icons are locally bundled under their included licence.
+Reviewed 2026-10-22 against the selected clean Swiss homepage reference and the supplied red wordmark and avatar SVGs.
 
-Intentional differences: actual source logo replaces the generated approximation; completed studies have a separate tab; pagination reflects six real sample rows rather than nonfunctional extra pages; role selector makes all desktop roles and the patient app accessible. Search sits beside filters. No synthetic diagnostic imagery is presented as a functioning viewer.
+## Visual comparison
 
-## Browser verification
-- Search for Jordan returns one study; Unassigned returns two.
-- Review opens a study panel. Assigning Dr. M. Patel changes the status to In review.
-- Entering a sample report and marking ready exposes the labelled sample download.
-- Submitting a local test DICOM fixture with fictional details adds RR-1043 to the queue (seven rows).
-- Patient Completed tab shows the completed X-ray; opening it exposes the sample report link.
-- Patient timeline, active studies, upload, help and profile navigation render.
-- Nine updated component embeds render in the portfolio: admin, four patient, two health-centre, two radiologist views.
-- Checked portfolio embedding in light and dark modes. Scoped brand-link overrides prevent the portfolio accent from recolouring the product logo.
-- Fixed the runtime's evaluated-script loading context (document.currentScript can be null).
-- JavaScript syntax check, content JSON parsing, portfolio build and git diff whitespace checks pass.
+Reference: `/workspace/scratch/cbce95f0a2eb/generated_images/exec-4b2919f3-ef58-474d-9798-1e69bf4ea292.png` (1487 × 1058).
+Implementation: `/workspace/scratch/swiss-home-dark-final.jpg` (1363 × 936).
+Side-by-side reviewed: `/workspace/scratch/swiss-comparison.jpg`.
+Light counterpart: `/workspace/scratch/swiss-home-light-final.jpg`.
 
-## Limits
-Fictional sample data. Actions update in-memory session state only. No backend, clinical image renderer, payment integration, email delivery, authentication or production reports. Comparison is an interface layout with study selectors and explicit renderer placeholder. React and Inter require their public CDNs. Narrow desktop tables scroll horizontally; the patient app caps at 430px and scales through the existing portfolio capture wrappers.
+The implementation preserves the large left-aligned two-line headline, right-hand ribbed-glass red mark, open central space, restrained navigation, process strip and minimal footer. The exact supplied red wordmark intentionally supersedes the generated reference header mark. Text remains real HTML. Background artwork has separate desktop and portrait compositions.
+
+## Corrections during review
+
+- Fixed inherited mobile navigation spacing that crowded the links.
+- Replaced desktop crops on mobile with portrait backgrounds that keep the logo above the headline.
+- Corrected theme icon visibility and inherited dark-link colors.
+- Loaded the new stylesheet in the document head to prevent late styling.
+
+## Browser validation
+
+Checked the local preview through the browser at terminal.local:4173.
+- Home has no project grid; View my work opens the separate Work page.
+- Work lists PEP first and Adler Studio second; Creative tools returns Adler Studio and Adler Design System.
+- Case-study navigation opens the existing Adler Studio case study.
+- About, Resume and Contact render their new layouts.
+- Resume download retains the existing PDF; original employment and education data remain intact.
+- Contact email resolves to the existing mailto destination.
+- Light/dark toggle changes appearance and accessible state and persists after reload.
+- Mobile light and dark homepage layouts checked visually; Work and Resume checked at 375 CSS pixels, with scrollWidth equal to clientWidth (375), without horizontal overflow.
+- Supplied SVG logo assets are used directly; site icons use the supplied avatar.
+- No application console errors observed; unrelated browser-extension metadata messages excluded.
+
+No unresolved P0, P1 or P2 design issues identified in the reviewed surfaces.
