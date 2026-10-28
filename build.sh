@@ -131,7 +131,7 @@ if 'loadContent' not in src:
       'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
       'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
     };
-    const base = new URL('content/', location.href).href;
+    const base = new URL('content/', document.baseURI).href;
     await Promise.all(Object.entries(assign).map(async ([file, set]) => {
       try {
         const r = await fetch(base + file + '.json', { cache: 'no-cache' });
@@ -249,4 +249,7 @@ print(f"  patched {path}")
 PY
 
 echo "built $OUT from '$SRC'  (GA4: $GA_ID)"
+
+# One static page per case study, for link previews and search (see the script).
+python3 tools/prerender.py
 exit 0

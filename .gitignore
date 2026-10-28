@@ -85,3 +85,6 @@
 /uploads/adler-design-system/cover.png
 /.claude/
 .DS_Store
+
+# Recorded promo videos (tools/promo); kept out of the site.
+/promo/

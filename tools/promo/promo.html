@@ -1,0 +1,206 @@
+<!doctype html>
+<!-- Dev-only: a 26-second 1080×1080 promo for the portfolio, drawn on a canvas
+     and recorded in the browser. Run tools/promo/server.mjs, open this page,
+     press Record; the video is saved to promo/. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio promo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;800&display=block">
+<style>
+  body { margin: 0; background: #0e0f10; color: #ddd; font: 13px system-ui, sans-serif; display: grid; justify-items: center; gap: 12px; padding: 16px; }
+  canvas { width: min(92vw, 640px); height: auto; aspect-ratio: 1; background: #F6F3EF; }
+  .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  button { font: inherit; color: #fff; background: #2a2a2a; border: 1px solid #444; border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+  button.rec { background: #EF3340; border-color: #EF3340; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1080"></canvas>
+<div class="bar">
+  <button id="play">Play</button>
+  <button id="rec" class="rec">Record video</button>
+  <span id="status">Ready.</span>
+</div>
+<script>
+const W = 1080, H = 1080, TOTAL = 26;
+const RED = '#EF3340', INK = '#171717', CREAM = '#F6F3EF', NIGHT = '#16181a', MUTED = '#6b6966';
+const c = document.getElementById('c'), x = c.getContext('2d');
+
+// ── the bhios wordmark (same geometry as uploads/brand/bhios-red.svg) ──
+const LOGO = [
+  [0, 'M 0 0 L 45 0 L 45 69 C 61 60 77 58 89 58 C 135 58 151 91 151 130 C 151 170 123 200 83 200 L 28 200 L 0 172 Z M 45 106 L 45 155 L 80 155 C 98 155 106 145 106 131 C 106 116 97 106 80 106 Z'],
+  [159, 'M 0 0 L 45 0 L 45 73 C 57 63 69 58 84 58 C 118 58 140 82 140 117 L 140 200 L 95 200 L 95 121 C 95 105 87 97 72 97 C 57 97 45 107 45 123 L 45 200 L 0 200 Z'],
+  [307, 'M 0 62 L 44 62 L 44 200 L 0 200 Z'],
+  [359, 'M 150 129 C 150 171 120 202 75 202 C 30 202 0 171 0 129 C 0 87 30 56 75 56 C 120 56 150 87 150 129 Z M 104 129 C 104 111 93 99 75 99 C 57 99 46 111 46 129 C 46 147 57 159 75 159 C 93 159 104 147 104 129 Z'],
+  [517, 'M 128 59 L 128 100 L 57 100 L 110 129 C 128 139 136 149 136 166 C 136 189 119 200 90 200 L 0 200 L 0 158 L 73 158 L 23 130 C 6 120 0 109 0 94 C 0 72 17 59 44 59 Z'],
+  [0, 'M 307 0 L 351 0 L 351 44 L 307 44 Z'],
+].map(([dx, d]) => [dx, new Path2D(d)]);
+
+const CASES = [
+  { name: 'PEP', kind: 'HR platform · Enterprise', img: 'uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp',
+    decision: 'Build one platform shell before expanding four HR modules.' },
+  { name: 'Enterprise CRM', kind: 'Seven roles · Enterprise', img: 'crm-shots/hero.webp',
+    decision: 'Role-specific dashboards instead of a blank widget grid.' },
+  { name: 'Complaint Management', kind: 'Service operations', img: 'uploads/Complaint-Management-Package/Images/hero.webp',
+    decision: 'Separate the manager’s analytics from the agent’s working queue.' },
+  { name: 'Rad Reader', kind: 'Telemedicine · Radiology', img: 'radreader/hero.webp',
+    decision: 'Start from the radiologist’s queue; give the scan viewer its own space.' },
+];
+const PROCESS = ['Discover', 'Define', 'Prioritize', 'Align', 'Deliver', 'Learn'];
+
+// ── helpers ──
+const clamp = v => Math.max(0, Math.min(1, v));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const out3 = k => 1 - Math.pow(1 - k, 3);
+const inOut = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const font = (w, s) => `${w} ${s}px Archivo, Arial, sans-serif`;
+
+function text(str, px, py, { size = 40, weight = 400, color = INK, alpha = 1, rise = 0, track = 0, align = 'left' } = {}) {
+  x.save(); x.globalAlpha = alpha; x.fillStyle = color; x.font = font(weight, size); x.textAlign = align;
+  x.textBaseline = 'alphabetic'; if ('letterSpacing' in x) x.letterSpacing = track + 'px';
+  x.fillText(str, px, py + rise); x.restore();
+}
+function wrap(str, size, weight, maxW) {
+  x.font = font(weight, size); const words = str.split(' '), lines = []; let line = '';
+  for (const w of words) { const t = line ? line + ' ' + w : w; if (x.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; }
+  return lines.concat(line);
+}
+// Rising line: text slides up out of a mask, like the site's riseIn.
+function riseLine(str, px, py, k, opts) {
+  const size = opts.size || 40;
+  x.save(); x.beginPath(); x.rect(0, py - size * 1.05, W, size * 1.35); x.clip();
+  text(str, px, py, { ...opts, rise: (1 - out3(k)) * size * 1.2, alpha: clamp(k * 3) });
+  x.restore();
+}
+function logo(cx, cy, width, t0, t, color = RED, settled = false) {
+  const s = width / 654;
+  x.save(); x.translate(cx - 327 * s, cy - 101 * s); x.scale(s, s); x.fillStyle = color;
+  LOGO.forEach(([dx, p], j) => {
+    const dot = j === 5;
+    let k = settled ? 1 : prog(t, t0 + (dot ? .65 : j * .09), t0 + (dot ? 1.35 : j * .09 + .55));
+    let dy;
+    if (dot) { dy = k < .7 ? -120 + 128 * out3(k / .7) : 8 * (1 - (k - .7) / .3); }
+    else dy = 60 * (1 - out3(k));
+    x.save(); x.globalAlpha = clamp(dot ? k / .3 : k * 1.6); x.translate(dx, dy); x.fill(p, 'evenodd'); x.restore();
+  });
+  x.restore();
+}
+function cover(img, dx, dy, dw, dh, zoom = 1, panX = 0) {
+  const r = Math.max(dw / img.width, dh / img.height) * zoom;
+  const w = img.width * r, h = img.height * r;
+  x.drawImage(img, dx + (dw - w) / 2 + panX, dy + (dh - h) / 2, w, h);
+}
+
+// ── scenes ──
+function sceneLogo(t) {
+  x.fillStyle = CREAM; x.fillRect(0, 0, W, H);
+  logo(W / 2, H / 2, 620, .2, t);
+}
+function sceneHeadline(t, s) {
+  x.fillStyle = CREAM; x.fillRect(0, 0, W, H);
+  const L = 96;
+  riseLine('BIRUK HABTAMU / PRODUCT MANAGER', L, 330, prog(t, s, s + .6), { size: 26, weight: 500, color: RED, track: 1 });
+  riseLine('Clarity,', L, 520, prog(t, s + .25, s + 1.05), { size: 176, weight: 800, track: -9 });
+  riseLine('by design', L, 690, prog(t, s + .45, s + 1.25), { size: 176, weight: 800, track: -9 });
+  const kd = prog(t, s + 1.1, s + 1.5);
+  x.font = font(800, 176); if ('letterSpacing' in x) x.letterSpacing = '-9px';
+  const dotX = L + x.measureText('by design').width + 6; if ('letterSpacing' in x) x.letterSpacing = '0px';
+  x.save(); x.globalAlpha = kd; x.fillStyle = RED; const sz = 34 * (0.4 + 0.6 * out3(kd)); x.fillRect(dotX, 690 - sz, sz, sz); x.restore();
+  riseLine('From better questions to', L, 800, prog(t, s + 1.3, s + 2), { size: 40, color: MUTED });
+  riseLine('thoughtful enterprise products.', L, 852, prog(t, s + 1.4, s + 2.1), { size: 40, color: MUTED });
+}
+function sceneCase(t, s, i, img) {
+  const k = prog(t, s, s + 3);
+  x.fillStyle = NIGHT; x.fillRect(0, 0, W, H);
+  if (img) {
+    x.save(); x.beginPath(); x.rect(0, 0, W, 610); x.clip();
+    cover(img, 0, 0, W, 610, 1.04 + .08 * k, (i % 2 ? 1 : -1) * 30 * (k - .5));
+    const g = x.createLinearGradient(0, 380, 0, 610); g.addColorStop(0, 'rgba(22,24,26,0)'); g.addColorStop(1, NIGHT);
+    x.fillStyle = g; x.fillRect(0, 380, W, 230); x.restore();
+  }
+  const c0 = CASES[i], L = 84;
+  riseLine(`0${i + 1} / 0${CASES.length}  ·  ${c0.kind.toUpperCase()}`, L, 690, prog(t, s + .15, s + .7), { size: 24, weight: 500, color: '#b9b6b1', track: 1 });
+  riseLine(c0.name, L, 790, prog(t, s + .25, s + .9), { size: 84, weight: 800, color: '#fff', track: -3 });
+  riseLine('KEY DECISION', L, 870, prog(t, s + .5, s + 1.1), { size: 22, weight: 500, color: '#ff4959', track: 2 });
+  wrap(c0.decision, 38, 400, W - L * 2).forEach((ln, j) =>
+    riseLine(ln, L, 925 + j * 50, prog(t, s + .6 + j * .08, s + 1.3 + j * .08), { size: 38, color: '#ece9e7' }));
+}
+function sceneProcess(t, s) {
+  x.fillStyle = CREAM; x.fillRect(0, 0, W, H);
+  const L = 96;
+  riseLine('HOW I WORK', L, 300, prog(t, s, s + .6), { size: 26, weight: 500, color: RED, track: 2 });
+  PROCESS.forEach((w, j) => {
+    const row = Math.floor(j / 2), col = j % 2, k = prog(t, s + .3 + j * .32, s + 1 + j * .32);
+    riseLine(w, L + col * 470, 450 + row * 150, k, { size: 92, weight: 800, track: -4, color: INK });
+    x.save(); x.globalAlpha = clamp(k * 2); x.fillStyle = RED; x.fillRect(L + col * 470, 450 + row * 150 + 26, 120 * out3(k), 6); x.restore();
+  });
+}
+function sceneEnd(t, s) {
+  const k = out3(prog(t, s, s + .7));
+  x.fillStyle = CREAM; x.fillRect(0, 0, W, H);
+  x.fillStyle = RED; x.fillRect(0, H * (1 - k), W, H * k);
+  if (t > s + .5) logo(W / 2, 400, 560, s + .5, t, '#fff');
+  riseLine('Product manager · Addis Ababa', W / 2, 640, prog(t, s + 1.5, s + 2.1), { size: 38, weight: 500, color: '#fff', align: 'center' });
+  riseLine('Open to product manager roles', W / 2, 700, prog(t, s + 1.65, s + 2.25), { size: 32, color: '#ffe3e5', align: 'center' });
+  const kb = prog(t, s + 2.1, s + 2.7);
+  x.save(); x.globalAlpha = kb; x.strokeStyle = '#fff'; x.lineWidth = 3;
+  x.strokeRect(W / 2 - 300, 790 + 10 * (1 - out3(kb)), 600, 96); x.restore();
+  text('birukhios.github.io', W / 2, 852 + 10 * (1 - out3(kb)), { size: 42, weight: 800, color: '#fff', align: 'center', alpha: kb, track: -1 });
+}
+
+// Wipe between scenes: the next scene slides up over the last.
+const SCENES = [
+  [0, 3, t => sceneLogo(t)],
+  [3, 6.5, t => sceneHeadline(t, 3)],
+  ...CASES.map((_, i) => [6.5 + i * 3, 9.5 + i * 3, t => sceneCase(t, 6.5 + i * 3, i, IMGS[i])]),
+  [18.5, 22, t => sceneProcess(t, 18.5)],
+  [22, TOTAL, t => sceneEnd(t, 22)],
+];
+const WIPE = .45;
+function draw(t) {
+  const i = SCENES.findIndex(([a, b]) => t >= a && t < b);
+  const idx = i < 0 ? SCENES.length - 1 : i;
+  const [a, , fn] = SCENES[idx];
+  const k = idx > 0 ? inOut(prog(t, a, a + WIPE)) : 1;
+  if (k < 1) { SCENES[idx - 1][2](t); x.save(); x.beginPath(); x.rect(0, H * (1 - k), W, H * k); x.clip(); x.translate(0, H * (1 - k) * .25); fn(t); x.restore(); }
+  else fn(t);
+}
+window.renderAt = draw;   // for checking stills
+
+// ── loading, playback, recording ──
+let IMGS = [];
+const ready = Promise.all([
+  document.fonts.load(font(800, 100)), document.fonts.load(font(400, 40)), document.fonts.load(font(500, 30)),
+  ...CASES.map(cs => new Promise(r => { const im = new Image(); im.onload = () => r(im); im.onerror = () => r(null); im.src = '/' + cs.img; })),
+]).then(v => { IMGS = v.slice(3); draw(0); });
+
+const status = document.getElementById('status');
+function run(onDone) {
+  const t0 = performance.now();
+  (function frame() {
+    const t = (performance.now() - t0) / 1000;
+    draw(Math.min(t, TOTAL - .001));
+    status.textContent = t.toFixed(1) + ' / ' + TOTAL + 's';
+    if (t < TOTAL) requestAnimationFrame(frame); else onDone && onDone();
+  })();
+}
+document.getElementById('play').onclick = () => ready.then(() => run(() => status.textContent = 'Done.'));
+document.getElementById('rec').onclick = () => ready.then(() => {
+  const mime = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'].find(m => MediaRecorder.isTypeSupported(m));
+  const rec = new MediaRecorder(c.captureStream(30), { mimeType: mime, videoBitsPerSecond: 8e6 });
+  const chunks = []; rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+  rec.onstop = async () => {
+    const ext = mime.startsWith('video/mp4') ? 'mp4' : 'webm';
+    status.textContent = 'Saving…';
+    const r = await fetch('/save?name=bhios-promo.' + ext, { method: 'POST', body: new Blob(chunks, { type: mime }) });
+    status.textContent = await r.text();
+  };
+  rec.start(500);
+  run(() => setTimeout(() => rec.stop(), 200));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>history.replaceState(null,"","/#/case/adler-studio");</script>
+
+<base href="/" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="swiss.css?v=7a27e09f72c5" />
+<link rel="preload" as="image" href="uploads/brand/glass-dark.jpg" media="(min-width: 701px)" />
+<link rel="preload" as="image" href="uploads/brand/glass-light.jpg" media="(min-width: 701px)" />
+<script src="./logo-intro.js"></script>
+<script src="./support.js"></script>
+<meta name="description" content="Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore." />
+<link rel="canonical" href="https://birukhios.github.io/case/adler-studio/" />
+<link rel="icon" type="image/svg+xml" href="/uploads/brand/bhios-avatar.svg" />
+<link rel="apple-touch-icon" href="/uploads/brand/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://birukhios.github.io/case/adler-studio/" />
+<meta property="og:site_name" content="Biruk Habtamu" />
+<meta property="og:title" content="Adler Studio — Case study | Biruk Habtamu" />
+<meta property="og:description" content="Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore." />
+<meta property="og:image" content="https://birukhios.github.io/og/adler-studio.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Adler Studio — Case study | Biruk Habtamu" />
+<meta name="twitter:description" content="Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore." />
+<meta name="twitter:image" content="https://birukhios.github.io/og/adler-studio.jpg" />
+<link rel="stylesheet" href="theme.css?v=96dc8cd91bd4" />
+<script>
+  /* set the theme before first paint */
+  (function(){try{var saved=localStorage.getItem("theme");var t=(saved==="dark"||saved==="light")?saved:
+    (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+    document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<script src="./theme.js?v=56326b1b0043" defer></script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ4L5PVGNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  // Google's standard snippet, unmodified: config sends the pageview
+  // for the landing screen automatically. An earlier version passed
+  // send_page_view:false and routed EVERY pageview through our own
+  // trackView(), which put custom code on the critical path for the
+  // very first hit. Google's default path is the dependable one;
+  // trackView now only reports SUBSEQUENT screens (see its comment).
+  var __gaCfg = {};
+  // ?gadebug=1 streams this visit into GA4 Admin -> DebugView, which
+  // confirms hits are landing without waiting on the Home card (that
+  // reads processed data and can lag 24-48h after the first hit).
+  if (/[?&]gadebug=1/.test(location.search)) __gaCfg.debug_mode = true;
+  gtag('config', 'G-GJ4L5PVGNK', __gaCfg);
+</script>
+</head>
+<body>
+<noscript><article style="max-width:720px;margin:40px auto;padding:0 16px">
+<p><a href="/">Biruk Habtamu</a> / Case study</p>
+<h1>Adler Studio</h1>
+<p>Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore.</p>
+<p><strong>Role:</strong> Product Designer</p>
+<p><strong>Year:</strong> 2024</p>
+<p><strong>Platform:</strong> Web · 3D</p>
+<p><strong>Who it serves:</strong> Creators composing and publishing browser-based 3D spaces.</p>
+<p><strong>Priority decision:</strong> Keep composition on the canvas and expose precise object values in the properties panel.</p>
+<p><strong>Trade-off:</strong> Hiding numeric controls makes the panel quieter, but makes precision harder to discover. The documented iteration keeps scale, position and rotation visible.</p>
+<h2>The problem</h2>
+<p>3D authoring tools assume you already know 3D, so most creators never get past the first session.</p>
+<h2>How I solved it</h2>
+<p>Split the tool in two: a nearly empty canvas with two gestures for composing, and a properties panel holding the exact values. Easy to start, precise enough to stay.</p>
+</article></noscript>
+
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adler Studio — Case study | Biruk Habtamu</title>
+<link rel="stylesheet" href="_ds/modernist-d4d03b8d-3bf9-466a-8b77-73749ec8acb0/styles.css" />
+<script src="_ds/modernist-d4d03b8d-3bf9-466a-8b77-73749ec8acb0/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="radreader/vendor/icons.css" />
+<link rel="stylesheet" href="radreader/modern.css" />
+
+<style>
+  body { margin: 0; background: #F6F3EF; color: #171717; font-family: "Archivo", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #EF3340; text-underline-offset: 3px; }
+  a:hover { color: #96001C; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid #EF3340; outline-offset: 2px; }
+  ::selection { background: rgba(239,51,64,0.28); }
+  html { scroll-behavior: smooth; }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+</style>
+
+<link rel="stylesheet" href="responsive.css?v=a3a30c003b8f" />
+</helmet>
+
+<div class="{{ shellClass }}">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-home" href="#/home" aria-label="bhios — Biruk Habtamu, home"><img class="brand-wordmark" src="uploads/brand/bhios-red.svg" width="126" height="42" alt="bhios" /></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#/work" aria-current="{{ workCurrent }}">Work</a>
+      <a href="#/about" aria-current="{{ aboutCurrent }}">About</a>
+      <a href="#/resume" aria-current="{{ resumeCurrent }}">Resume</a>
+      <a href="#/contact" aria-current="{{ contactCurrent }}">Contact</a>
+    </nav>
+  </header>
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <main id="main-content" class="landing">
+      <section class="landing-intro" aria-labelledby="home-title">
+        <p class="eyebrow">Biruk Habtamu / Product Manager</p>
+        <h1 id="home-title">Clarity,<br />by design<span class="red-period">.</span></h1>
+        <p class="landing-line">From better questions to thoughtful enterprise products.</p>
+        <a class="text-action" href="#/work">View my work <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        <p class="availability"><span aria-hidden="true"></span>Open to product manager roles · Remote or Addis Ababa</p>
+      </section>
+      <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
+    </main>
+  </sc-if>
+  <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+    <main id="main-content" class="work-page page-wrap">
+      <div class="page-heading"><p class="eyebrow">Selected product work</p><h1>Decisions behind<br />the products<span class="red-period">.</span></h1><p>The problems, priorities and decisions behind the work.</p></div>
+      <div class="work-filters" role="group" aria-label="Filter projects">
+        <button onClick="{{ filterAll }}" aria-pressed="{{ allFilter }}">All</button><button onClick="{{ filterEnterprise }}" aria-pressed="{{ enterpriseFilter }}">Enterprise</button><button onClick="{{ filterCreative }}" aria-pressed="{{ creativeFilter }}">Creative tools</button><span>{{ projectCount }} case studies</span>
+      </div>
+      <div class="project-list"><sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+        <article class="project-row">
+          <div class="project-copy"><p class="project-meta"><span>{{ p.num }}</span> {{ p.year }}<sc-if value="{{ p.hasPrototype }}"><span class="proto-tag">Interactive prototype</span></sc-if></p><h2>{{ p.name }}</h2><p class="project-role">{{ p.role }}</p><p class="project-summary">{{ p.blurb }}</p><div class="project-decision"><span>Key decision</span><p>{{ p.decision }}</p></div><sc-if value="{{ p.hasOutcome }}"><div class="project-decision project-outcome"><span>Outcome</span><p>{{ p.outcome }}</p></div></sc-if><button class="text-action" onClick="{{ p.open }}">Read case study <i class="ph ph-arrow-up-right" aria-hidden="true"></i></button></div>
+          <button class="project-image-link" onClick="{{ p.open }}" aria-label="Read {{ p.name }} case study"><img data-img="{{ p.previewImage }}" alt="{{ p.heroCaption }}" loading="lazy" decoding="async" /></button>
+        </article>
+      </sc-for></div>
+      <a class="text-action work-lab" href="#/play">Explore the lab <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+      <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
+    </main>
+  </sc-if>
+  <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
+  <main style="animation: riseIn 320ms ease both">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 24px 32px 0">
+      <button onClick="{{ goWork }}" style="appearance: none; background: transparent; border: 0; font: 600 12px 'Archivo', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #96001C; padding: 8px 0; cursor: pointer" style-hover="color: #EF3340">← All work</button>
+    </div>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 40px 32px 0">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340">{{ active.kind }}</span>
+      <h1 style="font-size: 68px; line-height: 1.03; letter-spacing: -0.03em; margin: 12px 0 24px; max-width: 22ch">{{ active.name }}</h1>
+      <p style="font-size: 22px; line-height: 1.45; max-width: 62ch; margin: 0 0 32px; text-wrap: pretty">{{ active.summary }}</p>
+
+      <sc-if value="{{ hasProductBrief }}" hint-placeholder-val="{{ true }}">
+        <section class="product-brief" aria-label="Product decision brief">
+          <div class="product-brief-heading"><h2>Product decision brief</h2><span>My role: {{ active.role }}</span></div>
+          <sc-if value="{{ hasOutcome }}"><div class="product-outcome"><h3>Outcome</h3><p>{{ productBrief.outcome }}</p></div></sc-if>
+          <div class="product-brief-grid">
+            <div><h3>Who it serves</h3><p>{{ productBrief.audience }}</p></div>
+            <div><h3>Customer opportunity</h3><p>{{ productBrief.opportunity }}</p></div>
+            <div><h3>Priority decision</h3><p>{{ productBrief.decision }}</p></div>
+            <div><h3>Trade-off</h3><p>{{ productBrief.tradeoff }}</p></div>
+          </div>
+          <sc-if value="{{ hasDiscovery }}"><div class="product-evidence"><h3>How I found the problem</h3><p>{{ productBrief.discovery }}</p></div></sc-if>
+          <sc-if value="{{ hasCut }}"><div class="product-evidence"><h3>What we chose not to build</h3><p>{{ productBrief.cut }}</p></div></sc-if>
+          <sc-if value="{{ hasTeam }}"><div class="product-evidence"><h3>Who I worked with</h3><p>{{ productBrief.team }}</p></div></sc-if>
+          <div class="product-bet"><h3>Product hypothesis</h3><p>{{ productBrief.hypothesis }}</p></div>
+          <div class="product-evidence"><h3>Delivery &amp; evidence</h3><p>{{ productBrief.evidence }}</p></div>
+          <div class="product-brief-grid">
+            <div><h3>How I would measure success</h3><p class="measurement-note">Proposed evaluation measures, not reported results.</p>
+              <ul><sc-for list="{{ productBrief.metrics }}" as="metric" hint-placeholder-count="3"><li>{{ metric }}</li></sc-for></ul>
+            </div>
+            <div><h3>Product learning</h3><p>{{ productBrief.learning }}</p></div>
+          </div>
+        </section>
+      </sc-if>
+      <sc-if value="{{ hasCover }}" hint-placeholder-val="{{ true }}">
+      <figure class="product-hero">
+        <a href="{{ active.heroImage }}" target="_blank" rel="noopener" aria-label="Open full-resolution product image">
+          <img data-img="{{ active.heroImage }}" alt="{{ active.heroCaption }}" decoding="async" />
+        </a>
+        <figcaption><span>{{ active.heroCaption }}</span><a href="{{ active.heroImage }}" target="_blank" rel="noopener">View full resolution ↗</a></figcaption>
+      </figure>
+      </sc-if>
+      <sc-if value="{{ hasPrototype }}"><section class="proto-intro"><p class="proto-kicker">Interactive prototype</p><h2>Built to make development easier<span class="red-period">.</span></h2><p>{{ prototypeNote }}</p></section><figure class="proto-embed"><figcaption><span>Interactive prototype with sample data. Try filtering, opening records and the sidebar.</span><a href="{{ prototypeUrl }}" target="_blank" rel="noopener">Open full screen ↗</a></figcaption><iframe src="{{ prototypeUrl }}" title="{{ active.name }} prototype" loading="lazy"></iframe></figure></sc-if>
+      <sc-if value="{{ hasFigma }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ isRadReader }}"><a href="radreader/" target="_blank" rel="noopener" style="display: inline-flex; padding: 14px 18px; margin: 0 16px 24px 0; background: #6B42DF; color: white; border-radius: 6px; text-decoration: none">Try the redesigned prototype ↗</a></sc-if>
+        <a href="{{ figmaUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(23,23,23,0.4); padding: 12px 16px; margin: 0 0 40px; text-decoration: none" style-hover="border-color: #EF3340; background: rgba(239,51,64,0.08)">
+          <span style="width: 8px; height: 8px; background: #EF3340; display: block"></span>
+          <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #171717">Open the Figma source file ↗</span>
+        </a>
+      </sc-if>
+
+      <sc-if value="{{ hasDemo }}" hint-placeholder-val="{{ false }}">
+        <figure style="margin: 0 0 40px">
+          <div style="border: 2px solid rgba(23,23,23,0.4); background: #171717">
+            <video data-img="{{ demoSrc }}" controls="controls" preload="metadata" playsInline="playsInline" style="width: 100%; display: block"></video>
+          </div>
+          <figcaption style="display: flex; align-items: baseline; gap: 10px; font-size: 12px; margin-top: 10px; color: rgba(23,23,23,0.6)">
+            <span style="font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #96001C">Demo</span>
+            <span>{{ demoCap }}</span>
+          </figcaption>
+        </figure>
+      </sc-if>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(23,23,23,0.4); border-top: 2px solid rgba(23,23,23,0.4); margin-bottom: 40px">
+        <div style="background: #F6F3EF; padding: 24px 24px 24px 0">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340; margin: 0 0 10px">The problem I set out to solve</h3>
+          <p style="margin: 0; font-size: 19px; line-height: 1.5; font-weight: 600; max-width: 44ch; text-wrap: pretty">{{ active.problem }}</p>
+        </div>
+        <div style="background: #F6F3EF; padding: 24px">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); margin: 0 0 10px">How I solved it</h3>
+          <p style="margin: 0; font-size: 19px; line-height: 1.5; max-width: 44ch; text-wrap: pretty">{{ active.solve }}</p>
+        </div>
+      </div>
+
+      <nav style="display: flex; flex-wrap: wrap; gap: 2px; background: rgba(23,23,23,0.4); border-top: 2px solid rgba(23,23,23,0.4); border-bottom: 2px solid rgba(23,23,23,0.4); padding: 2px 0">
+        <sc-for list="{{ activeSections }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.href }}" style="background: #F6F3EF; padding: 10px 14px; text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #171717; flex: 1 0 auto" style-hover="background: rgba(239,51,64,0.12); color: #96001C">{{ s.label }}</a>
+        </sc-for>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(23,23,23,0.4); margin-top: 40px">
+        <div style="background: #F6F3EF; padding: 20px 20px 20px 0">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); margin: 0 0 10px">Project type</h3>
+          <p style="margin: 0; font-weight: 600; font-size: 15px">{{ active.projectType }}</p>
+        </div>
+        <div style="background: #F6F3EF; padding: 20px">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); margin: 0 0 10px">Year</h3>
+          <p style="margin: 0; font-weight: 600; font-size: 15px">{{ active.year }}</p>
+        </div>
+        <div style="background: #F6F3EF; padding: 20px">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); margin: 0 0 10px">My role</h3>
+          <p style="margin: 0; font-weight: 600; font-size: 15px">{{ active.role }}</p>
+        </div>
+        <div style="background: #F6F3EF; padding: 20px">
+          <h3 style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); margin: 0 0 10px">Platform</h3>
+          <p style="margin: 0; font-weight: 600; font-size: 15px">{{ active.platform }}</p>
+        </div>
+      </div>
+
+      <div style="border-top: 2px solid rgba(23,23,23,0.4); margin-top: 40px; padding-top: 32px; display: grid; grid-template-columns: 320px 1fr; gap: 48px">
+        <h2 style="margin: 0; font-size: 32px; letter-spacing: -0.02em">What I did</h2>
+        <ul style="margin: 0; padding-left: 20px">
+          <sc-for list="{{ active.did }}" as="d" hint-placeholder-count="4">
+            <li style="font-size: 18px; line-height: 1.6; margin-bottom: 12px; max-width: 68ch; text-wrap: pretty">{{ d }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 64px">
+      <sc-for list="{{ activeSections }}" as="s" hint-placeholder-count="6">
+        <div id="{{ s.anchor }}" style="border-top: 2px solid rgba(23,23,23,0.4); margin-top: 56px; padding-top: 32px; scroll-margin-top: 88px">
+          <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340">{{ s.label }}</span>
+          <h2 style="font-size: 44px; line-height: 1.08; letter-spacing: -0.03em; margin: 12px 0 28px; max-width: 26ch">{{ s.title }}</h2>
+          <sc-if value="{{ s.noPhones }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start">
+              <div>
+                <sc-for list="{{ s.paras }}" as="para" hint-placeholder-count="2">
+                  <p style="margin: 0 0 20px; font-size: 18px; line-height: 1.65; max-width: 62ch; text-wrap: pretty">{{ para }}</p>
+                </sc-for>
+              </div>
+              <div>
+                <sc-for list="{{ s.points }}" as="pt" hint-placeholder-count="0">
+                  <div style="border-top: 2px solid rgba(23,23,23,0.18); padding: 16px 0">
+                    <h3 style="margin: 0 0 6px; font-size: 19px; letter-spacing: -0.01em">{{ pt.head }}</h3>
+                    <p style="margin: 0; font-size: 16px; line-height: 1.55; color: rgba(23,23,23,0.8)">{{ pt.body }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ s.hasPhones }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <sc-for list="{{ s.phones }}" as="ph" hint-placeholder-count="1">
+                <figure style="float: left; width: 264px; margin: 0 44px 28px 0; background: #eae9e9; border: 2px solid rgba(23,23,23,0.4); padding: 16px">
+                  <div style="border: 2px solid #171717; background: #F6F3EF">
+                    <img data-img="{{ ph.src }}" alt="{{ ph.cap }}" loading="lazy" decoding="async" style="width: 100%; display: block; filter: {{ imgFilter }}" />
+                  </div>
+                  <figcaption style="font-size: 12px; margin-top: 10px; color: rgba(23,23,23,0.6); line-height: 1.45">{{ ph.cap }}</figcaption>
+                </figure>
+              </sc-for>
+              <sc-for list="{{ s.paras }}" as="para" hint-placeholder-count="2">
+                <p style="margin: 0 0 20px; font-size: 18px; line-height: 1.65; max-width: 62ch; text-wrap: pretty">{{ para }}</p>
+              </sc-for>
+              <sc-for list="{{ s.points }}" as="pt" hint-placeholder-count="0">
+                <div style="border-top: 2px solid rgba(23,23,23,0.18); padding: 14px 0; max-width: 62ch">
+                  <h3 style="margin: 0 0 6px; font-size: 19px; letter-spacing: -0.01em">{{ pt.head }}</h3>
+                  <p style="margin: 0; font-size: 16px; line-height: 1.55; color: rgba(23,23,23,0.8)">{{ pt.body }}</p>
+                </div>
+              </sc-for>
+              <div style="clear: both"></div>
+            </div>
+          </sc-if>
+
+          <sc-for list="{{ s.images }}" as="im" hint-placeholder-count="0">
+            <figure class="case-image">
+              <a class="case-image-stage" href="{{ im.src }}" target="_blank" rel="noopener" aria-label="Open full-resolution image">
+                <img data-img="{{ im.src }}" alt="{{ im.cap }}" width="{{ im.sourceWidth }}" height="{{ im.sourceHeight }}" loading="lazy" decoding="async" style="max-width: {{ im.displayWidth }}px" />
+              </a>
+              <figcaption><span>{{ im.cap }}</span><a href="{{ im.src }}" target="_blank" rel="noopener">View full resolution ↗</a></figcaption>
+            </figure>
+          </sc-for>
+
+          <sc-for list="{{ s.desktopsRad }}" as="d" hint-placeholder-count="0">
+            <figure style="margin: 28px 0 0">
+              <div data-fit="{{ d.w }}" data-fit-h="{{ d.h }}" data-nav="{{ d.nav }}" style="border: 2px solid rgba(23,23,23,0.4); background: #ffffff; aspect-ratio: 1728 / 1117; overflow: hidden; position: relative">
+                <div data-fit-inner="1" style="position: absolute; top: 0; left: 0; width: 1728px; height: 1117px; transform-origin: top left">
+                  <x-import component-from-global-scope="{{ d.name }}" from="./radreader/Modern.bundle.js" hint-size="1728px,1117px"></x-import>
+                </div>
+              </div>
+              <figcaption style="font-size: 12px; margin-top: 10px; color: rgba(23,23,23,0.6); line-height: 1.45">{{ d.cap }}</figcaption>
+            </figure>
+          </sc-for>
+
+          <sc-if value="{{ s.hasMobiles }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 28px; background: #eae9e9; border: 2px solid rgba(23,23,23,0.4); padding: 28px">
+              <sc-for list="{{ s.mobiles }}" as="mb" hint-placeholder-count="0">
+                <figure style="margin: 0; width: min(100%, 320px); max-width: 100%">
+                  <div data-fit="{{ mb.w }}" data-fit-h="{{ mb.h }}" style="border: 2px solid #171717; background: #ffffff; width: 100%; aspect-ratio: 430 / 932; overflow: hidden; position: relative">
+                    <div data-fit-inner="1" style="position: absolute; top: 0; left: 0; width: 430px; height: 932px; transform-origin: top left">
+                      <x-import component-from-global-scope="{{ mb.name }}" from="./radreader/Modern.bundle.js" hint-size="430px,932px"></x-import>
+                    </div>
+                  </div>
+                  <figcaption style="font-size: 12px; margin-top: 10px; color: rgba(23,23,23,0.6); line-height: 1.45">{{ mb.cap }}</figcaption>
+                </figure>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-for list="{{ s.tradeoffs }}" as="t" hint-placeholder-count="0">
+            <div style="margin-top: 40px; border: 2px solid rgba(23,23,23,0.4)">
+              <div style="padding: 12px 16px; border-bottom: 2px solid rgba(23,23,23,0.4)">
+                <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase">The tradeoff</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(23,23,23,0.4)">
+                <div style="background: #F6F3EF; padding: 24px">
+                  <h4 style="margin: 0 0 12px; font-size: 18px; color: rgba(23,23,23,0.6)">✕ The version I didn't ship</h4>
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(23,23,23,0.8)">{{ t.old }}</p>
+                </div>
+                <div style="background: #F6F3EF; padding: 24px; border-left: 2px solid #EF3340">
+                  <h4 style="margin: 0 0 12px; font-size: 18px; color: #96001C">✓ Why it shipped this way</h4>
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6">{{ t.now }}</p>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+
+      <div style="border-top: 2px solid rgba(23,23,23,0.4); margin-top: 56px; padding-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <div>
+          <span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,23,23,0.55); display: block; margin-bottom: 6px">Next case study</span>
+          <h3 style="margin: 0; font-size: 32px; letter-spacing: -0.02em">{{ nextName }}</h3>
+        </div>
+        <button onClick="{{ goNext }}" style="appearance: none; background: #EF3340; border: 0; color: #F6F3EF; font: 800 13px 'Archivo', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 24px; cursor: pointer" style-hover="background: #C10024">Read it →</button>
+      </div>
+    </section>
+
+    <section style="background: #EF3340; color: #F6F3EF">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 64px 32px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: end">
+        <h2 style="margin: 0; font-size: 56px; line-height: 1.03; letter-spacing: -0.03em; max-width: 18ch">Have an idea? Let's build it.</h2>
+        <a href="mailto:habtamubiruk23@gmail.com" style="justify-self: start; background: #F6F3EF; color: #171717; text-decoration: none; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 26px">Say hello ↗</a>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isPlay }}" hint-placeholder-val="{{ false }}">
+  <main style="animation: riseIn 320ms ease both">
+    <section style="max-width: 1240px; margin: 0 auto; padding: 72px 32px 40px">
+      <h1 style="font-size: 72px; line-height: 1.03; letter-spacing: -0.035em; margin: 0 0 24px; max-width: 20ch; font-weight: 800">Play</h1>
+      <p style="font-size: 20px; line-height: 1.5; max-width: 60ch; margin: 0 0 8px; color: rgba(23,23,23,0.8); text-wrap: pretty">Brand work, internal tools, 3D experiments and client sites. Projects that never became case studies.</p>
+    </section>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 40px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 32px">
+        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0">Moodboard</h2>
+        <span style="font-size: 13px; color: rgba(23,23,23,0.55)">{{ moodCount }} pieces</span>
+      </div>
+      <div style="column-count: 3; column-gap: 20px">
+        <sc-for list="{{ mood }}" as="m" hint-placeholder-count="15">
+          <figure style="margin: 0 0 20px; break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%">
+            <div data-ar="{{ m.ar }}" style="border: 2px solid rgba(23,23,23,0.4); background: #eae9e9; overflow: hidden; aspect-ratio: 16 / 10">
+              <img data-img="{{ m.src }}" alt="{{ m.title }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block" />
+            </div>
+            <figcaption style="padding-top: 10px">
+              <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em; line-height: 1.2">{{ m.title }}</h3>
+              <p style="margin: 0; font-size: 13px; line-height: 1.45; color: rgba(23,23,23,0.65)">{{ m.note }}</p>
+              <sc-if value="{{ m.hasLive }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ m.live }}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #96001C; text-decoration: none; border-bottom: 2px solid #EF3340; padding-bottom: 2px">Visit site ↗</a>
+              </sc-if>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 24px 32px 96px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 32px">
+        <h2 style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0">Brand identity — Sorenie Import &amp; Export</h2>
+        <span style="font-size: 13px; color: rgba(23,23,23,0.55)">Final proposal, for LifeWire</span>
+      </div>
+      <p style="font-size: 18px; line-height: 1.6; max-width: 64ch; margin: 0 0 32px; color: rgba(23,23,23,0.8); text-wrap: pretty">A full identity for an Ethiopian import and export company: logo, palette, pattern, and the applications the mark has to work in — signage, packaging, vehicles and print.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <sc-for list="{{ branding }}" as="br" hint-placeholder-count="8">
+          <figure style="margin: 0">
+            <div style="border: 2px solid rgba(23,23,23,0.4); background: #eae9e9; overflow: hidden; aspect-ratio: 16 / 9">
+              <img data-img="{{ br.src }}" alt="{{ br.title }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block" />
+            </div>
+            <figcaption style="padding-top: 10px">
+              <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em">{{ br.title }}</h3>
+              <p style="margin: 0; font-size: 13px; line-height: 1.45; color: rgba(23,23,23,0.65)">{{ br.note }}</p>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <main id="main-content" class="about-page page-wrap">
+      <section class="about-hero"><div class="about-intro"><p class="eyebrow">About Biruk</p><h1>Product direction<span class="red-period">.</span><br />Design at heart<span class="red-period">.</span></h1><p>I’m Biruk Habtamu, a product manager based in Addis Ababa with 7+ years across product design and team leadership.</p><p>My background in Architecture and Urban Planning shapes how I approach systems and constraints. Design helps me make decisions tangible and align the people building the product.</p></div><figure class="about-portrait"><img src="uploads/profile/biruk-habtamu.jpg" alt="Biruk Habtamu outdoors wearing sunglasses" width="640" height="640" /><figcaption>Biruk Habtamu <span>Addis Ababa, Ethiopia</span></figcaption></figure></section>
+      <section class="about-practice"><h2>What I bring to a team<span class="red-period">.</span></h2><div class="practice-grid"><div><h3>Problem framing</h3><p>Connect user needs and business context to find the right problems.</p></div><div><h3>Cross-functional alignment</h3><p>Bring engineering, design and stakeholders into a shared direction.</p></div><div><h3>Design-led product thinking</h3><p>Use prototypes to make trade-offs tangible and move decisions forward.</p></div><div><h3>Interactive prototypes for handoff</h3><p>Build clickable, coded prototypes so engineers see real flows, states and edge cases before they write a line. <a href="#/case/pep">See the PEP prototype</a>.</p></div></div></section>
+      <section class="about-practice about-principles"><h2>How I make product decisions<span class="red-period">.</span></h2><ol class="principles"><li><h3>Name the problem before the feature.</h3><p>A request is a clue. I trace it back to the user and the business need before anything reaches the roadmap.</p></li><li><h3>Decide what not to build.</h3><p>Every roadmap item has a cost. I make the trade-off explicit so the team can see what we gave up and why.</p></li><li><h3>Test the riskiest assumption first.</h3><p>Prototype the part most likely to be wrong, with the people who will use it, before engineering commits.</p></li><li><h3>Shared foundations beat one-off fixes.</h3><p>Patterns, data models and workflows that hold across modules let products grow without starting over.</p></li><li><h3>Measure what changes for users.</h3><p>Shipped is a milestone, not the result. I define how we will know it worked before we build.</p></li></ol></section>
+      <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
+      <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
+    </main>
+  </sc-if>
+  <sc-if value="{{ isResume }}" hint-placeholder-val="{{ false }}">
+    <main id="main-content" class="resume-new page-wrap">
+      <header class="resume-heading"><div><p class="eyebrow">Resume</p><h1>Experience &amp;<br />perspective<span class="red-period">.</span></h1><p>Product Manager with a product design background.</p></div><a class="text-action" href="uploads/content_upload-1787211054191-gngy.pdf" target="_blank" rel="noopener">Download resume <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></header>
+      <div class="resume-grid"><section aria-labelledby="experience-heading"><h2 class="eyebrow" id="experience-heading">Professional experience</h2><sc-for list="{{ resumeRoles }}" as="r" hint-placeholder-count="4"><article class="resume-role"><div><h3>{{ r.title }}</h3><p>{{ r.org }}</p></div><span>{{ r.when }}</span><p class="resume-place">{{ r.place }}</p><ul><sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="2"><li>{{ pt }}</li></sc-for></ul></article></sc-for></section><aside class="resume-aside"><div><h2>Based in</h2><p>Addis Ababa, Ethiopia</p></div><div><h2>Experience</h2><p>7+ years in product &amp; design</p></div><div><h2>Focus</h2><p>Discovery, prioritization, alignment and delivery.</p></div><div><h2>Background</h2><p>Architecture and product design.</p></div><div><h2>Links</h2><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn ↗</a><br /><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium ↗</a></div></aside></div>
+      <section class="resume-education"><h2 class="eyebrow">Education &amp; learning</h2><sc-for list="{{ education }}" as="e" hint-placeholder-count="2"><div><h3>{{ e.title }}</h3><p>{{ e.institution }} · {{ e.year }}</p><p>{{ e.note }}</p></div></sc-for></section>
+    </main>
+  </sc-if>
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <main id="main-content" class="contact-page page-wrap">
+      <section class="contact-intro"><p class="eyebrow">Let’s talk</p><h1>Have a product<br />problem in mind<span class="red-period">?</span></h1><p>I’m open to product management opportunities and thoughtful collaborations.</p><a class="contact-email" href="mailto:habtamubiruk23@gmail.com">habtamubiruk23@gmail.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><div class="contact-links"><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></section>
+      <div class="contact-meta"><div><span>Based in</span><p>Addis Ababa, Ethiopia</p></div><div><span>Focus</span><p>Discovery → delivery</p></div></div>
+    </main>
+  </sc-if>
+  <sc-if value="{{ is404 }}" hint-placeholder-val="{{ false }}">
+  <main style="animation: riseIn 320ms ease both; max-width: 1240px; margin: 0 auto; padding: 120px 32px 160px">
+    <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #EF3340">Error 404</span>
+    <h1 style="font-size: 140px; line-height: 0.92; letter-spacing: -0.04em; margin: 16px 0 24px">Nothing<br />here.</h1>
+    <p style="font-size: 19px; line-height: 1.5; max-width: 46ch; margin: 0 0 40px; color: rgba(23,23,23,0.8)">This page moved, or never existed.</p>
+    <button onClick="{{ goWork }}" style="appearance: none; background: #EF3340; border: 0; color: #F6F3EF; font: 800 13px 'Archivo', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 26px; cursor: pointer" style-hover="background: #C10024">Back to work</button>
+  </main>
+  </sc-if>
+
+  <footer class="site-footer"><span>© 2026 Biruk Habtamu</span><nav aria-label="Footer navigation"><a href="mailto:habtamubiruk23@gmail.com">Email <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></nav></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAvailability&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;imageTreatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Full colour&quot;,&quot;Black &amp; white&quot;],&quot;default&quot;:&quot;Full colour&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Imagery&quot;}}">
+const AP = 'uploads/Addis-Park-Portfolio-Package/';
+const AS = 'uploads/Adler-Studio-Portfolio-Package/';
+const PP = 'uploads/PEP-Portfolio-Package/Images/';
+const CM = 'uploads/Complaint-Management-Package/Images/';
+
+const CR = 'crm-shots/';
+const AD = 'adler/';
+
+let P = [
+  {
+    "id": "pep",
+    "name": "PEP",
+    "year": "2023",
+    "kind": "Productivity Enhancement Platform · HR suite · Enterprise UX",
+    "blurb": "Connecting four HR workflows through one platform model, with candidate comparison prioritized over a board-first recruitment view.",
+    "summary": "PEP covers the employee lifecycle — hiring, attendance, growth and feedback — built so learning one module teaches you the rest.",
+    "problem": "Hiring, attendance, learning and feedback describe one person, but ran as four systems that disagreed. Training was paid for four times.",
+    "solve": "Designed the shell before the screens: one module rail, one workspace, one list-record-edit pattern. Modules fit the frame rather than negotiating with each other.",
+    "projectType": "Professional",
+    "role": "Team Lead, UI/UX Designer",
+    "platform": "Web · Desktop",
+    "meta": [
+      "Professional",
+      "HR platform",
+      "Dashboard"
+    ],
+    "status": "Shipped",
+    "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
+    "group": "work",
+    "figma": "https://www.figma.com/design/6vtO2BwZeTewhybAEaNT7c/PEP-Productivity-Enhancement-Platform--Collab?node-id=2262-902",
+    "shots": [
+      "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+      "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
+      "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp"
+    ],
+    "swatch": "#173273",
+    "did": [
+      "Led the design team building the platform, from requirements gathering through final designs.",
+      "Defined the shared shell — module rail, global search, documents/announcement/report bar — that every module inherits.",
+      "Designed the four flagship modules: recruitment, time and attendance, learning and development, employee engagement.",
+      "Ran weekly reviews against the shell so consistency was a condition of delivery, not a matter of taste."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "One employee lifecycle, four unrelated products",
+        "paras": [
+          "Hiring, attendance, training and feedback are one continuous story about a person. In most organisations they are four systems that disagree about navigation, record editing and what a destructive action looks like.",
+          "The cost lands on the HR administrator who has to work across all four, and on training every new one of them."
+        ],
+        "points": [
+          {
+            "head": "The shell is the product",
+            "body": "If the frame holds, a new module is a content problem rather than a design problem."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "Design the frame, and the screens design themselves",
+        "paras": [
+          "Enterprise products fail as a collection, not as screens. Each module is defensible on its own and the sum is unlearnable — so I spend the early time on the shell and the vocabulary rather than on any one page.",
+          "The test I hold myself to: can a new module be specified by describing its content, because its layout, navigation and destructive-action pattern are already decided? If the answer is no, the system is not finished, however good the individual screens look."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "The cost of learning the second module after the first."
+          },
+          {
+            "head": "Density is not the enemy",
+            "body": "Operators compare rows for a living. I fight clutter, not information."
+          }
+        ],
+        "images": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Recruitment",
+        "title": "A candidate pipeline you can actually work from",
+        "paras": [
+          "The candidates view is a dense, sortable table by design: name, contact, role, internal or external, CGPA, CV, applied date, graduation date, social profiles. Recruiters compare rows; hiding columns to look calmer just moves the work into clicks.",
+          "Filters sit above the table for the three cuts that get used — date range, job, department, stage — and the primary action is adding candidates, because that is why the screen gets opened."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+            "cap": "Recruitment — the candidate pipeline",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "The first pipeline was a kanban of stages — visually clearer, and it demoed beautifully. Recruiters working eight candidates at a time needed to compare attributes side by side, which columns do and cards cannot.",
+            "now": "A table as the default view, with stage as a filter. Less impressive in a demo, faster in the job."
+          }
+        ]
+      },
+      {
+        "label": "Attendance",
+        "title": "Attendance is a record, so show the whole record",
+        "paras": [
+          "The attendance view pairs leave balances and history with a per-day detail: clock in, clock out, lunch, breaks, with lateness stated inline against the entry it describes rather than summarised elsewhere.",
+          "Overtime, total time, status and who imported the record are all on the same screen — because the reason anyone opens this page is a dispute about one specific day."
+        ],
+        "points": [
+          {
+            "head": "Exceptions in place",
+            "body": "A late mark next to the timestamp it refers to, not in a summary column."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
+            "cap": "Time & attendance — leave balances, history and day detail",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Learning",
+        "title": "Employee growth through structured learning",
+        "paras": [
+          "The learning module presents a course as a lesson sequence with the video, the written detail, attachments, and a single forward action — Complete — so progress through a curriculum is unambiguous.",
+          "Training management, needs analysis and personal growth plans sit in the same rail, so an employee and an administrator navigate the same structure from different ends."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp",
+            "cap": "Learning & development — a lesson in a course sequence",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Engagement",
+        "title": "Feedback is only useful when it is actionable",
+        "paras": [
+          "Surveys are cards carrying two numbers that matter — how much is filled, and how much is resolved. Completion without resolution is the failure mode of every engagement programme, so both are on the card.",
+          "Creating a survey is the primary action, and department and status filters keep a large programme navigable."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.webp",
+            "cap": "Employee engagement — surveys with filled and resolved rates",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Outcome",
+        "title": "Four modules that read as one platform",
+        "paras": [
+          "The modules ship on a shared shell, so an administrator who learns recruitment can work attendance without retraining, and the next module can be specified by its content rather than its layout."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
+            "cap": "PEP across devices",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "HR administrators, recruiters and employees navigating the employee lifecycle.",
+      "opportunity": "Keep hiring, attendance, learning and engagement connected so each module does not require a different way of working.",
+      "decision": "Define the shared platform shell before expanding the four modules.",
+      "tradeoff": "A recruitment table supports comparing candidate attributes; a kanban makes stage movement more visual. The documented decision favored comparison, with stage available as a filter.",
+      "hypothesis": "If the modules share navigation and record patterns, administrators should be able to transfer what they learn in one module to the next.",
+      "evidence": "The portfolio records a shipped HR platform, four designed modules and shared interaction patterns. It does not provide a measured reduction in training or task time.",
+      "metrics": [
+        "Recruiter task completion and time to compare candidates",
+        "First-task success when moving to a second module",
+        "Support requests about navigation and module differences"
+      ],
+      "learning": "Platform consistency is a product scope decision: new modules should inherit the shared model before introducing exceptions.",
+      "caption": "Recruitment management: candidate comparison and stage filtering."
+    },
+    "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
+    "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+    "heroCaption": "Recruitment management: candidate comparison and stage filtering."
+  },
+  {
+    "id": "crm",
+    "name": "Enterprise CRM",
+    "year": "2025",
+    "kind": "CRM platform · Seven roles · Enterprise UX",
+    "blurb": "Defining a shared CRM across seven roles, with useful role-specific defaults before dashboard customization.",
+    "summary": "A CRM built around seven roles: sales reps working leads, marketing running campaigns, support handling tickets, branch managers approving requests, directors reading performance, and a customer portal.",
+    "problem": "Sales ran on spreadsheets, marketing measured campaigns by feel, and directors built strategy from reports that were already out of date.",
+    "solve": "One data model — contact, lead, pipeline, campaign, ticket, target — with seven interfaces onto it. Each role sees only what it can act on, and reporting rolls up automatically.",
+    "projectType": "Professional",
+    "role": "Product Designer",
+    "platform": "Web · Desktop",
+    "meta": [
+      "Professional",
+      "CRM",
+      "Design system"
+    ],
+    "status": "Delivered",
+    "cover": "crm-shots/hero.webp",
+    "group": "work",
+    "figma": "https://www.figma.com/design/OH7XiEYx0elPL623FLsbTd/Customer-Relation-Management--CRM-?node-id=106-42",
+    "shots": [
+      "crm-shots/admin-dashboard.webp",
+      "crm-shots/admin-roles.png",
+      "crm-shots/elearning.webp"
+    ],
+    "swatch": "#1e3a8a",
+    "coverTitle": "Enterprise CRM",
+    "coverLine": "Seven roles, one truth",
+    "poster": "Seven roles. One source of truth.",
+    "posterKicker": "Customer relationship management platform",
+    "did": [
+      "Ran the UX research: four primary personas across sales, marketing, branch management and the executive level, with journey maps and a competitive analysis.",
+      "Defined the information architecture and role model — which of the seven roles sees, edits and approves what.",
+      "Designed every module across seven role-based interfaces plus a customer portal, an e-learning module, the authentication set and a public landing page.",
+      "Built the design system that holds it together: tokens, fields, tables, kanban cards, modals, navigation and a rich-text editor.",
+      "Designed against WCAG contrast from the start — the gap the competitive analysis found in every rival product."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "Seven roles, seven versions of the truth",
+        "paras": [
+          "The organisation ran its customer relationships on manual tools. Sales representatives tracked leads in spreadsheets and notebooks. Marketing segmented audiences by hand in Excel and could not measure a campaign’s return. Branch managers approved work over messages and reported upward from figures that were out of date before they were sent. Directors assembled strategy from whatever arrived.",
+          "None of these are separate problems. They are one problem — nobody shares an object — reappearing in four job descriptions. Every role was re-entering data another role already had, and each re-entry was a chance for the numbers to diverge."
+        ],
+        "points": [
+          {
+            "head": "Manual everywhere",
+            "body": "Spreadsheets for leads, Excel for segments, messages for approvals."
+          },
+          {
+            "head": "Reporting as archaeology",
+            "body": "Managers reconstructed the week instead of reading it."
+          },
+          {
+            "head": "No lead-to-revenue line",
+            "body": "Nobody could trace a closed deal back to the campaign that started it."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "One model, seven windows",
+        "paras": [
+          "A CRM is not an application; it is an agreement about what a customer is. Once seven roles agree on the objects — contact, lead, pipeline stage, campaign, ticket, target — the interfaces stop competing and become views. Get that wrong and you ship seven products that argue with each other at the end of every quarter.",
+          "So I designed the role model before the screens: what each role can see, edit, assign and approve. A sales representative should never meet a branch-level approval control; a director should never be asked to work a single lead. Permission is not a settings page — it is the shape of the interface.",
+          "The second commitment was that reporting must be a by-product. If a manager has to ask someone to compile a number, the system has failed regardless of how good the dashboard looks. Every figure a director reads is a consequence of work someone already did in their own view."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "The number of times the same fact gets typed in — target one."
+          },
+          {
+            "head": "Permission as layout",
+            "body": "Roles differ by what they can act on, not by a toggle in settings."
+          },
+          {
+            "head": "Reporting is downstream",
+            "body": "No figure exists because someone was asked to produce it."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Research",
+        "title": "Four people who all wanted the same thing differently",
+        "paras": [
+          "The research centred on four personas built from interviews. Meron Mehari, a sales representative, wants to close more deals and stop tracking leads in a notebook — she needs a visual pipeline and automated reminders, and she is nervous about learning a new system after years of manual process. Bethel Nigussie, a marketing specialist, wants to digitise campaign planning and finally measure return; her blocker is that marketing and sales follow-up are not connected at all.",
+          "Biniam Solomon, a branch manager, wants to monitor team performance in real time and stop chasing approvals — his risk is being overwhelmed by reporting detail rather than helped by it. Tadesse Girma, a director, wants consolidated KPIs across branches and regions, and is sceptical about the platform’s return on investment.",
+          "The journey maps repeated one shape across all four: discovery is easy, adoption is where it dies. Every persona surfaced the same anxieties — the learning curve, the time cost of changing workflow, whether the dashboards can be tailored to their actual job. That is a design problem, not a training problem, and it is why role-specific defaults matter more than configurability."
+        ],
+        "points": [
+          {
+            "head": "Meron — sales representative",
+            "body": "Visual pipeline, real-time prioritisation, reminders. Fears the learning curve."
+          },
+          {
+            "head": "Bethel — marketing specialist",
+            "body": "Segmentation, campaign ROI, a real handoff to sales."
+          },
+          {
+            "head": "Biniam — branch manager",
+            "body": "Team performance at a glance, faster approvals, fewer stale reports."
+          },
+          {
+            "head": "Tadesse — director",
+            "body": "Consolidated KPIs across branches; needs the ROI argument made."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "The first response to \"dashboards must be customisable\" was a configurable widget grid — every role builds their own view. It answers the request literally and hands a new user an empty canvas on day one.",
+            "now": "Pre-configured dashboards per role, tailored to that persona’s journey, with customisation available afterwards. The research was explicit: people wanted immediate insight, not a builder."
+          }
+        ]
+      },
+      {
+        "label": "Role model",
+        "title": "Seven roles, defined before a single screen was drawn",
+        "paras": [
+          "Before any interface existed I wrote the roles down: what each one is responsible for, and what the system will let them do. Sales representatives own leads and quotes. Marketing owns campaigns and segments. Support owns tickets and the knowledge base. Branch managers approve plans and watch a team. Directors set targets and read across branches. System administrators own users, roles and configuration.",
+          "This is the document the whole product hangs from — and the reason permission never became a settings screen. If a director can approve a regional plan and a representative cannot, that difference shows up as the presence or absence of a control, not as a greyed-out button explaining what you are not allowed to do.",
+          "Writing responsibilities and permissions side by side also caught the mismatches early: every case where someone was accountable for a number they had no way to affect, or could change something they were not answerable for."
+        ],
+        "points": [
+          {
+            "head": "Responsibility first",
+            "body": "Each role starts as a list of what it owns, not a list of screens."
+          },
+          {
+            "head": "Permission as presence",
+            "body": "You see the controls you can act on. Nothing is shown to be denied."
+          },
+          {
+            "head": "Caught early",
+            "body": "Accountability without authority is a design bug — the role sheets surface it."
+          }
+        ],
+        "images": [
+          {
+            "src": "crm-shots/role-sales.webp",
+            "cap": "Sales representative — responsibilities and permissions.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-marketing.webp",
+            "cap": "Marketing specialist — campaign ownership and segment access.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-support.webp",
+            "cap": "Customer support — ticket ownership and escalation rights.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-support-2.webp",
+            "cap": "Customer support, continued — knowledge base and feedback duties.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-branch.webp",
+            "cap": "Branch manager — approvals, team monitoring and local targets.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-director.webp",
+            "cap": "Director — branch leaderboard, regional approvals, forecasting.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          },
+          {
+            "src": "crm-shots/role-admin.webp",
+            "cap": "System administrator — users, roles, configuration and logs.",
+            "displayWidth": 1176,
+            "sourceWidth": 1920,
+            "sourceHeight": 1080
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Competitive analysis",
+        "title": "Benchmarked against the tools already in use",
+        "paras": [
+          "I compared the platform against the incumbent CRMs across eight axes: lead management, pipeline customisation, project management, invoicing and payment tracking, reporting and analytics, user interface, scalability, accessibility and customer support tooling.",
+          "The pattern was consistent. The powerful tools were overwhelming for beginners; the friendly ones had a limited visual pipeline and shallow reporting. And on accessibility, the field was empty — no competitor treated WCAG compliance as a requirement. That became a deliberate differentiator rather than a compliance checkbox: readable type sizes, contrast-checked colour pairs, and no state signalled by colour alone."
+        ],
+        "points": [
+          {
+            "head": "The gap I designed into",
+            "body": "Advanced lead management with a clean UI — the axis nobody held both ends of."
+          },
+          {
+            "head": "Accessibility as position",
+            "body": "No competitor claimed WCAG. We did, from the first screen."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Sales",
+        "title": "A pipeline you can see and a lead you can work",
+        "paras": [
+          "The sales representative is the heaviest user, so their surface sets the vocabulary for the rest. The dashboard opens on what needs attention today — targets, tasks, the deals closest to moving — rather than on statistics about last month.",
+          "Leads live in a table you can actually work: sortable, filterable, with score, stage and owner visible without opening anything. The lead detail is the piece I spent longest on. Everything a follow-up needs sits under one header — activity, call log, emails, notes, documents, scoring — as tabs on the same record rather than pages you navigate between, because a representative on a call cannot afford to lose their place."
+        ],
+        "points": [
+          {
+            "head": "Today, not last month",
+            "body": "The dashboard is a work queue with targets attached."
+          },
+          {
+            "head": "One record, many tabs",
+            "body": "Calls, emails, notes, files and score never leave the lead."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Marketing",
+        "title": "A campaign that knows what happened to its leads",
+        "paras": [
+          "Marketing’s problem was not tooling, it was the gap after the send. The campaign builder therefore treats audience, content and measurement as one object: you segment, compose, schedule and define what success means in the same flow, so the campaign carries its own definition of return.",
+          "Because segments are built from the same contact records sales works in, a lead generated by a campaign stays attributable through the pipeline. That single connection is what turns marketing from a cost centre into something a director can read."
+        ],
+        "points": [
+          {
+            "head": "One flow",
+            "body": "Audience, content, schedule and success criteria defined together."
+          },
+          {
+            "head": "Attribution by construction",
+            "body": "Segments are contact records, so the lead keeps its origin."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Support",
+        "title": "A ticket is a promise with a name on it",
+        "paras": [
+          "Support was designed on the same principle I use for any case system: an issue that exists without an owner and a deadline is not being managed, it is being stored. Every ticket carries a category, an assignee, a priority and a status that reads as a word — and the queue is ordered by what is at risk rather than by what arrived last.",
+          "The customer portal is the other half. Customers see their own tickets, order history, quotes and loyalty standing, and can search a knowledge base before opening a ticket at all — which is the cheapest support the platform offers."
+        ],
+        "points": [
+          {
+            "head": "Ownership at intake",
+            "body": "Category, assignee and priority set when the ticket is created."
+          },
+          {
+            "head": "Self-service first",
+            "body": "A knowledge base in front of the queue, not buried behind it."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Administration",
+        "title": "The role model made operable",
+        "paras": [
+          "Everything the role sheets promised has to be administrable by someone, so the system administrator gets a surface of their own: user directory, role definitions, configuration, logs and the platform-wide report view.",
+          "The users table carries the four facts an administrator acts on — who, what role, active or not, since when — and nothing else. Role management is where the permission model stops being a document and becomes state: create a role, define what it can reach, and every interface in the product reshapes itself accordingly."
+        ],
+        "points": [
+          {
+            "head": "Roles are data",
+            "body": "Permission lives in the role record, not in seven hard-coded interfaces."
+          },
+          {
+            "head": "Four facts per user",
+            "body": "Identity, role, status, tenure — the columns an admin actually acts on."
+          }
+        ],
+        "images": [
+          {
+            "src": "crm-shots/admin-dashboard.webp",
+            "cap": "System administrator — user counts, activity trend and the user directory.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 1312
+          },
+          {
+            "src": "crm-shots/admin-roles.png",
+            "cap": "Role management — where the permission model becomes editable state.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 1211
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "E-learning",
+        "title": "The answer to the adoption problem the research found",
+        "paras": [
+          "Every persona named the same fear: the learning curve. Training is usually answered with a PDF and a workshop, both of which happen once and then decay. So onboarding was built into the platform as an e-learning module — courses, lessons and progress living where the work lives.",
+          "The course builder is deliberately plain: title, description, structure, media, publish. It has to be usable by a branch manager writing a twenty-minute induction, not only by a training department. That is what keeps the material current after launch — the people who know the process can edit it without filing a request."
+        ],
+        "points": [
+          {
+            "head": "Training as a feature",
+            "body": "Onboarding inside the product, not a document beside it."
+          },
+          {
+            "head": "Authored by the operators",
+            "body": "Anyone who owns a process can maintain its course."
+          },
+          {
+            "head": "Progress is visible",
+            "body": "A manager sees who has completed what, without asking."
+          }
+        ],
+        "images": [
+          {
+            "src": "crm-shots/elearning.webp",
+            "cap": "E-learning — course catalogue with progress per learner.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 1094
+          },
+          {
+            "src": "crm-shots/course-detail.webp",
+            "cap": "Course detail — lessons, materials and completion state.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 2586
+          },
+          {
+            "src": "crm-shots/course-create.png",
+            "cap": "Course creation — structure and content in one plain form.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 1338
+          },
+          {
+            "src": "crm-shots/course-create-2.png",
+            "cap": "Course creation, continued — lessons and media.",
+            "displayWidth": 1176,
+            "sourceWidth": 1512,
+            "sourceHeight": 1793
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Authentication",
+        "title": "The first screen is a trust screen",
+        "paras": [
+          "Sign-in is the one surface every role meets, usually while distracted, sometimes while locked out. I designed the full set rather than the happy path: sign in, recover, confirm recovery, and the confirmation state — each one saying plainly what just happened and what to do next.",
+          "Recovery gets the same care as sign-in because the moment a person cannot get in is the moment the platform feels least trustworthy. No dead ends, no unexplained errors, and a confirmation that states the outcome in a sentence."
+        ],
+        "points": [
+          {
+            "head": "The whole set",
+            "body": "Sign in, recover, confirm, done — states, not just a form."
+          },
+          {
+            "head": "Every message plain",
+            "body": "What happened, and the one thing to do next."
+          }
+        ],
+        "images": [
+          {
+            "src": "crm-shots/auth-signin.webp",
+            "cap": "Sign in — the one screen all seven roles share.",
+            "displayWidth": 1176,
+            "sourceWidth": 3024,
+            "sourceHeight": 1964
+          },
+          {
+            "src": "crm-shots/auth-recover.webp",
+            "cap": "Account recovery.",
+            "displayWidth": 1176,
+            "sourceWidth": 3024,
+            "sourceHeight": 1964
+          },
+          {
+            "src": "crm-shots/auth-recover-confirm.webp",
+            "cap": "Recovery confirmation — outcome stated in a sentence.",
+            "displayWidth": 1176,
+            "sourceWidth": 3024,
+            "sourceHeight": 1964
+          },
+          {
+            "src": "crm-shots/auth-confirmation.webp",
+            "cap": "Confirmation state.",
+            "displayWidth": 1176,
+            "sourceWidth": 3024,
+            "sourceHeight": 1964
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Design system",
+        "title": "Seven interfaces that had to stay one product",
+        "paras": [
+          "Seven roles designed by a team over months will diverge unless the system is stricter than the schedule. I built the foundations as Figma variables — a deep navy and blue brand ramp, neutral greys tuned for dense tables, semantic status colours — and documented every component as a variant set: fields in each case and state, buttons across style and size, tables, kanban cards, modals, navigation, steppers, checkboxes, toggles and a full rich-text editor toolbar.",
+          "Density is the only axis the roles are allowed to differ on. The sales table tightens; the customer portal breathes. What never changes is the meaning of a colour, the anatomy of a field or where the primary action sits — which is what let seven interfaces ship as one product."
+        ],
+        "points": [
+          {
+            "head": "Variables, not swatches",
+            "body": "Tokens across colour, spacing and type the whole team built against."
+          },
+          {
+            "head": "Every state documented",
+            "body": "Fields, buttons and tables drawn in the conditions they actually meet."
+          },
+          {
+            "head": "WCAG in the tokens",
+            "body": "Contrast checked at the token level, so no screen could quietly fail it."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Outcome",
+        "title": "A platform seven roles could adopt without a rewrite",
+        "paras": [
+          "The work delivered the full product definition: research, personas, journey maps, competitive analysis, information architecture, wireframes, seven role-based interfaces, a customer portal, a public landing page and the design system underneath them — handed over role by role so engineering could build in the order the business needed.",
+          "The premise it defends is unglamorous: most CRM failures are adoption failures, and adoption is decided by whether the interface matches the job. Every role-specific default in this product exists because the research said the same thing four times — give me my work, not a configuration screen."
+        ],
+        "points": [
+          {
+            "head": "Shipped as a handover",
+            "body": "Seven role packages, a design system and the reasoning attached."
+          },
+          {
+            "head": "What I would watch",
+            "body": "Adoption per role in month one — the number the research says decides it."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "Sales, marketing, support, branch management and executive teams.",
+      "opportunity": "Give each role actionable information while preserving a shared model for customer records, ownership and reporting.",
+      "decision": "Lead with role-specific dashboards rather than asking new users to configure a blank widget grid.",
+      "tradeoff": "Flexible configuration offers control, but increases setup work. The documented approach provides useful defaults first and customization afterward.",
+      "hypothesis": "If each role starts with the work and information it needs, users should reach useful insight with less configuration.",
+      "evidence": "Research, personas, journey maps, competitive analysis, a seven-role model and engineering handover are documented. Adoption and revenue impact are not quantified.",
+      "metrics": [
+        "Time to first meaningful action for each role",
+        "Completion of lead follow-up and support workflows",
+        "Role-level adoption and reporting discrepancies"
+      ],
+      "learning": "The shared data model and role boundaries need to be decided together; interface customization cannot resolve unclear ownership.",
+      "caption": "Administration workspace: user access, roles and reporting in one view."
+    },
+    "previewImage": "crm-shots/hero.webp",
+    "heroImage": "crm-shots/admin-dashboard.webp",
+    "heroCaption": "Administration workspace: user access, roles and reporting in one view."
+  },
+  {
+    "id": "complaint-management",
+    "name": "Complaint Management",
+    "year": "2025",
+    "kind": "Case management · Service operations · Enterprise UX",
+    "blurb": "Making service accountability explicit through ownership and SLAs, with separate surfaces for agent work and management decisions.",
+    "summary": "A workspace for resolving complaints: a reporting dashboard, a working ticket queue, a category and SLA model that routes each case to the right unit, and a knowledge base.",
+    "problem": "Complaints were logged and then went quiet — no owner, no deadline, and a complainant left guessing. That is how a fixable problem becomes an escalation.",
+    "solve": "Modelled the complaint itself — category, service unit, SLA in hours — so routing and deadlines exist before anyone opens the queue. The dashboard and knowledge base build on the same model.",
+    "projectType": "Professional",
+    "role": "Product Designer",
+    "platform": "Web · Desktop",
+    "meta": [
+      "Professional",
+      "Case management",
+      "Dashboard"
+    ],
+    "status": "Delivered",
+    "cover": "uploads/Complaint-Management-Package/Images/hero.webp",
+    "group": "work",
+    "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
+    "shots": [
+      "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
+      "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp"
+    ],
+    "swatch": "#1f3b73",
+    "did": [
+      "Designed the complaint lifecycle end to end: intake, categorisation, assignment, resolution and reporting.",
+      "Built the analytics dashboard around the five numbers a service manager is accountable for.",
+      "Designed the category and SLA model that routes a complaint to the right unit automatically.",
+      "Designed the knowledge base authoring experience so answers become reusable instead of retyped."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "Complaints get received, then lost",
+        "paras": [
+          "Most organisations are good at receiving a complaint and bad at the twenty days that follow. It arrives by phone, email or in person, gets written somewhere, and its status becomes whatever the person who took it remembers.",
+          "The complainant experiences that as silence, which is what turns a resolvable problem into an escalation."
+        ],
+        "points": [
+          {
+            "head": "Ownership decays",
+            "body": "A case with no named owner is a case nobody is late on."
+          },
+          {
+            "head": "Silence is the failure",
+            "body": "People forgive slow resolution far more readily than no news."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "Fix the model, not the screen",
+        "paras": [
+          "When an operation is failing, the request is almost always for a better dashboard. But a queue can only show what the data knows — if a complaint has no category, no owning unit and no promised deadline, no layout will make it accountable.",
+          "So I treat the data model as the primary design surface. Get category, service unit and SLA right and the queue, the reporting and the escalation rules all fall out of it. Get them wrong and every screen becomes a workaround."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "Cases that cannot exist in an ambiguous state."
+          },
+          {
+            "head": "Where the design lives",
+            "body": "In three fields nobody photographs for a portfolio."
+          }
+        ],
+        "images": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Starting point",
+        "title": "The work was already happening in a generic helpdesk",
+        "paras": [
+          "Before the redesign, complaints ran through an off-the-shelf support desk. It handled tickets competently and knew nothing about complaints: no service unit, no category-level SLA, no distinction between a question and a grievance a regulator might ask about.",
+          "So the brief was not \"build a ticket tool\". It was to model the complaint itself — its category, its owning unit, its promised resolution time — and let the queue fall out of that."
+        ],
+        "points": [
+          {
+            "head": "What carried over",
+            "body": "Status, priority, assignee and a scannable list. Those patterns were working and stayed."
+          },
+          {
+            "head": "What was missing",
+            "body": "Category, service unit and SLA — the three fields that make a complaint different from a ticket."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "The queue",
+        "title": "Saved views are the product for an agent",
+        "paras": [
+          "An agent never wants \"all tickets\". They want the four cuts that describe their obligations, so the rail carries them as counted views: all tickets, my open tickets, unassigned, overdue, closed and spam — plus custom views for high priority and customer follow-ups.",
+          "The counts are the point. Unassigned and overdue with a number beside them turn two silent failure modes into something a supervisor can see from the sidebar without opening anything."
+        ],
+        "points": [
+          {
+            "head": "Unassigned is a state, not an oversight",
+            "body": "A named view means nobody has to remember to check for orphaned cases."
+          },
+          {
+            "head": "Overdue is separate from open",
+            "body": "Breaching a promise is a different problem from having work in progress."
+          },
+          {
+            "head": "Row scanning",
+            "body": "Ticket ID, subject, customer, status, priority, assignee, last update — one line per case, in reading order."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Platform",
+        "title": "What sits behind the queue",
+        "paras": [
+          "The system is not only an agent tool. The rail carries the administrative surfaces a service operation actually needs: setup, unit management, human resource, customer management, report and analytics, and the knowledge base.",
+          "Grouping them into one shell is what lets a category point at a service unit, a unit point at its people, and a report cover all of them — the joins that make the reporting trustworthy."
+        ],
+        "points": [
+          {
+            "head": "Unit management",
+            "body": "Service units are the routing target and the reporting dimension."
+          },
+          {
+            "head": "Customer management",
+            "body": "The complainant is a record with a history, not a name on a ticket."
+          },
+          {
+            "head": "Report & analytics",
+            "body": "Reporting reads the same model the queue writes to, so numbers reconcile."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Dashboard",
+        "title": "Five numbers a service manager is answerable for",
+        "paras": [
+          "The dashboard leads with volume, open load, resolved count, resolution rate and average resolution time — each with its movement against the previous week, because a rate without a direction tells you nothing.",
+          "Below that, three views answer the three questions that follow: is the backlog growing (received against resolved over time), are we responding fast enough (average first reply), and where is the volume coming from (channel breakdown). Customer satisfaction closes the page with its trend and full distribution rather than a single average, so a rise in \"very dissatisfied\" cannot hide inside a healthy mean."
+        ],
+        "points": [
+          {
+            "head": "The five headline metrics",
+            "body": "Total complaints, open, resolved, resolution rate and average resolution time — each with a week-on-week delta and its direction."
+          },
+          {
+            "head": "Channel mix",
+            "body": "Email, web portal, mobile app, phone and social as one donut with counts, so an investment argument has a number behind it."
+          },
+          {
+            "head": "CSAT in full",
+            "body": "The five-point distribution sits beside the average — the tail is the story a mean hides."
+          },
+          {
+            "head": "Honest footnote",
+            "body": "The page states CSAT is collected after resolution, so the score is never over-read."
+          },
+          {
+            "head": "One date range, one filter",
+            "body": "Every panel obeys the range at the top. No panel-level time controls to disagree with each other."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
+            "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT",
+            "displayWidth": 1176,
+            "sourceWidth": 1559,
+            "sourceHeight": 1009
+          }
+        ],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "An earlier dashboard opened on the complaint queue — the argument being that managers should see live work first. It made the page a second inbox, and nobody used it for the decision it existed to support.",
+            "now": "The dashboard reports, the queue works. Separating them meant the manager view could answer \"is this getting better or worse\" without competing with the agent view."
+          }
+        ]
+      },
+      {
+        "label": "Categories & SLA",
+        "title": "Routing is a data model, not a rule engine",
+        "paras": [
+          "A category is where the promise gets made: a name, the responsible service unit, a default priority and an SLA target in hours. Define those once and every complaint of that type routes to the right team with a deadline already attached.",
+          "The form explains itself as you fill it — why categories exist, what better organisation and faster resolution buy you, and a note that categories can be deactivated later. Configuration screens are used rarely and by people under pressure, so the reasoning belongs on the page rather than in a manual."
+        ],
+        "points": [
+          {
+            "head": "SLA at the category",
+            "body": "The deadline is a property of the complaint type, stated in hours, so no case arrives without one."
+          },
+          {
+            "head": "Service unit, not person",
+            "body": "Routing to a team survives staff turnover; routing to an individual does not."
+          },
+          {
+            "head": "Default priority",
+            "body": "Set per category, overridable per case — the common path needs no decision."
+          },
+          {
+            "head": "Attachments allowed",
+            "body": "Policy documents can sit with the category that enforces them."
+          },
+          {
+            "head": "Deactivate, never delete",
+            "body": "Retiring a category preserves the history reported against it."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.webp",
+            "cap": "Create complaint category — service unit, priority and SLA target",
+            "displayWidth": 1176,
+            "sourceWidth": 1559,
+            "sourceHeight": 1009
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Knowledge base",
+        "title": "Answer once, reuse forever",
+        "paras": [
+          "The same complaints recur, and the cost of retyping an answer is paid every time by whoever is fastest at typing. Article authoring is therefore a first-class surface: title, slug, category, visibility, summary and a rich-text body, with templates for how-to guides, FAQs, policies and troubleshooting.",
+          "Visibility is the field that makes it work in both directions — the same article can serve an agent internally and a customer in self-service, which is what stops the knowledge base becoming a second, staler copy of itself."
+        ],
+        "points": [
+          {
+            "head": "Templates over blank pages",
+            "body": "How-to guide, FAQ, policy and troubleshooting — because \"write an article\" is the reason nothing gets written."
+          },
+          {
+            "head": "One article, two audiences",
+            "body": "Visibility decides who sees it; the content stays single-sourced."
+          },
+          {
+            "head": "Slug and summary as fields",
+            "body": "A 160-character summary and an explicit URL slug make articles findable outside the tool, not just inside it."
+          },
+          {
+            "head": "Editor, then preview",
+            "body": "Formatting kept to what support answers need — emphasis, lists, quotes, code, images."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp",
+            "cap": "Create new article — metadata, editor and starting templates",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Reflection",
+        "title": "The model did the work the queue got credit for",
+        "paras": [
+          "Every improvement people noticed — cases arriving at the right team, deadlines that exist before anyone looks, reporting that adds up — came from getting category, service unit and SLA right as data, not from anything on the queue screen.",
+          "It is the least visible part of the design and the part I would spend the time on again."
+        ],
+        "points": [],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "Service agents, service managers and people submitting complaints.",
+      "opportunity": "Make complaint ownership and deadlines visible from intake through resolution.",
+      "decision": "Separate the manager’s analytics dashboard from the agent’s working queue.",
+      "tradeoff": "Opening on live cases makes the dashboard another inbox. Separating reporting from queue work gives each role a clearer decision surface.",
+      "hypothesis": "If complaints carry category, service-unit ownership and an SLA from intake, teams should be able to identify overdue work and act before escalation.",
+      "evidence": "The documented scope covers intake, routing, SLAs, a working queue, analytics and a knowledge base. No measured SLA or resolution-time improvement is supplied.",
+      "metrics": [
+        "Percentage of cases assigned to an owner",
+        "SLA compliance and median resolution time",
+        "Repeat contacts, reopen rate and escalation volume"
+      ],
+      "learning": "Accountability starts with the complaint model; dashboard charts become useful only when ownership and status data are dependable.",
+      "caption": "Service analytics: a management view distinct from the agent queue."
+    },
+    "previewImage": "uploads/Complaint-Management-Package/Images/hero.webp",
+    "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
+    "heroCaption": "Service analytics: a management view distinct from the agent queue."
+  },
+  {
+    "id": "rad-reader",
+    "name": "Rad Reader",
+    "year": "2024",
+    "kind": "Telemedicine · Radiology platform · Multi-role product",
+    "blurb": "Connecting clinics and radiologists through a clear diagnostic handoff, with a queue-first workspace and dedicated study viewer.",
+    "summary": "Three connected products — a patient app, a health-centre console and a radiologist workspace — for sending radiology scans out for expert reading.",
+    "problem": "Ethiopia has far more scans than radiologists, and most specialists work in a handful of urban hospitals. A rural clinic can capture a CT with no one to read it.",
+    "solve": "Separated capture from interpretation. Clinics upload the study and its context, radiologists read from a shared queue, and the patient tracks the case and gets the report.",
+    "projectType": "Professional",
+    "role": "Product Designer",
+    "platform": "Mobile · Web",
+    "meta": [
+      "Professional",
+      "Telemedicine",
+      "Design system"
+    ],
+    "status": "Delivered",
+    "cover": "radreader/hero.webp",
+    "group": "work",
+    "figma": "https://www.figma.com/design/kqzV4W89E9hv9R9Lh9C0sc/Rad-Reader--Copy-?node-id=2-9",
+    "shots": [
+      "radreader/shot-dashboard.webp",
+      "radreader/shot-compare.webp",
+      "radreader/shot-upload.webp"
+    ],
+    "swatch": "#6d28d9",
+    "coverTitle": "Rad Reader",
+    "coverLine": "Radiology, read remotely",
+    "poster": "Radiology, read remotely.",
+    "posterKicker": "Droga Medical Imagery Reading Service",
+    "did": [
+      "Ran the UX research: three primary personas, journey maps across awareness, consideration and decision, competitive analysis and preference testing.",
+      "Designed the full product architecture — patient mobile app, health-centre console, radiologist workspace and admin side — as one platform.",
+      "Designed every screen across the three surfaces: upload, scan viewer, comparison, result writing, payment and history.",
+      "Built the design system: purple brand ramp, typography, icon set, form fields, tables, steppers and status components.",
+      "Wrote the product overview — purpose, audience, market need, feature set and roadmap — used to align the product and software teams."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "The scanner is not the bottleneck. The reader is.",
+        "paras": [
+          "Radiology is the most resource-intensive part of diagnostic medicine: the equipment is expensive to buy and maintain, the training pipeline is long, and the specialists who can read a complex study are concentrated in a few urban centres. A clinic in a regional town can own a machine and still have nobody qualified to interpret what it produces.",
+          "The consequence is a queue that nobody manages. Studies wait for a visiting radiologist, physicians make provisional calls under time pressure, and patients travel to the capital for a reading rather than for treatment. The cost lands on the people least able to absorb it."
+        ],
+        "points": [
+          {
+            "head": "Specialist scarcity",
+            "body": "Too few radiologists, unevenly distributed and expensive to retain per centre."
+          },
+          {
+            "head": "Urban concentration",
+            "body": "Access to interpretation depends on where the patient happens to live."
+          },
+          {
+            "head": "Time as harm",
+            "body": "In radiology a slow answer is not an inconvenience; it changes the treatment."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "Design the handoff, not the app",
+        "paras": [
+          "Three roles touch a single study — the health centre that captures it, the radiologist who reads it, and the patient it belongs to. Each has a different competence, a different device and a different reason to open the product. The temptation is to design three apps; the mistake is to let them disagree about what a case is.",
+          "So I treated the handoff as the primary design object. A study carries its own context — modality, patient history, urgency, who is assigned, what has been said about it — and each interface is a view onto that same object shaped for one role’s job. When the object is right, the three products stay honest with each other without anybody coordinating.",
+          "The second principle was medical restraint. This is not a product that should feel clever. Every screen states what is known, what is pending, and who holds it next; nothing important is inferred, animated, or hidden behind a gesture."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "Hours from upload to a signed report — not taps per screen."
+          },
+          {
+            "head": "One object, three views",
+            "body": "Patient, centre and radiologist read the same case from different angles."
+          },
+          {
+            "head": "The failure I design against",
+            "body": "A study that exists in the system but belongs to nobody."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Research",
+        "title": "Three people, one bottleneck seen from three sides",
+        "paras": [
+          "I built the research around three primary personas drawn from interviews: a hospital physician who wants accurate reads without adding to her radiologists’ workload; a rural clinic owner who wants his patients to get the same quality of interpretation as patients in the capital; and a high-volume urban hospital where delay comes from throughput rather than expertise.",
+          "Their goals converge and their obstacles do not. The physician’s blocker is coordination with external radiologists. The rural owner’s is connectivity and setup. The large hospital’s is volume and cost. Mapping their journeys across awareness, consideration and decision showed the same pattern each time: interest is easy, trust is the hard part — scepticism about a new platform, doubt about integration with existing systems, resistance from staff, worry about cost.",
+          "A competitive analysis of the remote-reading tools already in use benchmarked accessibility, speed and responsiveness, information architecture and performance. Preference testing on early designs was blunt and useful: make the scan image bigger, separate the icons, define the hierarchy more sharply, add page numbers, add colour — organised is not the same as legible."
+        ],
+        "points": [
+          {
+            "head": "Dr Meron — hospital physician",
+            "body": "Needs accurate reads fast without adding to in-house radiologist workload."
+          },
+          {
+            "head": "Tamerat — rural clinic owner",
+            "body": "Wants urban-quality interpretation for rural patients, over an unreliable connection."
+          },
+          {
+            "head": "Addis Hospital — high volume",
+            "body": "Delay is throughput, not expertise; needs advanced imaging read at speed."
+          },
+          {
+            "head": "What testing changed",
+            "body": "Bigger imagery, sharper hierarchy, separated icons, paging, more colour."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "The first design treated the scan like any other record — a detail page with the image as one field among many, consistent with the rest of the system.",
+            "now": "Preference testing was unambiguous: the image is the record. The viewer became a dedicated surface with the study filling it and everything else demoted to a rail."
+          }
+        ]
+      },
+      {
+        "label": "Architecture",
+        "title": "One platform, four sides",
+        "paras": [
+          "The platform splits by role rather than by feature. A patient app for tracking and receiving results; a health-centre console for registering the facility, uploading studies and retrieving reports; a radiologist workspace for the reading queue, comparison and reporting; and an admin side for accounts, assignment and subscription.",
+          "A site map came before any screen. It settled the questions that decide the product — who can assign a study, where payment sits in the flow, whether a report can be issued before payment clears — and let me design each surface against a shared spine rather than negotiating them against each other later.",
+          "The updated interactive prototype explores this architecture with a shared purple identity, a lighter navigation rail, explicit study status and a patient timeline. Sample data and actions illustrate the workflow; clinical image rendering, payments and production services are outside this prototype."
+        ],
+        "points": [
+          {
+            "head": "Patient",
+            "body": "Mobile. Upload status, pending payment, history, the result itself."
+          },
+          {
+            "head": "Health centre",
+            "body": "Desktop. Facility profile, scan upload, viewer, results, subscription."
+          },
+          {
+            "head": "Radiologist",
+            "body": "Desktop. Queue, assignment, comparison, consultation, report writing."
+          },
+          {
+            "head": "Admin",
+            "body": "Desktop. Users, verification, routing and platform oversight."
+          }
+        ],
+        "images": [],
+        "desktops": [
+          {
+            "name": "ModernAdmin",
+            "cap": "Administration — study routing, search, priority filters and radiologist assignment."
+          }
+        ],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Patient app",
+        "title": "A case you can watch move",
+        "paras": [
+          "The refreshed patient app puts scan progress first: Uploaded, In review and Report ready. Active and completed studies sit in separate tabs, and an expandable timeline makes the next step visible.",
+          "The mobile prototype includes study upload, study details, a report state, help and a profile. It uses fictional sample data; downloadable reports are explicitly marked as examples."
+        ],
+        "points": [
+          {
+            "head": "Progress in plain language",
+            "body": "Text labels and a timeline explain status alongside colour."
+          },
+          {
+            "head": "One clear next step",
+            "body": "Upload a study or open its details without navigating a dashboard."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [
+          {
+            "name": "ModernHome",
+            "cap": "01 — Home. A calm overview with scan progress."
+          },
+          {
+            "name": "ModernUploads",
+            "cap": "02 — Upload. File requirements and referral context in one flow."
+          },
+          {
+            "name": "ModernScansPending",
+            "cap": "03 — Studies. Active scans and an expandable timeline."
+          },
+          {
+            "name": "ModernResultDetail",
+            "cap": "04 — Report. Clear availability and a labelled sample download."
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Health centre",
+        "title": "Upload is the moment the platform earns trust",
+        "paras": [
+          "The new upload screen pairs patient and referral context with clearly stated DICOM and ZIP requirements. The study queue then gives centre staff a consistent way to find a case and follow its handoff.",
+          "The prototype keeps files in the browser session. It demonstrates submission and status changes without claiming production upload, storage or diagnostic viewing."
+        ],
+        "points": [
+          {
+            "head": "Constraints stated",
+            "body": "Format, size and resolution limits shown before the upload, not after it fails."
+          },
+          {
+            "head": "Context at capture",
+            "body": "Modality, patient and urgency collected with the file, never chased later."
+          }
+        ],
+        "images": [],
+        "desktops": [
+          {
+            "name": "ModernUploadScan",
+            "cap": "Health centre — upload with patient, modality, centre and priority in one form."
+          },
+          {
+            "name": "ModernViewScan",
+            "cap": "Health centre — searchable study queue with explicit assignment and report status."
+          }
+        ],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Radiologist",
+        "title": "A queue, two studies side by side, and a report",
+        "paras": [
+          "The refreshed workspace opens on a readable study queue. Patient, centre, priority, status and assigned radiologist remain visible in the same row, with search and filters above the work.",
+          "A study detail panel holds assignment and sample reporting actions. The comparison layout explores current and prior study selection; diagnostic rendering and synchronised image controls would require a production viewer integration."
+        ],
+        "points": [
+          {
+            "head": "Work first",
+            "body": "A working queue precedes summary metrics."
+          },
+          {
+            "head": "Visible handoffs",
+            "body": "Assignment, review and report readiness use explicit labels."
+          },
+          {
+            "head": "Shared system",
+            "body": "The desktop and patient app share purple accents, field styling and status language."
+          }
+        ],
+        "images": [],
+        "desktops": [
+          {
+            "name": "ModernPhyDashboard",
+            "cap": "Radiologist — a clear queue for review and reporting."
+          },
+          {
+            "name": "ModernCompare",
+            "cap": "Radiologist — comparison layout. Diagnostic image rendering is outside this prototype."
+          }
+        ],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "An earlier radiologist dashboard opened on summary statistics — studies read this week, average turnaround, a chart. It looked like a product and was useless at 7am.",
+            "now": "It opens on the queue. Metrics moved to a panel the radiologist can choose to look at; the first screen answers what needs reading now."
+          }
+        ]
+      },
+      {
+        "label": "Design system",
+        "title": "A medical purple, and rules strict enough to survive four surfaces",
+        "paras": [
+          "One product with four interfaces and a mixed team needs a system before it needs screens. I built the foundations as tokens — a purple brand ramp anchored on #6B42DF, neutral greys for the dense enterprise surfaces, status colours for scan states — and documented components as variant sets rather than one-off frames: buttons, form fields, checkboxes, selects, steppers, tables, cards, status chips and a full icon family.",
+          "The dense side and the consumer side share the same tokens and diverge only in density. The patient app breathes; the radiologist workspace tightens. What never changes is the meaning of a colour, the shape of a field or the position of a primary action — which is what lets a small team ship four surfaces without them drifting.",
+          "Accessibility was a design constraint rather than a review step: colour combinations and text sizes were checked against WCAG contrast, and no state is signalled by colour alone — status is always a word as well."
+        ],
+        "points": [
+          {
+            "head": "Tokens first",
+            "body": "Colour, spacing and type as variables the whole team could build against."
+          },
+          {
+            "head": "Variants, not copies",
+            "body": "Every component documented in its states, not its ideal."
+          },
+          {
+            "head": "Never colour alone",
+            "body": "Every status carries a label — the medical requirement, not a nicety."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Outcome",
+        "title": "A platform brief a team could actually build",
+        "paras": [
+          "The work delivered a complete product definition — purpose, audience, market need, feature set, roadmap and team shape — alongside the research, the site map, wireframes, the four interfaces and the design system that ties them together.",
+          "Rad Reader’s premise is not technological. It is that expertise concentrated in a few places can serve the whole country if the handoff between capture and interpretation is designed properly. Everything in the product exists to make that handoff fast, accountable and legible to all three sides of it."
+        ],
+        "points": [
+          {
+            "head": "Shipped as a definition",
+            "body": "Research, architecture, four interfaces and a system — enough to build from."
+          },
+          {
+            "head": "Next",
+            "body": "AI-assisted triage was scoped as a later phase, deliberately after trust is established."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "Health-centre staff, radiologists and patients following a diagnostic case.",
+      "opportunity": "Connect scan capture with specialist interpretation across separate organizations and locations.",
+      "decision": "Make the radiologist’s queue the starting point and give the scan viewer its own dedicated workspace.",
+      "tradeoff": "Summary statistics are useful for review, but compete with the immediate job of reading the next study. The documented design moves metrics out of the primary workflow.",
+      "hypothesis": "If capture, assignment, interpretation and reporting form a clear handoff, a clinic should be able to request specialist review without requiring the specialist to be on site.",
+      "evidence": "The portfolio documents research, preference testing, platform architecture, a product overview and a roadmap. Clinical outcomes and live turnaround improvements are not established.",
+      "metrics": [
+        "Successful study upload and submission rate",
+        "Time from submitted study to completed report",
+        "Report rework and incomplete-context requests"
+      ],
+      "learning": "A multi-sided healthcare product depends on the quality of the handoff between roles, as well as the usability of each interface.",
+      "caption": "Radiologist workspace: the study queue leads the reading workflow."
+    },
+    "previewImage": "radreader/modern-admin.jpg",
+    "heroImage": "radreader/modern-admin.jpg",
+    "heroCaption": "Rad Reader — Clinical clarity redesign. Interactive portfolio prototype with fictional sample data.",
+    "gallery": [
+      "radreader/modern-admin.jpg",
+      "radreader/modern-patient.jpg"
+    ]
+  },
+  {
+    "id": "adler-ds",
+    "name": "Adler Design System",
+    "year": "2024",
+    "kind": "Design system · 1,394 components · Remote",
+    "blurb": "Treating a design system as an internal product: shared foundations, findability and reusable components for a distributed team.",
+    "summary": "A production design system: colour, typography, icon, shadow and spacing foundations, plus 40 component families documented with every state.",
+    "problem": "A small team across three time zones kept rebuilding the same components. Consistency depended on who happened to review the work.",
+    "solve": "Locked the foundations first — colour ramps, type scale, spacing — then documented each component state by state. An overview page lets anyone check what already exists before building it again.",
+    "projectType": "Professional · remote",
+    "role": "Design System Designer",
+    "platform": "Web · Figma",
+    "meta": [
+      "Professional",
+      "Design system",
+      "Documentation"
+    ],
+    "status": "Delivered",
+    "cover": "adler/hero.webp",
+    "group": "work",
+    "shots": [
+      "adler/shot-colors.png",
+      "adler/shot-buttons.png",
+      "adler/shot-icons.png"
+    ],
+    "swatch": "#15C5CE",
+    "coverTitle": "Adler Design System",
+    "coverLine": "1,394 components, one grammar",
+    "figma": "https://www.figma.com/design/DVbO0GoQaR775diXBnsl72/Adler-sns--Design-System_v2.7.0?node-id=0-1",
+    "did": [
+      "Defined the foundations: eight-step ramps across neutral, primary, auxiliary and four semantic roles, on Ubuntu with PingFang SC for Chinese text.",
+      "Documented forty component families — Button through Upload — each with its full variant and state matrix.",
+      "Drew and catalogued a 731-icon set in line and fill themes on a shared grid.",
+      "Wrote the overview page: every family, its component count, and a preview, so the team could check before rebuilding.",
+      "Published as Figma variables and component sets so the library was consumable, not just readable."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "Three time zones, one interface, no agreement",
+        "paras": [
+          "Adler’s product was moving fast with a small distributed team. Every sprint someone needed a button, a table, an empty state — and built one. None of them were wrong on their own; together they were four products wearing the same logo.",
+          "The cost showed up as review time. Consistency was being enforced by whoever looked at the work last, which does not scale and does not survive a busy week. A system was the cheapest way to buy the team back its velocity."
+        ],
+        "points": [
+          {
+            "head": "Re-deciding, constantly",
+            "body": "The same interface question answered differently each sprint."
+          },
+          {
+            "head": "Async makes it worse",
+            "body": "Nobody is in the room to ask, so everyone guesses."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "A system is an agreement, not a folder",
+        "paras": [
+          "Component libraries fail when they are treated as storage. The value is not that a button exists somewhere — it is that everyone has agreed what a button means, when it is primary, and what it looks like while it is being pressed. The file is just where the agreement is written down.",
+          "So I documented decisions before I documented pixels. Every colour role has a stated purpose. Every component sheet leads with the rule and follows with the variants. And the overview page exists purely to answer \"does this already exist?\" — the question that, unanswered, is how libraries get duplicated."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "The number of decisions a designer does not have to make."
+          },
+          {
+            "head": "States, not ideals",
+            "body": "Every component drawn hover, pressed and disabled — the states that ship wrong."
+          },
+          {
+            "head": "Findable beats complete",
+            "body": "A component nobody can find gets rebuilt anyway."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": [
+          {
+            "old": "The obvious move was to start with the components the team needed that week — buttons, inputs, a table — and add foundations later once patterns emerged.",
+            "now": "Foundations first. Colour ramps, type scale and spacing were locked before any component was drawn, because a component built on unnamed values has to be rebuilt the moment the values get names."
+          }
+        ]
+      },
+      {
+        "label": "Foundations",
+        "title": "Eight steps of every colour, one type scale",
+        "paras": [
+          "Colour is organised by role rather than by hue: neutral, primary, auxiliary, then danger, warning, success and info. Each role carries an eight-step ramp from 700 down to 50, so the same step of any role has the same visual weight — a 600 is always the pressed state, a 50 is always the faintest tint, whatever the colour.",
+          "Semantic roles carry their meaning in writing: danger for rejected or wrong, warning for in-progress, success for passed, info for no emotion at all. That last one matters — it is the role teams reach for when they want emphasis without alarm.",
+          "Typography is Ubuntu across four weights with PingFang SC for Chinese text, on a scale that stops at the sizes the product actually uses rather than a decorative range nobody types into."
+        ],
+        "points": [
+          {
+            "head": "Roles over hues",
+            "body": "You pick \"danger 600\", never \"that red\"."
+          },
+          {
+            "head": "Even steps",
+            "body": "Ramps built so equivalent steps read at equivalent weight."
+          },
+          {
+            "head": "Bilingual by default",
+            "body": "Latin and Chinese faces specified together, not retrofitted."
+          }
+        ],
+        "images": [
+          {
+            "src": "adler/shot-colors.png",
+            "cap": "Colour — eight-step ramps across neutral, primary, auxiliary and four semantic roles, with hex values.",
+            "displayWidth": 792,
+            "sourceWidth": 792,
+            "sourceHeight": 1931
+          },
+          {
+            "src": "adler/shot-typography.png",
+            "cap": "Typography — Ubuntu and PingFang SC, weights and the working scale.",
+            "displayWidth": 792,
+            "sourceWidth": 792,
+            "sourceHeight": 1198
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Icons",
+        "title": "731 icons that behave like one family",
+        "paras": [
+          "The icon set is the part of a system most likely to drift, because icons get added under deadline. Drawing all 731 on one grid, in matched line and fill themes, made the set closable — a new icon has a shape to conform to rather than a style to invent.",
+          "They are catalogued by meaning, not by drawing: directional, suggestive, status. A designer looking for \"the one that means terminated\" finds it without scrolling the whole sheet."
+        ],
+        "points": [
+          {
+            "head": "One grid, two themes",
+            "body": "Line and fill drawn as a pair so either can be swapped in."
+          },
+          {
+            "head": "Indexed by meaning",
+            "body": "Grouped by what they communicate, not what they depict."
+          }
+        ],
+        "images": [
+          {
+            "src": "adler/shot-icons.png",
+            "cap": "The icon library — line and fill themes on a shared grid, grouped by meaning.",
+            "displayWidth": 792,
+            "sourceWidth": 792,
+            "sourceHeight": 1680
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Components",
+        "title": "Forty families, each documented state by state",
+        "paras": [
+          "Every component sheet follows the same shape: the rule at the top, a copy-me instance, the variant axes, then the full state matrix. Button, for instance, states its rule plainly — one primary button per action section — then shows text-only, left-icon and right-icon across default, hover, pressed and disabled at three sizes, with the spacing specimens beside it.",
+          "Table got the most attention because it carries the most weight in an enterprise product: simple, multi-select, expandable rows, fixed columns, fixed footer and dividers, each as a worked example rather than a description. Form covers the layouts and validation states that decide whether an operator finishes a task or abandons it.",
+          "Density is the only axis allowed to vary between contexts. What never changes is the meaning of a colour, the anatomy of a field, or where the primary action sits."
+        ],
+        "points": [
+          {
+            "head": "Rule, then variants",
+            "body": "Each sheet says what the component is for before showing what it can be."
+          },
+          {
+            "head": "A copy-me instance",
+            "body": "The fastest correct path is also the most convenient one."
+          },
+          {
+            "head": "Spacing shown, not implied",
+            "body": "Annotated specimens so implementation is not guesswork."
+          }
+        ],
+        "images": [
+          {
+            "src": "adler/shot-buttons.png",
+            "cap": "Button — the rule, the variants, and the full state matrix at three sizes.",
+            "displayWidth": 696,
+            "sourceWidth": 696,
+            "sourceHeight": 1760
+          },
+          {
+            "src": "adler/shot-table.webp",
+            "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers.",
+            "displayWidth": 990,
+            "sourceWidth": 990,
+            "sourceHeight": 2155
+          },
+          {
+            "src": "adler/shot-form.webp",
+            "cap": "Form — layouts, field anatomy and validation states.",
+            "displayWidth": 990,
+            "sourceWidth": 990,
+            "sourceHeight": 3600
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Findability",
+        "title": "The overview page is the most-used screen in the system",
+        "paras": [
+          "The single highest-leverage page is the inventory: every family grouped as General, Navigation, Data Entry, Data Display and Feedback, each card carrying a preview and a component count — Button 202, Input 232, Table 90, Icon 731.",
+          "It exists because the expensive failure in a design system is not a missing component, it is an unfound one. Someone who cannot see that Cascader exists builds a nested dropdown, and now there are two."
+        ],
+        "points": [
+          {
+            "head": "Counts on purpose",
+            "body": "Seeing 232 input components tells you to look before you build."
+          },
+          {
+            "head": "Grouped by job",
+            "body": "Data entry, data display, feedback — how designers actually search."
+          }
+        ],
+        "images": [
+          {
+            "src": "adler/shot-overview.webp",
+            "cap": "The overview — every family, grouped by job, with previews and component counts.",
+            "displayWidth": 910,
+            "sourceWidth": 910,
+            "sourceHeight": 3790
+          }
+        ],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Outcome",
+        "title": "A system that outlived the sprint that needed it",
+        "paras": [
+          "The library shipped as Figma variables and component sets, versioned — the file the team works in is v2.7.0, which is its own evidence: a system nobody uses does not reach a seventh minor release.",
+          "What I would watch is the same number I always watch on systems work: how often someone builds a component that already exists. That figure, not the component count, is what says whether the agreement held."
+        ],
+        "points": [
+          {
+            "head": "Shipped and versioned",
+            "body": "v2.7.0 — maintained rather than published once."
+          },
+          {
+            "head": "The number that matters",
+            "body": "Duplicate components built per month, trending down."
+          }
+        ],
+        "images": [],
+        "desktops": [],
+        "mobiles": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "A distributed product design team building Adler’s social platform.",
+      "opportunity": "Make existing patterns findable and reusable instead of resolving consistency separately in every review.",
+      "decision": "Define foundations before building component families, then publish the library as variables and component sets.",
+      "tradeoff": "Building only the components needed this week offers immediate speed; naming shared foundations first reduces the need to revisit those components later.",
+      "hypothesis": "If teams can find and consume a shared component library, they should reuse more existing patterns and introduce fewer inconsistent variants.",
+      "evidence": "The portfolio documents 1,394 components, 731 icons and a versioned Figma library. Those are delivery outputs, not proof of faster engineering or increased adoption.",
+      "metrics": [
+        "Use of library components in new product work",
+        "Duplicate or detached component creation",
+        "Time to find the right documented pattern"
+      ],
+      "learning": "A design system needs discoverability and adoption practices; a large component count alone does not demonstrate product value.",
+      "caption": "Versioned design-system overview and foundation examples."
+    },
+    "previewImage": "adler/hero.webp",
+    "heroImage": "adler/hero.webp",
+    "heroCaption": "Adler design system: shared foundations and component library."
+  },
+  {
+    "id": "adler-studio",
+    "name": "Adler Studio",
+    "year": "2024",
+    "kind": "Immersive 3D · Creator tool · Web app",
+    "blurb": "Balancing first-session simplicity with discoverable precision in a browser-based 3D creation and publishing tool.",
+    "summary": "Creators place architecture and furniture, tune each object numerically, add spatial audio, then publish a space others can explore.",
+    "problem": "3D authoring tools assume you already know 3D, so most creators never get past the first session.",
+    "solve": "Split the tool in two: a nearly empty canvas with two gestures for composing, and a properties panel holding the exact values. Easy to start, precise enough to stay.",
+    "projectType": "Professional · remote",
+    "role": "Product Designer",
+    "platform": "Web · 3D",
+    "meta": [
+      "Professional",
+      "3D & immersive",
+      "Creator tool"
+    ],
+    "status": "Delivered",
+    "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
+    "group": "work",
+    "shots": [
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp"
+    ],
+    "swatch": "#E4002B",
+    "did": [
+      "Designed the studio shell: item library, canvas and properties panel, and the rules for what lives in each.",
+      "Designed precision object controls — scale, position, rotation, texture, grouping and z-order.",
+      "Designed the audio system, from the music library to per-space playlists and spatial placement.",
+      "Designed the publish path: space management, draft and published states, and the immersive public preview."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "3D tools are built for people who already know 3D",
+        "paras": [
+          "Spatial authoring tools inherit their vocabulary from professional 3D software: gizmos, hierarchies, modifier stacks. Adler’s users are creators and brands who want a room, not a rig.",
+          "The design problem is not simplification. It is deciding which precision to keep — because a creator who cannot set an exact dimension eventually leaves."
+        ],
+        "points": [
+          {
+            "head": "Two hands",
+            "body": "Direct manipulation for composing, numeric fields for finishing. Both, not one."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "Simplify the gesture, never the ceiling",
+        "paras": [
+          "Most \"easy\" creative tools buy their simplicity by taking capability away, and the users who stay longest are exactly the ones who hit that ceiling first. I do not think approachability and precision are a trade — they are two moments in the same session.",
+          "The rule I designed to: the canvas holds the smallest possible number of gestures, and the panel holds every exact value. A beginner never meets a number they did not ask for; an expert never meets a limit they cannot type past."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "Time from opening the tool to something worth publishing."
+          },
+          {
+            "head": "The failure I design against",
+            "body": "A creator who outgrows the product in a week."
+          }
+        ],
+        "images": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Scene builder",
+        "title": "A library on the left, the room in the middle, its properties on the right",
+        "paras": [
+          "Items are grouped the way a person furnishes a space — architectural, furniture, decorative, lighting, electronics — and searchable when the list gets long. The canvas keeps an orbit cube and a hint line, so the two gestures that matter are always discoverable.",
+          "The properties panel treats a space as an object with a name, a description, real dimensions, a skybox and a soundtrack. Naming and describing a room early is what makes it publishable later."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
+            "cap": "3D scene builder — item library, canvas, space properties",
+            "displayWidth": 1176,
+            "sourceWidth": 1536,
+            "sourceHeight": 1024
+          }
+        ],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "An early version hid all numeric fields behind an \"advanced\" disclosure to keep the panel calm. Testers assumed the precision did not exist and worked around it by eyeballing scale, then complained the tool was imprecise.",
+            "now": "Scale, position and rotation sit in the panel as three tabs, visible by default. The panel is busier; the tool is trusted. Hidden precision reads as absent precision."
+          }
+        ]
+      },
+      {
+        "label": "Object controls",
+        "title": "Every element movable, scalable, and exact",
+        "paras": [
+          "Selecting an object gives a floating action bar for the frequent operations and a properties panel for the exact ones: texture with its resolution, lock state, XYZ across scale, position and rotation, plus duplicate, group, bring to front and delete.",
+          "The same panel handles the space and the object, so there is one place to look regardless of what is selected."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
+            "cap": "Precision object controls — texture, lock, XYZ, grouping",
+            "displayWidth": 1176,
+            "sourceWidth": 1536,
+            "sourceHeight": 1024
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Audio",
+        "title": "Music defines how a space feels",
+        "paras": [
+          "The audio system treats sound as part of the composition, not a setting. A music library with moods, genres and uploads, a per-space playlist, and spatial placement so audio has a position in the room.",
+          "Tracks carry waveform previews and durations, because choosing a soundtrack is a listening task, not a naming task."
+        ],
+        "points": [
+          {
+            "head": "Spatially aware",
+            "body": "Audio positioned in 3D space for depth and realism."
+          },
+          {
+            "head": "Curated or custom",
+            "body": "A rich library, or the creator’s own uploads."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp",
+            "cap": "Immersive audio — music library, playlist and spatial placement",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Publish",
+        "title": "Manage spaces, then hand one to the public",
+        "paras": [
+          "Space management is a working grid: published and draft tabs, categories, sort, view toggles, per-space views and collaborators — and a destructive-action dialog that says plainly what cannot be undone.",
+          "The public preview is the payoff. A rendered space with its author, description, tags, view count and the social loop — like, comment, share, remix — plus navigation that stays out of the room."
+        ],
+        "points": [],
+        "images": [
+          {
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.webp",
+            "cap": "Space management — published and draft spaces, delete confirmation",
+            "displayWidth": 1176,
+            "sourceWidth": 1491,
+            "sourceHeight": 1055
+          },
+          {
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.webp",
+            "cap": "Immersive preview — the published space with its social loop",
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Reflection",
+        "title": "Restraint in the canvas, generosity in the panel",
+        "paras": [
+          "The pattern that made this work was keeping the canvas almost empty and letting the panels carry the complexity. Creators compose with gestures and finish with numbers, and neither group had to give anything up."
+        ],
+        "points": [],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "Creators composing and publishing browser-based 3D spaces.",
+      "opportunity": "Make a first scene approachable without removing the precision creators need as their work becomes more complex.",
+      "decision": "Keep composition on the canvas and expose precise object values in the properties panel.",
+      "tradeoff": "Hiding numeric controls makes the panel quieter, but makes precision harder to discover. The documented iteration keeps scale, position and rotation visible.",
+      "hypothesis": "If simple composition and visible precision controls coexist, creators should be able to start quickly and refine their scenes without changing tools.",
+      "evidence": "The case study documents scene building, object controls, audio and publishing flows, including an iteration on control visibility. Activation and retention are not quantified.",
+      "metrics": [
+        "First-session completion of a usable scene",
+        "Time from first object to published preview",
+        "Successful discovery and use of precision controls"
+      ],
+      "learning": "Progressive disclosure should not hide a capability that users need to trust the product.",
+      "caption": "Scene builder: object library, canvas and precision properties."
+    },
+    "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
+    "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
+    "heroCaption": "Scene builder: object library, canvas and precision properties."
+  },
+  {
+    "id": "addis-park",
+    "name": "Addis Park",
+    "year": "2025",
+    "kind": "Mobile app · Urban mobility · Payments",
+    "blurb": "A parking concept focused on certainty before commitment: map-based discovery, visible total pricing and clear session status.",
+    "summary": "Drivers find nearby parking, reserve a space, watch the active session, and manage vehicles and payments in one app.",
+    "problem": "Drivers had no way to know whether a space was free, what it cost, or how long they could keep it.",
+    "solve": "Made every cost visible before it is charged: live availability and rates per lot, the total shown on the button, and a running fee during the session.",
+    "projectType": "Product design",
+    "role": "Product Designer",
+    "platform": "iOS · Android",
+    "meta": [
+      "Mobile app",
+      "Urban mobility",
+      "Payments"
+    ],
+    "status": "Case study",
+    "cover": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+    "phone": true,
+    "group": "work",
+    "figma": "https://www.figma.com/design/p2uHe1qmMakFpmKDa8VV2v/Addis-Park?node-id=862-877",
+    "shots": [
+      "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
+      "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
+      "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp"
+    ],
+    "swatch": "#0e9f6e",
+    "did": [
+      "Designed the end-to-end parking journey: discovery, booking review, live session and account.",
+      "Built the visual system — cyan gradient headers, electric lime actions, deep navy type, 16px radii, 48–56px touch targets.",
+      "Set one navigation model across the app: Home, Map, Park, Sessions, Account.",
+      "Prepared the presentation frames and walkthrough used to pitch the concept."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "Parking in Addis is negotiated, not booked",
+        "paras": [
+          "Drivers circle. Availability is discovered by arriving, price is discovered by asking, and the transaction is cash to whoever is standing at the entrance. Nothing about the process is knowable in advance.",
+          "That produces two costs at once: time lost to searching, and no record of what was paid for what."
+        ],
+        "points": [
+          {
+            "head": "No advance certainty",
+            "body": "You cannot know a space exists until you are already there."
+          },
+          {
+            "head": "No receipt",
+            "body": "Cash and a spoken rate leave nothing to check afterwards."
+          }
+        ],
+        "images": [],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Philosophy",
+        "title": "Certainty before convenience",
+        "paras": [
+          "The instinct with a parking app is to make booking fast. I think that is the second problem. The first is that a driver does not believe a space will be there — and speed applied to a promise nobody trusts just gets you to disappointment sooner.",
+          "So every screen in Addis Park is built to answer a doubt rather than save a tap: is there room, what will it cost, where exactly is my car, and what happens if I am late. Where those two goals conflicted, I chose the answer over the shortcut every time."
+        ],
+        "points": [
+          {
+            "head": "What I optimise for",
+            "body": "The number of unanswered questions on screen — not the number of steps."
+          },
+          {
+            "head": "How I know it worked",
+            "body": "A second booking. Nobody re-books a service they had to gamble on."
+          }
+        ],
+        "images": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Discovery",
+        "title": "A map that answers three questions at a glance",
+        "paras": [
+          "The map opens on the nearest verified lot with the only three numbers that matter — distance, spots available and the rate. A verified badge separates managed lots from informal ones.",
+          "Trust cues sit below the fold, not in the hero: secure parking, time saved, cashless payment, support. Reassurance where a hesitant first-time user looks for it."
+        ],
+        "points": [
+          {
+            "head": "Rate in the card",
+            "body": "Price is part of discovery, not something revealed at checkout."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
+            "cap": "Parking discovery — map, nearest verified lot, spots and rate",
+            "displayWidth": 853,
+            "sourceWidth": 853,
+            "sourceHeight": 1844
+          }
+        ],
+        "videos": [],
+        "tradeoffs": [
+          {
+            "old": "The first discovery screen was list-first, sorted by distance — faster to scan and easier to build. In testing nobody could tell whether a lot was on their route, which is the actual decision being made.",
+            "now": "The map leads, with a single nearest-lot card docked below it. One recommendation on a map beats ten rows without one."
+          }
+        ]
+      },
+      {
+        "label": "Booking",
+        "title": "State the total before you take the money",
+        "paras": [
+          "The booking review lays out the lot, vehicle, date, arrival time and duration plan, then itemises the cost: parking fee, service fee, EV charging if added, total. The primary action names the amount — \"Reserve for 60 Birr\".",
+          "Free cancellation up to an hour before arrival sits directly under the button, because the fear being managed is commitment, not payment."
+        ],
+        "points": [
+          {
+            "head": "EV as an option, not a tier",
+            "body": "Charging is a toggle inside the same booking rather than a separate product."
+          },
+          {
+            "head": "The button states the price",
+            "body": "No screen between the number and the confirmation."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp",
+            "cap": "Booking review — itemised payment summary and priced action",
+            "displayWidth": 853,
+            "sourceWidth": 853,
+            "sourceHeight": 1844
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Session",
+        "title": "While parked, one number matters",
+        "paras": [
+          "The active session screen is built around the countdown and the fee accruing against it, with the vehicle, lot and exact spot above so a driver returning can find their car.",
+          "Two actions only: extend time, or end parking. Extend is primary because it is the one people need in a hurry."
+        ],
+        "points": [
+          {
+            "head": "The countdown and the fee together",
+            "body": "Time remaining answers \"can I stay\", the accruing fee answers \"should I\". Separating them makes a driver do arithmetic in a car park."
+          },
+          {
+            "head": "Extend is the primary action",
+            "body": "Ending parking happens when you are already walking back. Extending happens under pressure, from a meeting that ran long — so it gets the weight."
+          },
+          {
+            "head": "Spot before status",
+            "body": "Lot, floor and bay sit above the timer, because the first thing a returning driver needs is to find the car, not to read a receipt."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
+            "cap": "Active session — time remaining, current fee, extend or end",
+            "displayWidth": 853,
+            "sourceWidth": 853,
+            "sourceHeight": 1844
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Account",
+        "title": "Vehicle, balance and history in one place",
+        "paras": [
+          "The account holds the parking balance with a top-up entry point, the saved vehicle and plate, the saved card, and the settings a returning user actually opens: transaction history, notifications, language, security, help.",
+          "Everything here exists to make the second booking shorter than the first. A saved plate and a saved card turn a five-field checkout into a confirmation, which is the whole retention argument for a service used twice a day."
+        ],
+        "points": [
+          {
+            "head": "Balance in vouchers",
+            "body": "Top-up sits on the balance itself, so the moment a driver notices they are short is the moment they can fix it."
+          },
+          {
+            "head": "The plate is the account",
+            "body": "Vehicle and plate persist and are shown plainly — attendants ask for the plate, so the app leads with it."
+          },
+          {
+            "head": "History as reassurance",
+            "body": "Transaction history is the top settings row: for a cash-replacing product, the record is the trust mechanism."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.webp",
+            "cap": "Account — balance, vehicle, saved payment and settings",
+            "displayWidth": 853,
+            "sourceWidth": 853,
+            "sourceHeight": 1844
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      },
+      {
+        "label": "Design system",
+        "title": "One family of decisions, applied everywhere",
+        "paras": [
+          "Bright cyan gradients for branded headers, electric lime for primary actions and selected states, deep navy typography and a single rounded outline-icon family.",
+          "White cards, cool-grey shadows, 16px radii, 24px margins and 48–56px touch targets throughout — the constraints that let five screens read as one app."
+        ],
+        "points": [
+          {
+            "head": "One navigation model",
+            "body": "Home, Map, Park, Sessions, Account — identical placement on every screen."
+          },
+          {
+            "head": "Lime means action",
+            "body": "The accent is reserved for the primary action and the selected state, never decoration."
+          }
+        ],
+        "images": [
+          {
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+            "cap": "The system applied across the five screens",
+            "wide": true,
+            "displayWidth": 1176,
+            "sourceWidth": 1672,
+            "sourceHeight": 941
+          }
+        ],
+        "videos": [],
+        "tradeoffs": []
+      }
+    ],
+    "pm": {
+      "audience": "Drivers choosing, reserving and paying for parking in Addis Ababa.",
+      "opportunity": "Reduce uncertainty about location, availability, price and the active parking session.",
+      "decision": "Lead with a map and show the complete price before a booking is confirmed.",
+      "tradeoff": "A nearby-lot list is straightforward to scan, but location relative to the route matters. The documented direction uses a map with a recommended lot.",
+      "hypothesis": "If drivers can understand the location and total cost before committing, they should be more confident completing a parking reservation.",
+      "evidence": "The case study contains a concept, end-to-end flows, presentation frames and documented design decisions. It does not establish a live launch or booking conversion.",
+      "metrics": [
+        "Completion of a find-and-reserve usability task",
+        "Comprehension of the total price before confirmation",
+        "Successful extension and ending of an active session"
+      ],
+      "learning": "For an unfamiliar service, clear pricing and location can be more important than shortening the flow by one step.",
+      "caption": "Parking concept: discovery, booking and session management."
+    },
+    "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+    "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+    "heroCaption": "Parking concept: discovery, booking and session management."
+  }
+];
+
+let POSTERS = [
+  { src: 'posters/01-addis-park.png', title: 'Addis Park', note: 'The whole product in four words: stop circling, reserve the spot.' },
+  { src: 'posters/02-adler-studio.png', title: 'Adler Studio', note: 'A creator tool sold on the one thing it removes — the need for professional 3D software.' },
+  { src: 'posters/03-pep.png', title: 'PEP', note: 'One shell, four modules: the architectural argument as a poster.' },
+  { src: 'posters/04-cms.png', title: 'Complaint Management', note: 'Every complaint has an owner — the promise the whole system exists to keep.' }
+];
+
+const PL = 'play/';
+
+let BRANDING = [
+  { src: PL + 'soreni-cover.webp', title: 'Final proposal', note: 'The deck as presented — sage ground, feather pattern, one claim.' },
+  { src: PL + 'soreni-logo.webp', title: 'Selected mark', note: 'A guinea fowl built into the S. "Quality and Consistency. Delivered."' },
+  { src: PL + 'soreni-colors.webp', title: 'Colour palette', note: 'Tangerine orange #DE873A against sage green #84A086, black and white.' },
+  { src: PL + 'soreni-type.webp', title: 'Typography', note: 'A display script for the logotype, a plain sans for everything else.' },
+  { src: PL + 'soreni-pattern.webp', title: 'Pattern', note: 'The bird\u2019s plumage abstracted into a repeatable secondary texture.' },
+  { src: PL + 'soreni-mock-a.webp', title: 'Signage', note: 'Projecting shop sign — the mark at the size it is actually read.' },
+  { src: PL + 'soreni-mock-b.webp', title: 'Environment', note: 'Applied across interior and window graphics.' },
+  { src: PL + 'soreni-mock-c.webp', title: 'Vehicle livery', note: 'The identity on the fleet, where trade actually happens.' }
+];
+
+let MOOD = [
+  { src: PL + 'pdf8-mobile-grid.webp', title: 'Berhan Bank', note: 'Mobile banking concept — balance, utility payments, statement requests.', ar: '3 / 4' },
+  { src: PL + 'breeze.webp', title: 'Breeze Pharmaceutical', note: 'Cinematic corporate hero — red and blue overlays over industrial imagery.', ar: '16 / 9' },
+  { src: PL + 'pdf8-mobile-set.webp', title: 'Fetan Delivery', note: 'Food delivery app — onboarding, category browse, live tracking.', ar: '1 / 2' },
+  { src: PL + 'pdf8-web-b.webp', title: 'HahuCloud', note: 'Ethiopian web hosting — domain search first, everything else second.', ar: '4 / 3' },
+  { src: PL + 'pdf8-mobile-a.webp', title: 'Amharic-first mobile app', note: 'Interface set written in Amharic rather than translated into it.', ar: '3 / 2' },
+  { src: PL + 'pdf8-web-a.webp', title: 'Maraki Educational Consultancy', note: 'Study-abroad landing page — one question, two clear actions.', ar: '4 / 3' },
+  { src: PL + 'pdf8-mobile-trio.webp', title: 'Roge', note: 'Business landing page carried across mobile and desktop.', ar: '3 / 5' },
+  { src: PL + 'pdf8-mobile-b.webp', title: 'Amharic app — further screens', note: 'Article, media and account flows in the same Amharic type system.', ar: '3 / 2' },
+  { src: PL + 'adler-avatar-a.webp', title: 'Adler — avatar builder', note: 'One-click personal avatar: photo, gender, wardrobe rail.', ar: '16 / 10' },
+  { src: PL + 'dallol.webp', title: 'Dallol Design + Build', note: 'Architecture studio site — one hero building, quiet motion, full page.', ar: '3 / 5' },
+  { src: PL + 'nigat.webp', title: 'Nigat Kaffee', note: 'Ethiopian coffee brand for the German market. Teal, amber, EN/DE.', ar: '16 / 10' },
+  { src: PL + 'droga-kpi.webp', title: 'Droga Consulting — KPI home', note: 'Monthly tasks, performance bars and My Day in one workspace.', ar: '4 / 3' },
+  { src: PL + 'emc.webp', title: 'Ethiopian Mineral Corporation', note: 'Mineral macro photography cut into the display type.', ar: '16 / 9' },
+  { src: PL + 'ceen.webp', title: 'CEEN Beauty', note: 'Skincare storefront — product-led, pink and botanical, full page.', ar: '3 / 5' },
+  { src: PL + 'arif-invoices.webp', title: 'Arif Studios — invoices', note: 'Invoice list built to be scanned: reference, client, amount.', ar: '16 / 10' },
+  { src: PL + 'adler-vr.webp', title: 'Adler — VR gifting', note: 'Spatial social: relocate a gift, comment in-world.', ar: '16 / 9' },
+  { src: PL + 'trust.webp', title: 'Trust Pharmaceutical', note: 'Turquoise-led corporate site for hospitals, distributors, regulators.', ar: '16 / 10' },
+  { src: PL + 'droga-board.webp', title: 'Droga Consulting — task board', note: 'Pending, in progress, approved, rejected — with subtasks.', ar: '4 / 3' },
+  { src: PL + 'physio.webp', title: 'Droga Physiotherapy', note: 'Clinic site — purple waves, service tiles, doctor list, map.', ar: '3 / 5' },
+  { src: PL + 'lifewire.webp', title: 'LifeWire', note: 'Consulting brand surface: deep gradient, oversized type.', ar: '16 / 9' },
+  { src: PL + 'arif-invoice-detail.webp', title: 'Arif Studios — invoice detail', note: 'Deposits and partial payments as a timeline, not a table.', ar: '4 / 3' },
+  { src: PL + 'adler-avatar-b.webp', title: 'Adler — avatar presets', note: 'Same builder, different body and outfit set.', ar: '16 / 10' },
+  { src: PL + 'pdf8-web-wide.webp', title: 'Marketplace app', note: 'Five-screen presentation frame — sign in, browse, brand, onboarding.', ar: '2 / 1' }
+];
+
+
+
+let SERVICES = [
+  {
+    "title": "Discovery & Product Direction",
+    "body": "Customer problems, opportunity framing, requirements and a shared definition of success."
+  },
+  {
+    "title": "Prioritization & Planning",
+    "body": "Scope decisions, roadmaps, dependencies and clear trade-offs with business and engineering."
+  },
+  {
+    "title": "Cross-functional Delivery",
+    "body": "Stakeholder alignment, product documentation, acceptance criteria and launch readiness."
+  },
+  {
+    "title": "Design-led Product Thinking",
+    "body": "Research, prototypes and interaction systems that help teams test assumptions early."
+  }
+];
+
+let EDU = [
+  { title: 'Degree in Architecture and Urban Planning', institution: 'Ambo University', year: 'Jan 2016 — Jan 2021', note: 'A spatial design foundation that shaped my eye for systems, structure, visual hierarchy and human-centred experiences.' },
+  { title: 'Google UX Design Certificate', institution: 'Google', year: '2022', note: 'Applied UX research, prototyping, usability and interface design practice.' },
+  { title: 'Technical Product Management', institution: 'Professional certification', year: '2022', note: 'Product thinking, planning, delivery and cross-functional execution for technical teams.' },
+  { title: 'Customer Experience Strategy', institution: 'Professional certification', year: '2022', note: 'Organisational CX strategy, customer journey thinking and service experience design.' }
+];
+
+let EXPERIENCE = [
+  { org: 'AfroPay Digital Financial Technology S.C.', title: 'Product Designer', when: 'Oct 2025 — Present', place: 'Addis Ababa, Ethiopia', note: 'End-to-end product experiences for an NBE-licensed digital payment platform, with engineering, compliance and business stakeholders.', points: ['Design end-to-end product experiences for an NBE-licensed digital payment platform, partnering closely with engineering, compliance and business stakeholders.', 'Translate business and regulatory requirements into user flows, wireframes and high-fidelity UI for financial and payment products.', 'Contribute to PRDs and product documentation supporting new feature and platform launches.'] },
+  { org: 'Droga Consulting Service', title: 'Product Design Manager', when: 'Jul 2024 — Dec 2025', place: 'Addis Ababa, Ethiopia', note: 'Led the product design team and digital marketing work across business growth projects.', points: ['Led the product design team and digital marketing function across a portfolio of client engagements.', 'Directed design strategy for client websites, CMS platforms and digital marketing assets aimed at driving business growth.', 'Owned end-to-end design delivery — research, wireframing, visual design and stakeholder sign-off.'] },
+  { org: 'Adler', title: 'Product Designer', when: 'Dec 2023 — Jul 2024', place: 'Seoul, Korea (remote)', note: 'Designed 3D and VR platform experiences remotely, and helped manage the design team.', points: ['Designed 3D and VR platform experiences remotely for an early-stage startup.', 'Managed the design team\u2019s workflow and deliverables for VR product development.'] },
+  { org: 'IE Network Solutions', title: 'Team Lead, UI/UX Designer', when: 'Jun 2023 — Dec 2023', place: 'Addis Ababa, Ethiopia', note: 'Led the design team on ERP and HR platform work, shaping complex business workflows into clearer enterprise experiences.', points: ['Led the design team in building UI/UX for ERP products, from requirements gathering through final designs.'] },
+  { org: 'Gebeya', title: 'Product Design Trainer', when: 'Nov 2023 — Jan 2024', place: 'Addis Ababa, Ethiopia', note: 'Trained 50 university graduates in product design foundations and digital product thinking.', points: ['Trained 50 university graduates in product design fundamentals.'] },
+  { org: 'Arif Studio', title: 'Product Designer Consultant', when: 'Oct 2023 — Jul 2024', place: 'Silver Spring, USA (remote)', note: 'Consulted for an early-stage technology company on product direction and user experience.', points: ['Design consulting for an early-stage technology company.'] },
+  { org: 'BeelyDrop', title: 'UI/UX Designer', when: 'Feb 2023 — Mar 2024', place: 'Lagos, Nigeria (remote)', note: 'Designed web and mobile platform experiences for a creative ecommerce startup.', points: ['Designed web and mobile experiences for an ecommerce startup.'] },
+  { org: 'Maraki Educational Consultancy', title: 'Lead UI/UX Designer', when: 'Jan 2021 — Apr 2023', place: 'Addis Ababa, Ethiopia', note: 'Designed in-house web and mobile platforms for education consultancy services.', points: ['Developed in-house web and mobile platforms, integrating user-centric features with emerging technology.'] },
+  { org: 'Freelance', title: 'Product Designer', when: 'Jan 2017 — Present', place: 'Remote', note: 'Contractual and part-time product design across web, mobile, interface systems and visual product concepts.', points: ['Delivered contractual and part-time product design work across web, mobile, interface systems and visual product concepts.'] }
+];
+
+let PROCESS = [
+  {
+    "n": "01",
+    "title": "Discover the problem",
+    "body": "Understand the user, the workflow and the business need. Make assumptions visible and agree on the problem before discussing a feature list."
+  },
+  {
+    "n": "02",
+    "title": "Define success",
+    "body": "Agree on the outcome, the evidence we need and the constraints. Separate the goal from the solution so the team can compare different approaches."
+  },
+  {
+    "n": "03",
+    "title": "Prioritize the scope",
+    "body": "Weigh user value, business importance, effort and dependencies. Make the first release explicit, including what we are choosing to leave out."
+  },
+  {
+    "n": "04",
+    "title": "Align the team",
+    "body": "Turn the direction into requirements, flows and a prototype. Work through trade-offs with engineering and stakeholders before committing to delivery."
+  },
+  {
+    "n": "05",
+    "title": "Support delivery",
+    "body": "Keep decisions clear as the team builds. Review edge cases, acceptance criteria and readiness, and resolve questions with the people doing the work."
+  },
+  {
+    "n": "06",
+    "title": "Learn and iterate",
+    "body": "Use feedback and available product data to revisit the assumptions. Decide what to improve next and record what the team learned."
+  }
+];
+
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+class Component extends DCLogic {
+  state = { screen: 'home', caseId: 'crm', workFilter: 'all' };
+
+  go = (screen) => { this.setState({ screen }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+
+  fitAll = () => {
+    document.querySelectorAll('[data-ar]').forEach((el) => {
+      const ar = el.getAttribute('data-ar');
+      if (ar && ar.indexOf('{{') === -1 && el.style.aspectRatio.replace(/\s/g, '') !== ar.replace(/\s/g, '')) el.style.aspectRatio = ar;
+    });
+    document.querySelectorAll('img[data-img], video[data-img]').forEach((el) => {
+      const src = el.getAttribute('data-img');
+      if (src && src.indexOf('{{') === -1 && el.getAttribute('src') !== src) el.setAttribute('src', src);
+    });
+    document.querySelectorAll('[data-fit]').forEach((box) => {
+      const base = parseFloat(box.getAttribute('data-fit'));
+      const baseH = parseFloat(box.getAttribute('data-fit-h'));
+      const inner = box.querySelector('[data-fit-inner]');
+      if (!inner || !base || !box.clientWidth) return;
+      if (baseH) {
+        box.style.aspectRatio = base + ' / ' + baseH;
+        inner.style.width = base + 'px';
+        inner.style.height = baseH + 'px';
+      }
+      inner.style.transform = 'scale(' + (box.clientWidth / base) + ')';
+
+      const nav = box.getAttribute('data-nav');
+      if (nav && nav !== 'undefined' && !box.dataset.navDone) {
+        const labels = nav.split('|');
+        const spans = [...inner.querySelectorAll('span')].filter(
+          el => el.textContent.trim() === 'Dashboard' && el.getBoundingClientRect().left - box.getBoundingClientRect().left < 220
+        );
+        if (spans.length >= labels.length) {
+          labels.forEach((t, i) => { spans[i].textContent = t; });
+          box.dataset.navDone = '1';
+        }
+      }
+    });
+  };
+
+  /* ── CMS content loading (added by build.sh) ─────────────────────────
+     Content lives in content/*.json so the CMS at /admin can edit it. The
+     arrays above are the built-in fallback: if a fetch fails the site still
+     renders exactly as shipped. */
+  loadContent = async () => {
+    const assign = {
+      'projects':   v => { P = v; },          'posters':    v => { POSTERS = v; },
+      'branding':   v => { BRANDING = v; },   'mood':       v => { MOOD = v; },
+      'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
+      'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
+    };
+    const base = new URL('content/', document.baseURI).href;
+    await Promise.all(Object.entries(assign).map(async ([file, set]) => {
+      try {
+        const r = await fetch(base + file + '.json', { cache: 'no-cache' });
+        if (!r.ok) return;
+        const raw = await r.json();
+        const data = Array.isArray(raw) ? raw : raw && raw.items;
+        if (Array.isArray(data) && data.length) set(data);
+      } catch (e) { /* keep built-in fallback */ }
+    }));
+    this.setState({ __contentLoaded: true });
+  };
+
+  componentDidMount() {
+    this.fitAll();
+    this._ro = new ResizeObserver(this.fitAll);
+    this._ro.observe(document.body);
+    this._fitTimer = setInterval(this.fitAll, 400);
+    this.loadContent();
+    const fromUrl = this.readHash();
+    if (fromUrl) this.setState(fromUrl);
+    window.addEventListener('hashchange', this.onHashChange);
+    this.syncUrl();
+    this.trackView(true);
+  }
+
+  /* ── URL routing ──────────────────────────────────────────────────────
+     The design keeps the current screen in component state only, so every
+     reload — and every shared link — landed back on Work. These sync the
+     screen to the hash (#/play, #/case/rad-reader), which also makes the
+     browser's back/forward buttons work and lets a case study be linked. */
+  SCREENS = ['home', 'work', 'play', 'about', 'resume', 'contact', '404'];
+
+  pathFor = (screen, caseId) =>
+    screen === 'case' ? '/case/' + caseId : '/' + screen;
+
+  readHash = () => {
+    const h = (location.hash || '').replace(/^#/, '');
+    if (!h || h === '/') return null;
+    const m = h.match(/^\/case\/(.+)$/);
+    if (m) return { screen: 'case', caseId: decodeURIComponent(m[1]) };
+    const s = h.replace(/^\//, '');
+    return this.SCREENS.indexOf(s) >= 0 ? { screen: s } : null;
+  };
+
+  onHashChange = () => {
+    if (this._fromSelf) { this._fromSelf = false; return; }
+    const r = this.readHash();
+    if (!r) return;
+    if (r.screen !== this.state.screen ||
+        (r.caseId && r.caseId !== this.state.caseId)) {
+      this.setState(r);
+      window.scrollTo(0, 0);
+    }
+  };
+
+  syncUrl = () => {
+    const p = this.pathFor(this.state.screen, this.state.caseId);
+    if (location.hash === '#' + p) return;
+    if (!this._urlReady) {
+      // first paint: don't push a history entry for the landing screen
+      this._urlReady = true;
+      history.replaceState(null, '', '#' + p);
+    } else {
+      this._fromSelf = true;   // our own change; don't echo it back
+      location.hash = p;
+    }
+  };
+
+  /* Send a GA4 pageview per screen. The site never changes its path, so
+     without this GA would record one "/" view per visitor regardless of how
+     much they browsed. Paths match the hash routes above.
+     The LANDING screen is NOT reported here — gtag('config') already sent a
+     pageview for it. initial=true records the starting screen so the dedupe
+     below works, without emitting a duplicate hit for it. */
+  trackView = (initial) => {
+    if (typeof window.gtag !== 'function') return;
+    const s = this.state.screen;
+    const path = s === 'case' ? '/case/' + this.state.caseId : '/' + s;
+    if (this._lastView === path) return;
+    this._lastView = path;
+    if (initial) return;            // config already counted the landing screen
+    const title = s === 'case'
+      ? ((P.find(p => p.id === this.state.caseId) || {}).name || 'Case study')
+      : s.charAt(0).toUpperCase() + s.slice(1);
+    window.gtag('event', 'page_view', {
+      page_title: title,
+      page_path: path,
+      page_location: location.origin + path,
+    });
+  };
+
+  componentDidUpdate() { this.fitAll(); this.syncUrl(); this.trackView(); }
+
+  componentWillUnmount() {
+    if (this._ro) this._ro.disconnect();
+    if (this._fitTimer) clearInterval(this._fitTimer);
+  }
+
+  cards = (list) => list.map((p, i) => ({
+    num: String(i + 1).padStart(2, '0'), name: p.name, year: p.year, blurb: p.blurb, kind: p.kind,
+    coverTitle: p.coverTitle || p.name, coverLine: p.coverLine || '',
+    shotA: (p.shots || [])[0], shotB: (p.shots || [])[1], shotC: (p.shots || [])[2], swatch: p.swatch || '#EF3340',
+    cover: p.cover, hasCover: !!p.cover, noCover: !p.cover,
+    poster: p.poster || '', posterKicker: p.posterKicker || '',
+    meta: p.meta, status: p.status, role: p.role,
+    previewImage: p.previewImage || p.cover,
+    heroCaption: p.heroCaption || p.name,
+    decision: p.pm ? p.pm.decision : p.solve,
+    outcome: (p.pm && p.pm.outcome) || '',
+    hasOutcome: !!(p.pm && p.pm.outcome),
+    hasPrototype: !!p.prototype,
+    open: () => { this.setState({ caseId: p.id, screen: 'case' }); window.scrollTo(0, 0); }
+  }));
+
+  renderVals() {
+    const s = this.state.screen;
+    const filter = this.state.workFilter || 'all';
+    const priority = {'pep':0,'adler-studio':1};
+    const workProjects = P.filter(p => (p.group || 'work') === 'work').sort((a,b)=>(priority[a.id] ?? 20)-(priority[b.id] ?? 20));
+    const shownProjects = workProjects.filter(p => filter === 'all' || (filter === 'enterprise' ? ['pep','crm','complaint-management'].includes(p.id) : ['adler-studio','adler-design-system','adler-ds'].includes(p.id)));
+
+    const idx = Math.max(0, P.findIndex(p => p.id === this.state.caseId));
+    const activeRecord = P[idx];
+    const active = { ...activeRecord, heroImage: activeRecord.heroImage || activeRecord.cover, heroCaption: activeRecord.heroCaption || activeRecord.name };
+    const next = P[(idx + 1) % P.length];
+    const bw = (this.props.imageTreatment ?? 'Full colour') === 'Black & white';
+    const sections = active.sections.map((sec) => {
+      const anchor = active.id + '-' + slug(sec.label);
+      const all = sec.images || [];
+      const phones = active.phone ? all.filter(i => !i.wide) : [];
+      const wide = active.phone ? all.filter(i => i.wide) : all;
+      return { anchor, href: '#' + anchor, label: sec.label, title: sec.title, paras: sec.paras,
+        points: sec.points || [], images: wide.map(im => ({ ...im, displayWidth: im.displayWidth || 1176 })), phones, hasPhones: phones.length > 0, noPhones: phones.length === 0,
+        desktopsRad: (sec.desktops || []).map(d => ({ name: d.name, cap: d.cap, w: d.w || 1728, h: d.h || 1117, nav: d.nav || '' })),
+        mobiles: (sec.mobiles || []).map(m => ({ name: m.name, cap: m.cap, w: m.w || 430, h: m.h || 932 })),
+        hasMobiles: (sec.mobiles || []).length > 0,
+        tradeoffs: sec.tradeoffs || [] };
+    });
+    return {
+      isHome: s === 'home',
+      shellClass: 'swiss-site ' + (s === 'home' ? 'home-shell glass-surface' : s === 'about' ? 'about-shell glass-surface' : s === 'contact' ? 'contact-shell glass-surface' : 'inner-shell'),
+      workCurrent: s === 'work' || s === 'case' ? 'page' : 'false', aboutCurrent: s === 'about' ? 'page' : 'false', resumeCurrent: s === 'resume' ? 'page' : 'false', contactCurrent: s === 'contact' ? 'page' : 'false',
+      filterAll: () => this.setState({workFilter:'all'}), filterEnterprise: () => this.setState({workFilter:'enterprise'}), filterCreative: () => this.setState({workFilter:'creative'}),
+      allFilter: filter === 'all', enterpriseFilter: filter === 'enterprise', creativeFilter: filter === 'creative',
+      isWork: s === 'work', isCase: s === 'case', isPlay: s === 'play',
+      isAbout: s === 'about', isResume: s === 'resume', isContact: s === 'contact', is404: s === '404',
+      goWork: () => this.go('work'), goPlay: () => this.go('play'), goAbout: () => this.go('about'),
+      goResume: () => this.go('resume'), goContact: () => this.go('contact'), go404: () => this.go('404'),
+      goNext: () => { this.setState({ caseId: next.id, screen: 'case' }); window.scrollTo(0, 0); },
+      nextName: next.name,
+      active, activeSections: sections,
+      hasProductBrief: !!active.pm, productBrief: active.pm || {},
+      hasOutcome: !!(active.pm && active.pm.outcome), hasDiscovery: !!(active.pm && active.pm.discovery),
+      hasCut: !!(active.pm && active.pm.cut), hasTeam: !!(active.pm && active.pm.team),
+      hasCover: !!active.cover, noCover: !active.cover,
+      hasDemo: !!active.demo, demoSrc: active.demo ? active.demo.src : '', demoCap: active.demo ? active.demo.cap : '',
+      hasFigma: !!active.figma, figmaUrl: active.figma || '',
+      isRadReader: active.id === 'rad-reader',
+      hasPrototype: !!active.prototype, prototypeUrl: active.prototype || '', prototypeNote: active.prototypeNote || '',
+      imgFilter: bw ? 'grayscale(1) contrast(1.08)' : 'none',
+      showAvailability: this.props.showAvailability ?? true,
+      projectCount: shownProjects.length,
+      branding: BRANDING,
+      mood: MOOD.map(m => ({ ...m, hasLive: !!m.live })), moodCount: MOOD.length,
+      services: SERVICES.map((sv, i) => ({ num: String(i + 1).padStart(2, '0'), title: sv.title, body: sv.body })),
+      education: EDU,
+      roles: EXPERIENCE.map(r => ({ org: r.org, title: r.title, when: r.when, note: r.note })),
+      resumeRoles: EXPERIENCE,
+      process: PROCESS,
+      projects: this.cards(shownProjects)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- Dev-only: previews logo animation options on the real landing page.
+     Open via the local preview server at /tools/logo-anim-preview.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo animation preview</title>
+<style>
+  body { margin: 0; font: 13px/1.4 system-ui, sans-serif; background: #171717; color: #fff; }
+  .bar { display: flex; gap: 8px; align-items: center; padding: 10px 16px; flex-wrap: wrap; }
+  .bar button { font: inherit; color: #fff; background: #2a2a2a; border: 1px solid #444; border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+  .bar button[aria-pressed="true"] { background: #EF3340; border-color: #EF3340; }
+  .bar span { color: #aaa; margin-left: 8px; }
+  iframe { display: block; width: 100%; height: calc(100vh - 52px); border: 0; background: #F6F3EF; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <button data-n="0">1 · Letter cascade</button>
+  <button data-n="1">2 · Dot leads</button>
+  <button data-n="2">3 · Chamfer sweep</button>
+  <button data-n="3">4 · Glass ribs</button>
+  <span id="hint">Pick an option. Clicking it again replays it.</span>
+</div>
+<iframe id="f" src="/#/home"></iframe>
+<script>
+const P = [
+  ['0 0', 'M 0 0 L 45 0 L 45 69 C 61 60 77 58 89 58 C 135 58 151 91 151 130 C 151 170 123 200 83 200 L 28 200 L 0 172 Z M 45 106 L 45 155 L 80 155 C 98 155 106 145 106 131 C 106 116 97 106 80 106 Z'],
+  ['159 0', 'M 0 0 L 45 0 L 45 73 C 57 63 69 58 84 58 C 118 58 140 82 140 117 L 140 200 L 95 200 L 95 121 C 95 105 87 97 72 97 C 57 97 45 107 45 123 L 45 200 L 0 200 Z'],
+  ['307 0', 'M 0 62 L 44 62 L 44 200 L 0 200 Z'],
+  ['359 0', 'M 150 129 C 150 171 120 202 75 202 C 30 202 0 171 0 129 C 0 87 30 56 75 56 C 120 56 150 87 150 129 Z M 104 129 C 104 111 93 99 75 99 C 57 99 46 111 46 129 C 46 147 57 159 75 159 C 93 159 104 147 104 129 Z'],
+  ['517 0', 'M 128 59 L 128 100 L 57 100 L 110 129 C 128 139 136 149 136 166 C 136 189 119 200 90 200 L 0 200 L 0 158 L 73 158 L 23 130 C 6 120 0 109 0 94 C 0 72 17 59 44 59 Z'],
+  ['0 0', 'M 307 0 L 351 0 L 351 44 L 307 44 Z'],
+];
+const DUR = [1350, 1100, 900, 1100];   // when the logo finishes, per option
+const ease = 'cubic-bezier(.2,.8,.2,1)';
+const f = document.getElementById('f');
+
+function svgFor(n) {
+  let h = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 674 222" class="brand-wordmark" role="img" aria-label="bhios" style="overflow:visible">';
+  if (n === 3) { h += '<defs><clipPath id="rc">'; for (let k = 0; k < 24; k++) h += `<rect class="rb" x="${k * 28 - 10}" y="-10" width="28" height="222"/>`; h += '</clipPath></defs><g clip-path="url(#rc)">'; }
+  if (n === 2) h += '<defs><clipPath id="cc"><polygon id="cp" points="-10,-10 -10,-10 -10,-10"/></clipPath></defs><g clip-path="url(#cc)">';
+  if (n === 1) h += '<defs><clipPath id="wc"><rect id="wr" x="-10" y="-10" width="0" height="222"/></clipPath></defs>';
+  P.forEach((p, j) => {
+    const cl = n === 1 && j < 5 ? ' clip-path="url(#wc)"' : '';
+    h += `<g transform="translate(${p[0]})"${cl}><path class="L" fill="#EF3340" fill-rule="evenodd" d="${p[1]}"/></g>`;
+  });
+  if (n === 2 || n === 3) h += '</g>';
+  return h + '</svg>';
+}
+
+function tween(ms, delay, step) {
+  let t0 = null;
+  const tick = t => { t0 ??= t; const k = Math.min(1, Math.max(0, (t - t0 - delay) / ms)); step(1 - Math.pow(1 - k, 3)); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+
+function play(n) {
+  const doc = f.contentDocument;
+  const old = doc && doc.querySelector('.brand-wordmark');
+  if (!old) return setTimeout(() => play(n), 200);   // app not rendered yet
+  const wrap = doc.createElement('div');
+  wrap.innerHTML = svgFor(n);
+  const s = wrap.firstChild;
+  s.style.width = getComputedStyle(old).width;
+  s.style.height = 'auto';
+  old.replaceWith(s);
+  const L = [...s.querySelectorAll('.L')];
+
+  if (n === 0) L.forEach((e, j) => {
+    const dot = j === 5;
+    e.animate(dot
+      ? [{ transform: 'translateY(-120px)', opacity: 0 }, { transform: 'translateY(8px)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }]
+      : [{ transform: 'translateY(60px)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+      { duration: dot ? 700 : 550, delay: dot ? 650 : j * 90, easing: ease, fill: 'both' });
+  });
+  if (n === 1) {
+    L[5].style.transformOrigin = '329px 22px';
+    L[5].animate([{ transform: 'scale(0)' }, { transform: 'scale(1.25)', offset: .6 }, { transform: 'scale(1)' }], { duration: 500, fill: 'both', easing: 'ease-out' });
+    const r = s.querySelector('#wr');
+    tween(700, 400, e => r.setAttribute('width', e * 684));
+  }
+  if (n === 2) {
+    const pg = s.querySelector('#cp');
+    tween(900, 0, e => { const d = e * 900 - 10; pg.setAttribute('points', `-10,-10 ${d},-10 ${d - 232},222 -10,222`); });
+  }
+  if (n === 3) s.querySelectorAll('.rb').forEach((r, k) =>
+    r.animate([{ transform: 'translateY(232px)' }, { transform: 'none' }], { duration: 500, delay: k * 25, easing: ease, fill: 'both' }));
+
+  // The headline and the rest of the intro follow as the logo lands.
+  const intro = doc.querySelectorAll('.landing-intro > *, .process-strip');
+  intro.forEach((el, k) => el.animate(
+    [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }],
+    { duration: 600, delay: DUR[n] - 250 + k * 90, easing: ease, fill: 'both' }));
+}
+
+let current = null;
+document.querySelectorAll('.bar button').forEach(b => b.onclick = () => {
+  const n = +b.dataset.n;
+  document.querySelectorAll('.bar button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  current = n;
+  f.contentWindow.location.hash = '#/home';
+  f.contentWindow.location.reload();       // replay from a fresh first paint
+});
+f.addEventListener('load', () => { if (current !== null) play(current); });
+</script>
+</body>
+</html>

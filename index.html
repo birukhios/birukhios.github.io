@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="swiss.css?v=c0c84053fce5" />
+<link rel="stylesheet" href="swiss.css?v=7a27e09f72c5" />
 <link rel="preload" as="image" href="uploads/brand/glass-dark.jpg" media="(min-width: 701px)" />
 <link rel="preload" as="image" href="uploads/brand/glass-light.jpg" media="(min-width: 701px)" />
+<script src="./logo-intro.js"></script>
 <script src="./support.js"></script>
 <meta name="description" content="Product manager with a product design background in Addis Ababa. Discovery, prioritization and cross-functional delivery." />
 <link rel="canonical" href="https://birukhios.github.io/" />
@@ -96,8 +97,9 @@
       <section class="landing-intro" aria-labelledby="home-title">
         <p class="eyebrow">Biruk Habtamu / Product Manager</p>
         <h1 id="home-title">Clarity,<br />by design<span class="red-period">.</span></h1>
-        <p class="landing-line">From better questions to thoughtful products.</p>
+        <p class="landing-line">From better questions to thoughtful enterprise products.</p>
         <a class="text-action" href="#/work">View my work <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        <p class="availability"><span aria-hidden="true"></span>Open to product manager roles · Remote or Addis Ababa</p>
       </section>
       <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
     </main>
@@ -110,7 +112,7 @@
       </div>
       <div class="project-list"><sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
         <article class="project-row">
-          <div class="project-copy"><p class="project-meta"><span>{{ p.num }}</span> {{ p.year }}</p><h2>{{ p.name }}</h2><p class="project-role">{{ p.role }}</p><p class="project-summary">{{ p.blurb }}</p><div class="project-decision"><span>Key decision</span><p>{{ p.decision }}</p></div><button class="text-action" onClick="{{ p.open }}">Read case study <i class="ph ph-arrow-up-right" aria-hidden="true"></i></button></div>
+          <div class="project-copy"><p class="project-meta"><span>{{ p.num }}</span> {{ p.year }}<sc-if value="{{ p.hasPrototype }}"><span class="proto-tag">Interactive prototype</span></sc-if></p><h2>{{ p.name }}</h2><p class="project-role">{{ p.role }}</p><p class="project-summary">{{ p.blurb }}</p><div class="project-decision"><span>Key decision</span><p>{{ p.decision }}</p></div><sc-if value="{{ p.hasOutcome }}"><div class="project-decision project-outcome"><span>Outcome</span><p>{{ p.outcome }}</p></div></sc-if><button class="text-action" onClick="{{ p.open }}">Read case study <i class="ph ph-arrow-up-right" aria-hidden="true"></i></button></div>
           <button class="project-image-link" onClick="{{ p.open }}" aria-label="Read {{ p.name }} case study"><img data-img="{{ p.previewImage }}" alt="{{ p.heroCaption }}" loading="lazy" decoding="async" /></button>
         </article>
       </sc-for></div>
@@ -132,12 +134,16 @@
       <sc-if value="{{ hasProductBrief }}" hint-placeholder-val="{{ true }}">
         <section class="product-brief" aria-label="Product decision brief">
           <div class="product-brief-heading"><h2>Product decision brief</h2><span>My role: {{ active.role }}</span></div>
+          <sc-if value="{{ hasOutcome }}"><div class="product-outcome"><h3>Outcome</h3><p>{{ productBrief.outcome }}</p></div></sc-if>
           <div class="product-brief-grid">
             <div><h3>Who it serves</h3><p>{{ productBrief.audience }}</p></div>
             <div><h3>Customer opportunity</h3><p>{{ productBrief.opportunity }}</p></div>
             <div><h3>Priority decision</h3><p>{{ productBrief.decision }}</p></div>
             <div><h3>Trade-off</h3><p>{{ productBrief.tradeoff }}</p></div>
           </div>
+          <sc-if value="{{ hasDiscovery }}"><div class="product-evidence"><h3>How I found the problem</h3><p>{{ productBrief.discovery }}</p></div></sc-if>
+          <sc-if value="{{ hasCut }}"><div class="product-evidence"><h3>What we chose not to build</h3><p>{{ productBrief.cut }}</p></div></sc-if>
+          <sc-if value="{{ hasTeam }}"><div class="product-evidence"><h3>Who I worked with</h3><p>{{ productBrief.team }}</p></div></sc-if>
           <div class="product-bet"><h3>Product hypothesis</h3><p>{{ productBrief.hypothesis }}</p></div>
           <div class="product-evidence"><h3>Delivery &amp; evidence</h3><p>{{ productBrief.evidence }}</p></div>
           <div class="product-brief-grid">
@@ -156,6 +162,7 @@
         <figcaption><span>{{ active.heroCaption }}</span><a href="{{ active.heroImage }}" target="_blank" rel="noopener">View full resolution ↗</a></figcaption>
       </figure>
       </sc-if>
+      <sc-if value="{{ hasPrototype }}"><section class="proto-intro"><p class="proto-kicker">Interactive prototype</p><h2>Built to make development easier<span class="red-period">.</span></h2><p>{{ prototypeNote }}</p></section><figure class="proto-embed"><figcaption><span>Interactive prototype with sample data. Try filtering, opening records and the sidebar.</span><a href="{{ prototypeUrl }}" target="_blank" rel="noopener">Open full screen ↗</a></figcaption><iframe src="{{ prototypeUrl }}" title="{{ active.name }} prototype" loading="lazy"></iframe></figure></sc-if>
       <sc-if value="{{ hasFigma }}" hint-placeholder-val="{{ false }}">
         <sc-if value="{{ isRadReader }}"><a href="radreader/" target="_blank" rel="noopener" style="display: inline-flex; padding: 14px 18px; margin: 0 16px 24px 0; background: #6B42DF; color: white; border-radius: 6px; text-decoration: none">Try the redesigned prototype ↗</a></sc-if>
         <a href="{{ figmaUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(23,23,23,0.4); padding: 12px 16px; margin: 0 0 40px; text-decoration: none" style-hover="border-color: #EF3340; background: rgba(239,51,64,0.08)">
@@ -250,7 +257,7 @@
               <sc-for list="{{ s.phones }}" as="ph" hint-placeholder-count="1">
                 <figure style="float: left; width: 264px; margin: 0 44px 28px 0; background: #eae9e9; border: 2px solid rgba(23,23,23,0.4); padding: 16px">
                   <div style="border: 2px solid #171717; background: #F6F3EF">
-                    <img data-img="{{ ph.src }}" alt="{{ ph.cap }}" style="width: 100%; display: block; filter: {{ imgFilter }}" />
+                    <img data-img="{{ ph.src }}" alt="{{ ph.cap }}" loading="lazy" decoding="async" style="width: 100%; display: block; filter: {{ imgFilter }}" />
                   </div>
                   <figcaption style="font-size: 12px; margin-top: 10px; color: rgba(23,23,23,0.6); line-height: 1.45">{{ ph.cap }}</figcaption>
                 </figure>
@@ -357,7 +364,7 @@
         <sc-for list="{{ mood }}" as="m" hint-placeholder-count="15">
           <figure style="margin: 0 0 20px; break-inside: avoid; page-break-inside: avoid; display: inline-block; width: 100%">
             <div data-ar="{{ m.ar }}" style="border: 2px solid rgba(23,23,23,0.4); background: #eae9e9; overflow: hidden; aspect-ratio: 16 / 10">
-              <img data-img="{{ m.src }}" alt="{{ m.title }}" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block" />
+              <img data-img="{{ m.src }}" alt="{{ m.title }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block" />
             </div>
             <figcaption style="padding-top: 10px">
               <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em; line-height: 1.2">{{ m.title }}</h3>
@@ -381,7 +388,7 @@
         <sc-for list="{{ branding }}" as="br" hint-placeholder-count="8">
           <figure style="margin: 0">
             <div style="border: 2px solid rgba(23,23,23,0.4); background: #eae9e9; overflow: hidden; aspect-ratio: 16 / 9">
-              <img data-img="{{ br.src }}" alt="{{ br.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block" />
+              <img data-img="{{ br.src }}" alt="{{ br.title }}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block" />
             </div>
             <figcaption style="padding-top: 10px">
               <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em">{{ br.title }}</h3>
@@ -397,7 +404,8 @@
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
     <main id="main-content" class="about-page page-wrap">
       <section class="about-hero"><div class="about-intro"><p class="eyebrow">About Biruk</p><h1>Product direction<span class="red-period">.</span><br />Design at heart<span class="red-period">.</span></h1><p>I’m Biruk Habtamu, a product manager based in Addis Ababa with 7+ years across product design and team leadership.</p><p>My background in Architecture and Urban Planning shapes how I approach systems and constraints. Design helps me make decisions tangible and align the people building the product.</p></div><figure class="about-portrait"><img src="uploads/profile/biruk-habtamu.jpg" alt="Biruk Habtamu outdoors wearing sunglasses" width="640" height="640" /><figcaption>Biruk Habtamu <span>Addis Ababa, Ethiopia</span></figcaption></figure></section>
-      <section class="about-practice"><h2>What I bring to a team<span class="red-period">.</span></h2><div class="practice-grid"><div><h3>Problem framing</h3><p>Connect user needs and business context to find the right problems.</p></div><div><h3>Cross-functional alignment</h3><p>Bring engineering, design and stakeholders into a shared direction.</p></div><div><h3>Design-led product thinking</h3><p>Use prototypes to make trade-offs tangible and move decisions forward.</p></div></div></section>
+      <section class="about-practice"><h2>What I bring to a team<span class="red-period">.</span></h2><div class="practice-grid"><div><h3>Problem framing</h3><p>Connect user needs and business context to find the right problems.</p></div><div><h3>Cross-functional alignment</h3><p>Bring engineering, design and stakeholders into a shared direction.</p></div><div><h3>Design-led product thinking</h3><p>Use prototypes to make trade-offs tangible and move decisions forward.</p></div><div><h3>Interactive prototypes for handoff</h3><p>Build clickable, coded prototypes so engineers see real flows, states and edge cases before they write a line. <a href="#/case/pep">See the PEP prototype</a>.</p></div></div></section>
+      <section class="about-practice about-principles"><h2>How I make product decisions<span class="red-period">.</span></h2><ol class="principles"><li><h3>Name the problem before the feature.</h3><p>A request is a clue. I trace it back to the user and the business need before anything reaches the roadmap.</p></li><li><h3>Decide what not to build.</h3><p>Every roadmap item has a cost. I make the trade-off explicit so the team can see what we gave up and why.</p></li><li><h3>Test the riskiest assumption first.</h3><p>Prototype the part most likely to be wrong, with the people who will use it, before engineering commits.</p></li><li><h3>Shared foundations beat one-off fixes.</h3><p>Patterns, data models and workflows that hold across modules let products grow without starting over.</p></li><li><h3>Measure what changes for users.</h3><p>Shipped is a milestone, not the result. I define how we will know it worked before we build.</p></li></ol></section>
       <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
       <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
     </main>
@@ -455,13 +463,13 @@ let P = [
       "Dashboard"
     ],
     "status": "Shipped",
-    "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+    "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
     "group": "work",
     "figma": "https://www.figma.com/design/6vtO2BwZeTewhybAEaNT7c/PEP-Productivity-Enhancement-Platform--Collab?node-id=2262-902",
     "shots": [
-      "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-      "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
-      "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png"
+      "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+      "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
+      "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp"
     ],
     "swatch": "#173273",
     "did": [
@@ -518,7 +526,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
             "cap": "Recruitment — the candidate pipeline",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -548,7 +556,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
             "cap": "Time & attendance — leave balances, history and day detail",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -568,7 +576,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp",
             "cap": "Learning & development — a lesson in a course sequence",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -588,7 +596,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.webp",
             "cap": "Employee engagement — surveys with filled and resolved rates",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -607,7 +615,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+            "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
             "cap": "PEP across devices",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -633,8 +641,8 @@ let P = [
       "learning": "Platform consistency is a product scope decision: new modules should inherit the shared model before introducing exceptions.",
       "caption": "Recruitment management: candidate comparison and stage filtering."
     },
-    "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
-    "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+    "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
+    "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
     "heroCaption": "Recruitment management: candidate comparison and stage filtering."
   },
   {
@@ -655,13 +663,13 @@ let P = [
       "Design system"
     ],
     "status": "Delivered",
-    "cover": "crm-shots/hero.png",
+    "cover": "crm-shots/hero.webp",
     "group": "work",
     "figma": "https://www.figma.com/design/OH7XiEYx0elPL623FLsbTd/Customer-Relation-Management--CRM-?node-id=106-42",
     "shots": [
-      "crm-shots/admin-dashboard.png",
+      "crm-shots/admin-dashboard.webp",
       "crm-shots/admin-roles.png",
-      "crm-shots/elearning.png"
+      "crm-shots/elearning.webp"
     ],
     "swatch": "#1e3a8a",
     "coverTitle": "Enterprise CRM",
@@ -792,49 +800,49 @@ let P = [
         ],
         "images": [
           {
-            "src": "crm-shots/role-sales.png",
+            "src": "crm-shots/role-sales.webp",
             "cap": "Sales representative — responsibilities and permissions.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-marketing.png",
+            "src": "crm-shots/role-marketing.webp",
             "cap": "Marketing specialist — campaign ownership and segment access.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-support.png",
+            "src": "crm-shots/role-support.webp",
             "cap": "Customer support — ticket ownership and escalation rights.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-support-2.png",
+            "src": "crm-shots/role-support-2.webp",
             "cap": "Customer support, continued — knowledge base and feedback duties.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-branch.png",
+            "src": "crm-shots/role-branch.webp",
             "cap": "Branch manager — approvals, team monitoring and local targets.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-director.png",
+            "src": "crm-shots/role-director.webp",
             "cap": "Director — branch leaderboard, regional approvals, forecasting.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
             "sourceHeight": 1080
           },
           {
-            "src": "crm-shots/role-admin.png",
+            "src": "crm-shots/role-admin.webp",
             "cap": "System administrator — users, roles, configuration and logs.",
             "displayWidth": 1176,
             "sourceWidth": 1920,
@@ -953,7 +961,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "crm-shots/admin-dashboard.png",
+            "src": "crm-shots/admin-dashboard.webp",
             "cap": "System administrator — user counts, activity trend and the user directory.",
             "displayWidth": 1176,
             "sourceWidth": 1512,
@@ -994,14 +1002,14 @@ let P = [
         ],
         "images": [
           {
-            "src": "crm-shots/elearning.png",
+            "src": "crm-shots/elearning.webp",
             "cap": "E-learning — course catalogue with progress per learner.",
             "displayWidth": 1176,
             "sourceWidth": 1512,
             "sourceHeight": 1094
           },
           {
-            "src": "crm-shots/course-detail.png",
+            "src": "crm-shots/course-detail.webp",
             "cap": "Course detail — lessons, materials and completion state.",
             "displayWidth": 1176,
             "sourceWidth": 1512,
@@ -1045,28 +1053,28 @@ let P = [
         ],
         "images": [
           {
-            "src": "crm-shots/auth-signin.png",
+            "src": "crm-shots/auth-signin.webp",
             "cap": "Sign in — the one screen all seven roles share.",
             "displayWidth": 1176,
             "sourceWidth": 3024,
             "sourceHeight": 1964
           },
           {
-            "src": "crm-shots/auth-recover.png",
+            "src": "crm-shots/auth-recover.webp",
             "cap": "Account recovery.",
             "displayWidth": 1176,
             "sourceWidth": 3024,
             "sourceHeight": 1964
           },
           {
-            "src": "crm-shots/auth-recover-confirm.png",
+            "src": "crm-shots/auth-recover-confirm.webp",
             "cap": "Recovery confirmation — outcome stated in a sentence.",
             "displayWidth": 1176,
             "sourceWidth": 3024,
             "sourceHeight": 1964
           },
           {
-            "src": "crm-shots/auth-confirmation.png",
+            "src": "crm-shots/auth-confirmation.webp",
             "cap": "Confirmation state.",
             "displayWidth": 1176,
             "sourceWidth": 3024,
@@ -1143,8 +1151,8 @@ let P = [
       "learning": "The shared data model and role boundaries need to be decided together; interface customization cannot resolve unclear ownership.",
       "caption": "Administration workspace: user access, roles and reporting in one view."
     },
-    "previewImage": "crm-shots/hero.png",
-    "heroImage": "crm-shots/admin-dashboard.png",
+    "previewImage": "crm-shots/hero.webp",
+    "heroImage": "crm-shots/admin-dashboard.webp",
     "heroCaption": "Administration workspace: user access, roles and reporting in one view."
   },
   {
@@ -1165,12 +1173,12 @@ let P = [
       "Dashboard"
     ],
     "status": "Delivered",
-    "cover": "uploads/Complaint-Management-Package/Images/hero.png",
+    "cover": "uploads/Complaint-Management-Package/Images/hero.webp",
     "group": "work",
     "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
     "shots": [
-      "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-      "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png"
+      "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
+      "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp"
     ],
     "swatch": "#1f3b73",
     "did": [
@@ -1323,7 +1331,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+            "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
             "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT",
             "displayWidth": 1176,
             "sourceWidth": 1559,
@@ -1369,7 +1377,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
+            "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.webp",
             "cap": "Create complaint category — service unit, priority and SLA target",
             "displayWidth": 1176,
             "sourceWidth": 1559,
@@ -1406,7 +1414,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
+            "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp",
             "cap": "Create new article — metadata, editor and starting templates",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -1444,8 +1452,8 @@ let P = [
       "learning": "Accountability starts with the complaint model; dashboard charts become useful only when ownership and status data are dependable.",
       "caption": "Service analytics: a management view distinct from the agent queue."
     },
-    "previewImage": "uploads/Complaint-Management-Package/Images/hero.png",
-    "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+    "previewImage": "uploads/Complaint-Management-Package/Images/hero.webp",
+    "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
     "heroCaption": "Service analytics: a management view distinct from the agent queue."
   },
   {
@@ -1466,13 +1474,13 @@ let P = [
       "Design system"
     ],
     "status": "Delivered",
-    "cover": "radreader/hero.png",
+    "cover": "radreader/hero.webp",
     "group": "work",
     "figma": "https://www.figma.com/design/kqzV4W89E9hv9R9Lh9C0sc/Rad-Reader--Copy-?node-id=2-9",
     "shots": [
-      "radreader/shot-dashboard.png",
-      "radreader/shot-compare.png",
-      "radreader/shot-upload.png"
+      "radreader/shot-dashboard.webp",
+      "radreader/shot-compare.webp",
+      "radreader/shot-upload.webp"
     ],
     "swatch": "#6d28d9",
     "coverTitle": "Rad Reader",
@@ -1822,7 +1830,7 @@ let P = [
       "Documentation"
     ],
     "status": "Delivered",
-    "cover": "adler/hero.png",
+    "cover": "adler/hero.webp",
     "group": "work",
     "shots": [
       "adler/shot-colors.png",
@@ -1997,14 +2005,14 @@ let P = [
             "sourceHeight": 1760
           },
           {
-            "src": "adler/shot-table.png",
+            "src": "adler/shot-table.webp",
             "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers.",
             "displayWidth": 990,
             "sourceWidth": 990,
             "sourceHeight": 2155
           },
           {
-            "src": "adler/shot-form.png",
+            "src": "adler/shot-form.webp",
             "cap": "Form — layouts, field anatomy and validation states.",
             "displayWidth": 990,
             "sourceWidth": 990,
@@ -2034,7 +2042,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "adler/shot-overview.png",
+            "src": "adler/shot-overview.webp",
             "cap": "The overview — every family, grouped by job, with previews and component counts.",
             "displayWidth": 910,
             "sourceWidth": 910,
@@ -2083,8 +2091,8 @@ let P = [
       "learning": "A design system needs discoverability and adoption practices; a large component count alone does not demonstrate product value.",
       "caption": "Versioned design-system overview and foundation examples."
     },
-    "previewImage": "adler/hero.png",
-    "heroImage": "adler/hero.png",
+    "previewImage": "adler/hero.webp",
+    "heroImage": "adler/hero.webp",
     "heroCaption": "Adler design system: shared foundations and component library."
   },
   {
@@ -2105,12 +2113,12 @@ let P = [
       "Creator tool"
     ],
     "status": "Delivered",
-    "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
+    "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
     "group": "work",
     "shots": [
-      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
-      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
-      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png"
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
+      "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp"
     ],
     "swatch": "#E4002B",
     "did": [
@@ -2167,7 +2175,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
             "cap": "3D scene builder — item library, canvas, space properties",
             "displayWidth": 1176,
             "sourceWidth": 1536,
@@ -2192,7 +2200,7 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
             "cap": "Precision object controls — texture, lock, XYZ, grouping",
             "displayWidth": 1176,
             "sourceWidth": 1536,
@@ -2221,7 +2229,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp",
             "cap": "Immersive audio — music library, playlist and spatial placement",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -2241,14 +2249,14 @@ let P = [
         "points": [],
         "images": [
           {
-            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.webp",
             "cap": "Space management — published and draft spaces, delete confirmation",
             "displayWidth": 1176,
             "sourceWidth": 1491,
             "sourceHeight": 1055
           },
           {
-            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
+            "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.webp",
             "cap": "Immersive preview — the published space with its social loop",
             "displayWidth": 1176,
             "sourceWidth": 1672,
@@ -2285,8 +2293,8 @@ let P = [
       "learning": "Progressive disclosure should not hide a capability that users need to trust the product.",
       "caption": "Scene builder: object library, canvas and precision properties."
     },
-    "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
-    "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+    "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
+    "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
     "heroCaption": "Scene builder: object library, canvas and precision properties."
   },
   {
@@ -2307,14 +2315,14 @@ let P = [
       "Payments"
     ],
     "status": "Case study",
-    "cover": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+    "cover": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
     "phone": true,
     "group": "work",
     "figma": "https://www.figma.com/design/p2uHe1qmMakFpmKDa8VV2v/Addis-Park?node-id=862-877",
     "shots": [
-      "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
-      "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
-      "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png"
+      "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
+      "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
+      "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp"
     ],
     "swatch": "#0e9f6e",
     "did": [
@@ -2380,7 +2388,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
             "cap": "Parking discovery — map, nearest verified lot, spots and rate",
             "displayWidth": 853,
             "sourceWidth": 853,
@@ -2414,7 +2422,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png",
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp",
             "cap": "Booking review — itemised payment summary and priced action",
             "displayWidth": 853,
             "sourceWidth": 853,
@@ -2447,7 +2455,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
             "cap": "Active session — time remaining, current fee, extend or end",
             "displayWidth": 853,
             "sourceWidth": 853,
@@ -2480,7 +2488,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.png",
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.webp",
             "cap": "Account — balance, vehicle, saved payment and settings",
             "displayWidth": 853,
             "sourceWidth": 853,
@@ -2509,7 +2517,7 @@ let P = [
         ],
         "images": [
           {
-            "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+            "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
             "cap": "The system applied across the five screens",
             "wide": true,
             "displayWidth": 1176,
@@ -2536,8 +2544,8 @@ let P = [
       "learning": "For an unfamiliar service, clear pricing and location can be more important than shortening the flow by one step.",
       "caption": "Parking concept: discovery, booking and session management."
     },
-    "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
-    "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+    "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+    "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
     "heroCaption": "Parking concept: discovery, booking and session management."
   }
 ];
@@ -2552,40 +2560,40 @@ let POSTERS = [
 const PL = 'play/';
 
 let BRANDING = [
-  { src: PL + 'soreni-cover.png', title: 'Final proposal', note: 'The deck as presented — sage ground, feather pattern, one claim.' },
-  { src: PL + 'soreni-logo.png', title: 'Selected mark', note: 'A guinea fowl built into the S. "Quality and Consistency. Delivered."' },
-  { src: PL + 'soreni-colors.png', title: 'Colour palette', note: 'Tangerine orange #DE873A against sage green #84A086, black and white.' },
-  { src: PL + 'soreni-type.png', title: 'Typography', note: 'A display script for the logotype, a plain sans for everything else.' },
-  { src: PL + 'soreni-pattern.png', title: 'Pattern', note: 'The bird\u2019s plumage abstracted into a repeatable secondary texture.' },
-  { src: PL + 'soreni-mock-a.png', title: 'Signage', note: 'Projecting shop sign — the mark at the size it is actually read.' },
-  { src: PL + 'soreni-mock-b.png', title: 'Environment', note: 'Applied across interior and window graphics.' },
-  { src: PL + 'soreni-mock-c.png', title: 'Vehicle livery', note: 'The identity on the fleet, where trade actually happens.' }
+  { src: PL + 'soreni-cover.webp', title: 'Final proposal', note: 'The deck as presented — sage ground, feather pattern, one claim.' },
+  { src: PL + 'soreni-logo.webp', title: 'Selected mark', note: 'A guinea fowl built into the S. "Quality and Consistency. Delivered."' },
+  { src: PL + 'soreni-colors.webp', title: 'Colour palette', note: 'Tangerine orange #DE873A against sage green #84A086, black and white.' },
+  { src: PL + 'soreni-type.webp', title: 'Typography', note: 'A display script for the logotype, a plain sans for everything else.' },
+  { src: PL + 'soreni-pattern.webp', title: 'Pattern', note: 'The bird\u2019s plumage abstracted into a repeatable secondary texture.' },
+  { src: PL + 'soreni-mock-a.webp', title: 'Signage', note: 'Projecting shop sign — the mark at the size it is actually read.' },
+  { src: PL + 'soreni-mock-b.webp', title: 'Environment', note: 'Applied across interior and window graphics.' },
+  { src: PL + 'soreni-mock-c.webp', title: 'Vehicle livery', note: 'The identity on the fleet, where trade actually happens.' }
 ];
 
 let MOOD = [
-  { src: PL + 'pdf8-mobile-grid.png', title: 'Berhan Bank', note: 'Mobile banking concept — balance, utility payments, statement requests.', ar: '3 / 4' },
-  { src: PL + 'breeze.png', title: 'Breeze Pharmaceutical', note: 'Cinematic corporate hero — red and blue overlays over industrial imagery.', ar: '16 / 9' },
-  { src: PL + 'pdf8-mobile-set.png', title: 'Fetan Delivery', note: 'Food delivery app — onboarding, category browse, live tracking.', ar: '1 / 2' },
-  { src: PL + 'pdf8-web-b.png', title: 'HahuCloud', note: 'Ethiopian web hosting — domain search first, everything else second.', ar: '4 / 3' },
-  { src: PL + 'pdf8-mobile-a.png', title: 'Amharic-first mobile app', note: 'Interface set written in Amharic rather than translated into it.', ar: '3 / 2' },
-  { src: PL + 'pdf8-web-a.png', title: 'Maraki Educational Consultancy', note: 'Study-abroad landing page — one question, two clear actions.', ar: '4 / 3' },
-  { src: PL + 'pdf8-mobile-trio.png', title: 'Roge', note: 'Business landing page carried across mobile and desktop.', ar: '3 / 5' },
-  { src: PL + 'pdf8-mobile-b.png', title: 'Amharic app — further screens', note: 'Article, media and account flows in the same Amharic type system.', ar: '3 / 2' },
-  { src: PL + 'adler-avatar-a.png', title: 'Adler — avatar builder', note: 'One-click personal avatar: photo, gender, wardrobe rail.', ar: '16 / 10' },
-  { src: PL + 'dallol.png', title: 'Dallol Design + Build', note: 'Architecture studio site — one hero building, quiet motion, full page.', ar: '3 / 5' },
-  { src: PL + 'nigat.png', title: 'Nigat Kaffee', note: 'Ethiopian coffee brand for the German market. Teal, amber, EN/DE.', ar: '16 / 10' },
-  { src: PL + 'droga-kpi.png', title: 'Droga Consulting — KPI home', note: 'Monthly tasks, performance bars and My Day in one workspace.', ar: '4 / 3' },
-  { src: PL + 'emc.png', title: 'Ethiopian Mineral Corporation', note: 'Mineral macro photography cut into the display type.', ar: '16 / 9' },
-  { src: PL + 'ceen.png', title: 'CEEN Beauty', note: 'Skincare storefront — product-led, pink and botanical, full page.', ar: '3 / 5' },
-  { src: PL + 'arif-invoices.png', title: 'Arif Studios — invoices', note: 'Invoice list built to be scanned: reference, client, amount.', ar: '16 / 10' },
-  { src: PL + 'adler-vr.png', title: 'Adler — VR gifting', note: 'Spatial social: relocate a gift, comment in-world.', ar: '16 / 9' },
-  { src: PL + 'trust.png', title: 'Trust Pharmaceutical', note: 'Turquoise-led corporate site for hospitals, distributors, regulators.', ar: '16 / 10' },
-  { src: PL + 'droga-board.png', title: 'Droga Consulting — task board', note: 'Pending, in progress, approved, rejected — with subtasks.', ar: '4 / 3' },
-  { src: PL + 'physio.png', title: 'Droga Physiotherapy', note: 'Clinic site — purple waves, service tiles, doctor list, map.', ar: '3 / 5' },
-  { src: PL + 'lifewire.png', title: 'LifeWire', note: 'Consulting brand surface: deep gradient, oversized type.', ar: '16 / 9' },
-  { src: PL + 'arif-invoice-detail.png', title: 'Arif Studios — invoice detail', note: 'Deposits and partial payments as a timeline, not a table.', ar: '4 / 3' },
-  { src: PL + 'adler-avatar-b.png', title: 'Adler — avatar presets', note: 'Same builder, different body and outfit set.', ar: '16 / 10' },
-  { src: PL + 'pdf8-web-wide.png', title: 'Marketplace app', note: 'Five-screen presentation frame — sign in, browse, brand, onboarding.', ar: '2 / 1' }
+  { src: PL + 'pdf8-mobile-grid.webp', title: 'Berhan Bank', note: 'Mobile banking concept — balance, utility payments, statement requests.', ar: '3 / 4' },
+  { src: PL + 'breeze.webp', title: 'Breeze Pharmaceutical', note: 'Cinematic corporate hero — red and blue overlays over industrial imagery.', ar: '16 / 9' },
+  { src: PL + 'pdf8-mobile-set.webp', title: 'Fetan Delivery', note: 'Food delivery app — onboarding, category browse, live tracking.', ar: '1 / 2' },
+  { src: PL + 'pdf8-web-b.webp', title: 'HahuCloud', note: 'Ethiopian web hosting — domain search first, everything else second.', ar: '4 / 3' },
+  { src: PL + 'pdf8-mobile-a.webp', title: 'Amharic-first mobile app', note: 'Interface set written in Amharic rather than translated into it.', ar: '3 / 2' },
+  { src: PL + 'pdf8-web-a.webp', title: 'Maraki Educational Consultancy', note: 'Study-abroad landing page — one question, two clear actions.', ar: '4 / 3' },
+  { src: PL + 'pdf8-mobile-trio.webp', title: 'Roge', note: 'Business landing page carried across mobile and desktop.', ar: '3 / 5' },
+  { src: PL + 'pdf8-mobile-b.webp', title: 'Amharic app — further screens', note: 'Article, media and account flows in the same Amharic type system.', ar: '3 / 2' },
+  { src: PL + 'adler-avatar-a.webp', title: 'Adler — avatar builder', note: 'One-click personal avatar: photo, gender, wardrobe rail.', ar: '16 / 10' },
+  { src: PL + 'dallol.webp', title: 'Dallol Design + Build', note: 'Architecture studio site — one hero building, quiet motion, full page.', ar: '3 / 5' },
+  { src: PL + 'nigat.webp', title: 'Nigat Kaffee', note: 'Ethiopian coffee brand for the German market. Teal, amber, EN/DE.', ar: '16 / 10' },
+  { src: PL + 'droga-kpi.webp', title: 'Droga Consulting — KPI home', note: 'Monthly tasks, performance bars and My Day in one workspace.', ar: '4 / 3' },
+  { src: PL + 'emc.webp', title: 'Ethiopian Mineral Corporation', note: 'Mineral macro photography cut into the display type.', ar: '16 / 9' },
+  { src: PL + 'ceen.webp', title: 'CEEN Beauty', note: 'Skincare storefront — product-led, pink and botanical, full page.', ar: '3 / 5' },
+  { src: PL + 'arif-invoices.webp', title: 'Arif Studios — invoices', note: 'Invoice list built to be scanned: reference, client, amount.', ar: '16 / 10' },
+  { src: PL + 'adler-vr.webp', title: 'Adler — VR gifting', note: 'Spatial social: relocate a gift, comment in-world.', ar: '16 / 9' },
+  { src: PL + 'trust.webp', title: 'Trust Pharmaceutical', note: 'Turquoise-led corporate site for hospitals, distributors, regulators.', ar: '16 / 10' },
+  { src: PL + 'droga-board.webp', title: 'Droga Consulting — task board', note: 'Pending, in progress, approved, rejected — with subtasks.', ar: '4 / 3' },
+  { src: PL + 'physio.webp', title: 'Droga Physiotherapy', note: 'Clinic site — purple waves, service tiles, doctor list, map.', ar: '3 / 5' },
+  { src: PL + 'lifewire.webp', title: 'LifeWire', note: 'Consulting brand surface: deep gradient, oversized type.', ar: '16 / 9' },
+  { src: PL + 'arif-invoice-detail.webp', title: 'Arif Studios — invoice detail', note: 'Deposits and partial payments as a timeline, not a table.', ar: '4 / 3' },
+  { src: PL + 'adler-avatar-b.webp', title: 'Adler — avatar presets', note: 'Same builder, different body and outfit set.', ar: '16 / 10' },
+  { src: PL + 'pdf8-web-wide.webp', title: 'Marketplace app', note: 'Five-screen presentation frame — sign in, browse, brand, onboarding.', ar: '2 / 1' }
 ];
 
 
@@ -2714,7 +2722,7 @@ class Component extends DCLogic {
       'services':   v => { SERVICES = v; },   'education':  v => { EDU = v; },
       'experience': v => { EXPERIENCE = v; }, 'process':    v => { PROCESS = v; },
     };
-    const base = new URL('content/', location.href).href;
+    const base = new URL('content/', document.baseURI).href;
     await Promise.all(Object.entries(assign).map(async ([file, set]) => {
       try {
         const r = await fetch(base + file + '.json', { cache: 'no-cache' });
@@ -2823,6 +2831,9 @@ class Component extends DCLogic {
     previewImage: p.previewImage || p.cover,
     heroCaption: p.heroCaption || p.name,
     decision: p.pm ? p.pm.decision : p.solve,
+    outcome: (p.pm && p.pm.outcome) || '',
+    hasOutcome: !!(p.pm && p.pm.outcome),
+    hasPrototype: !!p.prototype,
     open: () => { this.setState({ caseId: p.id, screen: 'case' }); window.scrollTo(0, 0); }
   }));
 
@@ -2864,10 +2875,13 @@ class Component extends DCLogic {
       nextName: next.name,
       active, activeSections: sections,
       hasProductBrief: !!active.pm, productBrief: active.pm || {},
+      hasOutcome: !!(active.pm && active.pm.outcome), hasDiscovery: !!(active.pm && active.pm.discovery),
+      hasCut: !!(active.pm && active.pm.cut), hasTeam: !!(active.pm && active.pm.team),
       hasCover: !!active.cover, noCover: !active.cover,
       hasDemo: !!active.demo, demoSrc: active.demo ? active.demo.src : '', demoCap: active.demo ? active.demo.cap : '',
       hasFigma: !!active.figma, figmaUrl: active.figma || '',
       isRadReader: active.id === 'rad-reader',
+      hasPrototype: !!active.prototype, prototypeUrl: active.prototype || '', prototypeNote: active.prototypeNote || '',
       imgFilter: bw ? 'grayscale(1) contrast(1.08)' : 'none',
       showAvailability: this.props.showAvailability ?? true,
       projectCount: shownProjects.length,

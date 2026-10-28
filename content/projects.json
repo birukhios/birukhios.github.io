@@ -18,20 +18,21 @@
         "Dashboard"
       ],
       "status": "Shipped",
-      "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+      "cover": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
       "group": "work",
       "figma": "https://www.figma.com/design/6vtO2BwZeTewhybAEaNT7c/PEP-Productivity-Enhancement-Platform--Collab?node-id=2262-902",
       "shots": [
-        "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-        "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
-        "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png"
+        "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+        "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
+        "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp"
       ],
       "swatch": "#173273",
       "did": [
         "Led the design team building the platform, from requirements gathering through final designs.",
         "Defined the shared shell — module rail, global search, documents/announcement/report bar — that every module inherits.",
         "Designed the four flagship modules: recruitment, time and attendance, learning and development, employee engagement.",
-        "Ran weekly reviews against the shell so consistency was a condition of delivery, not a matter of taste."
+        "Ran weekly reviews against the shell so consistency was a condition of delivery, not a matter of taste.",
+        "Rebuilt the design as an interactive coded prototype to show flows, states and validation for engineering handoff."
       ],
       "sections": [
         {
@@ -81,7 +82,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
               "cap": "Recruitment — the candidate pipeline",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -111,7 +112,7 @@
           ],
           "images": [
             {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.png",
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Time-and-Attendance.webp",
               "cap": "Time & attendance — leave balances, history and day detail",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -131,7 +132,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.png",
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Learning-and-Development.webp",
               "cap": "Learning & development — a lesson in a course sequence",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -151,7 +152,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.png",
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Employee-Engagement.webp",
               "cap": "Employee engagement — surveys with filled and resolved rates",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -170,7 +171,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
+              "src": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
               "cap": "PEP across devices",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -194,11 +195,17 @@
           "Support requests about navigation and module differences"
         ],
         "learning": "Platform consistency is a product scope decision: new modules should inherit the shared model before introducing exceptions.",
-        "caption": "Recruitment management: candidate comparison and stage filtering."
+        "caption": "Recruitment management: candidate comparison and stage filtering.",
+        "outcome": "",
+        "discovery": "",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.png",
-      "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.png",
-      "heroCaption": "Recruitment management: candidate comparison and stage filtering."
+      "previewImage": "uploads/PEP-Portfolio-Package/Images/PEP-Hero-Mockup.webp",
+      "heroImage": "uploads/PEP-Portfolio-Package/Images/PEP-Recruitment-Management.webp",
+      "heroCaption": "Recruitment management: candidate comparison and stage filtering.",
+      "prototype": "/pep/",
+      "prototypeNote": "This is the PEP design rebuilt from the Figma file as a working prototype: 22 screens across recruitment, attendance, learning, engagement, OKRs and payroll. It shows how I prefer to hand work to engineering. Instead of static frames, developers can click through real flows, filters, empty states and validation, so questions get answered before build rather than during it. Try it below."
     },
     {
       "id": "crm",
@@ -218,13 +225,13 @@
         "Design system"
       ],
       "status": "Delivered",
-      "cover": "crm-shots/hero.png",
+      "cover": "crm-shots/hero.webp",
       "group": "work",
       "figma": "https://www.figma.com/design/OH7XiEYx0elPL623FLsbTd/Customer-Relation-Management--CRM-?node-id=106-42",
       "shots": [
-        "crm-shots/admin-dashboard.png",
+        "crm-shots/admin-dashboard.webp",
         "crm-shots/admin-roles.png",
-        "crm-shots/elearning.png"
+        "crm-shots/elearning.webp"
       ],
       "swatch": "#1e3a8a",
       "coverTitle": "Enterprise CRM",
@@ -355,49 +362,49 @@
           ],
           "images": [
             {
-              "src": "crm-shots/role-sales.png",
+              "src": "crm-shots/role-sales.webp",
               "cap": "Sales representative — responsibilities and permissions.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-marketing.png",
+              "src": "crm-shots/role-marketing.webp",
               "cap": "Marketing specialist — campaign ownership and segment access.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-support.png",
+              "src": "crm-shots/role-support.webp",
               "cap": "Customer support — ticket ownership and escalation rights.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-support-2.png",
+              "src": "crm-shots/role-support-2.webp",
               "cap": "Customer support, continued — knowledge base and feedback duties.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-branch.png",
+              "src": "crm-shots/role-branch.webp",
               "cap": "Branch manager — approvals, team monitoring and local targets.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-director.png",
+              "src": "crm-shots/role-director.webp",
               "cap": "Director — branch leaderboard, regional approvals, forecasting.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
               "sourceHeight": 1080
             },
             {
-              "src": "crm-shots/role-admin.png",
+              "src": "crm-shots/role-admin.webp",
               "cap": "System administrator — users, roles, configuration and logs.",
               "displayWidth": 1176,
               "sourceWidth": 1920,
@@ -516,7 +523,7 @@
           ],
           "images": [
             {
-              "src": "crm-shots/admin-dashboard.png",
+              "src": "crm-shots/admin-dashboard.webp",
               "cap": "System administrator — user counts, activity trend and the user directory.",
               "displayWidth": 1176,
               "sourceWidth": 1512,
@@ -557,14 +564,14 @@
           ],
           "images": [
             {
-              "src": "crm-shots/elearning.png",
+              "src": "crm-shots/elearning.webp",
               "cap": "E-learning — course catalogue with progress per learner.",
               "displayWidth": 1176,
               "sourceWidth": 1512,
               "sourceHeight": 1094
             },
             {
-              "src": "crm-shots/course-detail.png",
+              "src": "crm-shots/course-detail.webp",
               "cap": "Course detail — lessons, materials and completion state.",
               "displayWidth": 1176,
               "sourceWidth": 1512,
@@ -608,28 +615,28 @@
           ],
           "images": [
             {
-              "src": "crm-shots/auth-signin.png",
+              "src": "crm-shots/auth-signin.webp",
               "cap": "Sign in — the one screen all seven roles share.",
               "displayWidth": 1176,
               "sourceWidth": 3024,
               "sourceHeight": 1964
             },
             {
-              "src": "crm-shots/auth-recover.png",
+              "src": "crm-shots/auth-recover.webp",
               "cap": "Account recovery.",
               "displayWidth": 1176,
               "sourceWidth": 3024,
               "sourceHeight": 1964
             },
             {
-              "src": "crm-shots/auth-recover-confirm.png",
+              "src": "crm-shots/auth-recover-confirm.webp",
               "cap": "Recovery confirmation — outcome stated in a sentence.",
               "displayWidth": 1176,
               "sourceWidth": 3024,
               "sourceHeight": 1964
             },
             {
-              "src": "crm-shots/auth-confirmation.png",
+              "src": "crm-shots/auth-confirmation.webp",
               "cap": "Confirmation state.",
               "displayWidth": 1176,
               "sourceWidth": 3024,
@@ -704,10 +711,14 @@
           "Role-level adoption and reporting discrepancies"
         ],
         "learning": "The shared data model and role boundaries need to be decided together; interface customization cannot resolve unclear ownership.",
-        "caption": "Administration workspace: user access, roles and reporting in one view."
+        "caption": "Administration workspace: user access, roles and reporting in one view.",
+        "outcome": "",
+        "discovery": "Research, personas, journey maps and a competitive analysis came first, which led to a seven-role model that shaped every dashboard.",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "crm-shots/hero.png",
-      "heroImage": "crm-shots/admin-dashboard.png",
+      "previewImage": "crm-shots/hero.webp",
+      "heroImage": "crm-shots/admin-dashboard.webp",
       "heroCaption": "Administration workspace: user access, roles and reporting in one view."
     },
     {
@@ -728,12 +739,12 @@
         "Dashboard"
       ],
       "status": "Delivered",
-      "cover": "uploads/Complaint-Management-Package/Images/hero.png",
+      "cover": "uploads/Complaint-Management-Package/Images/hero.webp",
       "group": "work",
       "figma": "https://www.figma.com/design/5OEaJFffdbm07FCMxZiirR/Complaint-Management-System--Copy-?node-id=1-4",
       "shots": [
-        "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
-        "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png"
+        "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
+        "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp"
       ],
       "swatch": "#1f3b73",
       "did": [
@@ -886,7 +897,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+              "src": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
               "cap": "Analytics dashboard — headline metrics, trends, channel mix and CSAT",
               "displayWidth": 1176,
               "sourceWidth": 1559,
@@ -932,7 +943,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.png",
+              "src": "uploads/Complaint-Management-Package/Images/04-Complaint-Category.webp",
               "cap": "Create complaint category — service unit, priority and SLA target",
               "displayWidth": 1176,
               "sourceWidth": 1559,
@@ -969,7 +980,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.png",
+              "src": "uploads/Complaint-Management-Package/Images/05-Knowledge-Base.webp",
               "cap": "Create new article — metadata, editor and starting templates",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -1005,10 +1016,14 @@
           "Repeat contacts, reopen rate and escalation volume"
         ],
         "learning": "Accountability starts with the complaint model; dashboard charts become useful only when ownership and status data are dependable.",
-        "caption": "Service analytics: a management view distinct from the agent queue."
+        "caption": "Service analytics: a management view distinct from the agent queue.",
+        "outcome": "",
+        "discovery": "",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "uploads/Complaint-Management-Package/Images/hero.png",
-      "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.png",
+      "previewImage": "uploads/Complaint-Management-Package/Images/hero.webp",
+      "heroImage": "uploads/Complaint-Management-Package/Images/02-Analytics-Dashboard.webp",
       "heroCaption": "Service analytics: a management view distinct from the agent queue."
     },
     {
@@ -1029,13 +1044,13 @@
         "Design system"
       ],
       "status": "Delivered",
-      "cover": "radreader/hero.png",
+      "cover": "radreader/hero.webp",
       "group": "work",
       "figma": "https://www.figma.com/design/kqzV4W89E9hv9R9Lh9C0sc/Rad-Reader--Copy-?node-id=2-9",
       "shots": [
-        "radreader/shot-dashboard.png",
-        "radreader/shot-compare.png",
-        "radreader/shot-upload.png"
+        "radreader/shot-dashboard.webp",
+        "radreader/shot-compare.webp",
+        "radreader/shot-upload.webp"
       ],
       "swatch": "#6d28d9",
       "coverTitle": "Rad Reader",
@@ -1357,7 +1372,11 @@
           "Report rework and incomplete-context requests"
         ],
         "learning": "A multi-sided healthcare product depends on the quality of the handoff between roles, as well as the usability of each interface.",
-        "caption": "Radiologist workspace: the study queue leads the reading workflow."
+        "caption": "Radiologist workspace: the study queue leads the reading workflow.",
+        "outcome": "",
+        "discovery": "User research with clinic staff and radiologists, followed by preference testing of the reading workspace, before the platform architecture and roadmap were set.",
+        "cut": "",
+        "team": ""
       },
       "previewImage": "radreader/modern-admin.jpg",
       "heroImage": "radreader/modern-admin.jpg",
@@ -1385,7 +1404,7 @@
         "Documentation"
       ],
       "status": "Delivered",
-      "cover": "adler/hero.png",
+      "cover": "adler/hero.webp",
       "group": "work",
       "shots": [
         "adler/shot-colors.png",
@@ -1560,14 +1579,14 @@
               "sourceHeight": 1760
             },
             {
-              "src": "adler/shot-table.png",
+              "src": "adler/shot-table.webp",
               "cap": "Table — simple, multi-select, expandable rows, fixed columns, fixed footer and dividers.",
               "displayWidth": 990,
               "sourceWidth": 990,
               "sourceHeight": 2155
             },
             {
-              "src": "adler/shot-form.png",
+              "src": "adler/shot-form.webp",
               "cap": "Form — layouts, field anatomy and validation states.",
               "displayWidth": 990,
               "sourceWidth": 990,
@@ -1597,7 +1616,7 @@
           ],
           "images": [
             {
-              "src": "adler/shot-overview.png",
+              "src": "adler/shot-overview.webp",
               "cap": "The overview — every family, grouped by job, with previews and component counts.",
               "displayWidth": 910,
               "sourceWidth": 910,
@@ -1644,10 +1663,14 @@
           "Time to find the right documented pattern"
         ],
         "learning": "A design system needs discoverability and adoption practices; a large component count alone does not demonstrate product value.",
-        "caption": "Versioned design-system overview and foundation examples."
+        "caption": "Versioned design-system overview and foundation examples.",
+        "outcome": "",
+        "discovery": "",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "adler/hero.png",
-      "heroImage": "adler/hero.png",
+      "previewImage": "adler/hero.webp",
+      "heroImage": "adler/hero.webp",
       "heroCaption": "Adler design system: shared foundations and component library."
     },
     {
@@ -1668,12 +1691,12 @@
         "Creator tool"
       ],
       "status": "Delivered",
-      "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
+      "cover": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
       "group": "work",
       "shots": [
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
-        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png"
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
+        "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp"
       ],
       "swatch": "#E4002B",
       "did": [
@@ -1730,7 +1753,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
               "cap": "3D scene builder — item library, canvas, space properties",
               "displayWidth": 1176,
               "sourceWidth": 1536,
@@ -1755,7 +1778,7 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.png",
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Object-Controls.webp",
               "cap": "Precision object controls — texture, lock, XYZ, grouping",
               "displayWidth": 1176,
               "sourceWidth": 1536,
@@ -1784,7 +1807,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.png",
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Audio.webp",
               "cap": "Immersive audio — music library, playlist and spatial placement",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -1804,14 +1827,14 @@
           "points": [],
           "images": [
             {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.png",
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Space-Management.webp",
               "cap": "Space management — published and draft spaces, delete confirmation",
               "displayWidth": 1176,
               "sourceWidth": 1491,
               "sourceHeight": 1055
             },
             {
-              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.png",
+              "src": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Immersive-Preview.webp",
               "cap": "Immersive preview — the published space with its social loop",
               "displayWidth": 1176,
               "sourceWidth": 1672,
@@ -1846,10 +1869,14 @@
           "Successful discovery and use of precision controls"
         ],
         "learning": "Progressive disclosure should not hide a capability that users need to trust the product.",
-        "caption": "Scene builder: object library, canvas and precision properties."
+        "caption": "Scene builder: object library, canvas and precision properties.",
+        "outcome": "",
+        "discovery": "",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.png",
-      "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.png",
+      "previewImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-Studio-Hero.webp",
+      "heroImage": "uploads/Adler-Studio-Portfolio-Package/Images/Adler-3D-Scene-Builder.webp",
       "heroCaption": "Scene builder: object library, canvas and precision properties."
     },
     {
@@ -1870,14 +1897,14 @@
         "Payments"
       ],
       "status": "Case study",
-      "cover": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+      "cover": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
       "phone": true,
       "group": "work",
       "figma": "https://www.figma.com/design/p2uHe1qmMakFpmKDa8VV2v/Addis-Park?node-id=862-877",
       "shots": [
-        "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
-        "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
-        "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png"
+        "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
+        "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
+        "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp"
       ],
       "swatch": "#0e9f6e",
       "did": [
@@ -1943,7 +1970,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.png",
+              "src": "uploads/Addis-Park-Portfolio-Package/Images/02-Parking-Discovery.webp",
               "cap": "Parking discovery — map, nearest verified lot, spots and rate",
               "displayWidth": 853,
               "sourceWidth": 853,
@@ -1977,7 +2004,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.png",
+              "src": "uploads/Addis-Park-Portfolio-Package/Images/04-Review-Booking.webp",
               "cap": "Booking review — itemised payment summary and priced action",
               "displayWidth": 853,
               "sourceWidth": 853,
@@ -2010,7 +2037,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.png",
+              "src": "uploads/Addis-Park-Portfolio-Package/Images/03-Active-Session.webp",
               "cap": "Active session — time remaining, current fee, extend or end",
               "displayWidth": 853,
               "sourceWidth": 853,
@@ -2043,7 +2070,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.png",
+              "src": "uploads/Addis-Park-Portfolio-Package/Images/05-Account.webp",
               "cap": "Account — balance, vehicle, saved payment and settings",
               "displayWidth": 853,
               "sourceWidth": 853,
@@ -2072,7 +2099,7 @@
           ],
           "images": [
             {
-              "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+              "src": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
               "cap": "The system applied across the five screens",
               "wide": true,
               "displayWidth": 1176,
@@ -2097,10 +2124,14 @@
           "Successful extension and ending of an active session"
         ],
         "learning": "For an unfamiliar service, clear pricing and location can be more important than shortening the flow by one step.",
-        "caption": "Parking concept: discovery, booking and session management."
+        "caption": "Parking concept: discovery, booking and session management.",
+        "outcome": "",
+        "discovery": "",
+        "cut": "",
+        "team": ""
       },
-      "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
-      "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.png",
+      "previewImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
+      "heroImage": "uploads/Addis-Park-Portfolio-Package/Images/01-Portfolio-Hero.webp",
       "heroCaption": "Parking concept: discovery, booking and session management."
     }
   ]
