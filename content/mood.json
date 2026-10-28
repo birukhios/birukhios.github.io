@@ -4,140 +4,194 @@
       "src": "play/pdf8-mobile-grid.webp",
       "title": "Berhan Bank",
       "note": "Mobile banking concept — balance, utility payments, statement requests.",
-      "ar": "3 / 4"
+      "ar": "3 / 4",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-mobile-grid.webp"
     },
     {
       "src": "play/breeze.webp",
       "title": "Breeze Pharmaceutical",
       "note": "Cinematic corporate hero — red and blue overlays over industrial imagery.",
-      "ar": "16 / 9"
+      "ar": "16 / 9",
+      "device": "desktop",
+      "hq": "play/hq/breeze.webp"
     },
     {
       "src": "play/pdf8-mobile-set.webp",
       "title": "Fetan Delivery",
       "note": "Food delivery app — onboarding, category browse, live tracking.",
-      "ar": "1 / 2"
+      "ar": "1 / 2",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-mobile-set.webp"
     },
     {
       "src": "play/pdf8-web-b.webp",
       "title": "HahuCloud",
       "note": "Ethiopian web hosting — domain search first, everything else second.",
-      "ar": "4 / 3"
+      "ar": "4 / 3",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-web-b.webp"
     },
     {
       "src": "play/pdf8-mobile-a.webp",
       "title": "Amharic-first mobile app",
       "note": "Interface set written in Amharic rather than translated into it.",
-      "ar": "3 / 2"
+      "ar": "3 / 2",
+      "device": "phone",
+      "screens": [
+        "play/hq/pdf8-mobile-a-1.webp",
+        "play/hq/pdf8-mobile-a-2.webp",
+        "play/hq/pdf8-mobile-a-3.webp"
+      ]
     },
     {
       "src": "play/pdf8-web-a.webp",
       "title": "Maraki Educational Consultancy",
       "note": "Study-abroad landing page — one question, two clear actions.",
       "ar": "4 / 3",
-      "live": ""
+      "live": "",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-web-a.webp"
     },
     {
       "src": "play/pdf8-mobile-trio.webp",
       "title": "Roge",
       "note": "Business landing page carried across mobile and desktop.",
-      "ar": "3 / 5"
+      "ar": "3 / 5",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-mobile-trio.webp"
     },
     {
       "src": "play/pdf8-mobile-b.webp",
       "title": "Amharic app — further screens",
       "note": "Article, media and account flows in the same Amharic type system.",
-      "ar": "3 / 2"
+      "ar": "3 / 2",
+      "device": "phone",
+      "screens": [
+        "play/hq/pdf8-mobile-b-1.webp",
+        "play/hq/pdf8-mobile-b-2.webp",
+        "play/hq/pdf8-mobile-b-3.webp"
+      ]
     },
     {
       "src": "play/adler-avatar-a.webp",
       "title": "Adler — avatar builder",
       "note": "One-click personal avatar: photo, gender, wardrobe rail.",
-      "ar": "16 / 10"
+      "ar": "16 / 10",
+      "device": "desktop",
+      "hq": "play/hq/adler-avatar-a.webp"
     },
     {
       "src": "play/dallol.webp",
       "title": "Dallol Design + Build",
       "note": "Architecture studio site — one hero building, quiet motion, full page.",
-      "ar": "3 / 5"
+      "ar": "3 / 5",
+      "device": "desktop",
+      "hq": "play/hq/dallol.webp"
     },
     {
       "src": "play/nigat.webp",
       "title": "Nigat Kaffee",
       "note": "Ethiopian coffee brand for the German market. Teal, amber, EN/DE.",
-      "ar": "16 / 10"
+      "ar": "16 / 10",
+      "device": "desktop",
+      "hq": "play/hq/nigat.webp"
     },
     {
       "src": "play/droga-kpi.webp",
       "title": "Droga Consulting — KPI home",
       "note": "Monthly tasks, performance bars and My Day in one workspace.",
-      "ar": "4 / 3"
+      "ar": "4 / 3",
+      "device": "desktop",
+      "hq": "play/hq/droga-kpi.webp"
     },
     {
       "src": "play/emc.webp",
       "title": "Ethiopian Mineral Corporation",
       "note": "Mineral macro photography cut into the display type.",
-      "ar": "16 / 9"
+      "ar": "16 / 9",
+      "device": "desktop",
+      "hq": "play/hq/emc.webp"
     },
     {
       "src": "play/ceen.webp",
       "title": "CEEN Beauty",
       "note": "Skincare storefront — product-led, pink and botanical, full page.",
-      "ar": "3 / 5"
+      "ar": "3 / 5",
+      "device": "desktop",
+      "hq": "play/hq/ceen.webp"
     },
     {
       "src": "play/arif-invoices.webp",
       "title": "Arif Studios — invoices",
       "note": "Invoice list built to be scanned: reference, client, amount.",
-      "ar": "16 / 10"
+      "ar": "16 / 10",
+      "device": "desktop",
+      "hq": "play/hq/arif-invoices.webp"
     },
     {
       "src": "play/adler-vr.webp",
       "title": "Adler — VR gifting",
       "note": "Spatial social: relocate a gift, comment in-world.",
-      "ar": "16 / 9"
+      "ar": "16 / 9",
+      "device": "desktop",
+      "hq": "play/hq/adler-vr.webp"
     },
     {
       "src": "play/trust.webp",
       "title": "Trust Pharmaceutical",
       "note": "Turquoise-led corporate site for hospitals, distributors, regulators.",
-      "ar": "16 / 10"
+      "ar": "16 / 10",
+      "device": "desktop",
+      "hq": "play/hq/trust.webp"
     },
     {
       "src": "play/droga-board.webp",
       "title": "Droga Consulting — task board",
       "note": "Pending, in progress, approved, rejected — with subtasks.",
-      "ar": "4 / 3"
+      "ar": "4 / 3",
+      "device": "desktop",
+      "hq": "play/hq/droga-board.webp"
     },
     {
       "src": "play/physio.webp",
       "title": "Droga Physiotherapy",
       "note": "Clinic site — purple waves, service tiles, doctor list, map.",
-      "ar": "3 / 5"
+      "ar": "3 / 5",
+      "device": "desktop",
+      "hq": "play/hq/physio.webp"
     },
     {
       "src": "play/lifewire.webp",
       "title": "LifeWire",
       "note": "Consulting brand surface: deep gradient, oversized type.",
-      "ar": "16 / 9"
+      "ar": "16 / 9",
+      "device": "desktop",
+      "hq": "play/hq/lifewire.webp"
     },
     {
       "src": "play/arif-invoice-detail.webp",
       "title": "Arif Studios — invoice detail",
       "note": "Deposits and partial payments as a timeline, not a table.",
-      "ar": "4 / 3"
+      "ar": "4 / 3",
+      "device": "desktop",
+      "hq": "play/hq/arif-invoice-detail.webp"
     },
     {
       "src": "play/adler-avatar-b.webp",
       "title": "Adler — avatar presets",
       "note": "Same builder, different body and outfit set.",
-      "ar": "16 / 10"
+      "ar": "16 / 10",
+      "device": "desktop",
+      "hq": "play/hq/adler-avatar-b.webp"
     },
     {
       "src": "play/pdf8-web-wide.webp",
       "title": "Marketplace app",
       "note": "Five-screen presentation frame — sign in, browse, brand, onboarding.",
-      "ar": "2 / 1"
+      "ar": "2 / 1",
+      "device": "mockup",
+      "hq": "play/hq/pdf8-web-wide.webp"
     }
   ]
 }

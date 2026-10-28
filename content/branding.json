@@ -3,42 +3,58 @@
     {
       "src": "play/soreni-cover.webp",
       "title": "Final proposal",
-      "note": "The deck as presented — sage ground, feather pattern, one claim."
+      "note": "The deck as presented — sage ground, feather pattern, one claim.",
+      "hq": "play/hq/soreni-cover.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-logo.webp",
       "title": "Selected mark",
-      "note": "A guinea fowl built into the S. \"Quality and Consistency. Delivered.\""
+      "note": "A guinea fowl built into the S. \"Quality and Consistency. Delivered.\"",
+      "hq": "play/hq/soreni-logo.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-colors.webp",
       "title": "Colour palette",
-      "note": "Tangerine orange #DE873A against sage green #84A086, black and white."
+      "note": "Tangerine orange #DE873A against sage green #84A086, black and white.",
+      "hq": "play/hq/soreni-colors.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-type.webp",
       "title": "Typography",
-      "note": "A display script for the logotype, a plain sans for everything else."
+      "note": "A display script for the logotype, a plain sans for everything else.",
+      "hq": "play/hq/soreni-type.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-pattern.webp",
       "title": "Pattern",
-      "note": "The bird’s plumage abstracted into a repeatable secondary texture."
+      "note": "The bird’s plumage abstracted into a repeatable secondary texture.",
+      "hq": "play/hq/soreni-pattern.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-mock-a.webp",
       "title": "Signage",
-      "note": "Projecting shop sign — the mark at the size it is actually read."
+      "note": "Projecting shop sign — the mark at the size it is actually read.",
+      "hq": "play/hq/soreni-mock-a.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-mock-b.webp",
       "title": "Environment",
-      "note": "Applied across interior and window graphics."
+      "note": "Applied across interior and window graphics.",
+      "hq": "play/hq/soreni-mock-b.webp",
+      "device": "brand"
     },
     {
       "src": "play/soreni-mock-c.webp",
       "title": "Vehicle livery",
-      "note": "The identity on the fleet, where trade actually happens."
+      "note": "The identity on the fleet, where trade actually happens.",
+      "hq": "play/hq/soreni-mock-c.webp",
+      "device": "brand"
     }
   ]
 }

@@ -6,10 +6,11 @@
 <base href="/" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="swiss.css?v=7a27e09f72c5" />
+<link rel="stylesheet" href="swiss.css?v=3fa76a21841d" />
 <link rel="preload" as="image" href="uploads/brand/glass-dark.jpg" media="(min-width: 701px)" />
 <link rel="preload" as="image" href="uploads/brand/glass-light.jpg" media="(min-width: 701px)" />
 <script src="./logo-intro.js"></script>
+<script src="./lab-reel.js" defer></script>
 <script src="./support.js"></script>
 <meta name="description" content="PEP covers the employee lifecycle — hiring, attendance, growth and feedback — built so learning one module teaches you the rest." />
 <link rel="canonical" href="https://birukhios.github.io/case/pep/" />
@@ -106,6 +107,7 @@
     <a class="brand-home" href="#/home" aria-label="bhios — Biruk Habtamu, home"><img class="brand-wordmark" src="uploads/brand/bhios-red.svg" width="126" height="42" alt="bhios" /></a>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#/work" aria-current="{{ workCurrent }}">Work</a>
+      <a href="#/play" aria-current="{{ playCurrent }}">Lab</a>
       <a href="#/about" aria-current="{{ aboutCurrent }}">About</a>
       <a href="#/resume" aria-current="{{ resumeCurrent }}">Resume</a>
       <a href="#/contact" aria-current="{{ contactCurrent }}">Contact</a>
@@ -370,9 +372,11 @@
   <sc-if value="{{ isPlay }}" hint-placeholder-val="{{ false }}">
   <main style="animation: riseIn 320ms ease both">
     <section style="max-width: 1240px; margin: 0 auto; padding: 72px 32px 40px">
-      <h1 style="font-size: 72px; line-height: 1.03; letter-spacing: -0.035em; margin: 0 0 24px; max-width: 20ch; font-weight: 800">Play</h1>
+      <h1 style="font-size: 72px; line-height: 1.03; letter-spacing: -0.035em; margin: 0 0 24px; max-width: 20ch; font-weight: 800">Lab</h1>
       <p style="font-size: 20px; line-height: 1.5; max-width: 60ch; margin: 0 0 8px; color: rgba(23,23,23,0.8); text-wrap: pretty">Brand work, internal tools, 3D experiments and client sites. Projects that never became case studies.</p>
     </section>
+
+    <section class="lab-reel" aria-label="Lab showreel"></section>
 
     <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 40px">
       <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 32px">
@@ -2883,7 +2887,7 @@ class Component extends DCLogic {
     return {
       isHome: s === 'home',
       shellClass: 'swiss-site ' + (s === 'home' ? 'home-shell glass-surface' : s === 'about' ? 'about-shell glass-surface' : s === 'contact' ? 'contact-shell glass-surface' : 'inner-shell'),
-      workCurrent: s === 'work' || s === 'case' ? 'page' : 'false', aboutCurrent: s === 'about' ? 'page' : 'false', resumeCurrent: s === 'resume' ? 'page' : 'false', contactCurrent: s === 'contact' ? 'page' : 'false',
+      workCurrent: s === 'work' || s === 'case' ? 'page' : 'false', aboutCurrent: s === 'about' ? 'page' : 'false', playCurrent: s === 'play' ? 'page' : 'false', resumeCurrent: s === 'resume' ? 'page' : 'false', contactCurrent: s === 'contact' ? 'page' : 'false',
       filterAll: () => this.setState({workFilter:'all'}), filterEnterprise: () => this.setState({workFilter:'enterprise'}), filterCreative: () => this.setState({workFilter:'creative'}),
       allFilter: filter === 'all', enterpriseFilter: filter === 'enterprise', creativeFilter: filter === 'creative',
       isWork: s === 'work', isCase: s === 'case', isPlay: s === 'play',
