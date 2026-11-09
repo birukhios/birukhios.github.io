@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="swiss.css?v=3fa76a21841d" />
+<link rel="stylesheet" href="swiss.css?v=bf2da508b1d1" />
 <link rel="preload" as="image" href="uploads/brand/glass-dark.jpg" media="(min-width: 701px)" />
 <link rel="preload" as="image" href="uploads/brand/glass-light.jpg" media="(min-width: 701px)" />
 <script src="./logo-intro.js"></script>
-<script src="./lab-reel.js" defer></script>
+<script src="./writing.js" defer></script>
+<script src="./polish.js" defer></script>
 <script src="./support.js"></script>
 <meta name="description" content="Product manager with a product design background in Addis Ababa. Discovery, prioritization and cross-functional delivery." />
 <link rel="canonical" href="https://birukhios.github.io/" />
@@ -357,7 +358,6 @@
       <p style="font-size: 20px; line-height: 1.5; max-width: 60ch; margin: 0 0 8px; color: rgba(23,23,23,0.8); text-wrap: pretty">Brand work, internal tools, 3D experiments and client sites. Projects that never became case studies.</p>
     </section>
 
-    <section class="lab-reel" aria-label="Lab showreel"></section>
 
     <section style="max-width: 1240px; margin: 0 auto; padding: 0 32px 40px">
       <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(23,23,23,0.4); padding-bottom: 12px; margin-bottom: 32px">
@@ -410,6 +410,7 @@
       <section class="about-hero"><div class="about-intro"><p class="eyebrow">About Biruk</p><h1>Product direction<span class="red-period">.</span><br />Design at heart<span class="red-period">.</span></h1><p>I’m Biruk Habtamu, a product manager based in Addis Ababa with 7+ years across product design and team leadership.</p><p>My background in Architecture and Urban Planning shapes how I approach systems and constraints. Design helps me make decisions tangible and align the people building the product.</p></div><figure class="about-portrait"><img src="uploads/profile/biruk-habtamu.jpg" alt="Biruk Habtamu outdoors wearing sunglasses" width="640" height="640" /><figcaption>Biruk Habtamu <span>Addis Ababa, Ethiopia</span></figcaption></figure></section>
       <section class="about-practice"><h2>What I bring to a team<span class="red-period">.</span></h2><div class="practice-grid"><div><h3>Problem framing</h3><p>Connect user needs and business context to find the right problems.</p></div><div><h3>Cross-functional alignment</h3><p>Bring engineering, design and stakeholders into a shared direction.</p></div><div><h3>Design-led product thinking</h3><p>Use prototypes to make trade-offs tangible and move decisions forward.</p></div><div><h3>Interactive prototypes for handoff</h3><p>Build clickable, coded prototypes so engineers see real flows, states and edge cases before they write a line. <a href="#/case/pep">See the PEP prototype</a>.</p></div></div></section>
       <section class="about-practice about-principles"><h2>How I make product decisions<span class="red-period">.</span></h2><ol class="principles"><li><h3>Name the problem before the feature.</h3><p>A request is a clue. I trace it back to the user and the business need before anything reaches the roadmap.</p></li><li><h3>Decide what not to build.</h3><p>Every roadmap item has a cost. I make the trade-off explicit so the team can see what we gave up and why.</p></li><li><h3>Test the riskiest assumption first.</h3><p>Prototype the part most likely to be wrong, with the people who will use it, before engineering commits.</p></li><li><h3>Shared foundations beat one-off fixes.</h3><p>Patterns, data models and workflows that hold across modules let products grow without starting over.</p></li><li><h3>Measure what changes for users.</h3><p>Shipped is a milestone, not the result. I define how we will know it worked before we build.</p></li></ol></section>
+      <section class="about-practice writing" id="writing" aria-label="Writing"></section>
       <section class="process-strip" aria-label="My design process"><span class="process-label">My process</span><ol><li>Discover</li><li>Define</li><li>Prioritize</li><li>Align</li><li>Deliver</li><li>Learn</li></ol></section>
       <section class="page-contact"><h2>Let’s work on the right product problem<span class="red-period">.</span></h2><a class="text-action" href="#/contact">Say hello <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></section>
     </main>
@@ -417,13 +418,13 @@
   <sc-if value="{{ isResume }}" hint-placeholder-val="{{ false }}">
     <main id="main-content" class="resume-new page-wrap">
       <header class="resume-heading"><div><p class="eyebrow">Resume</p><h1>Experience &amp;<br />perspective<span class="red-period">.</span></h1><p>Product Manager with a product design background.</p></div><a class="text-action" href="uploads/content_upload-1787211054191-gngy.pdf" target="_blank" rel="noopener">Download resume <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></header>
-      <div class="resume-grid"><section aria-labelledby="experience-heading"><h2 class="eyebrow" id="experience-heading">Professional experience</h2><sc-for list="{{ resumeRoles }}" as="r" hint-placeholder-count="4"><article class="resume-role"><div><h3>{{ r.title }}</h3><p>{{ r.org }}</p></div><span>{{ r.when }}</span><p class="resume-place">{{ r.place }}</p><ul><sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="2"><li>{{ pt }}</li></sc-for></ul></article></sc-for></section><aside class="resume-aside"><div><h2>Based in</h2><p>Addis Ababa, Ethiopia</p></div><div><h2>Experience</h2><p>7+ years in product &amp; design</p></div><div><h2>Focus</h2><p>Discovery, prioritization, alignment and delivery.</p></div><div><h2>Background</h2><p>Architecture and product design.</p></div><div><h2>Links</h2><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn ↗</a><br /><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium ↗</a></div></aside></div>
+      <div class="resume-grid"><section aria-labelledby="experience-heading"><h2 class="eyebrow" id="experience-heading">Professional experience</h2><sc-for list="{{ resumeRoles }}" as="r" hint-placeholder-count="4"><article class="resume-role"><div><h3>{{ r.title }}</h3><p>{{ r.org }}</p></div><span>{{ r.when }}</span><p class="resume-place">{{ r.place }}</p><ul><sc-for list="{{ r.points }}" as="pt" hint-placeholder-count="2"><li>{{ pt }}</li></sc-for></ul></article></sc-for></section><aside class="resume-aside"><div><h2>Based in</h2><p>Addis Ababa, Ethiopia</p></div><div><h2>Experience</h2><p>7+ years in product &amp; design</p></div><div><h2>Focus</h2><p>Discovery, prioritization, alignment and delivery.</p></div><div><h2>Background</h2><p>Architecture and product design.</p></div><div><h2>Links</h2><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn ↗</a><br /><a href="https://medium.com/@biruksidea" target="_blank" rel="noopener">Medium ↗</a></div></aside></div>
       <section class="resume-education"><h2 class="eyebrow">Education &amp; learning</h2><sc-for list="{{ education }}" as="e" hint-placeholder-count="2"><div><h3>{{ e.title }}</h3><p>{{ e.institution }} · {{ e.year }}</p><p>{{ e.note }}</p></div></sc-for></section>
     </main>
   </sc-if>
   <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
     <main id="main-content" class="contact-page page-wrap">
-      <section class="contact-intro"><p class="eyebrow">Let’s talk</p><h1>Have a product<br />problem in mind<span class="red-period">?</span></h1><p>I’m open to product management opportunities and thoughtful collaborations.</p><a class="contact-email" href="mailto:habtamubiruk23@gmail.com">habtamubiruk23@gmail.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><div class="contact-links"><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></section>
+      <section class="contact-intro"><p class="eyebrow">Let’s talk</p><h1>Have a product<br />problem in mind<span class="red-period">?</span></h1><p>I’m open to product management opportunities and thoughtful collaborations.</p><a class="contact-email" href="mailto:habtamubiruk23@gmail.com">habtamubiruk23@gmail.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><div class="contact-links"><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@biruksidea" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></section>
       <div class="contact-meta"><div><span>Based in</span><p>Addis Ababa, Ethiopia</p></div><div><span>Focus</span><p>Discovery → delivery</p></div></div>
     </main>
   </sc-if>
@@ -436,7 +437,7 @@
   </main>
   </sc-if>
 
-  <footer class="site-footer"><span>© 2026 Biruk Habtamu</span><nav aria-label="Footer navigation"><a href="mailto:habtamubiruk23@gmail.com">Email <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@birukhabtamu" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></nav></footer>
+  <footer class="site-footer"><span>© 2026 Biruk Habtamu</span><nav aria-label="Footer navigation"><a href="mailto:habtamubiruk23@gmail.com">Email <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://linkedin.com/in/birukhabtamu" target="_blank" rel="noopener">LinkedIn <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a><a href="https://medium.com/@biruksidea" target="_blank" rel="noopener">Medium <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></nav></footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showAvailability&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;imageTreatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Full colour&quot;,&quot;Black &amp; white&quot;],&quot;default&quot;:&quot;Full colour&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Imagery&quot;}}">
