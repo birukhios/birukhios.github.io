@@ -1,6 +1,6 @@
 /* Motion polish, in the spirit of Awwwards portfolio winners:
    - page transitions: a red panel wipes over the page between routes
-   - headline reveals: page titles rise word by word
+   - headline reveals: page titles rise from behind a mask
    - scroll reveals: sections, cards and project rows fade up into view
    - a custom cursor that grows over links and says "View" over work
    - a thin red reading-progress line at the top
@@ -23,9 +23,8 @@
     // scroll + headline reveals
     'html.pl .pl-rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}' +
     'html.pl .pl-rv.pl-in{opacity:1;transform:none}' +
-    '.pl-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}' +
-    '.pl-w>span{display:inline-block;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,.8,.2,1)}' +
-    '.pl-split.pl-in .pl-w>span{transform:none}' +
+    'html.pl .pl-split{clip-path:inset(0 0 100% 0);transform:translateY(.35em);transition:clip-path 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}' +
+    'html.pl .pl-split.pl-in{clip-path:inset(-10% -5% -15% -5%);transform:none}' +
     // hover depth on work
     '.project-image-link img,.product-hero img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}' +
     '.project-image-link:hover img{transform:scale(1.035)}' +
@@ -59,31 +58,16 @@
   root.classList.add('pl');
 
   // ── scroll + headline reveals ───────────────────────────────────────
-  var REVEAL = '.page-heading,.about-intro>*,.about-practice,.practice-grid>div,.principles li,.project-row,.product-brief,' +
+  var REVEAL = '.home-decision,.page-heading,.about-intro>*,.about-practice,.practice-grid>div,.principles li,.project-row,.product-brief,' +
     '.product-hero,.proto-intro,.proto-embed,.wr-card,.page-contact,.contact-intro>*,.case-section,section>h2';
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('pl-in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
 
+  // The headline rises from behind a mask. It only adds a class: the app owns
+  // the headline's text nodes, and rewriting them breaks its re-renders.
   function split(h) {
     if (h.dataset.pl) return; h.dataset.pl = '1';
-    // Wrap each word of the headline's text nodes; keeps <br> and the red period.
-    var i = 0;
-    (function walk(n) {
-      Array.prototype.slice.call(n.childNodes).forEach(function (c) {
-        if (c.nodeType === 3 && c.textContent.trim()) {
-          var frag = document.createDocumentFragment();
-          c.textContent.split(/(\s+)/).forEach(function (w) {
-            if (!w) return;
-            if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
-            var o = document.createElement('span'); o.className = 'pl-w';
-            var s = document.createElement('span'); s.textContent = w; s.style.transitionDelay = (i++ * 70) + 'ms';
-            o.appendChild(s); frag.appendChild(o);
-          });
-          c.replaceWith(frag);
-        } else if (c.nodeType === 1 && c.tagName !== 'BR' && !c.classList.contains('pl-w')) walk(c);
-      });
-    })(h);
     h.classList.add('pl-split');
     requestAnimationFrame(function () { requestAnimationFrame(function () { h.classList.add('pl-in'); }); });
   }
@@ -137,7 +121,7 @@
       x = e.clientX; y = e.clientY;
       dot.style.transform = 'translate(' + x + 'px,' + y + 'px)';
       var t = e.target;
-      var view = t.closest && t.closest('.project-image-link,.wr-card,.product-hero a');
+      var view = t.closest && t.closest('.project-image-link,.wr-card,.product-hero a,.wi-row');
       var link = !view && t.closest && t.closest('a,button,[role=button],select,label');
       ring.classList.toggle('view', !!view);
       ring.classList.toggle('link', !!link);
