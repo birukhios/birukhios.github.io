@@ -396,7 +396,7 @@
               <h3 style="margin: 0 0 4px; font-size: 17px; letter-spacing: -0.01em; line-height: 1.2">{{ m.title }}</h3>
               <p style="margin: 0; font-size: 13px; line-height: 1.45; color: rgba(23,23,23,0.65)">{{ m.note }}</p>
               <sc-if value="{{ m.hasLive }}" hint-placeholder-val="{{ false }}">
-                <a href="{{ m.live }}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #96001C; text-decoration: none; border-bottom: 2px solid #EF3340; padding-bottom: 2px">Visit site ↗</a>
+                <a href="{{ m.live }}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #96001C; text-decoration: none; border-bottom: 2px solid #EF3340; padding-bottom: 2px">{{ m.liveText }}</a>
               </sc-if>
             </figcaption>
           </figure>
@@ -2598,6 +2598,10 @@ let BRANDING = [
 ];
 
 let MOOD = [
+  { src: PL + 'syncflow-cover.webp', title: 'SyncFlow — Design Systems Suite', note: 'My Figma plugin: turns websites into editable Figma designs, then builds the design system for you.', ar: '16 / 9', live: 'https://www.figma.com/community/plugin/1695858620891443303/syncflow-design-systems-suite', liveLabel: 'Open in Figma Community' },
+  { src: PL + 'syncflow-import.webp', title: 'SyncFlow — web page to layers', note: 'A live URL or HTML file becomes nested Auto Layout frames with clean layer names.', ar: '16 / 9' },
+  { src: PL + 'syncflow-design-system.webp', title: 'SyncFlow — generated system', note: 'Primitives to semantic tokens, text styles, spacing and shadows, documented on its own page.', ar: '16 / 9' },
+  { src: PL + 'syncflow-light-dark.webp', title: 'SyncFlow — Light + Dark', note: 'Every colour token gets a Light and Dark value; screens switch mode automatically.', ar: '16 / 9' },
   { src: PL + 'pdf8-mobile-grid.webp', title: 'Berhan Bank', note: 'Mobile banking concept — balance, utility payments, statement requests.', ar: '3 / 4' },
   { src: PL + 'breeze.webp', title: 'Breeze Pharmaceutical', note: 'Cinematic corporate hero — red and blue overlays over industrial imagery.', ar: '16 / 9' },
   { src: PL + 'pdf8-mobile-set.webp', title: 'Fetan Delivery', note: 'Food delivery app — onboarding, category browse, live tracking.', ar: '1 / 2' },
@@ -2913,7 +2917,7 @@ class Component extends DCLogic {
       showAvailability: this.props.showAvailability ?? true,
       projectCount: shownProjects.length,
       branding: BRANDING,
-      mood: MOOD.map(m => ({ ...m, hasLive: !!m.live })), moodCount: MOOD.length,
+      mood: MOOD.map(m => ({ ...m, hasLive: !!m.live, liveText: (m.liveLabel || 'Visit site') + ' ↗' })), moodCount: MOOD.length,
       services: SERVICES.map((sv, i) => ({ num: String(i + 1).padStart(2, '0'), title: sv.title, body: sv.body })),
       education: EDU,
       roles: EXPERIENCE.map(r => ({ org: r.org, title: r.title, when: r.when, note: r.note })),
