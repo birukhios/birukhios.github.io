@@ -85,6 +85,7 @@ window.SCHEMA = [
       { key: 'note', label: 'Note', type: 'area' },
       { key: 'ar', label: 'Aspect ratio', type: 'text', hint: 'e.g. 16 / 10' },
       { key: 'live', label: 'Live URL', type: 'text', hint: 'Optional. Adds a “Visit site ↗” link under the caption.' },
+      { key: 'liveLabel', label: 'Link label', type: 'text', hint: 'Optional. Defaults to “Visit site”.' },
     ],
   },
   {

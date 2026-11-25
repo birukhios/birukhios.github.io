@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "src": "play/syncflow-cover.webp",
+      "title": "SyncFlow — Design Systems Suite",
+      "note": "My Figma plugin, live on Figma Community — keeps tokens, styles and components in sync.",
+      "ar": "16 / 10",
+      "live": "https://www.figma.com/community/plugin/1695858620891443303/syncflow-design-systems-suite",
+      "liveLabel": "Open in Figma Community"
+    },
+    {
       "src": "play/pdf8-mobile-grid.webp",
       "title": "Berhan Bank",
       "note": "Mobile banking concept — balance, utility payments, statement requests.",
